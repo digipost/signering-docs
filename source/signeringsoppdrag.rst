@@ -13,33 +13,55 @@ Signering i direkteflyt skjer når undertegner allerede er pålogget i avsenders
 
 Flyten ser typisk slik ut:
 
-#. Undertegner er innlogget i avsenders tjeneste, og utfører en prosess der, f.eks. utfylling av et skjema.
-#. Avsender oppretter et signeringsoppdrag i signeringstjenesten maskinelt
+#. Undertegner er innlogget i avsenders tjeneste, og utfører en prosess der, f.eks. utfylling av et skjema
+#. Avsender oppretter et signeringsoppdrag i signeringstjenesten gjennom API
 #. Undertegner blir sendt til signeringstjenesten og gjennomfører signeringssermonien
 #. Undertegner blir sendt tilbake til avsenders tjeneste
 #. Avsender laster ned [signatur](#signerte_dokumenter) og tilbyr en kopi av det signerte dokumentet til undertegner
 
+Se gjerne `denne bildeguiden i Google Presentation for signering i direkteflyt <https://docs.google.com/presentation/d/14Q_-YzaxcGsZOgUR6rJl7rWSwLZwujnuqgkKCrxksoA/edit#slide=id.g3922592cb8_0_0>`_.
+
 Signering i portalflyt
 ========================
 
-Signering i portalflyt skjer når undertegner logger inn i signeringsportalen til Posten signering.
+Adressering med fødselsnummer
+______________________________
+
+Hvis man adresserer med fødselsnummer så vil undertegner måtte logge inn i signeringsportalen for å kunne se signeringsoppdraget.
 
 Flyten ser typisk slik ut:
 
-#. Avsender oppretter et oppdrag gjennom API eller fra web i avsenderportalen.
+#. Avsender oppretter et oppdrag gjennom API eller fra web i avsenderportalen
 #. Posten signering varsler undertegner på e-post (og ev. SMS om spesifiert ved [opprettelse](#opprette-signeringsoppdrag)
 #. Undertegner logger inn på signeringsportalen og gjennomfører signeringssermonien
 #. Undertegner laster ned [signert kopi](#signerte_dokumenter) av dokumentet
 #. Undertegner logger ut av signeringsportalen
 #. Avsender laster ned [signatur](#signerte_dokumenter)
 
+Se gjerne `denne bildeguiden i Google Presentation for signering i portalflyt, adressering med fødselsnummer <https://docs.google.com/presentation/d/14Q_-YzaxcGsZOgUR6rJl7rWSwLZwujnuqgkKCrxksoA/edit#slide=id.g36b93b9965_0_57>`_.
+
+Adressering uten fødselsnummer
+_______________________________
+
+ En signeringsflyt hvor man får tilgang til portalen vha en lenke og et engangspassord. Se bildeguide her.
+
+#. Avsender oppretter et oppdrag gjennom API eller fra web i avsenderportalen
+#. Undertegner mottar lenke og engangskode til oppdrag på e-post eller SMS
+#. Undertegner trykker på lenken, og fyller inn engangskode til oppdrag
+#. Undertegner gjennomfører signeringsseremonien
+#. Sluttside som gir mulighet til å laste ned signert dokument
+
+Når man adresserer undertegner uten fødselsnummer, så vil det være avsenders ansvar å sjekke at det er rett person som har signert.
+
+Se gjerne `denne bildeguiden i Google Presentation for signering i portalflyt, adressering uten fødselsnummer <https://docs.google.com/presentation/d/14Q_-YzaxcGsZOgUR6rJl7rWSwLZwujnuqgkKCrxksoA/edit#slide=id.g2e3b4edaeb_0_1>`_.
+
 Opprette signeringsoppdrag
 ===========================
-Ved opprettelse av signeringsoppdrag kan følgende felter angis:
 
 ..  DANGER::
     Lenker under *Ekstra informasjon* er alle lenker som ikke er koblet opp.
 
+Ved opprettelse av signeringsoppdrag kan følgende felter angis:
 
 +---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
 | Felt                      | Direkteflyt             | Portalflyt        | Ekstra informasjon                                            |
