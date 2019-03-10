@@ -23,6 +23,12 @@ Welcome to the Posten signering documentation!
 
 .. toctree::
    :maxdepth: 1
+   :caption: Avanserte innstillinger
+
+   avansert-flyt
+
+.. toctree::
+   :maxdepth: 1
    :caption: Integration
 
    buy-enterprise-certificates
