@@ -11,6 +11,7 @@ Welcome to the Posten signering documentation!
    :caption: Introduksjon
 
    introduksjon
+   signaturtype
 
 .. toctree::
    :maxdepth: 1
