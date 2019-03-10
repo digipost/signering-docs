@@ -33,14 +33,16 @@ Valg av signaturtype
 
     ..  tab:: Bedrift
 
-        Som bedrift har du kun mulighet til å velge avansert e-signatur.
+        Som bedrift har du kun mulighet til å velge avansert signatur og derfor er det ikke nødvendig å sette denne eksplisitt.
 
-    ..  tab:: Offentlig virksoemhet
+    ..  tab:: Offentlig virksomhet
 
         Som offentlig virksomhet har du mulighet til å velge mellom :ref:`avansert-signatur` eller :ref:`autentisert-signatur`, men Difi anbefaler offentlige virksomheter å bruke autentisert signatur ettersom det er billigere og oppfyller de kravene som blir stilt i offentlig sektor.
+
+        ..  NOTE::
+            Standardverdi for signaturtype er autentisert.
 
 .. rubric:: Fotnoter
 
 .. [#footnoteSigneringsmetoderOffentlig] BankID på mobil er ikke tilgjengelig for avanserte oppdrag fra offentlig virksomhet.
-
 
