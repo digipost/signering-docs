@@ -8,6 +8,9 @@ Kjedet signatur
 
 Avsendere som bruker :ref:`bruker portalflyt <signering-i-portalflyt>` kan spesifisere en signeringsrekkefølge for undertegnerne. Når alle undertegnerne i en gruppe har signert, vil oppdraget bli tilgjengelig for neste gruppe. En gruppe undertegnere er alle som har samme rekkefølge (:code:`order`) i APIet og kan bestå av én eller flere undertegnere som skal signere i parallell.
 
+..  TIP::
+    For kjedete signeringsoppdrag gjelder aktiveringstidspunktet for *første gruppe*.
+
 Eksempel
 _________
 

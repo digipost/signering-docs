@@ -137,14 +137,14 @@ Aktiveringstidspunkt
 
 Angir tidspunkt for når signeringsoppdraget skal tilgjengeliggjøres for undertegner(e). Dersom aktiveringstidspunktet er i fortiden, blir oppdraget tilgjengelig øyeblikkelig etter opprettelse.
 
-For kjedete signeringsoppdrag gjelder aktiveringstidspunktet for *første gruppe*.
+Signeringsoppdrag i direkteflyt blir alltid aktivert øyeblikkelig etter opprettelse.
 
 Oppdragets levetid
 ^^^^^^^^^^^^^^^^^^^^
 
 Angir hvor lenge *etter aktivering* et signeringsoppdrag er tilgjengelig for undertegner før det utløper. Kan maksimalt være 90 dager etter aktivering.
 
-For kjedete signeringsoppdrag gjelder levetiden for *hver gruppe*, slik at alle undertegnere får like mye tid på seg til å signere.
+Signeringsoppdrag i direkteflyt har alltid 30 dagers levetid for å unngå at et dokument blir signert uhensiktsmessig lenge etter opprettelsen av oppdraget. Eventuell frist fra avsenders perspektiv må kommuniseres og håndteres i avsenders tjenester.
 
 Kansellere signeringsoppdrag
 ==============================
