@@ -1,7 +1,9 @@
 Signaturtype
 *************
 
-I Norge har vi tre forskjellige måter å signere digitalt på som beskrevet i E-signaturloven. De to signeringsalternativene vi tilbyr, avansert og autentisert signatur, er regnet som de to svakeste, men er likevel rettskraftige signaturer på lik linje med håndskrift på papir. Det siste alternativet er kvalifisert signatur og dette er ikke noe som eksisterer per i dag, men er tenkt oppfylt på lang sikt gjennom Nasjonalt ID-kort.
+I Norge har vi tre forskjellige måter å signere digitalt på, som beskrevet i E-signaturloven: autentisert, avansert og kvalifisert. Autentisert signatur er en sterk signatur, avansert signatur er enda sterkere, og kvalifisert signatur er den sterkeste signaturen.
+
+Vi tilbyr autentisert og avansert signatur, som er rettskraftige signaturer på lik linje med håndskrift på papir. Kvalifisert signatur eksisterer ikke per i dag, men er tenkt oppfylt på lang sikt gjennom Nasjonalt ID-kort. 
 
 ..  _avansert-signatur:
 
@@ -24,7 +26,7 @@ Ved bruk av autentisert signatur så autentiseres brukeren i ID-porten. IDporten
 
 En autentisert signatur er derfor litt svakere enn en avansert signatur fordi det er flere parter involvert og at det skjer i to steg.
 
-Dette er metoden som brukes mest av det offentlige fordi pris for innlogging er billigere enn for signering gjennom BankId.
+Offentlige virksomheter bruker ofte autentisert signatur, da den er rimeligere enn avansert signatur. 
 
 Avsender kan velge :ref:`sikkerhetsnivå` på signeringen.
 
