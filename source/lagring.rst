@@ -8,7 +8,8 @@ Posten signering tilbyr en tilleggstjeneste for langtidslagring av originaldokum
 
 For avsendere med langtidslagring aktivert, lagres alle dokumenter i minst **50 år**. Dersom langtidslagring *ikke* er aktivert kan dokumentene bli utilgjengeliggjort etter **40 dager**.
 
-Avsendere som bruker avsenderportalen for sending av signeringsoppdrag, kan aksessere langtidslagrede dokumenter derfra. Dokumentene er tilgjengelig via REST-grensesnittet for avsendere som integrerer mot tjenen via API.
+Avsendere som bruker avsenderportalen kan få tilgang til langtidslagrede dokumenter via sin konto på web.
+For avsendere som integrerer med tjenesten via API, er dokumentene tilgjengelig via REST-grensesnittet.
 
 Signeringstjenesten langtidslagrer kun XAdES. Når man henter PAdES genereres denne der og da, basert på XAdES.
 
