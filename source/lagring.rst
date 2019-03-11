@@ -16,7 +16,9 @@ Signeringstjenesten langtidslagrer kun XAdES. Når man henter PAdES genereres de
 Sletting av dokumenter
 =======================
 
-Avsendere kan slette arkiverte dokumenter hvis de ønsker å fjerne dem fra arkivet. Avsendere som bruker avsenderportalen kan slette dokumenter derfra. Dokumentene kan slettes via REST-grensesnittet for avsendere som integrerer mot tjenen via API.
+Avsendere kan slette arkiverte dokumenter hvis de ønsker å fjerne dem fra arkivet. 
+Avsendere som bruker avsenderportalen kan slette dokumenter derfra.
+For avsendere som integrerer via API, kan dokumentene slettes via REST-grensesnittet.
 
 Begrensninger
 ___________________
