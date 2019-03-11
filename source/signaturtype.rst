@@ -26,7 +26,7 @@ Ved bruk av autentisert signatur så autentiseres brukeren i ID-porten. IDporten
 
 En autentisert signatur er derfor litt svakere enn en avansert signatur fordi det er flere parter involvert og at det skjer i to steg.
 
-Dette er metoden som brukes mest av det offentlige fordi pris for innlogging er billigere enn for signering gjennom BankId.
+Offentlige virksomheter bruker ofte autentisert signatur, da den er rimeligere enn avansert signatur. 
 
 Valg av signaturtype
 =====================
