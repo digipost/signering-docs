@@ -1,7 +1,9 @@
 Signaturtype
 *************
 
-I Norge har vi tre forskjellige måter å signere digitalt på som beskrevet i E-signaturloven. De to signeringsalternativene vi tilbyr, avansert og autentisert signatur, er regnet som de to svakeste, men er likevel rettskraftige signaturer på lik linje med håndskrift på papir. Det siste alternativet er kvalifisert signatur og dette er ikke noe som eksisterer per i dag, men er tenkt oppfylt på lang sikt gjennom Nasjonalt ID-kort.
+I Norge har vi tre forskjellige måter å signere digitalt på, som beskrevet i E-signaturloven: autentisert, avansert og kvalifisert. Autentisert signatur er en sterk signatur, avansert signatur er enda sterkere, og kvalifisert signatur er den sterkeste signaturen.
+
+Vi tilbyr autentisert og avansert signatur, som er rettskraftige signaturer på lik linje med håndskrift på papir. Kvalifisert signatur eksisterer ikke per i dag, men er tenkt oppfylt på lang sikt gjennom Nasjonalt ID-kort. 
 
 ..  _avansert-signatur:
 
