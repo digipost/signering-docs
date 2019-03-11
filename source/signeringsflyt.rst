@@ -36,7 +36,7 @@ Hvis man adresserer med fødselsnummer så vil undertegner måtte logge inn i si
 Flyten ser typisk slik ut:
 
 #. Avsender oppretter et oppdrag gjennom API eller fra web i avsenderportalen
-#. Posten signering varsler undertegner på e-post (og ev. SMS om spesifiert ved opprettelse
+#. Posten signering varsler undertegner på e-post (og ev. SMS om spesifiert ved opprettelse)
 #. Undertegner logger inn på signeringsportalen og gjennomfører signeringssermonien
 #. Undertegner laster ned signert dokument
 #. Undertegner logger ut av signeringsportalen
