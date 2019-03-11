@@ -55,7 +55,7 @@ _______________________________
 #. Undertegner gjennomfører signeringsseremonien
 #. Sluttside som gir mulighet til å laste ned signert dokument
 
-Når man adresserer undertegner uten fødselsnummer, så vil det være avsenders ansvar å sjekke at det er rett person som har signert.
+Når man adresserer undertegner uten fødselsnummer, er det avsenders ansvar å sjekke at det er rett eller ønsket person som har signert.
 
 Se gjerne `denne bildeguiden i Google Presentation for signering i portalflyt, adressering uten fødselsnummer <https://docs.google.com/presentation/d/14Q_-YzaxcGsZOgUR6rJl7rWSwLZwujnuqgkKCrxksoA/edit#slide=id.g2e3b4edaeb_0_1>`_.
 
