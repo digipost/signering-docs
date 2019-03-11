@@ -11,14 +11,15 @@ Welcome to the Posten signering documentation!
    :caption: Introduksjon
 
    introduksjon
+   signeringsflyt
    signaturtype
 
 .. toctree::
    :maxdepth: 1
-   :caption: Signeringsflyten
+   :caption: Signeringsoppdrag
 
+   opprette-oppdrag
    signert-dokument
-   signeringsoppdrag
    gdpr
    varsler
 
@@ -27,6 +28,7 @@ Welcome to the Posten signering documentation!
    :caption: Avanserte innstillinger
 
    sikkerhetsnivå
+   kjedet-signatur
 
 
 .. toctree::

@@ -26,6 +26,8 @@ En autentisert signatur er derfor litt svakere enn en avansert signatur fordi de
 
 Dette er metoden som brukes mest av det offentlige fordi pris for innlogging er billigere enn for signering gjennom BankId.
 
+Avsender kan velge :ref:`sikkerhetsnivå` på signeringen.
+
 Valg av signaturtype
 =====================
 
