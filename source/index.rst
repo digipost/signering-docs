@@ -20,6 +20,7 @@ Welcome to the Posten signering documentation!
    signeringsoppdrag
    gdpr
    varsler
+   lagring
 
 .. toctree::
    :maxdepth: 1
