@@ -10,7 +10,7 @@ For avsendere med langtidslagring aktivert, lagres alle dokumenter i minst **50 
 
 Avsendere som bruker avsenderportalen for sending av signeringsoppdrag, kan aksessere langtidslagrede dokumenter derfra. Dokumentene er tilgjengelig via REST-grensesnittet for avsendere som integrerer mot tjenen via API.
 
-Signeringstjenesten langtidslagrer kun XAdES. Når man henter PAdES genereres denne ved uthenting, basert på XAdES.
+Signeringstjenesten langtidslagrer kun XAdES. Når man henter PAdES genereres denne der og da, basert på XAdES.
 
 Sletting av dokumenter
 =======================
