@@ -16,7 +16,7 @@ Bedrift
 Som en bedrift har du kun mulighet til å bruke det høyeste sikkerhetsnivået, nivå 4, og du trenger derfor ikke ta stilling til dette.
 
 ..  TIP::
-    Tilgjenglige metoder for innlogging og signering er *BankID*, *BankID på mobil* og *Buypass*.
+    Tilgjengelige metoder for innlogging og signering er *BankID*, *BankID på mobil* og *Buypass*.
 
 Offentlig virksomhet
 =====================
