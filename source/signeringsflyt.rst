@@ -50,7 +50,7 @@ _______________________________
  En signeringsflyt hvor man får tilgang til portalen vha en lenke og et engangspassord. Se bildeguide her.
 
 #. Avsender oppretter et oppdrag gjennom API eller fra web i avsenderportalen
-#. Undertegner mottar lenke og engangskode til oppdrag på e-post eller SMS
+#. Undertegner mottar en unik lenke og engangskode til oppdrag på e-post eller SMS
 #. Undertegner trykker på lenken, og fyller inn engangskode til oppdrag
 #. Undertegner gjennomfører signeringsseremonien
 #. Sluttside som gir mulighet til å laste ned signert dokument
