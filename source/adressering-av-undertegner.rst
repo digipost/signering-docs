@@ -1,7 +1,29 @@
 Adressering
 ************
 
+Signeringstjenesten tilbyr varsel og oppdrag til signering på SMS og e-post.
+
+Kontaktinformasjon
+===================
+
+Kontaktinformasjon kan angis på to måter, og det er i hovedsak avhengig om du er en bedrift eller offentlig virksomhet.
+
+Som offentlig virksomhet er du pålagt å bruke Kontakt- og reservasjonsregisteret for å innhente kontaktinformasjon. Dette settes ved oppretting av oppdraget, og selve oppslaget gjøres av Posten signering.
+
+..  NOTE::
+Det er kun tillatt å overstyre kontaktinformasjon som en offentlig virksomhet hvis undertegner ikke signerer som privatperson.
+
+Som privat virksomhet må du selv vite e-postadressen og/eller mobilnummeret til undertegner. Det er ikke mulig å bruke Kontakt- og reservasjonsregisteret.
+
 Undertegner kan adresseres og identifiseres forskjellig avhengig av om undertegner signerer i direkteflyt eller portalflyt, og om avsender bruker API eller avsenderportalen.
+
+Krav til kontaktinformasjon
+____________________________
+
+ * Alle undertegnere må ha minst ha én av e-postadresse og mobilnummer.
+ * Sending av SMS er frivillig og kan bestilles av tjenesteeieren.
+ * Dersom en undertegner har mobilnummer og ikke e-postadresse vil det alltid bli sendt SMS.
+ * Tjenesten støtter kun norske mobilnumre. Oppdrag med overstyrt kontaktinformasjon med utenlandsk mobilnummer vil bli avvist, mens utenlandske mobilnumre fra Kontakt- og reservasjonsregisteret vil bli ignorert.
 
 ..  TIP::
     Hvis du behøver en introduksjon til de forskjellige flytene en undertegner kan signere i, se :ref:`signeringsflyt`.
