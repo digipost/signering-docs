@@ -118,6 +118,7 @@ ____________________________________________________________________
 
         Du har et usignert dokument fra [*Avsender*]. Logg inn og signer på [*signering.posten.no/logginn*] innen [*signeringsfrist*].
          
+.. _varslerUtenFødselsnummer:
 
 Varsel om dokument til signering, ved adressering uten fødselsnummer
 ____________________________________________________________________

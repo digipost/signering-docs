@@ -18,3 +18,9 @@ Signeringsoppdrag i portalflyt
     - adressering med fødselsnummer
 
 Signeringsoppdrag i direkteflyt
+
+Portal
+=======
+
+- *Avsenderportal*: Dette er webgrensesnittet for avsendere. signering.posten.no/virksomhet/
+- *Signeringsportal*: Dette er webgrensesnittet for undertegnere.
