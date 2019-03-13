@@ -42,7 +42,7 @@ Signerte dokumenter vil inneholde navn på undertegner og hvilken elektronisk ID
 Signering i direkteflyt
 ________________________
 
-Undertegner er logget inn i avsenders system.  Avsender er ansvarlig for å sende riktig person til riktig lenke i signeringstjenesten.
+Undertegner er logget inn i avsenders system.  Avsender er ansvarlig for å videresende undertegner til riktig lenke i signeringstjenesten.
 
 
 Signering i portalflyt
