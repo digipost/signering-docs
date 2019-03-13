@@ -33,7 +33,7 @@ ____________________________
 
 Adressering med fødselsnummer
 ===============================
-Dette gir en sikker identifisering, da kun riktig person har mulighet til å åpne og signere dokumentet.
+Dette gir en sikker identifisering, siden kun riktig person har mulighet til å åpne og signere dokumentet.
 
 Du må vite fnr. som avsender.
 
