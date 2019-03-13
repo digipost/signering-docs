@@ -6,7 +6,7 @@ Signeringstjenesten tilbyr varsel og oppdrag til signering på SMS og e-post.
 Kontaktinformasjon
 ===================
 
-Kontaktinformasjon kan angis på to måter, og det er i hovedsak avhengig om du er en bedrift eller offentlig virksomhet.
+Kontaktinformasjon kan angis på to måter, og det er i hovedsak avhengig om du er en privat eller offentlig virksomhet.
 
 Som offentlig virksomhet er du pålagt å bruke Kontakt- og reservasjonsregisteret for å innhente kontaktinformasjon. Dette settes ved oppretting av oppdraget, og selve oppslaget gjøres av Posten signering.
 
