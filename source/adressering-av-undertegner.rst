@@ -8,18 +8,34 @@ Måten undertegner adresseres og identifiseres på, er litt forskjellig avhengig
 ..  CAUTION::
     Måten du adresserer undertegner på, påvirker :ref:`innholdet og utseendet på undertegners signatur <identifisereUndertegnere>`.
 
-Posten signering sender ut varsel om signeringsoppdrag til undertegner på e-post og/eller SMS, hvis signering skjer i portalflyt. Ved signering i direkteflyt er det avsender som står for varsling til undertegner. 
+Posten signering sender ut varsel om signeringsoppdrag til undertegner på e-post og/eller SMS, hvis signering skjer i portalflyt. Ved signering i direkteflyt er det avsender som står for varsling til undertegner.
+
+Avsender som bruker API kan
+____________________________
+
+- adressere med fødselsnummer
+- adressere uten fødselsnummer
+- adressere med egenvalgt identifikator (eksempelvis kundenummer)
+
+Avsender som bruker avsenderportal på web kan
+_____________________________________________
+
+- adressere med fødselsnummer
+- adressere uten fødselsnummer (N.B: Kun hvis privat virksomhet)
+
+
+Det signerte dokumenter vil inneholde navn på undertegner og hvilken elektronisk ID som ble brukt. Man kan for øvrig velge hvilken :ref:`identifikator man ønsker i signerte dokumenter <identifisereUndertegnere>`. 
 
 
 Adressering med fødselsnummer
 ===============================
 For å adressere med fødselsnummer må du vite undertegners fødselsnummer, samt e-postadresse og/eller mobilnummer. Denne måten å adressere på gir en sikker identifisering av undertegner, siden kun én bestemt person har mulighet til å åpne og signere dokumentet.
 
-Ved *signering i portalflyt* må undertegner logge inn i signeringsportalen før han kan se og signere dokumentet. Dette gjør altså at kun riktig person har mulighet til å lese og signere.
+Ved *signering i portalflyt* må undertegner logge inn i signeringsportalen før han kan se og signere dokumentet. Dette gjør altså at kun riktig person har mulighet til å lese og signere. Se signering i portalflyt, adressering med f.nr her.
 
 Ved *signering i direkteflyt* er undertegner logget inn i avsenders system, og det er da avsender som er ansvarlig for å sende undertegner til riktig lenke i signeringstjenesten.
 
-Signerte dokumenter vil inneholde navn på undertegner og hvilken elektronisk ID som ble brukt. Man kan for øvrig velge hvilken :ref:`identifikator man ønsker i signerte dokumenter <identifisereUndertegnere>`.
+Når du som avsender velger adressering med fødselsnummer, kan du velge å inkludere fødselsnummeret i det signerte dokumentet. 
 
 
 Adressering uten fødselsnummer
@@ -27,9 +43,12 @@ Adressering uten fødselsnummer
 
 Ved adressering uten fødselsnummer blir ikke signeringsoppdraget knyttet til én spesifikk person. Derfor krever signeringstypen ingen innlogging, og du trenger ikke vite undertegners fødselsnummer. I stedet sender du *kun* inn e-postadressen og/eller mobilnummeret som skal motta varsel om signeringen.  Se :ref:`varsler <varslerUtenFødselsnummer>` for å se hvordan varselet ser ut.
 
+Ved *signering i portalflyt* får undertegner en unik lenke og en kode, og han kan se og signere dokumentet uten innlogging. Se signering i portalflyt, adressering uten f.nr her.
 
-..  NOTE::
-    Adressering uten fødselsnummer er tilgjengelig for private virksomheter ved oppretting fra avsenderportal og API, og for offentlige virksomheter via API.
+Ved *signering i direkteflyt* 
+
+Når du som avsender velger adressering uten fødselsnummer, vil ikke fødselsnummeret bli inkludert i det signerte dokumentet, av personvernmessige hensyn. Du vil fortsatt få med navn og eventuelt fødselsdato i det signerte dokumentet.
+
     
 ..  NOTE::
     Hvis du sender fra API har du mulighet til å bruke en egenvalgt identifikator i stedet for e-postadresse og mobilnummer. Dette kan f.eks. være et kundenummer.
