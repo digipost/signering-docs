@@ -48,7 +48,7 @@ Undertegner er logget inn i avsenders system.  Avsender er ansvarlig for å vide
 Signering i portalflyt
 _______________________
 Undertegner må logge inn i signeringsportalen før
-man kan se og signere dokumentet.
+han kan se og signere dokumentet.
 
 
 
