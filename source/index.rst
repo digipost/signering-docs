@@ -19,6 +19,7 @@ Welcome to the Posten signering documentation!
    :caption: Signeringsoppdrag
 
    opprette-oppdrag
+   endre-signeringsoppdrag
    signert-dokument
    gdpr
    varsler
