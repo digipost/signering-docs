@@ -7,7 +7,9 @@ Install client
 
         |build-status-dotnet|
 
-        The client is available via `Nuget <https://www.nuget.org/packages?q=signature.api.client>`_. Download :code:`Direct`-client or :code:`Portal`-client based on your use case.
+        The client is available via `Nuget <https://www.nuget.org/packages?q=signature.api.client>`_.
+
+        The library has several packages with the prefix :code:`Digipost.Signature.Api.Client`. If you are using the portal cases, use :code:`Digipost.Signature.Api.Client.Portal`, and for direct cases, use :code:`Digipost.Signature.Api.Client.Direct`.
 
     ..  group-tab:: Java
 
