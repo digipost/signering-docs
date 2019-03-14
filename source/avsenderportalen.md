@@ -2,10 +2,14 @@
 
 Avsenderportalen er et web-grensesnitt for avsendere hvor man kan sende ut signeringsoppdrag som skal signeres, samt administrere oppdrag og virksomhetskonto. Som avsender kan du ha tilgang til flere virksomhetskontoer. Etter innlogging velger du den virksomheten du ønsker å sende ut oppdrag fra eller administrere.
 
+*Se gjerne hjelpeguide med skjermbilder.* (putt inn denne linken: https://docs.google.com/presentation/d/1VQks9CUNEv3ssuJd_z7ZA0ngEwWwJ_fY22IhvBOQbfs/edit?usp=sharing )
+
 ## Din konto
 
+### Kontoinformasjon
 Her kan du laste opp logo for virksomheten din, og aktivere langtidslagring om du ønsker å bruke dette. Det er også herfra du styrer hvem som har tilgang til virksomhetskontoen.
 
+### Brukere
 Du kan legge til så mange brukere du ønsker, og velge hvilken rolle brukeren skal ha: 
 
 - Kontoforvalter (full tilgang): Som kontoforvalter kan du opprette og redigere brukere, laste opp virksomhetslogo, se alle signeringsoppdrag som er sendt ut fra virksomheten og opprette nye signeringsoppdrag.
@@ -31,4 +35,8 @@ Her kan du se alle signerte oppdrag. Hvis virksomheten din har aktivert *langtid
 
 ### Søk
 Her kan du søke for å finne tilbake til et signeringsoppdrag. Du kan søke på fødselsnummer, e-post/mobilnummer eller referansenummer, og søke i et ønsket tidsintervall.
+
+
+### Send dokument til signering
+
 
