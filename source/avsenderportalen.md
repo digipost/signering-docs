@@ -22,7 +22,7 @@ I Dokumenter-fanen har du fire faner: *Venter*, *Stoppet*, *Signert* og *Søk*. 
 
 - **Venter**: Her kan du se signeringsoppdrag som du har opprettet, som venter på signering. Oppdragene blir liggende under denne fanen inntil de blir signert, eller stoppet. Merk, at hvis oppdraget har flere undertegnere, vil oppdraget ligge i Venter helt til alle har signert.
 
-- **Stoppet**: Her finner du alle oppdrag som er stoppet. Et oppdrag kan bli stoppet av avsender og/eller av undertegner; undertegner kan avvise oppdraget, eller ikke signere innen fristen. Avsender kan kansellere oppdraget. I begge tilfelelr havner oppdraget under Stoppet.
+- **Stoppet**: Her finner du alle oppdrag som er stoppet. Et oppdrag kan bli stoppet av avsender og/eller av undertegner; undertegner kan avvise oppdraget, eller ikke signere innen fristen. Avsender kan kansellere oppdraget. I begge tilfeller havner oppdraget under Stoppet.
 
 - **Signert**: Her kan du se alle signerte oppdrag. Hvis virksomheten din har aktivert *langtidslagring*, vil dokumentet alltid være tilgjengelig for nedlasting. Hvis ikke langtidslagring er aktivert, kan du laste ned dokumentet i 40 dager.
 
