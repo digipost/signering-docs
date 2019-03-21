@@ -13,6 +13,12 @@ Welcome to the Posten signering documentation!
    introduksjon
    signeringsflyt
    signaturtype
+   signert-dokument
+   
+.. toctree::
+   :maxdepth: 1
+   :caption: Avsenderportalen
+
    avsenderportalen
 
 .. toctree::
@@ -20,12 +26,12 @@ Welcome to the Posten signering documentation!
    :caption: Signeringsoppdrag
 
    opprette-oppdrag
-   endring-av-signeringsoppdrag
-   signert-dokument
-   gdpr
-   varsler
-   lagring
    adressering-av-undertegner
+   varsler
+   endring-av-signeringsoppdrag
+   lagring
+   gdpr
+   
 
 .. toctree::
    :maxdepth: 1
