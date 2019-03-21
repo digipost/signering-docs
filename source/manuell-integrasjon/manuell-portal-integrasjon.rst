@@ -88,43 +88,14 @@ Følgende er et eksempel på ``manifest.xml`` fra dokumentpakken for et signerin
        <identifier-in-signed-documents>PERSONAL_IDENTIFICATION_NUMBER_AND_NAME</identifier-in-signed-documents>
    </portal-signature-job-manifest>
 
-Adressering av undertegner
+Undertegnere
 ___________________________
 
 Du bør se :ref:`varsler` og :ref:`adressering-av-undertegner` før du starter med dette kapitlet.
 
-Undertegnere kan adresseres med en av følgende:
+Undertegnere kan adresseres og varsles på ulike måter:
 
 ..  tabs::
-
-    ..  tab:: Fødselsnummer
-
-        Med varsling til gitt epostadresse:
-
-        ..  code:: xml
-
-            <signer>
-                <personal-identification-number>12345678910</<personal-identification-number>
-                <notifications>
-                    <email address="email@example.com"/>
-                </notifications>
-            </signer>
-
-
-        Med varsling som offentlig virksomhet:
-
-        ..  code:: xml
-
-            <signer>
-                <personal-identification-number>12345678910</<personal-identification-number>
-                <notifications>
-                    <notifications-using-lookup/>
-                </notifications>
-            </signer>
-
-
-        ..  NOTE::
-            Som offentlig virksomhet skal oppslag gjøres vha. Kontakt- og Reservasjonsregisteret:
 
     ..  tab:: E-post
 
@@ -160,12 +131,69 @@ Undertegnere kan adresseres med en av følgende:
                 </notifications>
             </signer>
 
-Andre attributer
-________________
+    ..  tab:: Fødselsnummer
 
+        Med varsling til gitt epostadresse:
+
+        ..  code:: xml
+
+            <signer>
+                <personal-identification-number>12345678910</<personal-identification-number>
+                <notifications>
+                    <email address="email@example.com"/>
+                </notifications>
+            </signer>
+
+
+        Med varsling som offentlig virksomhet:
+
+        ..  code:: xml
+
+            <signer>
+                <personal-identification-number>12345678910</<personal-identification-number>
+                <notifications>
+                    <notifications-using-lookup/>
+                </notifications>
+            </signer>
+
+
+        ..  NOTE::
+            Som offentlig virksomhet skal oppslag gjøres vha. Kontakt- og Reservasjonsregisteret.
+
+    ..  tab:: På vegne av
+
+        Attributtet ``on-behalf-of="OTHER"`` skal brukes hvis undertegner signerer i kraft av en rolle for en virksomhet. I praksis betyr dette at signert dokument sendes ikke videre til undertegners egen postkasse etter signering. For offentlige virksomheter brukes heller ikke Kontakt- og reservasjonsregisteret, og man må adressere undertegner på egenvalgt telefonnummer og e-postadresse.
+
+        ..  code:: xml
+
+            <signer on-behalf-of="OTHER">
+                <personal-identification-number>12345678910</<personal-identification-number>
+                <notifications>
+                    <email address="email@example.com"/>
+                    <sms number="00000000" />
+                </notifications>
+            </signer>
+
+
+
+
+Andre attributer
+_________________
+
+Order
+^^^^^^
 ``order``-attributtet på ``signer`` brukes til å angi rekkefølgen på undertegnerne. I eksempelet over vil oppdraget først bli tilgjengelig for undertegnerne med ``order="2"`` når undertegnere med ``order="1"`` har signert, og for undertegneren med ``order="3"`` når begge de med ``order="2"`` har signert.
 
-Som for synkrone oppdrag kan man også inkludere feltet ``on-behalf-of`` under ``signer``. Det har samme semantikk for asynkrone som for synkrone oppdrag, bortsett fra at standardverdien er ``OTHER`` dersom avsender selv angir undertegners kontaktinformasjon. For asynkrone oppdrag på vegne av offentlige avsendere vil verdien av feltet alltid kunne utledes fra varslingsinnstillingene, og er derfor ikke nødvendig å oppgi.
+På vegne av
+^^^^^^^^^^^^
+Skal brukes hvis undertegner signerer i kraft av en rolle for en virksomhet. I praksis betyr dette at signert dokument sendes ikke videre til postkassen til undertegner. For offentlige virksomheter brukes heller ikke Kontakt- og reservasjonsregisteret, og man må adressere undertegner på egenvalgt telefonnummer og e-postadresse.
+
+
+
+Man kan inkludere elementet ``on-behalf-of`` under ``signer``. Standardverdien er ``OTHER`` dersom avsender selv angir undertegners kontaktinformasjon.
+
+..  NOTE::
+    For oppdrag på vegne av offentlige virksomheter vil verdien av feltet alltid kunne utledes fra varslingsinnstillingene, og er derfor ikke nødvendig å oppgi.
 
 Verdien av dette feltet vil også valideres opp mot varslingsinnstillingene. Har man angitt ``OTHER`` kan man ikke angi ``notifications-using-lookup``, ettersom man ikke kan slå opp kontaktinformasjon i Kontakt- og reservasjonsregisteret om man signerer på vegne av noen andre enn seg selv. Videre vil man for offentlige virksomheter ikke kunne angi ``SELF`` og samtidig overstyre kontaktinformasjon; når man undertegner signeringsoppdrag på vegne av seg selv fra avsendere i offentlig sektor *må* kontaktinformasjon til undertegner hentes fra KRR.
 
