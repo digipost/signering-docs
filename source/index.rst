@@ -34,6 +34,13 @@ Welcome to the Posten signering documentation!
    sikkerhetsnivå
    kjedet-signatur
 
+.. toctree::
+   :maxdepth: 1
+   :caption: Manuell integrasjon
+
+   manuell-integrasjon/manuell-portal-integrasjon
+   manuell-integrasjon/manuell-direkte-integrasjon
+
 
 .. toctree::
    :maxdepth: 1
