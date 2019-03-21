@@ -1,29 +1,28 @@
 Manuell portalintegrasjon
 **************************
-Todo: Legg inn manglende bilde
 
-API-flyt for Asynkrone signeringsoppdrag
-========================================
+API for signeringsoppdrag i portalflyt
+============================================
 
-Dette integrasjonsmønsteret passer for tjenesteeiere som ønsker å opprette signeringsoppdrag i signeringstjenesten som et ledd i en flyt som ikke starter med at sluttbruker befinner seg på tjenesteeiers nettsider. Signeringsseremonien gjennomføres av sluttbruker i Signeringsportalen, og tjenesteeier vil deretter asynkront kunne polle på status og hente ned det signerte dokumentet.
+Dette integrasjonsmønsteret passer for tjenesteeiere som ønsker å opprette :ref:`signeringsoppdrag i portalflyt <signering-i-portalflyt>`. Signeringsseremonien gjennomføres av sluttbruker i Signeringsportalen, og tjenesteeier vil deretter kunne polle på status og hente ned det signerte dokumentet.
 
-Dette scenariet er også utviklet med tanke på å støtte prosesser der det er behov for å innhente signaturer fra flere enn én sluttbruker på et dokument.
+Dette scenariet er utviklet med tanke på å støtte en flyt hvor det er behov for å innhente signaturer fra flere enn én undertegner.
 
-Relevante typer for denne delen av APIet finnes i filen ```schema/xsd/portal.xsd`` </schema/xsd/portal.xsd>`__.
+Meldingsformatet i APIet er XML, og reelevante typer finnes i filen `portal.xsd <https://github.com/digipost/signature-api-specification/blob/master/schema/xsd/portal.xsd>`_.
 
-|Flytskjema for Asynkrone signeringsoppdrag|
-**Flytskjema for det asynkrone scenariet:** *skjemaet viser flyten fra tjenesteeier sender inn oppdrag, starer polling, via at sluttbruker(e) signerer oppdragene, og tjenesteeier får svar på polling og kan laste ned signert versjon. Dersom du ikke sender et oppdrag til mer enn en bruker (multiundertegner) kan du se bort i fra den første "steg 4"-seksjonen. Heltrukne linjer viser brukerflyt, mens stiplede linjer viser API-kall*
+|portalflytskjema|
+ **Flytskjema signeringsoppdrag i portalflyt:** *skjemaet viser at avsender sender inn et oppdrag, starter polling, at undertegner(e) signerer oppdraget, og avsender får oppdatert status via polling, og laster ned signert dokument. Dersom du sender et oppdrag til kun én undertegner, kan du se bort i fra den første "steg 4"-seksjonen. Heltrukne linjer viser brukerflyt, mens stiplede linjer viser API-kall.*
 
 Steg 1: Opprette signeringsoppdraget
 ------------------------------------
 
-Flyten begynner ved at tjenesteeier gjør et bak-kanal-kall mot APIene for å opprette signeringsoppdraget. Dette kallet gjøres som ett multipart-request, der den ene delen er dokumentpakken og den andre delen er metadata.
+Flyten begynner ved at tjenesteeier gjør et API-kall for å opprette signeringsoppdraget. Dette kallet gjøres som en multipart-request, der den ene delen er dokumentpakken og den andre delen er metadata.
 
--  Kallet gjøres som en ``HTTP POST`` mot ressursen ``<rot-URL>/portal/signature-jobs``
--  Dokumentpakken legges med multipart-kallet med mediatypen ``application/octet-stream``. Se tidligere kapittel for mer informasjon om dokumentpakken.
--  Metadataene som skal sendes med i dette kallet er definert av elementet ``portal-signature-job-request``. Disse legges med multipart-kallet med mediatypen ``application/xml``.
+-  Kallet gjøres som en :code:`HTTP POST` mot ressursen :code:`<rot-URL>/portal/signature-jobs`.
+-  Dokumentpakken legges med multipart-kallet med mediatypen :code:`application/octet-stream`. Se tidligere kapittel for mer informasjon om dokumentpakken.
+-  Metadataene som skal sendes med i dette kallet er definert av elementet :code:`portal-signature-job-request`. Disse legges i multipart-kallet med mediatypen :code:`application/xml`.
 
-Følgende er et eksempel på metadata for et asynkront signeringsoppdrag:
+Følgende er et eksempel på metadata for et signeringsoppdrag i portalflyt:
 
 .. code:: xml
 
@@ -89,26 +88,80 @@ Følgende er et eksempel på ``manifest.xml`` fra dokumentpakken for et signerin
        <identifier-in-signed-documents>PERSONAL_IDENTIFICATION_NUMBER_AND_NAME</identifier-in-signed-documents>
    </portal-signature-job-manifest>
 
-Undertegners kontaktinformasjon
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Adressering av undertegner
+___________________________
 
-Et signeringsoppdrags undertegner(e) kan adresseres på kontaktinformasjon (e-postadresse og/eller mobilnummer) for virksomheter som ikke har eller ønsker å bruke fødselsnummer.
+Du bør se :ref:`varsler` og :ref:`adressering-av-undertegner` før du starter med dette kapitlet.
 
-Erstatt i så fall ``personal-identification-number`` med ``identified-by-contact-information`` og legg ved kontakinformasjonen i ``notifications``-elementet. NB: dette kan *ikke* kombineres med ``notifications-using-lookup`` og er således ikke tilgjengelig for offentlige avsendere.
+Undertegnere kan adresseres med en av følgende:
 
-.. code:: xml
+..  tabs::
 
-   <signer>
-       <identified-by-contact-information/>
-       <notifications>
-           <email address="email@example.com"/>
-       </notifications>
-   </signer>
+    ..  tab:: Fødselsnummer
 
-Les mer om adressering uten fødselsnummer i `den funksjonelle dokumentasjonen <http://digipost.github.io/signature-api-specification/v1.0/#kontaktinfo>`__.
+        Med varsling til gitt epostadresse:
+
+        ..  code:: xml
+
+            <signer>
+                <personal-identification-number>12345678910</<personal-identification-number>
+                <notifications>
+                    <email address="email@example.com"/>
+                </notifications>
+            </signer>
+
+
+        Med varsling som offentlig virksomhet:
+
+        ..  code:: xml
+
+            <signer>
+                <personal-identification-number>12345678910</<personal-identification-number>
+                <notifications>
+                    <notifications-using-lookup/>
+                </notifications>
+            </signer>
+
+
+        ..  NOTE::
+            Som offentlig virksomhet skal oppslag gjøres vha. Kontakt- og Reservasjonsregisteret:
+
+    ..  tab:: E-post
+
+        ..  code:: xml
+
+            <signer>
+                <identified-by-contact-information/>
+                <notifications>
+                    <email address="email@example.com"/>
+                </notifications>
+            </signer>
+
+    ..  tab:: Mobilnummer
+
+        ..  code:: xml
+
+            <signer>
+                <identified-by-contact-information/>
+                <notifications>
+                    <sms number="00000000" />
+                </notifications>
+            </signer>
+
+    ..  tab:: E-postadresse og mobilnummer
+
+        ..  code:: xml
+
+            <signer>
+                <identified-by-contact-information/>
+                <notifications>
+                    <email address="email@example.com"/>
+                    <sms number="00000000" />
+                </notifications>
+            </signer>
 
 Andre attributer
-~~~~~~~~~~~~~~~~
+________________
 
 ``order``-attributtet på ``signer`` brukes til å angi rekkefølgen på undertegnerne. I eksempelet over vil oppdraget først bli tilgjengelig for undertegnerne med ``order="2"`` når undertegnere med ``order="1"`` har signert, og for undertegneren med ``order="3"`` når begge de med ``order="2"`` har signert.
 
@@ -205,4 +258,6 @@ Signeringstjenestens pollingmekaniske er laget med tanke på at det skal være e
 
 Statusoppdateringer du henter fra køen ved polling vil forsvinne fra køen, slik at en eventuell annen server som kommer inn ikke vil få den samme statusoppdateringen. Selv om du kaller på polling-APIet på samme tid, så er det garantert at du ikke får samme oppdatering to ganger. For å håndtere at feil kan skje enten i overføringen av statusen til deres servere eller at det kan skje feil i prosesseringen på deres side, så vil en oppdatering som hentes fra køen og ikke bekreftes dukke opp igjen på køen. Pr. i dag er det satt en venteperiode på 10 minutter før en oppdatering igjen forekommer på køen. På grunn av dette er det essensielt at prosesseringsbekrefelse sendes som beskrevet i Steg 4.
 
-.. |Flytskjema for Asynkrone signeringsoppdrag| image:: flytskjemaer/asynkron-maskin-til-maskin.png?raw=true
+..  |portalflytskjema| image:: https://raw.githubusercontent.com/digipost/signature-api-specification/master/integrasjon/flytskjemaer/asynkron-maskin-til-maskin.png
+    :alt: Flytskjema for portalintegrasjon
+    :scale: 100%
