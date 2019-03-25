@@ -9,7 +9,8 @@ Dette integrasjonsmønsteret vil passe for større tjenesteeiere som har egne po
 
 Relevante typer for denne delen av APIet finnes i filen ```schema/xsd/direct.xsd`` </schema/xsd/direct.xsd>`__.
 
-|Flytskjema for Synkrone signeringsoppdrag|
+FLYYYTSKJEMA!
+
 **Flytskjema for det synkrone scenariet:** *skjemaet viser flyten helt fra en bruker logger inn på tjenesteeiers nettsider til oppdraget er fullstendig signert. Heltrukne linjer viser brukerflyt, mens stiplede linjer viser API-kall*
 
 Steg 1: Opprette signeringsoppdraget
@@ -147,4 +148,3 @@ Steg 5: Bekrefte ferdig prosessering
 
 Til slutt gjør du et ``HTTP POST``-kall mot ``confirmation-url`` for å bekrefte at du har prosessert jobben ferdig. Hvis `langtidslagring </integrasjon/README.md#tilleggstjeneste-for-langtidslagring>`__ benyttes vil dette markere oppdraget som ferdig og lagret. I motsatt fall vil oppdraget slettes i signeringsportalen.
 
-.. |Flytskjema for Synkrone signeringsoppdrag| image:: flytskjemaer/synkron-maskin-til-maskin.png?raw=true

@@ -20,6 +20,7 @@ Welcome to the Posten signering documentation!
    :caption: Avsenderportalen
 
    avsenderportalen
+   send-dokument-avsenderportalen
 
 .. toctree::
    :maxdepth: 1

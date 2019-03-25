@@ -175,8 +175,6 @@ Undertegnere kan adresseres og varsles på ulike måter:
             </signer>
 
 
-
-
 Andre attributer
 _________________
 
@@ -186,9 +184,6 @@ Order
 
 På vegne av
 ^^^^^^^^^^^^
-Skal brukes hvis undertegner signerer i kraft av en rolle for en virksomhet. I praksis betyr dette at signert dokument sendes ikke videre til postkassen til undertegner. For offentlige virksomheter brukes heller ikke Kontakt- og reservasjonsregisteret, og man må adressere undertegner på egenvalgt telefonnummer og e-postadresse.
-
-
 
 Man kan inkludere elementet ``on-behalf-of`` under ``signer``. Standardverdien er ``OTHER`` dersom avsender selv angir undertegners kontaktinformasjon.
 
