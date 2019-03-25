@@ -1,8 +1,5 @@
-Portalintegrasjon
-**************************
-
-API for signeringsoppdrag i portalflyt
-============================================
+Egenutviklet direkteintegrasjon via API
+****************************************
 
 Dette integrasjonsmønsteret passer for tjenesteeiere som ønsker å opprette :ref:`signeringsoppdrag i portalflyt <signering-i-portalflyt>`. Signeringsseremonien gjennomføres av sluttbruker i Signeringsportalen, og tjenesteeier vil deretter kunne polle på status og hente ned det signerte dokumentet.
 
@@ -14,8 +11,7 @@ Meldingsformatet i APIet er XML, og reelevante typer finnes i filen `portal.xsd 
  **Flytskjema signeringsoppdrag i portalflyt:** *skjemaet viser at avsender sender inn et oppdrag, starter polling, at undertegner(e) signerer oppdraget, og avsender får oppdatert status via polling, og laster ned signert dokument. Dersom du sender et oppdrag til kun én undertegner, kan du se bort i fra den første "steg 4"-seksjonen. Heltrukne linjer viser brukerflyt, mens stiplede linjer viser API-kall.*
 
 Steg 1: Opprette signeringsoppdraget
-------------------------------------
-
+======================================
 Flyten begynner ved at tjenesteeier gjør et API-kall for å opprette signeringsoppdraget. Dette kallet gjøres som en multipart-request, der den ene delen er dokumentpakken og den andre delen er metadata.
 
 -  Kallet gjøres som en :code:`HTTP POST` mot ressursen :code:`<rot-URL>/portal/signature-jobs`.
@@ -89,7 +85,7 @@ Følgende er et eksempel på ``manifest.xml`` fra dokumentpakken for et signerin
    </portal-signature-job-manifest>
 
 Undertegnere
-___________________________
+--------------
 
 Du bør se :ref:`varsler` og :ref:`adressering-av-undertegner` før du starter med dette kapitlet.
 
@@ -181,7 +177,7 @@ Undertegnere kan adresseres og varsles på ulike måter:
             For oppdrag på vegne av offentlige virksomheter vil verdien av feltet alltid kunne utledes fra varslingsinnstillingene, og er derfor ikke nødvendig å oppgi.
 
 Andre attributer
-_________________
+------------------
 
 Rekkefølge
 ^^^^^^^^^^^
@@ -238,7 +234,7 @@ Som respons på dette kallet vil man få elementet ``portal-signature-job-respon
    </portal-signature-job-response>
 
 Steg 2: Polling på status
---------------------------
+==========================
 
 Du må polle mot signeringstjenesten for å finne ut hva statusen er for de signeringsoppdragene du har opprettet. Når du poller så henter du statuser fra en kø. Som avsender må du sjekke hvilket oppdrag statusoppdateringen gjelder for å oppdatere i ditt system og så bekrefte den.
 
@@ -282,7 +278,7 @@ Signeringstjenestens pollingmekaniske er laget med tanke på at det skal være e
 Statusoppdateringer du henter fra en kø ved polling vil forsvinne fra køen, slik at en eventuell annen server som kommer inn ikke vil få den samme statusoppdateringen. Selv om du kaller på polling-APIet på samme tid, så er det garantert at du ikke får samme oppdatering to ganger. For å håndtere at feil kan skje enten i overføringen av statusen til deres servere eller at det kan skje feil i prosesseringen på deres side, så vil en oppdatering som hentes fra køen og ikke bekreftes dukke opp igjen på køen. Pr. i dag er det satt en venteperiode på 10 minutter før en oppdatering igjen forekommer på køen. På grunn av dette er det essensielt at prosesseringsbekrefelse sendes som beskrevet i :ref:`egen-integrasjon-steg-4`.
 
 Steg 3: Laste ned PAdES eller XAdES
-------------------------------------
+=====================================
 
 I forrige steg fikk du lenkene ``xades-url`` og ``pades-url``. Disse kan du gjøre en ``HTTP GET`` på for å laste ned det signerte dokumentet i de to formatene. For mer informasjon om format på det signerte dokumentet, se :ref:`signerte-dokumenter`.
 
@@ -291,7 +287,7 @@ XAdES-filen laster du ned pr. undertegner, mens PAdES-filen lastes ned på tvers
 ..  _egen-integrasjon-steg-4:
 
 Steg 4: Bekrefte ferdig prosessering
--------------------------------------
+======================================
 
 Til slutt gjør du et ``HTTP POST``-kall mot ``confirmation-url`` for å bekrefte at du har prosessert statusoppdateringen ferdig. Dersom statusen indikerer at oppdraget er helt ferdig, så vil denne bekreftelsen også bekrefte at du er ferdig med å prosessere hele oppdraget.
 Hvis :ref:`langtidslagring` benyttes vil dette markere oppdraget som ferdig og lagret. I motsatt fall vil oppdraget slettes fra signeringsportalen.
