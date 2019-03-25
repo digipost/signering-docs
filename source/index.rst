@@ -44,15 +44,15 @@ Welcome to the Posten signering documentation!
 
 .. toctree::
    :maxdepth: 1
-   :caption: Manuell integrasjon
+   :caption: Egen integrasjon
 
-   manuell-integrasjon/manuell-portal-integrasjon
-   manuell-integrasjon/manuell-direkte-integrasjon
+   egen-integrasjon/egen-portal-integrasjon
+   egen-integrasjon/egen-direkte-integrasjon
 
 
 .. toctree::
    :maxdepth: 1
-   :caption: Integration
+   :caption: Client Integration
 
    buy-enterprise-certificates
    install-enterprise-certificate

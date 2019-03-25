@@ -1,4 +1,4 @@
-Manuell portalintegrasjon
+Portalintegrasjon
 **************************
 
 API for signeringsoppdrag i portalflyt
@@ -289,15 +289,15 @@ Hvis `langtidslagring </integrasjon/README.md#tilleggstjeneste-for-langtidslagri
 I tillegg vil dette kallet gjøre at du ikke lenger får informasjon om denne statusoppdateringen ved polling. Se mer informasjon om det nedenfor, i avsnittet om fler-server-scenarioet.
 
 Mer informasjon om pollingmekanismen
-*************************************
+=====================================
 
 Hvor ofte skal du polle?
-=========================
+_________________________
 
 Mekanikken fungerer slik at du venter en viss periode mellom hver gang du spør om oppdateringer. Oppdateringenene vil komme på en kø, og så lenge du får en ny statusoppdatering, så kan du umiddelbart etter å ha prosessert denne igjen spørre om en oppdatering. Dersom du får beskjed om at det ikke er flere oppdateringer igjen, så skal du ikke spørre om oppdateringer før det har gått en viss periode. Når du gjør denne pollingen så vil du alltid få en HTTP-header (``X-Next-permitted-poll-time``) som respons som forteller deg når du kan gjøre neste polling. I produksjonsmiljøet vil neste tillatte polling-tidspunkt være om 10 minutter om køen er tom, mens for testmiljøer vil det være mellom 5 og 30 sekunder.
 
 Hva med et fler-server-scenario?
-=================================
+_________________________________
 
 Signeringstjenestens pollingmekaniske er laget med tanke på at det skal være enkelt å gjøre pollingen fra flere servere uten at du skal måtte synkronisere pollingen på tvers av disse. Dersom du bruker flere servere uten synkronisering så vil du komme opp i situasjoner der en av serverene poller før neste poll-tid, selv om en annen server har fått beskjed om dette. Det er en helt OK oppførsel, du vil da få en HTTP respons med statusen ``429 Too Many Requests`` tilbake, som vil inneholde headeren ``X-Next-permitted-poll-time``. Så lenge du etter det kallet respekterer poll-tiden for den serveren, så vil alt fungere bra.
 

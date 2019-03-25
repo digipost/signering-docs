@@ -1,4 +1,4 @@
-Manuell direkteintegrasjon
+Direkteintegrasjon
 **************************
 Todo: Legg inn manglende bilde
 
