@@ -26,9 +26,10 @@ Welcome to the Posten signering documentation!
    :caption: Signeringsoppdrag
 
    opprette-oppdrag
-   undertegner
-   varsel-til-undertegner
+   adressering-av-undertegner
+   varsler-til-undertegner
    endring-av-signeringsoppdrag
+   varsler-til-avsender
    lagring
    gdpr
    
