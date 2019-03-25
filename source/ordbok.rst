@@ -16,15 +16,17 @@ Avsender
 =========
 :ref:`bedrift-virksomhet-ordbok` som sender signeringsoppdrag i en :ref:`signeringsflyt-ordbok`.
 
-Vi skal ikke bruke ord som *tjenesteeier*.
+Vi skal **ikke** bruke ord som *tjenesteeier*.
 
-.. _signeringsflyt-ordbok:
+.. _undertegner-ordbok:
 
 Undertegner
 ============
 Person som undertegner et dokument i et singeringsoppdrag.
 
-Vi skal ikke bruke ord som *sluttbruker*.
+Vi skal **ikke** bruke ord som *sluttbruker*.
+
+.. _signeringsflyt-ordbok:
 
 Signeringsflyt
 ===============
@@ -35,11 +37,22 @@ Signeringsoppdrag i portalflyt
 
 Signeringsoppdrag i direkteflyt
 
+En :ref:`undertegner` starter en signering.
+
+Vi skal **ikke** bruke ord som *signeringsseremoni*.
+
 Portal
 =======
 
 - *Avsenderportal*: Dette er webgrensesnittet for avsendere. signering.posten.no/virksomhet/
 - *Signeringsportal*: Dette er webgrensesnittet for undertegnere.
+
+API
+====
+
+Vi bruker API om det å bruke API-et vårt.
+
+Vi skal **ikke** bruke ord som *bak-kanal-kall*.
 
 
 
