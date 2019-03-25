@@ -1,4 +1,4 @@
-Egenutviklet direkteintegrasjon via API
+Egenutviklet portalintegrasjon via API
 ****************************************
 
 Dette integrasjonsmønsteret passer for tjenesteeiere som ønsker å opprette :ref:`signeringsoppdrag i portalflyt <signering-i-portalflyt>`. Signeringsseremonien gjennomføres av sluttbruker i Signeringsportalen, og tjenesteeier vil deretter kunne polle på status og hente ned det signerte dokumentet.
