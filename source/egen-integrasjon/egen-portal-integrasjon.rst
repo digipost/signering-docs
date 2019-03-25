@@ -294,7 +294,7 @@ Steg 4: Bekrefte ferdig prosessering
 -------------------------------------
 
 Til slutt gjør du et ``HTTP POST``-kall mot ``confirmation-url`` for å bekrefte at du har prosessert statusoppdateringen ferdig. Dersom statusen indikerer at oppdraget er helt ferdig, så vil denne bekreftelsen også bekrefte at du er ferdig med å prosessere hele oppdraget.
-Hvis `langtidslagring </integrasjon/README.md#tilleggstjeneste-for-langtidslagring>`__ benyttes vil dette markere oppdraget som ferdig og lagret. I motsatt fall vil oppdraget slettes i signeringsportalen.
+Hvis :ref:`langtidslagring` benyttes vil dette markere oppdraget som ferdig og lagret. I motsatt fall vil oppdraget slettes fra signeringsportalen.
 
 I tillegg vil dette kallet gjøre at du ikke lenger får informasjon om denne statusoppdateringen ved polling. Se mer informasjon om det nedenfor, i avsnittet om fler-server-scenarioet.
 
