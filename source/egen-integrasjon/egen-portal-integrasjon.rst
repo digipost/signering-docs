@@ -205,9 +205,10 @@ Tidspunktet angitt i ``activation-time`` angir når jobben aktiveres, og de før
 
 Tiden angitt i ``available-seconds`` gjelder for alle undertegnere; dvs. alle undertegnere vil ha like lang tid på seg til å signere eller avvise mottatt dokument fra det blir tilgjengelig for dem. Dette tidsrommet gjelder altså for hvert sett med undertegnere med samme ``order``.
 
-**Eksempel: Angi 345600 sekunder (4 dager) for undertegnere med rekkefølge**
+**Eksempel, angi 345600 sekunder (4 dager) for undertegnere med rekkefølge:**
+
 #. Undertegnere med ``order=1`` får 4 dager fra ``activation-time`` til å signere.
-#. Undertegnere med ``order=2`` vil få tilgjengeliggjort dokumentet umiddelbart når alle undertegnere med ``order=1`` har signert, og de vil da få 4 dager fra tidspunktet de fikk dokumentet tilgjengelig.
+#. Undertegnere med ``order=2`` vil få tilgjengeliggjort dokumentet umiddelbart når alle undertegnere med ``order=1`` har signert. De vil da få 4 dager fra tidspunktet de fikk dokumentet tilgjengelig.
 
 ..  NOTE::
     Dersom man utelater ``availability`` vil jobben aktiveres umiddelbart, og dokumentet vil være tilgjengelig i maks 2 592 000 sekunder (30 dager) for hvert sett med ``order``-grupperte undertegnere.
@@ -221,13 +222,12 @@ Tiden angitt i ``available-seconds`` gjelder for alle undertegnere; dvs. alle un
 Identifikator i signert dokument
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-``identifier-in-signed-documents`` brukes for å angi hvordan undertegneren(e) skal identifiseres i de signerte dokumentene.
-Tillatte verdier er ``PERSONAL_IDENTIFICATION_NUMBER_AND_NAME``, ``DATE_OF_BIRTH_AND_NAME`` og ``NAME``, men ikke alle er gyldige for alle typer signeringsoppdrag og avsendere. For mer informasjon, se :ref:`identifisereUndertegnere`.
+For å angi hvordan undertegner skal identifiseres i de signerte dokumentene så brukes ``identifier-in-signed-documents``. Tillatte verdier er ``PERSONAL_IDENTIFICATION_NUMBER_AND_NAME``, ``DATE_OF_BIRTH_AND_NAME`` og ``NAME``, men ikke alle er gyldige for alle typer signeringsoppdrag og avsendere. For mer informasjon, se :ref:`identifisereUndertegnere`.
 
 Respons
-________
+--------
 
-Som respons på dette kallet vil man få en respons definert av elementet ``portal-signature-job-response``. Denne responsen inneholder en ID generert av signeringstjenesten. Du må lagre denne IDen i dine systemer slik at du senere kan koble resultatene du får fra polling-mekanismen til riktig oppdrag.
+Som respons på dette kallet vil man få elementet ``portal-signature-job-response``. Denne responsen inneholder en ID generert av signeringstjenesten. Du må lagre denne IDen i dine systemer slik at du senere kan koble resultatene du får fra polling-mekanismen til riktig oppdrag.
 
 .. code-block:: xml
 
@@ -242,6 +242,10 @@ Steg 2: Polling på status
 
 Du må polle mot signeringstjenesten for å finne ut hva statusen er for de signeringsoppdragene du har opprettet. Når du poller så henter du statuser fra en kø. Som avsender må du sjekke hvilket oppdrag statusoppdateringen gjelder for å oppdatere i ditt system og så bekrefte den.
 
+Det fungerer slik at du venter en viss periode mellom hver gang du spør om oppdateringer. Oppdateringenene vil komme på en kø, og så lenge du får en ny statusoppdatering, så kan du umiddelbart etter å ha prosessert denne igjen spørre om en oppdatering. Dersom du får beskjed om at det ikke er flere oppdateringer igjen, så skal du ikke spørre om oppdateringer før det har gått en viss periode. Når du gjør denne pollingen så vil du alltid få en HTTP-header (``X-Next-permitted-poll-time``) som respons som forteller deg når du kan gjøre neste polling.
+
+..  NOTE::
+    I produksjonsmiljøet vil neste tillatte polling-tidspunkt være om 10 minutter om køen er tom, mens for testmiljøer vil det være mellom 5 og 30 sekunder.
 
 For å gjøre en polling, så gjør du en ``HTTP GET`` mot ``<rot-URL>/portal/signature-jobs``. Oppdrag som ikke er lagt på en spesifikk kø vil havne på en standard-kø. Hvis signeringsoppdraget er lagt på en spesifikk kø, så må også query-parameteret ``polling_queue`` settes til navnet på køen (f.eks. ``<rot-URL>/portal/signature-jobs?polling_queue=custom-queue``). Du skal ikke ha med noen request-body på dette kallet.
 
@@ -273,12 +277,18 @@ Følgende er et eksempel på en respons der en del av signeringsoppdraget har bl
        </signatures>
    </portal-signature-job-status-change-response>
 
+Signeringstjenestens pollingmekaniske er laget med tanke på at det skal være enkelt å gjøre pollingen fra flere servere uten at du skal måtte synkronisere pollingen på tvers av disse. Dersom du bruker flere servere uten synkronisering så vil du komme opp i situasjoner der en av serverene poller før neste poll-tid, selv om en annen server har fått beskjed om dette. Det er en helt OK oppførsel, du vil da få en HTTP respons med statusen ``429 Too Many Requests`` tilbake, som vil inneholde headeren ``X-Next-permitted-poll-time``. Så lenge du etter det kallet respekterer poll-tiden for den serveren, så vil alt fungere bra.
+
+Statusoppdateringer du henter fra en kø ved polling vil forsvinne fra køen, slik at en eventuell annen server som kommer inn ikke vil få den samme statusoppdateringen. Selv om du kaller på polling-APIet på samme tid, så er det garantert at du ikke får samme oppdatering to ganger. For å håndtere at feil kan skje enten i overføringen av statusen til deres servere eller at det kan skje feil i prosesseringen på deres side, så vil en oppdatering som hentes fra køen og ikke bekreftes dukke opp igjen på køen. Pr. i dag er det satt en venteperiode på 10 minutter før en oppdatering igjen forekommer på køen. På grunn av dette er det essensielt at prosesseringsbekrefelse sendes som beskrevet i :ref:`egen-integrasjon-steg-4`.
+
 Steg 3: Laste ned PAdES eller XAdES
 ------------------------------------
 
 I forrige steg fikk du lenkene ``xades-url`` og ``pades-url``. Disse kan du gjøre en ``HTTP GET`` på for å laste ned det signerte dokumentet i de to formatene. For mer informasjon om format på det signerte dokumentet, se :ref:`signerte-dokumenter`.
 
 XAdES-filen laster du ned pr. undertegner, mens PAdES-filen lastes ned på tvers av alle undertegnere. Denne vil inneholde signeringsinformasjon for alle undertegnere som frem til nå har signert på oppdraget. I de aller fleste tilfeller er det ikke aktuelt å laste ned denne før alle undertegnerne har statusen ``SIGNED``.
+
+..  _egen-integrasjon-steg-4:
 
 Steg 4: Bekrefte ferdig prosessering
 -------------------------------------
@@ -287,21 +297,6 @@ Til slutt gjør du et ``HTTP POST``-kall mot ``confirmation-url`` for å bekreft
 Hvis `langtidslagring </integrasjon/README.md#tilleggstjeneste-for-langtidslagring>`__ benyttes vil dette markere oppdraget som ferdig og lagret. I motsatt fall vil oppdraget slettes i signeringsportalen.
 
 I tillegg vil dette kallet gjøre at du ikke lenger får informasjon om denne statusoppdateringen ved polling. Se mer informasjon om det nedenfor, i avsnittet om fler-server-scenarioet.
-
-Mer informasjon om pollingmekanismen
-=====================================
-
-Hvor ofte skal du polle?
-_________________________
-
-Mekanikken fungerer slik at du venter en viss periode mellom hver gang du spør om oppdateringer. Oppdateringenene vil komme på en kø, og så lenge du får en ny statusoppdatering, så kan du umiddelbart etter å ha prosessert denne igjen spørre om en oppdatering. Dersom du får beskjed om at det ikke er flere oppdateringer igjen, så skal du ikke spørre om oppdateringer før det har gått en viss periode. Når du gjør denne pollingen så vil du alltid få en HTTP-header (``X-Next-permitted-poll-time``) som respons som forteller deg når du kan gjøre neste polling. I produksjonsmiljøet vil neste tillatte polling-tidspunkt være om 10 minutter om køen er tom, mens for testmiljøer vil det være mellom 5 og 30 sekunder.
-
-Hva med et fler-server-scenario?
-_________________________________
-
-Signeringstjenestens pollingmekaniske er laget med tanke på at det skal være enkelt å gjøre pollingen fra flere servere uten at du skal måtte synkronisere pollingen på tvers av disse. Dersom du bruker flere servere uten synkronisering så vil du komme opp i situasjoner der en av serverene poller før neste poll-tid, selv om en annen server har fått beskjed om dette. Det er en helt OK oppførsel, du vil da få en HTTP respons med statusen ``429 Too Many Requests`` tilbake, som vil inneholde headeren ``X-Next-permitted-poll-time``. Så lenge du etter det kallet respekterer poll-tiden for den serveren, så vil alt fungere bra.
-
-Statusoppdateringer du henter fra køen ved polling vil forsvinne fra køen, slik at en eventuell annen server som kommer inn ikke vil få den samme statusoppdateringen. Selv om du kaller på polling-APIet på samme tid, så er det garantert at du ikke får samme oppdatering to ganger. For å håndtere at feil kan skje enten i overføringen av statusen til deres servere eller at det kan skje feil i prosesseringen på deres side, så vil en oppdatering som hentes fra køen og ikke bekreftes dukke opp igjen på køen. Pr. i dag er det satt en venteperiode på 10 minutter før en oppdatering igjen forekommer på køen. På grunn av dette er det essensielt at prosesseringsbekrefelse sendes som beskrevet i Steg 4.
 
 ..  |portalflytskjema| image:: https://raw.githubusercontent.com/digipost/signature-api-specification/master/integrasjon/flytskjemaer/asynkron-maskin-til-maskin.png
     :alt: Flytskjema for portalintegrasjon
