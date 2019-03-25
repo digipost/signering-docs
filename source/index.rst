@@ -44,14 +44,6 @@ Welcome to the Posten signering documentation!
 
 .. toctree::
    :maxdepth: 1
-   :caption: Egen integrasjon
-
-   egen-integrasjon/egen-portal-integrasjon
-   egen-integrasjon/egen-direkte-integrasjon
-
-
-.. toctree::
-   :maxdepth: 1
    :caption: Client Integration
 
    buy-enterprise-certificates
@@ -65,10 +57,16 @@ Welcome to the Posten signering documentation!
 
 .. toctree::
    :maxdepth: 1
+   :caption: Egen integrasjon
+
+   egen-integrasjon/egen-portal-integrasjon
+   egen-integrasjon/egen-direkte-integrasjon
+
+.. toctree::
+   :maxdepth: 1
    :caption: Ordbok
 
    ordbok
-
 
 .. toctree::
    :maxdepth: 1
