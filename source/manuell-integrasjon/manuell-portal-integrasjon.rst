@@ -24,7 +24,7 @@ Flyten begynner ved at tjenesteeier gjør et API-kall for å opprette signerings
 
 Følgende er et eksempel på metadata for et signeringsoppdrag i portalflyt:
 
-.. code:: xml
+.. code-block:: xml
 
    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
    <portal-signature-job-request xmlns="http://signering.posten.no/schema/v1">
@@ -34,7 +34,7 @@ Følgende er et eksempel på metadata for et signeringsoppdrag i portalflyt:
 
 Følgende er et eksempel på ``manifest.xml`` fra dokumentpakken for et signeringsoppdrag som skal signeres av fire undertegnere:
 
-.. code:: xml
+.. code-block:: xml
 
    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
    <portal-signature-job-manifest xmlns="http://signering.posten.no/schema/v1">
@@ -99,7 +99,7 @@ Undertegnere kan adresseres og varsles på ulike måter:
 
     ..  tab:: E-post
 
-        ..  code:: xml
+        ..  code-block:: xml
 
             <signer>
                 <identified-by-contact-information/>
@@ -108,9 +108,9 @@ Undertegnere kan adresseres og varsles på ulike måter:
                 </notifications>
             </signer>
 
-    ..  tab:: Mobilnummer
+    ..  tab:: Mobil
 
-        ..  code:: xml
+        ..  code-block:: xml
 
             <signer>
                 <identified-by-contact-information/>
@@ -119,9 +119,9 @@ Undertegnere kan adresseres og varsles på ulike måter:
                 </notifications>
             </signer>
 
-    ..  tab:: E-postadresse og mobilnummer
+    ..  tab:: E-post og mobil
 
-        ..  code:: xml
+        ..  code-block:: xml
 
             <signer>
                 <identified-by-contact-information/>
@@ -135,7 +135,7 @@ Undertegnere kan adresseres og varsles på ulike måter:
 
         Med varsling til gitt epostadresse:
 
-        ..  code:: xml
+        ..  code-block:: xml
 
             <signer>
                 <personal-identification-number>12345678910</<personal-identification-number>
@@ -147,62 +147,85 @@ Undertegnere kan adresseres og varsles på ulike måter:
 
         Med varsling som offentlig virksomhet:
 
-        ..  code:: xml
+        ..  NOTE::
+            Som offentlig virksomhet skal oppslag gjøres vha. Kontakt- og Reservasjonsregisteret.
+
+        ..  code-block:: xml
 
             <signer>
                 <personal-identification-number>12345678910</<personal-identification-number>
                 <notifications>
                     <notifications-using-lookup/>
                 </notifications>
+                <on-behalf-of>SELF</on-behalf-of>
             </signer>
-
-
-        ..  NOTE::
-            Som offentlig virksomhet skal oppslag gjøres vha. Kontakt- og Reservasjonsregisteret.
 
     ..  tab:: På vegne av
 
         Attributtet ``on-behalf-of="OTHER"`` skal brukes hvis undertegner signerer i kraft av en rolle for en virksomhet. I praksis betyr dette at signert dokument sendes ikke videre til undertegners egen postkasse etter signering. For offentlige virksomheter brukes heller ikke Kontakt- og reservasjonsregisteret, og man må adressere undertegner på egenvalgt telefonnummer og e-postadresse.
 
-        ..  code:: xml
+        ..  code-block:: xml
 
-            <signer on-behalf-of="OTHER">
+            <signer>
                 <personal-identification-number>12345678910</<personal-identification-number>
                 <notifications>
                     <email address="email@example.com"/>
                     <sms number="00000000" />
                 </notifications>
+                <on-behalf-of>OTHER</on-behalf-of>
             </signer>
 
+        Man kan inkludere elementet ``on-behalf-of`` under ``signer``. Standardverdien er ``OTHER`` dersom avsender selv angir undertegners kontaktinformasjon. En privat virksomhet vil kunne velge fritt mellom ``SELF`` og ``OTHER``, men kan *aldri* angi ``notifications-using-lookup`` for kontaktinformasjonsoppslag fordi det kun er tilgjengelig for offentlige virksomheter.
+
+        ..  NOTE::
+            For oppdrag på vegne av offentlige virksomheter vil verdien av feltet alltid kunne utledes fra varslingsinnstillingene, og er derfor ikke nødvendig å oppgi.
 
 Andre attributer
 _________________
 
-Order
-^^^^^^
+Rekkefølge
+^^^^^^^^^^^
 ``order``-attributtet på ``signer`` brukes til å angi rekkefølgen på undertegnerne. I eksempelet over vil oppdraget først bli tilgjengelig for undertegnerne med ``order="2"`` når undertegnere med ``order="1"`` har signert, og for undertegneren med ``order="3"`` når begge de med ``order="2"`` har signert.
 
-På vegne av
-^^^^^^^^^^^^
+Tilgjengelighet
+^^^^^^^^^^^^^^^^
+``availability`` brukes til å kontrollere tidsrommet et dokument er tilgjengelig for mottaker(e) for signering.
 
-Man kan inkludere elementet ``on-behalf-of`` under ``signer``. Standardverdien er ``OTHER`` dersom avsender selv angir undertegners kontaktinformasjon.
+Aktiveringstidspunkt
+^^^^^^^^^^^^^^^^^^^^^
+
+Tidspunktet angitt i ``activation-time`` angir når jobben aktiveres, og de første undertegnerne får tilgang til dokumentet til signering.
+
+..  code-block:: xml
+
+    <availability>
+        <activation-time>2016-02-10T12:00:00+01:00</activation-time>
+        <available-seconds>864000</available-seconds>
+    </availability>
+
+Tiden angitt i ``available-seconds`` gjelder for alle undertegnere; dvs. alle undertegnere vil ha like lang tid på seg til å signere eller avvise mottatt dokument fra det blir tilgjengelig for dem. Dette tidsrommet gjelder altså for hvert sett med undertegnere med samme ``order``.
+
+**Eksempel: Angi 345600 sekunder (4 dager) for undertegnere med rekkefølge**
+#. Undertegnere med ``order=1`` får 4 dager fra ``activation-time`` til å signere.
+#. Undertegnere med ``order=2`` vil få tilgjengeliggjort dokumentet umiddelbart når alle undertegnere med ``order=1`` har signert, og de vil da få 4 dager fra tidspunktet de fikk dokumentet tilgjengelig.
 
 ..  NOTE::
-    For oppdrag på vegne av offentlige virksomheter vil verdien av feltet alltid kunne utledes fra varslingsinnstillingene, og er derfor ikke nødvendig å oppgi.
+    Dersom man utelater ``availability`` vil jobben aktiveres umiddelbart, og dokumentet vil være tilgjengelig i maks 2 592 000 sekunder (30 dager) for hvert sett med ``order``-grupperte undertegnere.
 
-Verdien av dette feltet vil også valideres opp mot varslingsinnstillingene. Har man angitt ``OTHER`` kan man ikke angi ``notifications-using-lookup``, ettersom man ikke kan slå opp kontaktinformasjon i Kontakt- og reservasjonsregisteret om man signerer på vegne av noen andre enn seg selv. Videre vil man for offentlige virksomheter ikke kunne angi ``SELF`` og samtidig overstyre kontaktinformasjon; når man undertegner signeringsoppdrag på vegne av seg selv fra avsendere i offentlig sektor *må* kontaktinformasjon til undertegner hentes fra KRR.
+..  IMPORTANT::
+    En jobb utløper og stopper dersom minst 1 undertegner ikke agerer innenfor sitt tidsrom når dokumentet er tilgjengelig.
 
-For private virksomheter vil man kunne velge fritt mellom ``SELF`` og ``OTHER``, men kan aldri angi ``notifications-using-lookup`` ettersom disse virksomheten ikke kan benytte KRR for kontaktinformasjonsoppslag.
+..  IMPORTANT::
+    Jobber som angir større ``available-seconds`` enn 7 776 000 sekunder (90 dager) blir avvist av tjenesten.
 
-``availability`` brukes til å kontrollere tidsrommet et dokument er tilgjengelig for mottaker(e) for signering.
-Tidspunktet angitt i ``activation-time`` angir når jobben aktiveres, og de første undertegnerne får tilgang til dokumentet til signering.
-Tiden angitt i ``available-seconds`` gjelder for alle undertegnere; dvs. alle undertegnere vil ha like lang tid på seg til å signere eller avvise mottatt dokument fra det blir tilgjengelig for dem. Dette tidsrommet gjelder altså *for hvert sett med undertegnere med samme ``order``*. Dersom man angir f.eks. *345600* sekunder (4 dager) vil undertegnere med ``order=1`` få maks 4 dager fra ``activation-time`` til å signere. Undertegnere med ``order=2`` vil få tilgjengeliggjort dokumentet umiddelbart når *alle undertegnere med ``order=1`` har signert*, og de vil da få maks 4 nye dager fra *tidspunktet de fikk dokumentet tilgjengelig*. En jobb utløper og stopper dersom minst 1 undertegner ikke agerer innenfor sitt tidsrom når dokumentet er tilgjengelig. Dersom man utelater ``availability`` vil jobben aktiveres umiddelbart, og dokumentet vil være tilgjengelig i maks 2 592 000 sekunder (30 dager) for hvert sett med ``order``-grupperte undertegnere. Jobber som angir større ``available-seconds`` enn 7 776 000 sekunder (90 dager) blir avvist av tjenesten.
+Identifikator i signert dokument
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ``identifier-in-signed-documents`` brukes for å angi hvordan undertegneren(e) skal identifiseres i de signerte dokumentene.
-Tillatte verdier er ``PERSONAL_IDENTIFICATION_NUMBER_AND_NAME``, ``DATE_OF_BIRTH_AND_NAME`` og ``NAME``, men ikke alle er gyldige for alle typer signeringsoppdrag og avsendere.
-Disse begrensningene er beskrevet i `den funksjonelle dokumentasjonen <http://digipost.github.io/signature-api-specification/v1.0/#undertegners-identifikator>`__.
+Tillatte verdier er ``PERSONAL_IDENTIFICATION_NUMBER_AND_NAME``, ``DATE_OF_BIRTH_AND_NAME`` og ``NAME``, men ikke alle er gyldige for alle typer signeringsoppdrag og avsendere. For mer informasjon, se :ref:`identifisereUndertegnere`.
 
---------------
+Respons
+________
 
 Som respons på dette kallet vil man få en respons definert av elementet ``portal-signature-job-response``. Denne responsen inneholder en ID generert av signeringstjenesten. Du må lagre denne IDen i dine systemer slik at du senere kan koble resultatene du får fra polling-mekanismen til riktig oppdrag.
 
@@ -215,7 +238,7 @@ Som respons på dette kallet vil man få en respons definert av elementet ``port
    </portal-signature-job-response>
 
 Steg 2: Polling på status
--------------------------
+--------------------------
 
 Siden dette er en asynkron flyt, så må du jevnlig spørre signeringstjenesten om det har skjedd noen endringer på noen av signeringsoppdragene for din organisasjon. Dette gjør du på tvers av alle signeringsoppdrag du har opprettet, hvis ikke ville du måtte foretatt en voldsom mengde spørringer dersom du har flere aktive signeringsoppdrag i gang samtidig, hvilket du sannsynligvis har.
 
