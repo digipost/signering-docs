@@ -102,6 +102,7 @@ Undertegnere kan adresseres og varsles på ulike måter:
                 <notifications>
                     <email address="email@example.com"/>
                 </notifications>
+                <on-behalf-of>SELF</on-behalf-of>
             </signer>
 
     ..  tab:: Mobil
@@ -113,6 +114,7 @@ Undertegnere kan adresseres og varsles på ulike måter:
                 <notifications>
                     <sms number="00000000" />
                 </notifications>
+                <on-behalf-of>SELF</on-behalf-of>
             </signer>
 
     ..  tab:: E-post og mobil
@@ -125,6 +127,7 @@ Undertegnere kan adresseres og varsles på ulike måter:
                     <email address="email@example.com"/>
                     <sms number="00000000" />
                 </notifications>
+                <on-behalf-of>SELF</on-behalf-of>
             </signer>
 
     ..  tab:: Fødselsnummer
@@ -138,6 +141,7 @@ Undertegnere kan adresseres og varsles på ulike måter:
                 <notifications>
                     <email address="email@example.com"/>
                 </notifications>
+                <on-behalf-of>SELF</on-behalf-of>
             </signer>
 
 
@@ -158,7 +162,9 @@ Undertegnere kan adresseres og varsles på ulike måter:
 
     ..  tab:: På vegne av
 
-        Attributtet ``on-behalf-of="OTHER"`` skal brukes hvis undertegner signerer i kraft av en rolle for en virksomhet. I praksis betyr dette at signert dokument sendes ikke videre til undertegners egen postkasse etter signering. For offentlige virksomheter brukes heller ikke Kontakt- og reservasjonsregisteret, og man må adressere undertegner på egenvalgt telefonnummer og e-postadresse.
+        En avsender kan velge om undertegner signerer på vegne av seg selv eller i kraft av en rolle. Dette gjøres ved å sette attributtet ``on-behalf-of`` til enten ``SELF`` eller ``OTHER``.
+
+        Dersom man signerer på vegne av noen andre, vil det i praksis bety at signert dokument ikke sendes videre til undertegners egen postkasse. For offentlige virksomheter brukes heller ikke Kontakt- og reservasjonsregisteret, og man må adressere undertegner på egenvalgt telefonnummer og e-postadresse.
 
         ..  code-block:: xml
 
@@ -171,26 +177,21 @@ Undertegnere kan adresseres og varsles på ulike måter:
                 <on-behalf-of>OTHER</on-behalf-of>
             </signer>
 
-        Man kan inkludere elementet ``on-behalf-of`` under ``signer``. Standardverdien er ``OTHER`` dersom avsender selv angir undertegners kontaktinformasjon. En privat virksomhet vil kunne velge fritt mellom ``SELF`` og ``OTHER``, men kan *aldri* angi ``notifications-using-lookup`` for kontaktinformasjonsoppslag fordi det kun er tilgjengelig for offentlige virksomheter.
-
         ..  NOTE::
-            For oppdrag på vegne av offentlige virksomheter vil verdien av feltet alltid kunne utledes fra varslingsinnstillingene, og er derfor ikke nødvendig å oppgi.
+            Elementet ``notifications-using-lookup`` er kun tilgjengelig for offentlige virksomheter. Ettersom dette vil slå opp undertegners *private* kontaktinformasjon, kan man ikke samtidig angi at vedkommende signerer på vegne av noen andre. Altså, man kan ikke sette ``on-behalf-of`` til ``OTHER`` dersom man ønsker å benytte Kontakt- og reservasjonsregisteret for å adressere undertegner.
 
-Andre attributer
-------------------
+
+Andre innstillinger
+---------------------------
 
 Rekkefølge
 ^^^^^^^^^^^
-``order``-attributtet på ``signer`` brukes til å angi rekkefølgen på undertegnerne. I eksempelet over vil oppdraget først bli tilgjengelig for undertegnerne med ``order="2"`` når undertegnere med ``order="1"`` har signert, og for undertegneren med ``order="3"`` når begge de med ``order="2"`` har signert.
+``order``-attributtet på ``signer`` brukes til å angi rekkefølgen på undertegnerne. I eksempelet over vil signeringsoppdraget først kun bli tilgjengelig for undertegnerne med ``order="1"``. Når disse har signert, blir oppdraget tilgjengelig for de med ``order="2"``, og for undertegneren med ``order="3"`` når de med ``order="2"`` har signert.
 
 Tilgjengelighet
 ^^^^^^^^^^^^^^^^
-``availability`` brukes til å kontrollere tidsrommet et dokument er tilgjengelig for mottaker(e) for signering.
+Elementet ``availability`` brukes til å kontrollere tidsrommet et signeringsoppdrag er tilgjengelig for undertegner(e).
 
-Aktiveringstidspunkt
-^^^^^^^^^^^^^^^^^^^^^
-
-Tidspunktet angitt i ``activation-time`` angir når jobben aktiveres, og de første undertegnerne får tilgang til dokumentet til signering.
 
 ..  code-block:: xml
 
@@ -199,26 +200,26 @@ Tidspunktet angitt i ``activation-time`` angir når jobben aktiveres, og de før
         <available-seconds>864000</available-seconds>
     </availability>
 
-Tiden angitt i ``available-seconds`` gjelder for alle undertegnere; dvs. alle undertegnere vil ha like lang tid på seg til å signere eller avvise mottatt dokument fra det blir tilgjengelig for dem. Dette tidsrommet gjelder altså for hvert sett med undertegnere med samme ``order``.
+Tidspunktet angitt i ``activation-time`` angir når jobben aktiveres, og de første undertegnerne får mulighet til å signere oppdraget. Varigheten angitt i ``available-seconds`` gjelder for alle undertegnere. Det vil si at alle undertegnere vil få like lang tid til å signere eller avvise oppdraget fra det blir tilgjengelig for dem. Dette tidsrommet gjelder altså for hvert sett med undertegnere med samme ``order``.
 
 **Eksempel, angi 345600 sekunder (4 dager) for undertegnere med rekkefølge:**
 
 #. Undertegnere med ``order=1`` får 4 dager fra ``activation-time`` til å signere.
-#. Undertegnere med ``order=2`` vil få tilgjengeliggjort dokumentet umiddelbart når alle undertegnere med ``order=1`` har signert. De vil da få 4 dager fra tidspunktet de fikk dokumentet tilgjengelig.
+#. Undertegnere med ``order=2`` vil få tilgjengeliggjort dokumentet *umiddelbart* når alle undertegnere med ``order=1`` har signert. De vil da få 4 dager fra tidspunktet de fikk oppdraget tilgjengelig.
 
 ..  NOTE::
-    Dersom man utelater ``availability`` vil jobben aktiveres umiddelbart, og dokumentet vil være tilgjengelig i maks 2 592 000 sekunder (30 dager) for hvert sett med ``order``-grupperte undertegnere.
+    Dersom man utelater ``availability`` vil jobben aktiveres umiddelbart, og oppdraget vil være tilgjengelig i maks 30 dager for hvert sett med ``order``-grupperte undertegnere.
 
 ..  IMPORTANT::
-    En jobb utløper og stopper dersom minst 1 undertegner ikke agerer innenfor sitt tidsrom når dokumentet er tilgjengelig.
+    Et signeringsoppdrag utløper og stopper dersom minst én undertegner ikke signerer innenfor sitt tidsrom når oppdraget er tilgjengelig.
 
 ..  IMPORTANT::
-    Jobber som angir større ``available-seconds`` enn 7 776 000 sekunder (90 dager) blir avvist av tjenesten.
+    Jobber som angir større ``available-seconds`` enn 7 776 000 sekunder (90 dager) blir avvist av tjenesten.
 
 Identifikator i signert dokument
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-For å angi hvordan undertegner skal identifiseres i de signerte dokumentene så brukes ``identifier-in-signed-documents``. Tillatte verdier er ``PERSONAL_IDENTIFICATION_NUMBER_AND_NAME``, ``DATE_OF_BIRTH_AND_NAME`` og ``NAME``, men ikke alle er gyldige for alle typer signeringsoppdrag og avsendere. For mer informasjon, se :ref:`identifisereUndertegnere`.
+Elementet ``identifier-in-signed-documents`` brukes for å angi hvordan undertegner skal identifiseres i de signerte dokumentene. Tillatte verdier er ``PERSONAL_IDENTIFICATION_NUMBER_AND_NAME``, ``DATE_OF_BIRTH_AND_NAME`` og ``NAME``, men ikke alle er gyldige for alle typer signeringsoppdrag og avsendere. For mer informasjon, se :ref:`identifisereUndertegnere`.
 
 Respons
 --------
@@ -227,7 +228,6 @@ Som respons på dette kallet vil man få elementet ``portal-signature-job-respon
 
 .. code-block:: xml
 
-   <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
    <portal-signature-job-response xmlns="http://signering.posten.no/schema/v1">
        <signature-job-id>1</signature-job-id>
        <cancellation-url>https://api.signering.posten.no/api/{sender-identifier}/portal/signature-jobs/1/cancel</cancellation-url>
@@ -236,25 +236,34 @@ Som respons på dette kallet vil man få elementet ``portal-signature-job-respon
 Steg 2: Polling på status
 ==========================
 
-Du må polle mot signeringstjenesten for å finne ut hva statusen er for de signeringsoppdragene du har opprettet. Når du poller så henter du statuser fra en kø. Som avsender må du sjekke hvilket oppdrag statusoppdateringen gjelder for å oppdatere i ditt system og så bekrefte den.
+For å finne ut hva statusen er for de signeringsoppdragene du har opprettet, må du jevnlig sende forespørsler til signeringstjenesten (polling). Som avsender må du sjekke hvilket oppdrag statusoppdateringen gjelder for å oppdatere i ditt system og så bekrefte den.
 
-Det fungerer slik at du venter en viss periode mellom hver gang du spør om oppdateringer. Oppdateringenene vil komme på en kø, og så lenge du får en ny statusoppdatering, så kan du umiddelbart etter å ha prosessert denne igjen spørre om en oppdatering. Dersom du får beskjed om at det ikke er flere oppdateringer igjen, så skal du ikke spørre om oppdateringer før det har gått en viss periode. Når du gjør denne pollingen så vil du alltid få en HTTP-header (``X-Next-permitted-poll-time``) som respons som forteller deg når du kan gjøre neste polling.
+Responsen på dette kallet vil være én av to ting:
+
+- **statusoppdatering:** en ``200 OK``-respons som inneholder informasjon om ny status for ett oppdrag. Denne er definert av elementet ``portal-signature-job-status-change-response``.
+- **ingen oppdatering tilgjengelig:** Dersom det ikke er noen oppdateringer for dine signeringsoppdrag, vil du få en ``204 No Content``-respons.
+
+Hyppighet
+^^^^^^^^^^^
+
+Responsene vil alltid inneholde HTTP-headeren ``X-Next-permitted-poll-time`` som forteller deg når du kan gjøre neste forespørsel, og det er viktig at dette tidspunktet overholdes. Dersom man sender en forespørsel før dette tidspunktet har passert, vil man få en ``429 Too Many Requests``-respons tilbake. Denne vil også inneholde headeren ``X-Next-permitted-poll-time`` med et nytt tidspunkt.
 
 ..  NOTE::
     I produksjonsmiljøet vil neste tillatte polling-tidspunkt være om 10 minutter om køen er tom, mens for testmiljøer vil det være mellom 5 og 30 sekunder.
 
-For å gjøre en polling, så gjør du en ``HTTP GET`` mot ``<rot-URL>/portal/signature-jobs``. Oppdrag som ikke er lagt på en spesifikk kø vil havne på en standard-kø. Hvis signeringsoppdraget er lagt på en spesifikk kø, så må også query-parameteret ``polling_queue`` settes til navnet på køen (f.eks. ``<rot-URL>/portal/signature-jobs?polling_queue=custom-queue``). Du skal ikke ha med noen request-body på dette kallet.
+I praksis vil tidspunktet for neste tillatte polling-forespørsel være umiddelbart så lenge man får en respons som inneholder en statusoppdatering.
 
-Responsen på dette kallet vil være én av to ting:
 
-1. **0 oppdateringer:** Dersom det ikke er noen oppdateringer på tvers av alle dine aktive signeringsoppdrag vil du få en HTTP respons med statuskode ``204 No Content``.
-2. **Minst 1 oppdatering:** Dersom det er oppdateringer på dine oppdrag, så vil du få en ``200 OK`` med responsbody som inneholder informasjon om oppdateringen. Denne er definert av elementet ``portal-signature-job-status-change-response``.
+Integrasjon
+^^^^^^^^^^^^^^
+
+
+For å polle, så gjør du en ``HTTP GET`` mot ``<rot-URL>/portal/signature-jobs``. Oppdrag som ikke er lagt på en spesifikk kø vil havne på en standard-kø. Hvis signeringsoppdraget er lagt på en spesifikk kø, så må også query-parameteret ``polling_queue`` settes til navnet på køen, f.eks. ``<rot-URL>/portal/signature-jobs?polling_queue=custom-queue``. Du skal ikke ha med noen request-body på dette kallet.
 
 Følgende er et eksempel på en respons der en del av signeringsoppdraget har blitt fullført:
 
 .. code-block:: xml
 
-   <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
    <portal-signature-job-status-change-response xmlns="http://signering.posten.no/schema/v1">
        <signature-job-id>1</signature-job-id>
        <status>IN_PROGRESS</status>
@@ -273,26 +282,23 @@ Følgende er et eksempel på en respons der en del av signeringsoppdraget har bl
        </signatures>
    </portal-signature-job-status-change-response>
 
-Signeringstjenestens pollingmekaniske er laget med tanke på at det skal være enkelt å gjøre pollingen fra flere servere uten at du skal måtte synkronisere pollingen på tvers av disse. Dersom du bruker flere servere uten synkronisering så vil du komme opp i situasjoner der en av serverene poller før neste poll-tid, selv om en annen server har fått beskjed om dette. Det er en helt OK oppførsel, du vil da få en HTTP respons med statusen ``429 Too Many Requests`` tilbake, som vil inneholde headeren ``X-Next-permitted-poll-time``. Så lenge du etter det kallet respekterer poll-tiden for den serveren, så vil alt fungere bra.
 
-Statusoppdateringer du henter fra en kø ved polling vil forsvinne fra køen, slik at en eventuell annen server som kommer inn ikke vil få den samme statusoppdateringen. Selv om du kaller på polling-APIet på samme tid, så er det garantert at du ikke får samme oppdatering to ganger. For å håndtere at feil kan skje enten i overføringen av statusen til deres servere eller at det kan skje feil i prosesseringen på deres side, så vil en oppdatering som hentes fra køen og ikke bekreftes dukke opp igjen på køen. Pr. i dag er det satt en venteperiode på 10 minutter før en oppdatering igjen forekommer på køen. På grunn av dette er det essensielt at prosesseringsbekrefelse sendes som beskrevet i :ref:`egen-integrasjon-steg-4`.
+Statusoppdateringer du henter vil forsvinne fra køen. Dette gjør det mulig å spørre om statusoppdateringer i parallell, og du vil ikke få samme statusoppdatering to ganger. Det er derfor viktig at du bekrefter mottak av hver statusoppdatering så raskt som mulig, for dersom det likevel skulle skje en feil under overføring eller prosessering, så vil kvitteringen legges på køen igjen etter 10 minutter. Mer informasjon om hvordan du bekrefter en kvittering er beskrevet i :ref:`egen-integrasjon-steg-4`.
 
 Steg 3: Laste ned PAdES eller XAdES
 =====================================
 
-I forrige steg fikk du lenkene ``xades-url`` og ``pades-url``. Disse kan du gjøre en ``HTTP GET`` på for å laste ned det signerte dokumentet i de to formatene. For mer informasjon om format på det signerte dokumentet, se :ref:`signerte-dokumenter`.
+Responsen i forrige steg inneholder lenkene ``xades-url`` og ``pades-url``. Disse kan du gjøre en ``HTTP GET`` på for å laste ned det signerte dokumentet i de to formatene. For mer informasjon om format på det signerte dokumentet, se :ref:`signerte-dokumenter`.
 
-XAdES-filen laster du ned pr. undertegner, mens PAdES-filen lastes ned på tvers av alle undertegnere. Denne vil inneholde signeringsinformasjon for alle undertegnere som frem til nå har signert på oppdraget. I de aller fleste tilfeller er det ikke aktuelt å laste ned denne før alle undertegnerne har statusen ``SIGNED``.
+XAdES-filen laster du ned per undertegner, mens PAdES-filen lastes ned på tvers av alle undertegnere. Denne vil inneholde signeringsinformasjon for alle undertegnere som frem til nå har signert oppdraget. I de aller fleste tilfeller er det ikke aktuelt å laste ned denne før alle undertegnerne har statusen ``SIGNED``.
 
 ..  _egen-integrasjon-steg-4:
 
 Steg 4: Bekrefte ferdig prosessering
 ======================================
 
-Til slutt gjør du et ``HTTP POST``-kall mot ``confirmation-url`` for å bekrefte at du har prosessert statusoppdateringen ferdig. Dersom statusen indikerer at oppdraget er helt ferdig, så vil denne bekreftelsen også bekrefte at du er ferdig med å prosessere hele oppdraget.
-Hvis :ref:`langtidslagring` benyttes vil dette markere oppdraget som ferdig og lagret. I motsatt fall vil oppdraget slettes fra signeringsportalen.
-
-I tillegg vil dette kallet gjøre at du ikke lenger får informasjon om denne statusoppdateringen ved polling. Se mer informasjon om det nedenfor, i avsnittet om fler-server-scenarioet.
+Til slutt gjør du et ``HTTP POST``-kall mot ``confirmation-url`` for å bekrefte at du har mottatt/persistert statusoppdateringen. Dersom statusen indikerer at oppdraget er helt ferdig, så vil dette kallet også bekrefte at du er ferdig med å prosessere hele oppdraget.
+Hvis :ref:`langtidslagring` benyttes vil dette markere oppdraget som ferdig og lagret, ellers vil oppdraget slettes fra signeringstjenesten.
 
 ..  |portalflytskjema| image:: https://raw.githubusercontent.com/digipost/signature-api-specification/master/integrasjon/flytskjemaer/asynkron-maskin-til-maskin.png
     :alt: Flytskjema for portalintegrasjon
