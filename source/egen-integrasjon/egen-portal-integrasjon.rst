@@ -1,5 +1,5 @@
-Egenutviklet portalintegrasjon via API
-****************************************
+API-integrasjon for signering i portalflyt
+********************************************
 
 Dette integrasjonsmønsteret passer for tjenesteeiere som ønsker å opprette :ref:`signeringsoppdrag i portalflyt <signering-i-portalflyt>`. Signeringsseremonien gjennomføres av sluttbruker i Signeringsportalen, og tjenesteeier vil deretter kunne polle på status og hente ned det signerte dokumentet.
 
@@ -14,9 +14,9 @@ Steg 1: Opprette signeringsoppdraget
 ======================================
 Flyten begynner ved at tjenesteeier gjør et API-kall for å opprette signeringsoppdraget. Dette kallet gjøres som en multipart-request, der den ene delen er dokumentpakken og den andre delen er metadata.
 
--  Kallet gjøres som en :code:`HTTP POST` mot ressursen :code:`<rot-URL>/portal/signature-jobs`.
--  Dokumentpakken legges med multipart-kallet med mediatypen :code:`application/octet-stream`. Se tidligere kapittel for mer informasjon om dokumentpakken.
--  Metadataene som skal sendes med i dette kallet er definert av elementet :code:`portal-signature-job-request`. Disse legges i multipart-kallet med mediatypen :code:`application/xml`.
+-  Kallet gjøres som en ``HTTP POST`` mot ressursen ``<rot-URL>/portal/signature-jobs``.
+-  Dokumentpakken legges med multipart-kallet med mediatypen ``application/octet-stream``. Se tidligere kapittel for mer informasjon om dokumentpakken.
+-  Metadataene som skal sendes med i dette kallet er definert av elementet ``portal-signature-job-request``. Disse legges i multipart-kallet med mediatypen ``application/xml``.
 
 Følgende er et eksempel på metadata for et signeringsoppdrag i portalflyt:
 
@@ -164,7 +164,7 @@ Undertegnere kan adresseres og varsles på ulike måter:
 
         En avsender kan velge om undertegner signerer på vegne av seg selv eller i kraft av en rolle. Dette gjøres ved å sette attributtet ``on-behalf-of`` til enten ``SELF`` eller ``OTHER``.
 
-        Dersom man signerer på vegne av noen andre, vil det i praksis bety at signert dokument ikke sendes videre til undertegners egen postkasse. For offentlige virksomheter brukes heller ikke Kontakt- og reservasjonsregisteret, og man må adressere undertegner på egenvalgt telefonnummer og e-postadresse.
+        Dersom man signerer på vegne av noen andre, vil det i praksis bety at signert dokument ikke sendes videre til undertegners postkasse. For offentlige virksomheter brukes heller ikke Kontakt- og reservasjonsregisteret, og man må adressere undertegner på egenvalgt telefonnummer og e-postadresse.
 
         ..  code-block:: xml
 

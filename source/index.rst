@@ -44,7 +44,7 @@ Welcome to the Posten signering documentation!
 
 .. toctree::
    :maxdepth: 1
-   :caption: Client Integration
+   :caption: Client integration
 
    buy-enterprise-certificates
    install-enterprise-certificate

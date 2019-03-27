@@ -1,3 +1,5 @@
+.. _varsler-regler-for-utsending:
+
 Varsler: Regler for utsending
 =============================
 
