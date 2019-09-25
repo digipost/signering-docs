@@ -57,6 +57,11 @@ A client configuration includes all organization specific configuration and all 
           return new X509Certificate2(certificatePath, certificatePassword, X509KeyStorageFlags.Exportable);
 
 
+      ..  NOTE::
+
+          TLS 1.2 must be enabled to connect to Posten signering. If this is not the case, please set security protocol using the following statement:
+          ``ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;``. If the protocol is not enabled, please refer to the following `Microsoft Documentation for enabling TLS 1.2 <https://docs.microsoft.com/en-us/sccm/core/plan-design/security/enable-tls-1-2>`_.
+
 
     ..  group-tab:: Java
 
