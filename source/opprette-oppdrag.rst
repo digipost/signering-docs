@@ -10,7 +10,7 @@ Ved opprettelse av signeringsoppdrag kan følgende felter angis:
 +---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
 | Undertegner(e)            | **Obligatorisk**        | **Obligatorisk**  | se :ref:`adressering-av-undertegner`                          |
 +---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
-| Tittel                    | **Obligatorisk**        | **Obligatorisk**  |                                                               |
+| Tittel                    | **Obligatorisk**[#f3]_  | **Obligatorisk**  |                                                               |
 +---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
 | Signaturtype              | Valgfritt               | Valgfritt         | se :ref:`signaturtype`                                        |
 +---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
@@ -35,6 +35,7 @@ Ved opprettelse av signeringsoppdrag kan følgende felter angis:
 
 .. [#f1] Signeringsoppdrag i direkteflyt blir alltid aktivert øyeblikkelig etter opprettelse. *Standardverdi* er *øyeblikkelig etter opprettelse*.
 .. [#f2] Signeringsoppdrag i direkteflyt har alltid 30 dagers levetid for å unngå at et dokument blir signert uhensiktsmessig lenge etter opprettelsen av oppdraget. Eventuell frist fra avsenders perspektiv må kommuniseres og håndteres i avsenders tjenester.
+.. [#f3] Tittel kan ikke være lengre en 80 tegn.
 
 For implementasjon for signeringsoppdrag i portalflyt, se  :ref:`portal-flow`, og for signeringsoppdrag i direkteflyt, se :ref:`direct-flow`.
 
