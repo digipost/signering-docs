@@ -1,19 +1,24 @@
 Lagring
 *********
 
-.. _langtidslagring:
+.. _portalflyt: https://signering-docs.readthedocs.io/en/latest/client-integration/portal-flow.html#step-3-get-signed-documents
+.. _direkteflyt: https://signering-docs.readthedocs.io/en/latest/client-integration/direct-flow.html#step-4-get-signed-documents
+.. _web-grensesnittet: https://signering.posten.no/virksomhet/#/logginn
 
-Langtidslagring
-================
+Signerte dokumenter er i utgangspunktet tilgjengelig for nedlastning/henting i 40 dager etter signering. Etter dette blir de **slettet og utilgjengelige fra signeringstjenesten**. 
 
-Posten signering tilbyr en tilleggstjeneste for langtidslagring av originaldokument og signerte dokumenter. Tjenesten må aktiveres før en avsender kan ta den i bruk.
+Det er viktig å merke seg at beviskraften til digitale signaturer blir svakere over tid. Dette er fordi teknologien som forsegler signerte dokumenter blir utdatert i tråd med teknologisk utvikling. Vi anbefaler at dokumenter som krever beviskraft utover 3 år gjennomgår teknisk vedlikehold for å forsikre langvarig beviskraft.
 
-For avsendere med langtidslagring aktivert, lagres alle dokumenter i minst **50 år**. Dersom langtidslagring *ikke* er aktivert kan dokumentene bli utilgjengeliggjort etter **40 dager**.
+For å sikre langvarig beviskraft og lagring av signerte dokumenter tilbyr vi tilleggstjenesten *Langtidsvalidering og lagring*
 
-Avsendere som bruker avsenderportalen kan få tilgang til langtidslagrede dokumenter via sin konto på web.
-For avsendere som integrerer med tjenesten via API, er dokumentene tilgjengelig via REST-grensesnittet.
+Langtidsvalidering og lagring
+===============================
 
-Signeringstjenesten langtidslagrer kun XAdES. Når man henter PAdES genereres denne der og da, basert på XAdES.
+Denne tilleggstjenesten aktiveres i virksomhetsinnstillingene i web-grensesnittet_ . Alle dokumenter som signeres når *Langtidsvalidering og lagring* er aktivert blir umiddelbart flagget for langtidsvalidering og lagring. Disse dokumentene vil være tilgjengelige og ha garantert beviskraft i minst 50 år. 
+
+Langtidslagrede dokumenter kan lastes ned i webgrensesnittet, eller hentes via REST-grensesnittet for API-integratører. Se kodeeksempler for henting av signerte dokumenter i portalflyt_ og direkteflyt_. 
+
+Signeringstjenesten langtidslagrer og preserverer det signerte PDF dokumentet (PAdES). Dette gjennomgår teknisk vedlikehold hvert 3. år (tid løper fra signeringstidspunkt) som forsterker kryptografien som brukes til å forsikre om at de signerte dokumentene ikke er endret etter signaturtidspunktet. 
 
 Sletting av dokumenter
 =======================
