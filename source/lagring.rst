@@ -17,17 +17,17 @@ Langtidsvalidering og lagring
 Ved å aktivere *Langtidsvalidering og lagring* tar Posten ansvar for at dine signerte dokumenter har beviskraft og gyldig validering i lang tid fremover (minst 50 år eller så lenge tjenesten finnes). Denne tilleggstjenesten aktiveres i virksomhetsinnstillingene i web-grensesnittet_ og koster 4 kroner per dokument.
 
 Hvordan sikrer vi langtidsvalidering?
--------------------
-Langtidsvalidering (LTV) dokumenterer tilstanden til det signerte dokumentet på signeringstidspunktet. Det signerte PDF-dokumentet (PAdES) for alle oppdrag som signeres i perioden *Langtidsvalidering og lagring* er aktivert blir umiddelbart flagget for teknisk preservering. 
+_____________________________________
+Langtidsvalidering (LTV) dokumenterer tilstanden til det signerte dokumentet på signeringstidspunktet. Det signerte PDF-dokumentet (PAdES) for alle oppdrag som signeres i perioden *Langtidsvalidering og lagring* er aktivert blir umiddelbart flagget for teknisk preservering.
 
 Dokumenter som er flagget for langtidsvalidering gjennomgår teknisk preservering hvert 3. år (tid løper fra signeringstidspunkt) som oppdaterer kryptografien og forsterker forseglingen forsikrer at det signerte dokumentet ikke er endret etter signaturtidspunktet.
 
 Hva skjer med dokumentene hvis jeg deaktiverer tjenesten?
--------------------
+_________________________________________________________
 Alle dokumenter som ble signert i perioden *Langtidsvalidering og lagring* var aktivert vil forsatt være lagret, ha langvarig beviskraft og validering så lenge tjenesten finnes.
 
 Hvordan får jeg tak i preserverte dokumenter?
--------------------
+_____________________________________________
 Langtidslagrede dokumenter kan lastes ned i webgrensesnittet, eller hentes via REST-grensesnittet for API-integratører på samme måte som alle andre signerte dokumenter. Se kodeeksempler for henting av signerte dokumenter i :ref:`signering-i-portalflyt` og :ref:`signering-i-direkteflyt`.
 
 Sletting av dokumenter
@@ -38,7 +38,7 @@ Avsendere som bruker avsenderportalen kan slette dokumenter derfra.
 For avsendere som integrerer via API, kan dokumentene slettes via REST-grensesnittet.
 
 Begrensninger
-___________________
+_____________
 
 - Alle undertegnere må ha signert før dokumentene kan slettes. Dokumenter som ikke blir signert av samtlige undertegnere vil slettes automatisk etter 40 dager, og kan ikke slettes manuelt av avsender.
 - Dokumenter kan tidligst slettes 24 timer etter signeringtidspunkt, da undertegnerne skal ha mulighet til å laste ned dokumentet i et døgn.
