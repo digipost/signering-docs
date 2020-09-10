@@ -7,18 +7,28 @@ Signerte dokumenter er i utgangspunktet tilgjengelig for nedlastning/henting i 4
 
 Det er viktig å merke seg at beviskraften til digitale signaturer blir svakere over tid. Dette er fordi teknologien som forsegler signerte dokumenter blir utdatert i tråd med teknologisk utvikling. Vi anbefaler at dokumenter som krever beviskraft utover 3 år gjennomgår teknisk vedlikehold for å forsikre langvarig beviskraft.
 
-For å sikre langvarig beviskraft og lagring av signerte dokumenter tilbyr vi tilleggstjenesten *Langtidsvalidering og lagring*
+For å sikre langvarig beviskraft og trygg lagring av signerte dokumenter tilbyr vi tilleggstjenesten *Langtidsvalidering og lagring*
 
 .. _langtidsvalidering-og-lagring:
 
 Langtidsvalidering og lagring
 ===============================
 
-Denne tilleggstjenesten aktiveres i virksomhetsinnstillingene i web-grensesnittet_. Alle dokumenter som signeres når *Langtidsvalidering og lagring* er aktivert blir umiddelbart flagget for langtidsvalidering og lagring. Disse dokumentene vil være tilgjengelige og ha garantert beviskraft i minst 50 år.
+Ved å aktivere *Langtidsvalidering og lagring* tar Posten ansvar for at dine signerte dokumenter har beviskraft og gyldig validering i lang tid fremover (minst 50 år eller så lenge tjenesten finnes). Denne tilleggstjenesten aktiveres i virksomhetsinnstillingene i web-grensesnittet_ og koster 4 kroner per dokument.
 
-Langtidslagrede dokumenter kan lastes ned i webgrensesnittet, eller hentes via REST-grensesnittet for API-integratører. Se kodeeksempler for henting av signerte dokumenter i :ref:`signering-i-portalflyt` og :ref:`signering-i-direkteflyt`.
+Hvordan sikrer vi langtidsvalidering?
+-------------------
+Langtidsvalidering (LTV) dokumenterer tilstanden til det signerte dokumentet på signeringstidspunktet. Det signerte PDF-dokumentet (PAdES) for alle oppdrag som signeres i perioden *Langtidsvalidering og lagring* er aktivert blir umiddelbart flagget for teknisk preservering. 
 
-Signeringstjenesten langtidslagrer og preserverer det signerte PDF dokumentet (PAdES). Dette gjennomgår teknisk vedlikehold hvert 3. år (tid løper fra signeringstidspunkt) som forsterker kryptografien som brukes til å forsikre om at de signerte dokumentene ikke er endret etter signaturtidspunktet.
+Dokumenter som er flagget for langtidsvalidering gjennomgår teknisk preservering hvert 3. år (tid løper fra signeringstidspunkt) som oppdaterer kryptografien og forsterker forseglingen forsikrer at det signerte dokumentet ikke er endret etter signaturtidspunktet.
+
+Hva skjer med dokumentene hvis jeg deaktiverer tjenesten?
+-------------------
+Alle dokumenter som ble signert i perioden *Langtidsvalidering og lagring* var aktivert vil forsatt være lagret, ha langvarig beviskraft og validering så lenge tjenesten finnes.
+
+Hvordan får jeg tak i preserverte dokumenter?
+-------------------
+Langtidslagrede dokumenter kan lastes ned i webgrensesnittet, eller hentes via REST-grensesnittet for API-integratører på samme måte som alle andre signerte dokumenter. Se kodeeksempler for henting av signerte dokumenter i :ref:`signering-i-portalflyt` og :ref:`signering-i-direkteflyt`.
 
 Sletting av dokumenter
 =======================
