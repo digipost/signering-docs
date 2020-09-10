@@ -465,7 +465,7 @@ Responses will always include the next permitted poll time, which tells you when
 
         The ``X-Next-permitted-poll-time`` header will give the next permitted poll time in each response.
 
-        Finally, make a ``HTTP POST`` request to the ``confirmation-url`` to confirm that you have successfully retrieved the status change. If it is the last update and the job is completed successfully and :ref:`langtidslagring` is used, this will mark the assignment as completed and stored. Otherwise, the assignment will be deleted from the signing portal.
+        Finally, make a ``HTTP POST`` request to the ``confirmation-url`` to confirm that you have successfully retrieved the status change. If it is the last update and the job is completed successfully and :ref:`langtidsvalidering-og-lagring` is used, this will mark the assignment as completed and stored. Otherwise, the assignment will be deleted from the signing portal.
 
 
 Step 3: Get signed documents

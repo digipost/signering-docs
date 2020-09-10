@@ -533,7 +533,7 @@ Step 4: Get signed documents
 
         In the previous step you got two links: ``xades-url`` and ``pades-url``. Do a ``HTTP GET`` on these to download the signed document in the two formats. For more information on the format of the signed document, see :ref:`signerte-dokumenter`.
 
-Steg 5: Confirm finished processing
+Step 5: Confirm finished processing
 =======================================
 
 ..  tabs::
@@ -552,7 +552,7 @@ Steg 5: Confirm finished processing
 
     ..  group-tab:: HTTP
 
-        Finally, make a ``HTTP POST`` request to the ``confirmation-url`` to confirm that you have completed the job. If :ref:`langtidslagring` is used, this will mark the assignment as completed and stored. Otherwise, the assignment will be deleted from the signing portal.
+        Finally, make a ``HTTP POST`` request to the ``confirmation-url`` to confirm that you have completed the job. If :ref:`langtidsvalidering-og-lagring` is used, this will mark the assignment as completed and stored. Otherwise, the assignment will be deleted from the signing portal.
 
 
 Specifying queues

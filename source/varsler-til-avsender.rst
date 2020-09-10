@@ -12,7 +12,7 @@ Det sendes ut varsler til avsender i tre tilfeller:
 
 2. **24 timer før signeringsfristen for ett oppdrag går ut**: Varselet sendes ut som en påminnelse til avsender om at noen fortsatt ikke har signert. Avsender kan da velge å utsette signeringsfristen, eller purre på undertegnerne ved å sende ekstra varsel. **N.B:** Varselet sendes kun hvis oppdragets opprinnelige signeringsfrist var mer enn 48 timer.
 
-3. **4 dager før arkivering av ferdigsignert dokument utløper**: Varselet sendes ut som en påminnelse til avsender dersom dokumentet er signert av alle mottakere, og *kun* dersom avsender ikke har lastet ned det ferdigsignerte dokumentet. Posten signering tilbyr :ref:`langtidslagring <langtidslagring>` for avsendere som ikke ønsker å måtte laste ned og ta vare på ferdigsignerte dokumenter.
+3. **4 dager før arkivering av ferdigsignert dokument utløper**: Varselet sendes ut som en påminnelse til avsender dersom dokumentet er signert av alle mottakere, og *kun* dersom avsender ikke har lastet ned det ferdigsignerte dokumentet. Posten signering tilbyr :ref:`langtidsvalidering-og-lagring` for avsendere som ikke ønsker å måtte laste ned og ta vare på ferdigsignerte dokumenter.
 
 
 Varsel når signeringsoppdrag endrer status
