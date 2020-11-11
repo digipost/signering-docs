@@ -2,18 +2,14 @@
 
 Adressering av undertegner
 ***************************
-Måten undertegner adresseres og identifiseres på, er litt forskjellig avhengig av om han signerer i direkteflyt eller portalflyt, og om avsender bruker API eller avsenderportalen.
+Undertegner kan adresseres og identifiseres på tre forskjellige måter; 
 
-..  TIP::
-    Hvis du ønsker å lese en introduksjon til de forskjellige flytene en undertegner kan signere i, se :ref:`signeringsflyt`.
 1. Med fødselsnummer
 2. Med e-post og/eller mobilnummer 
 3. Med egenvalgt identifikator 
 
-..  CAUTION::
-    Måten du adresserer undertegner på, påvirker :ref:`innholdet og utseendet på undertegners signatur <identifisereUndertegnere>`.
+Adresseingsalternativene varierer ut i fra om avsender er en offentlig eller privat virksomhet, om dokumentet sendes via API, eller web-portal og hvilken :ref:`signeringsflyt` som skal benyttes.
 
-Posten signering sender ut varsel om signeringsoppdrag til undertegner på e-post og/eller SMS, hvis signering skjer i portalflyt. Ved signering i direkteflyt er det avsender som står for varsling til undertegner.
 
 +-----------------+-----------------+---------------------+---------------------------+----------------------+
 |                 |                 |                                                                        |
@@ -32,49 +28,66 @@ Posten signering sender ut varsel om signeringsoppdrag til undertegner på e-pos
 | **Web**         | **Portal**      | Offentlig + Privat  |     Privat                |        Ingen         |
 +-----------------+-----------------+---------------------+---------------------------+----------------------+
 
-- adressere med fødselsnummer
-- adressere uten fødselsnummer
-- adressere med egenvalgt identifikator (eksempelvis kundenummer)
 
-**Avsender som bruker avsenderportal på web kan**
+..  CAUTION::
+    Måten du adresserer undertegner på, påvirker :ref:`innhold og utseendet på undertegners signatur <identifisereUndertegnere>`.
 
-- adressere med fødselsnummer
-- adressere uten fødselsnummer (N.B: Kun hvis privat virksomhet)
+1. Adressering med fødselsnummer
+================================
+For å adressere med fødselsnummer må du vite undertegners fødselsnummer. Denne måten å adressere på gir en sikker identifisering av undertegner, siden kun én bestemt person har mulighet til å åpne og signere dokumentet. 
 
+Adressering med fødselsnummer og signering i portalflyt
+-------------------------------------------------------
+Undertegner må logge inn i signeringsportalen for å se og signere dokumentet. Dette gjør altså at kun riktig person har mulighet til å lese og signere. Undertegner får tilgang til signeringsportalen via varsel på e-post eller SMS.
 
-Det signerte dokumenter vil inneholde navn på undertegner og hvilken elektronisk ID som ble brukt. Man kan for øvrig velge hvilken :ref:`identifikator man ønsker i signerte dokumenter <identifisereUndertegnere>`.
+Dersom avsender er en **privat bedrift** må e-postadressen og/eller mobilnummeret til mottaker oppgis i tillegg til fødselsnummer for å kunne varsle varsle mottaker. 
 
+Dersom avsender er en **offentlig virksomhet** hentes e-postadressen og mobilnummeret til mottaker automatisk fra Kontakt- og reservasjonsregisteret. Det er kun hvis undertegnere signerer på vegne av en virksomhet eller en rolle at kontaktinformasjonen kan overstyres.
 
-Adressering med fødselsnummer
-===============================
-For å adressere med fødselsnummer må du vite undertegners fødselsnummer, samt e-postadresse og/eller mobilnummer. Denne måten å adressere på gir en sikker identifisering av undertegner, siden kun én bestemt person har mulighet til å åpne og signere dokumentet.
+.. NOTE::
+   Når du som avsender velger adressering med fødselsnummer, kan du velge å inkludere fødselsnummeret i det signerte dokumentet.
 
-Ved :ref:`Signering i portalflyt med fødselsnummer <signering-i-portalflyt-med-fødselsnummer>` må undertegner logge inn i signeringsportalen før han kan se og signere dokumentet. Dette gjør altså at kun riktig person har mulighet til å lese og signere. Se signering i portalflyt, adressering med f.nr her.
+Se :ref:`Signering i portalflyt med fødselsnummer <signering-i-portalflyt-med-fødselsnummer>` for mer informasjon og visuelle eksempler.
 
-Ved :ref:`signering-i-direkteflyt` er undertegner logget inn i avsenders system, og det er da avsender som er ansvarlig for å sende undertegner til riktig lenke i signeringstjenesten.
+Adressering med fødselsnummer og signering i direkteflyt
+--------------------------------------------------------
+Det sendes ikke ut noen automatisk varsling ved signering i direkteflyt. Det er avsenders ansvar å sende undertegner til riktig lenke i signeringstjenesten. 
 
-Når du som avsender velger adressering med fødselsnummer, kan du velge å inkludere fødselsnummeret i det signerte dokumentet.
+Som oftest brukes signering i direkteflyt og adressering med fødselsnummer når undertegner er innlogget i avsenders systemer/nettsider med fødselsnummer.
+
+Se :ref:`signering-i-direkteflyt` for mer informasjon og visuelle eksempler. 
 
 
 2. Adressering på e-post / SMS
 ===============================
 
-Ved adressering uten fødselsnummer blir ikke signeringsoppdraget knyttet til én spesifikk person. Derfor krever signeringstypen ingen innlogging, og du trenger ikke vite undertegners fødselsnummer. I stedet sender du *kun* inn e-postadressen og/eller mobilnummeret som skal motta varsel om signeringen.  Se :ref:`varsler <varslerUtenFødselsnummer>` for å se hvordan varselet ser ut.
 .. NOTE::
    Dette alternativet er kun tilgjengelig for private virksomheter
 
-Ved :ref:`Signering i portalflyt uten fødselsnummer <signering-i-portalflyt-uten-fødselsnummer>` får undertegner en unik lenke og en kode, og han kan se og signere dokumentet uten innlogging.
+Ved adressering på e-post / SMS blir ikke signeringsoppdraget knyttet til én spesifikk person. Derfor krever signeringstypen ingen innlogging, og du trenger ikke vite undertegners fødselsnummer. I stedet sender du *kun* inn e-postadressen og/eller mobilnummeret som skal motta varsel om signeringen.  Se :ref:`varsler <varslerUtenFødselsnummer>` for å se hvordan varselet ser ut.
 
-Ved :ref:`signering-i-direkteflyt`  så sender du fra API. Da har du mulighet til å bruke en egenvalgt identifikator i stedet for e-postadresse og mobilnummer. Dette kan f.eks. være et kundenummer.
 
-Når du som avsender velger adressering uten fødselsnummer, vil ikke fødselsnummeret bli inkludert i det signerte dokumentet, av personvernmessige hensyn. Du vil fortsatt få med navn og eventuelt fødselsdato i det signerte dokumentet.
+Når du som avsender velger adressering på e-post / SMS, vil ikke fødselsnummeret bli inkludert i det signerte dokumentet, av personvernmessige hensyn. Du vil fortsatt få med navn og eventuelt fødselsdato i det signerte dokumentet.
 
 ..  IMPORTANT::
     Selve signaturen er like sikker og gyldig som når du adresserer med fødselsnummer, men du som avsender er ansvarlig for at riktig person åpner og signerer dokumentet.
 
+Se :ref:`Signering i portalflyt med adressering på e-post / SMS <signering-i-portalflyt-uten-fødselsnummer>` for mer informasjon og visuelle eksempler. 
+
+3. Egenvalgt identifisering av undertegner
+=======================================
+
+.. NOTE::
+   Dette alternativet er kun tilgjengelig ved signering i direkteflyt via API-integrasjon
+
+Dette alternativet gir avsender mulighet til å bruke en egenvalgt identifikator for undertegner istedenfor fødselsnummer, e-postadresse og mobilnummer. Dette kan f.eks. være et kundenummer.
+
+Se :ref:`signering-i-direkteflyt`  for mer informasjon og visuelle eksempler.
+
 .. _varsler:
 
-Kontaktinformasjon
+
+Varsler og kontaktinformasjon
 *********************
 
  - Alle undertegnere må ha minst én av e-postadresse og mobilnummer.
@@ -82,15 +95,12 @@ Kontaktinformasjon
  - Dersom en undertegner har mobilnummer og ikke e-postadresse vil det alltid bli sendt SMS.
  - Tjenesten støtter kun norske mobilnumre.
 
-Som **bedrift** må du selv vite og legge til e-postadressen og/eller mobilnummeret til undertegner. Det er ikke mulig å bruke Kontakt- og reservasjonsregisteret.
+Som **privat bedrift** må du selv vite og legge til e-postadressen og/eller mobilnummeret til undertegner. Det er ikke mulig å bruke Kontakt- og reservasjonsregisteret.
 
-For **offentlige virksomheter** gjør vi oppslag i `Kontakt- og reservasjonsregisteret <https://samarbeid.difi.no/kontakt-og-reservasjonsregisteret>`_ hvis ikke kontaktinformasjon overstyres.
+For **offentlige virksomheter** gjør vi oppslag i `Kontakt- og reservasjonsregisteret (KRR) <https://samarbeid.difi.no/kontakt-og-reservasjonsregisteret>`_. Det er kun dersom undertegner skal signere på vegne av en virksomhet at offentlige virksomheter kan definere egen kontaktinformasjon til undertegner.
 
 ..  CAUTION::
     Hvis undertegnere er reservert mot digital kommunikasjon vil oppdraget bli avvist og påfølgende uthenting av status for oppdraget vil gi en feil med informasjon om hvilke undertegnere som er reservert. Undertegnere med overstyrt kontaktinformasjon blir ikke sjekket for reservasjon.
-
-..  NOTE::
-    Det er kun tillatt å overstyre kontaktinformasjon som en offentlig virksomhet hvis undertegner ikke signerer som privatperson, det vil si signerer i kraft av en rolle for en virksomhet.
 
 
 Bruk av Kontakt- og reservasjonsregisteret
