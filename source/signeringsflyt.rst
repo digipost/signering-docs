@@ -51,7 +51,7 @@ Flyten ser typisk slik ut:
 .. _signering-i-portalflyt-uten-fødselsnummer:
 
 
-Adressering uten fødselsnummer
+Adressering på e-post / SMS
 _______________________________
 
 En signeringsflyt hvor man får tilgang til portalen ved en lenke og et engangspassord.
@@ -65,5 +65,5 @@ En signeringsflyt hvor man får tilgang til portalen ved en lenke og et engangsp
 Når man adresserer undertegner uten fødselsnummer, er det avsenders ansvar å sjekke at det er rett eller ønsket person som har signert.
 
 ..  TIP::
-    Se gjerne `denne bildeguiden i Google Presentation for signering i portalflyt, adressering uten fødselsnummer <https://docs.google.com/presentation/d/14Q_-YzaxcGsZOgUR6rJl7rWSwLZwujnuqgkKCrxksoA/edit#slide=id.g2e3b4edaeb_0_1>`_.
+    Se gjerne `denne bildeguiden i Google Presentation for signering i portalflyt, adressering på e-post / SMS <https://docs.google.com/presentation/d/14Q_-YzaxcGsZOgUR6rJl7rWSwLZwujnuqgkKCrxksoA/edit#slide=id.g2e3b4edaeb_0_1>`_.
 

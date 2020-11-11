@@ -112,7 +112,7 @@ ____________________________________________________________________
          
 .. _varslerUtenFødselsnummer:
 
-Varsel om dokument til signering, ved adressering uten fødselsnummer
+Varsel om dokument til signering, ved adressering på e-post / SMS
 ____________________________________________________________________
 
 ..  tabs::

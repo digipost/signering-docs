@@ -6,6 +6,9 @@ Måten undertegner adresseres og identifiseres på, er litt forskjellig avhengig
 
 ..  TIP::
     Hvis du ønsker å lese en introduksjon til de forskjellige flytene en undertegner kan signere i, se :ref:`signeringsflyt`.
+1. Med fødselsnummer
+2. Med e-post og/eller mobilnummer 
+3. Med egenvalgt identifikator 
 
 ..  CAUTION::
     Måten du adresserer undertegner på, påvirker :ref:`innholdet og utseendet på undertegners signatur <identifisereUndertegnere>`.
@@ -38,7 +41,7 @@ Ved :ref:`signering-i-direkteflyt` er undertegner logget inn i avsenders system,
 Når du som avsender velger adressering med fødselsnummer, kan du velge å inkludere fødselsnummeret i det signerte dokumentet.
 
 
-Adressering uten fødselsnummer
+2. Adressering på e-post / SMS
 ===============================
 
 Ved adressering uten fødselsnummer blir ikke signeringsoppdraget knyttet til én spesifikk person. Derfor krever signeringstypen ingen innlogging, og du trenger ikke vite undertegners fødselsnummer. I stedet sender du *kun* inn e-postadressen og/eller mobilnummeret som skal motta varsel om signeringen.  Se :ref:`varsler <varslerUtenFødselsnummer>` for å se hvordan varselet ser ut.
