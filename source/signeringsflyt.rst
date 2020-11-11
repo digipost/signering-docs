@@ -55,6 +55,9 @@ Adressering på e-post / SMS
 _______________________________
 
 En signeringsflyt hvor man får tilgang til portalen ved en lenke og et engangspassord.
+.. NOTE::
+   Dette alternativet er kun tilgjengelig for private virksomheter
+
 
 #. Avsender oppretter et oppdrag gjennom API eller fra web i avsenderportalen
 #. Undertegner mottar en unik lenke og engangskode til oppdrag på e-post eller SMS

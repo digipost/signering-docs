@@ -15,7 +15,22 @@ Måten undertegner adresseres og identifiseres på, er litt forskjellig avhengig
 
 Posten signering sender ut varsel om signeringsoppdrag til undertegner på e-post og/eller SMS, hvis signering skjer i portalflyt. Ved signering i direkteflyt er det avsender som står for varsling til undertegner.
 
-**Avsender som bruker API kan**
++-----------------+-----------------+---------------------+---------------------------+----------------------+
+|                 |                 |                                                                        |
+|                 |                 |   Adressering / identifisering av undertegner                          |
++-----------------+-----------------+---------------------+---------------------------+----------------------+
+|                 |                 |                     |                           |                      |
+| Sendes fra      | Signeringsflyt  |  **Fødselsnummer**  | **E-post / mobilnummer**  | **Egenvalgt ID**     |
++-----------------+-----------------+---------------------+---------------------------+----------------------+
+|                 |                 |                     |                           |                      |
+|                 | **Direkte**     | Offentlig + Privat  |     Ingen                 | Offentlig + Privat   |
+| **API**         +-----------------+---------------------+---------------------------+----------------------+
+|                 |                 |                     |                           |                      |
+|                 | **Portal**      | Offentlig + Privat  |     Privat                |        Ingen         |
++-----------------+-----------------+---------------------+---------------------------+----------------------+
+|                 |                 |                     |                           |                      |
+| **Web**         | **Portal**      | Offentlig + Privat  |     Privat                |        Ingen         |
++-----------------+-----------------+---------------------+---------------------------+----------------------+
 
 - adressere med fødselsnummer
 - adressere uten fødselsnummer
@@ -45,6 +60,8 @@ Når du som avsender velger adressering med fødselsnummer, kan du velge å inkl
 ===============================
 
 Ved adressering uten fødselsnummer blir ikke signeringsoppdraget knyttet til én spesifikk person. Derfor krever signeringstypen ingen innlogging, og du trenger ikke vite undertegners fødselsnummer. I stedet sender du *kun* inn e-postadressen og/eller mobilnummeret som skal motta varsel om signeringen.  Se :ref:`varsler <varslerUtenFødselsnummer>` for å se hvordan varselet ser ut.
+.. NOTE::
+   Dette alternativet er kun tilgjengelig for private virksomheter
 
 Ved :ref:`Signering i portalflyt uten fødselsnummer <signering-i-portalflyt-uten-fødselsnummer>` får undertegner en unik lenke og en kode, og han kan se og signere dokumentet uten innlogging.
 

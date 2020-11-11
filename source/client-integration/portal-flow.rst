@@ -180,10 +180,11 @@ Step 1: Create signature job
 The signer
 -----------------
 
-Before starting this chapter, please read up on :ref:`varsler` :ref:`adressering-av-undertegner`. Signers can be adressed and notified in different ways.
+Before starting this chapter, please read up on :ref:`adressering-av-undertegner` and :ref:`varsler`. Signers can be adressed and notified in different ways.
 
 Adressing the signer
 ^^^^^^^^^^^^^^^^^^^^^^
+
 
 ..  tabs::
 
@@ -205,6 +206,8 @@ Adressing the signer
 
             ..  tab:: E-mail
 
+                ..  NOTE:: This option is only available for organisations in private sector
+
                 ..  code-block:: xml
 
                     <signer>
@@ -217,6 +220,8 @@ Adressing the signer
 
             ..  tab:: Mobile
 
+                ..  NOTE:: This option is only available for organisations in private sector
+
                 ..  code-block:: xml
 
                     <signer>
@@ -228,6 +233,8 @@ Adressing the signer
                     </signer>
 
             ..  tab:: E-mail and mobile
+
+                ..  NOTE:: This option is only available for organisations in private sector
 
                 ..  code-block:: xml
 
