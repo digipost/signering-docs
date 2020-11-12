@@ -174,6 +174,70 @@ Step 1: Create signature job
         This functionality exists with integration via HTTP, but the example has not been generated yet.
 
 
+Identifying the signer
+----------------------
+
+When using direct flow you can identify the signer in two different ways: 
+
+- with social security number 
+- chosen identifier (e.g. customer number)
+
+..  tabs::
+
+    ..  group-tab:: C#
+
+        ..  code-block:: c#
+
+            //This functionality exists in C#, but the example has not been generated yet.
+
+    ..  group-tab:: Java
+
+        ..  code-block:: java
+
+            //This functionality exists in Java, but the example has not been generated yet.
+
+    ..  group-tab:: HTTP
+
+        ..  tabs::
+
+            ..  group-tab:: Social Security Number
+
+                ..  code-block:: xml
+
+                    <signer>
+                       <personal-identification-number>12345678910</personal-identification-number>
+                       <on-behalf-of>SELF</on-behalf-of>
+                    </signer>
+
+                For a full example, please see `the example manifest for signature type and authentication in the API-specification  <https://github.com/digipost/signature-api-specification/blob/master/schema/examples/direct/manifest-specify-signtype-and-auth.xml>`_.
+
+            ..  group-tab:: Chosen identifier
+
+                It is possible to use a chosen identifier to create a connection between a person in the senders system and a signature job. A customer number or anything that makes sense the sender can be chosen.
+
+                ..  code-block:: xml
+
+                    <signer>
+                        <signer-identifier>kundenummer-134AB47</signer-identifier>
+                        <on-behalf-of>SELF</on-behalf-of>
+                    </signer>
+
+                For a full example, please see `eksempelmanifest for selvvalgt identifikator i API-spesifikasjonen <https://github.com/digipost/signature-api-specification/blob/master/schema/examples/direct/manifest-signer-without-pin.xml>`_.
+
+            ..  group-tab:: On behalf of
+
+                A sender can choose if the signer is signing on behalf of himself or by virtue of a role. This is done by setting the attribute ``on-behalf-of`` to ``SELF`` or ``OTHER``.
+
+                 The signed document will not be sent to the signers digital mailbox if signing on behalf of someone else.
+
+                ..  code-block:: xml
+
+                    <signer>
+                       <personal-identification-number>12345678910</personal-identification-number>
+                       <on-behalf-of>OTHER</on-behalf-of>
+                    </signer>
+
+
 Other settings
 ----------------
 
@@ -250,70 +314,6 @@ Response
                </redirect-url>
                <status-url>https://api.signering.posten.no/api/{sender-identifier}/direct/signature-jobs/1/status</status-url>
             </direct-signature-job-response>
-
-The signer
-------------
-
-Before starting this chapter, please reed up on :ref:`varsler` :ref:`adressering-av-undertegner`. Signers can be adressed and notified in different ways.
-
-Adressing the signer
-^^^^^^^^^^^^^^^^^^^^^^
-
-..  tabs::
-
-    ..  group-tab:: C#
-
-        ..  code-block:: c#
-
-            //This functionality exists in C#, but the example has not been generated yet.
-
-    ..  group-tab:: Java
-
-        ..  code-block:: java
-
-            //This functionality exists in Java, but the example has not been generated yet.
-
-    ..  group-tab:: HTTP
-
-        ..  tabs::
-
-            ..  group-tab:: Social Security Number
-
-                ..  code-block:: xml
-
-                    <signer>
-                       <personal-identification-number>12345678910</personal-identification-number>
-                       <on-behalf-of>SELF</on-behalf-of>
-                    </signer>
-
-                For a full example, please see `the example manifest for signature type and authentication in the API-specification  <https://github.com/digipost/signature-api-specification/blob/master/schema/examples/direct/manifest-specify-signtype-and-auth.xml>`_.
-
-            ..  group-tab:: Chosen identifier
-
-                It is possible to use a chosen identifier to create a connection between a person in the senders system and a signature job. A customer number or anything that makes sense the sender can be chosen.
-
-                ..  code-block:: xml
-
-                    <signer>
-                        <signer-identifier>kundenummer-134AB47</signer-identifier>
-                        <on-behalf-of>SELF</on-behalf-of>
-                    </signer>
-
-                For a full example, please see `eksempelmanifest for selvvalgt identifikator i API-spesifikasjonen <https://github.com/digipost/signature-api-specification/blob/master/schema/examples/direct/manifest-signer-without-pin.xml>`_.
-
-            ..  group-tab:: On behalf of
-
-                A sender can choose if the signer is signing on behalf of himself or by virtue of a role. This is done by setting the attribute ``on-behalf-of`` to ``SELF`` or ``OTHER``.
-
-                 The signed document will not be sent to the signers digital mailbox if signing on behalf of someone else.
-
-                ..  code-block:: xml
-
-                    <signer>
-                       <personal-identification-number>12345678910</personal-identification-number>
-                       <on-behalf-of>OTHER</on-behalf-of>
-                    </signer>
-
 
 
 .. _directIntegrationStep2:
