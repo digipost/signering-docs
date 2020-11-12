@@ -650,7 +650,7 @@ After receiving a status change, the documents can be deleted as follows:
         This functionality exists with integration via HTTP, but the example has not been generated yet.
 
 
-..  |direkteflytskjema| image:: https://raw.githubusercontent.com/digipost/signature-api-specification/master/integrasjon/flytskjemaer/synkron-maskin-til-maskin.png
+..  |direkteflytskjema| image:: https://raw.githubusercontent.com/digipost/signature-api-specification/main/integrasjon/flytskjemaer/synkron-maskin-til-maskin.png
     :alt: Flow chart for signing in direct flow
 
 .. _directIntegrationRequestNewRedirectUrl:
