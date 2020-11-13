@@ -19,7 +19,7 @@ Som en virksomhet kan du ta i bruk Posten signering på 2 måter, avhengig av be
 
 Avsenderportal
 --------------
-Avsenderportalen gjør det mulig for en virksomhet å ta i bruk signeringstjenesten uten å gjøre noen tekniske integrasjoner. Dokumentene som skal signeres lastes manuelt opp i portalen. Undertegnere logger inn i portalen for å få tilgang til å lese og signere dokumentene via *portalflyt*. Dette er en enkel og effektiv måte å komme i gang med signeringstjenesten på, og passer bra for mindre volumer. Hvis du er en privat virksomhet, kan du *registrere virksomheten direkte*. Hvis du er en offentlig virksomhet, får du registrert konto i signering via *Difi og samarbeidsportalen*.
+Avsenderportalen gjør det mulig for en virksomhet å ta i bruk signeringstjenesten uten å gjøre noen tekniske integrasjoner. Dokumentene som skal signeres lastes manuelt opp i portalen. Undertegnere logger inn i portalen for å få tilgang til å lese og signere dokumentene via *portalflyt*. Dette er en enkel og effektiv måte å komme i gang med signeringstjenesten på, og passer bra for mindre volumer. Hvis du er en privat virksomhet, kan du *registrere virksomheten direkte*. Hvis du er en offentlig virksomhet, får du registrert konto i signering via `Digitaliseringsdirektoratet og samarbeidsportalen <https://samarbeid.difi.no/felleslosninger/esignering/ta-i-bruk-esignering>`_.
 
 API-integrasjon
 ---------------

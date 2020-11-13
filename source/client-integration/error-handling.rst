@@ -38,7 +38,7 @@ There are differet forms of exceptions that can occur. Some are more specific th
         try {
             client.confirm(statusChange);
         } catch (BrokerNotAuthorizedException brokerNotAuthorized) {
-            // Broker is not authorized to perform action. Contact Difi in order to set up access rights.
+            // Broker is not authorized to perform action. Contact Digitaliseringsdirektoratet in order to set up access rights.
         } catch (UnexpectedResponseException unexpectedResponse) {
             // The server returned an unexpected response.
             Response.StatusType httpStatusCode = unexpectedResponse.getActualStatus();
@@ -49,5 +49,3 @@ There are differet forms of exceptions that can occur. Some are more specific th
         } catch (SignatureException e) {
             // An unexpected exception was thrown, inspect e.getMessage().
         }
-
-
