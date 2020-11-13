@@ -44,7 +44,7 @@ Signeringsflyt
 ===============
 
 Signeringsoppdrag i portalflyt
-    - adressering uten fødselsnummer
+    - adressering på e-post / SMS
     - adressering med fødselsnummer
 
 Signeringsoppdrag i direkteflyt

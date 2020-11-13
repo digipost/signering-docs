@@ -75,7 +75,7 @@ In addition to installing the certificate, you must add the certificate to the t
 
    .. group-tab:: Linux
 
-      Download the root and intermediate certificates from `Difi <https://begrep.difi.no/SikkerDigitalPost/1.2.6/sikkerhet/sertifikathandtering>`_ for your business certificate provider. Note the renaming to have :code:`.crt` ending for :code:`update-ca-certificates`:
+      Download the root and intermediate certificates from `Digitaliseringsdirektoratet <https://begrep.difi.no/SikkerDigitalPost/1.2.6/sikkerhet/sertifikathandtering>`_ for your business certificate provider. Note the renaming to have :code:`.crt` ending for :code:`update-ca-certificates`:
 
       .. code-block:: bash
 
@@ -123,5 +123,3 @@ Java
 =====
 
 If you are using the Java client library, there is no need to install the enterprise certificate. It can be loaded directly from file.
-
-

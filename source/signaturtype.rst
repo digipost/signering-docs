@@ -5,7 +5,7 @@ Signaturtype
 
 I Norge har vi tre forskjellige måter å signere digitalt på, som beskrevet i E-signaturloven: autentisert, avansert og kvalifisert. Autentisert signatur er en sterk signatur, avansert signatur er enda sterkere, og kvalifisert signatur er den sterkeste signaturen.
 
-Vi tilbyr autentisert og avansert signatur, som er rettskraftige signaturer på lik linje med håndskrift på papir. Kvalifisert signatur eksisterer ikke per i dag, men er tenkt oppfylt på lang sikt gjennom Nasjonalt ID-kort. 
+Vi tilbyr autentisert og avansert signatur, som er rettskraftige signaturer på lik linje med håndskrift på papir. Kvalifisert signatur eksisterer ikke per i dag, men er tenkt oppfylt på lang sikt gjennom Nasjonalt ID-kort.
 
 ..  _avansert-signatur:
 
@@ -28,7 +28,7 @@ Ved bruk av autentisert signatur så autentiseres brukeren i ID-porten. IDporten
 
 En autentisert signatur er derfor litt svakere enn en avansert signatur fordi det er flere parter involvert og at det skjer i to steg.
 
-Offentlige virksomheter bruker ofte autentisert signatur, da den er rimeligere enn avansert signatur. 
+Offentlige virksomheter bruker ofte autentisert signatur, da den er rimeligere enn avansert signatur.
 
 Avsender kan velge :ref:`sikkerhetsnivå` på signeringen.
 
@@ -43,7 +43,7 @@ Valg av signaturtype
 
     ..  tab:: Offentlig virksomhet
 
-        Som offentlig virksomhet har du mulighet til å velge mellom :ref:`avansert-signatur` eller :ref:`autentisert-signatur`, men Difi anbefaler offentlige virksomheter å bruke autentisert signatur ettersom det er billigere og oppfyller de kravene som blir stilt i offentlig sektor.
+        Som offentlig virksomhet har du mulighet til å velge mellom :ref:`avansert-signatur` eller :ref:`autentisert-signatur`, men Digitaliseringsdirektoratet anbefaler offentlige virksomheter å bruke autentisert signatur ettersom det er billigere og oppfyller de kravene som blir stilt i offentlig sektor.
 
         ..  NOTE::
             Standardverdi for signaturtype er autentisert.
@@ -51,4 +51,3 @@ Valg av signaturtype
 .. rubric:: Fotnoter
 
 .. [#footnoteSigneringsmetoderOffentlig] BankID på mobil er ikke tilgjengelig for avanserte oppdrag fra offentlig virksomhet.
-
