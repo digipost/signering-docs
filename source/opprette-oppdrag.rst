@@ -10,7 +10,7 @@ Ved opprettelse av signeringsoppdrag kan følgende felter angis:
 +---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
 | Undertegner(e)            | **Obligatorisk**        | **Obligatorisk**  | se :ref:`adressering-av-undertegner`                          |
 +---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
-| Tittel                    | **Obligatorisk**[#f3]_  | **Obligatorisk**  |                                                               |
+| Tittel                    | **Obligatorisk**        | **Obligatorisk**  | Maks 80 tegn [#f1]_                                           |
 +---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
 | Signaturtype              | Valgfritt               | Valgfritt         | se :ref:`signaturtype`                                        |
 +---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
@@ -20,9 +20,9 @@ Ved opprettelse av signeringsoppdrag kan følgende felter angis:
 +---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
 | Undertegners identifikator| Valgfritt               | Valgfritt         | se :ref:`adressering-av-undertegner`                          |
 +---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
-| Aktiveringstidspunkt      | Ikke overstyrbar [#f1]_ | Valgfritt         |                                                               |
+| Aktiveringstidspunkt      | Ikke overstyrbar [#f2]_ | Valgfritt         |                                                               |
 +---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
-| Levetid                   | Ikke overstyrbar [#f2]_ | Valgfritt         |                                                               |
+| Levetid                   | Ikke overstyrbar [#f3]_ | Valgfritt         |                                                               |
 +---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
 | E-postadresse             | Ikke relevant           | **Obligatorisk**  | se :ref:`varsler`                                             |
 +---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
@@ -33,9 +33,9 @@ Ved opprettelse av signeringsoppdrag kan følgende felter angis:
 
 .. rubric:: Footnotes
 
-.. [#f1] Signeringsoppdrag i direkteflyt blir alltid aktivert øyeblikkelig etter opprettelse. *Standardverdi* er *øyeblikkelig etter opprettelse*.
-.. [#f2] Signeringsoppdrag i direkteflyt har alltid 30 dagers levetid for å unngå at et dokument blir signert uhensiktsmessig lenge etter opprettelsen av oppdraget. Eventuell frist fra avsenders perspektiv må kommuniseres og håndteres i avsenders tjenester.
-.. [#f3] Tittel kan ikke være lengre en 80 tegn.
+.. [#f1] Maks 80 tegn er tillatt for tittel i både `direkte- <https://github.com/digipost/signature-api-specification/blob/2.7/schema/xsd/direct.xsd#L68-L75>`_ og `portalflyt <https://github.com/digipost/signature-api-specification/blob/2.7/schema/xsd/portal.xsd#L98-L105>`_.
+.. [#f2] Signeringsoppdrag i direkteflyt blir alltid aktivert øyeblikkelig etter opprettelse. *Standardverdi* er *øyeblikkelig etter opprettelse*.
+.. [#f3] Signeringsoppdrag i direkteflyt har alltid 30 dagers levetid for å unngå at et dokument blir signert uhensiktsmessig lenge etter opprettelsen av oppdraget. Eventuell frist fra avsenders perspektiv må kommuniseres og håndteres i avsenders tjenester.
 
 For implementasjon for signeringsoppdrag i portalflyt, se  :ref:`portal-flow`, og for signeringsoppdrag i direkteflyt, se :ref:`direct-flow`.
 
