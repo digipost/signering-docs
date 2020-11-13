@@ -21,12 +21,10 @@ Install client
 
 ..  |build-status-java| image:: https://maven-badges.herokuapp.com/maven-central/no.digipost.signature/signature-api-client-java/badge.svg
     :alt: build status
-    :scale: 100%
     :target: https://maven-badges.herokuapp.com/maven-central/no.digipost.signature/signature-api-client-java
 
 ..  |javadoc| image:: https://javadoc.io/badge2/no.digipost.signature/signature-api-client-java/javadoc.io.svg
     :alt: javadoc.io
-    :scale: 100%
     :target: https://javadoc.io/doc/no.digipost.signature/signature-api-client-java
 
 ..  |build-status-dotnet| image:: https://travis-ci.org/digipost/signature-api-client-dotnet.svg?branch=master
