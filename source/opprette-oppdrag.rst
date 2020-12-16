@@ -12,11 +12,14 @@ Ved opprettelse av signeringsoppdrag kan følgende felter angis:
 +---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
 | Tittel                    | **Obligatorisk**        | **Obligatorisk**  | Maks 80 tegn [#f1]_                                           |
 +---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
+| Ikke-sensitiv tittel      | Ikke relevant           | Valgfritt         | Maks 80 tegn [#f1]_                                           |
+| / Beskrivelse             |                         |                   |                                                               |
++---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
 | Signaturtype              | Valgfritt               | Valgfritt         | se :ref:`signaturtype`                                        |
 +---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
 | Sikkerhetsnivå            | Valgfritt               | Valgfritt         | se :ref:`sikkerhetsnivå`                                      |
 +---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
-| Melding til mottaker(e)   | Valgfritt               | Valgfritt         |                                                               |
+| Melding til mottaker(e)   | Valgfritt               | Valgfritt         | Maks 220 tegn [#f1]_                                          |
 +---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
 | Undertegners identifikator| Valgfritt               | Valgfritt         | se :ref:`adressering-av-undertegner`                          |
 +---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
@@ -33,7 +36,7 @@ Ved opprettelse av signeringsoppdrag kan følgende felter angis:
 
 .. rubric:: Footnotes
 
-.. [#f1] Maks 80 tegn er tillatt for tittel i både `direkte- <https://github.com/digipost/signature-api-specification/blob/2.7/schema/xsd/direct.xsd#L68-L75>`_ og `portalflyt <https://github.com/digipost/signature-api-specification/blob/2.7/schema/xsd/portal.xsd#L98-L105>`_.
+.. [#f1] Maks antall tillate tegn gjelder i både `direkte- <https://github.com/digipost/signature-api-specification/blob/2.7/schema/xsd/direct.xsd#L68-L75>`_ og `portalflyt <https://github.com/digipost/signature-api-specification/blob/2.7/schema/xsd/portal.xsd#L98-L105>`_.
 .. [#f2] Signeringsoppdrag i direkteflyt blir alltid aktivert øyeblikkelig etter opprettelse. *Standardverdi* er *øyeblikkelig etter opprettelse*.
 .. [#f3] Signeringsoppdrag i direkteflyt har alltid 30 dagers levetid for å unngå at et dokument blir signert uhensiktsmessig lenge etter opprettelsen av oppdraget. Eventuell frist fra avsenders perspektiv må kommuniseres og håndteres i avsenders tjenester.
 
