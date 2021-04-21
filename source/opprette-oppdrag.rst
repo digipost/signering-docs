@@ -71,7 +71,7 @@ For arkivering av signerte dokumenter anbefaler vi å bruke originaldokumenter a
 For testing kan du bruke eksempeldokumentene :download:`PDF-1.2 <files/PDF-1-2-testdokument.pdf>`, :download:`PDF-1.3 <files/PDF-1-3-testdokument.pdf>`, :download:`PDF-1.4 <files/PDF-1-4-testdokument.pdf>`, :download:`PDF-1.5 <files/PDF-1-5-testdokument.pdf>`, :download:`PDF-1.6 <files/PDF-1-6-testdokument.pdf>` og :download:`PDF-A <files/PDF-A-testdokument.pdf>`.
 
 ..  NOTE::
-    Dokumentene kan sammen være maksimalt 3 MB (:code:`3 145 728 bytes`) store. PDF-versjoner som støttes er PDF 1.1-1.7.
+    Dokumentene kan til sammen være maksimalt 3 MB (:code:`3 145 728 bytes`) store. PDF-versjoner som støttes er PDF 1.1-1.7.
 
 I PAdES vil dokumentene alltid presenteres i A4- og portrett-format. For best resultat anbefales det at de innsendte dokumentene også har dette formatet.
 
