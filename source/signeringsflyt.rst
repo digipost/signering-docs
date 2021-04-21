@@ -4,7 +4,7 @@
 Signeringsflyt
 *******************
 
-Et signeringsoppdrag inneholder et dokument som skal signeres, og kan adresseres til en eller flere undertegnere som skal signere. Tjenesten tilbyr i hovedsak to ulike typer signeringsflyter.
+Et signeringsoppdrag inneholder dokumentene som skal signeres, og kan adresseres til en eller flere undertegnere som skal signere. Tjenesten tilbyr i hovedsak to ulike typer signeringsflyter.
 
 .. _signering-i-direkteflyt:
 

@@ -66,39 +66,38 @@ ____________________________________________________________________
 
     ..  tab:: E-post 1. varsel
 
-        **Emne**: Dokument til signering fra [*Avsender*]
+        **Emne**: Forespørsel om digital signering fra [*Avsender*] via Posten signering
 
         Hei!
 
-        Du har fått en forespørsel om å signere et dokument fra [*Avsender*]: [*Tittel på dokumentet*].
+        Du har fått en forespørsel om å signere [*Tittel på dokumentet*] fra [*Avsender*].
         
-        Dokumentet er nå signert av [*antall*] og må signeres innen [*signeringsfrist*] / Dokumentet må signeres innen [*signeringsfrist*].
+        Les og signer innen: [*signeringsfrist*]
         
-        Du kan signere med [*disse elektroniske e-IDene*].
+        Du signerer enkelt og trygt med [*disse elektroniske e-IDene*].
 
-        Logg deg inn på [*signering.posten.no/logginn*] for å signere dokumentet.
+        Logg deg inn på [*signering.posten.no/logginn*] for å lese og signere.
 
-        Hilsen Posten
-    
+        Hilsen oss i Posten signering
+
       
     ..  tab:: E-post 2. varsel
 
-        **Emne**: Påminnelse: Dokument til signering fra [*Avsender*]
+        **Emne**: Påminnelse: Forespørsel om digital signering fra [*Avsender*]
 
         Hei!
 
-        Vi vil minne om at du fortsatt har et dokument til signering fra [*Avsender*]: [*Tittel på dokumentet*].
+        Vi vil minne om at du fortsatt kan signere [*Tittel på dokumentet*] fra [*Avsender*].
         
-        Dokumentet er nå signert av [*antall*] og må signeres innen [*signeringsfrist*] / Dokumentet må signeres innen [*signeringsfrist*].
+        Dokumentet(ene) er nå signert av [*antall*] og må signeres innen [*signeringsfrist*].
         
-        Du kan signere med [*disse elektroniske e-IDene*].
+        Du signerer enkelt og trygt med [*disse elektroniske e-IDene*].
 
-        Logg deg inn på [*signering.posten.no/logginn*] for å signere dokumentet.
+        Logg deg inn på [*signering.posten.no/logginn*] for å lese og signere.
 
-        Rekker du ikke å signere innen fristen? Usignerte dokumenter slettes når fristen går ut. Kontakt [*Avsender*] for å få dokumentet tilsendt på nytt.
+        Rekker du ikke å signere innen fristen? Usignerte dokumenter slettes når fristen går ut. Kontakt [*Avsender*] for å få tilsendt en ny forespørsel.
 
-        Hilsen Posten
-
+        Hilsen oss i Posten signering
 
 ..  tabs::
 
@@ -119,19 +118,19 @@ ____________________________________________________________________
          
     ..  tab:: E-post 1. varsel
 
-        **Emne**: Dokument til signering fra [*Avsender*]
+        **Emne**: Forespørsel om digital signering fra [*Avsender*]
 
         Hei!
-        Du har fått en forespørsel om å signere et dokument fra [*Avsender*]: [*Dokumenttittel*].
+        Du har fått en forespørsel om å signere [*Dokumenttittel*] fra [*Avsender*].
         
-        Dokumentet er nå signert av [*antall*] og må signeres innen [*signeringsfrist*] / Dokumentet må signeres innen [*signeringsfrist*].
+        Dokument(ene) er nå signert av [*antall*] og må signeres innen [*signeringsfrist*] / Dokument(ene) må signeres innen [*signeringsfrist*].
         
-        Du kan signere med *disse elektroniske ID-ene*.
+        Du signerer enkelt og trygt med [*disse elektroniske ID-ene*].
         
         Slik signerer du:
         1) Klikk på lenken under
         2) Skriv inn sikkerhetskode XXXX
-        3) Les og signer dokumentet
+        3) Les forespørsel og signer
         
         [*https://signering.posten.no/uniklenke*]
         
@@ -139,24 +138,24 @@ ____________________________________________________________________
          
     ..  tab:: E-post 2. varsel
 
-        **Emne**: Dokument til signering fra [*Avsender*]
+        **Emne**: Forespørsel om digital signering fra [*Avsender*]
         
         Hei!
-        Vi vil minne om at du fortsatt har et dokument til signering fra [*Avsender*]: [*Dokumenttittel*].
+        Vi vil minne om at du fortsatt kan signere [*Dokumenttittel*] fra [*Avsender*].
         
-        [*Dokumentet er nå signert av [*antall*] og må signeres innen [*signeringsfrist*] / Dokumentet må signeres innen [*signeringsfrist*].
+        Dokument(ene) er nå signert av [*antall*] og må signeres innen [*signeringsfrist*] / Dokument(ene) må signeres innen [*signeringsfrist*].
                
-        Du kan signere med [*disse elektroniske ID-ene*].
+        Du signerer enkelt og trygt med [*disse elektroniske ID-ene*].
         
         Slik signerer du:
         1) Klikk på lenken under
         2) Skriv inn sikkerhetskode [*XXX*]
-        3) Les og signer dokumentet
+        3) Les forespørsel og signer
         
         [*https://signering.posten.no/uniklenke*]
         
         Rekker du ikke å signere innen fristen?
-        Usignerte dokumenter slettes når fristen går ut. Kontakt [*Avsender*] for å få dokumentet tilsendt på nytt.
+        Usignerte dokumenter slettes når fristen går ut. Kontakt [*Avsender*] for å få tilsendt en ny forespørsel.
                
         Hilsen Posten
 
