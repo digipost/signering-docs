@@ -46,7 +46,7 @@ __________________________________________
 
         Om dokument(ene) ikke signeres innen fristen, stoppes prosessen, og du må eventuelt opprette en ny forespørsel for å innhente signaturer.
 
-        Logg deg inn på ${url} for å utsette fristen eller for å se detaljer om forespørselen.
+        Logg deg inn på [*https://signering.posten.no/virksomhet/#/*] for å utsette fristen eller for å se detaljer om forespørselen.
 
         Hilsen oss i Posten signering
 
