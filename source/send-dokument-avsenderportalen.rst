@@ -32,8 +32,6 @@ Steg 3: Informasjon til mottakere
 Beskrivelse av dokumentet som vises i e-postvarselet
 Beskrivelsen bør ikke inneholde noe sensitivt, da den vises i e-posten som sendes ut. Det er likevel bra å få med detaljer rundt hva som signeres, slik at det blir enklere for undertegner å kjenne igjen i e-posten. 
 
-**Forhåndsvisning av e-postvarselet**: Du kan se en forhåndsvisning av e-postvarselet som blir sendt ut til undertegner.  Beskrivelse av dokumentet, som du la inn over, vil synes her.
-
 **Tittel på forsiden av det signerte dokumentet**:
 Tittelen du skriver inn her vises blir med på forsiden til det signerte dokumentet. :ref:`Les mer om innhold i det signerte dokumentet her <signerte-dokumenter>`.
 
