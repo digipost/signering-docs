@@ -12,7 +12,7 @@ Vi tilbyr autentisert og avansert signatur, som er rettskraftige signaturer på 
 Avansert signatur
 ==================
 
-Ved bruk av avansert signatur skjer signering med BankID. Det er her en sterk knytning mellom identifiseringshandling og dokumentene som skal signeres.
+Ved bruk av avansert signatur skjer signering med BankID. Det gir en sterk knytning mellom identifiseringshandling og dokumentene som skal signeres.
 
 En avansert signatur har en sterkere knytning mellom signaturen og dokumentene enn en :ref:`autentisert-signatur` fordi det kun er BankID som er involvert i prosessen.
 
