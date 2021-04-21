@@ -136,7 +136,7 @@ Step 1: Create signature job
                    <organization-number>123456789</organization-number>
                 </sender>
                 <title>Tittel på oppdrag</title>
-                <description>Melding til undertegner</description>
+                <description>Informativ beskrivelse av oppdraget</description>
                 <documents>
                     <document href="document.pdf" mime="application/pdf">
                         <title>Tittel på dokument</title>
@@ -785,6 +785,5 @@ For security reasons, the redirect URL for a signer can only be used once. If th
                     https://signering.posten.no#/redirect/cwYjoZOX5jOc1BACfTdhuIPj
                 </redirect-url>
             </direct-signer-response>
-
 
 
