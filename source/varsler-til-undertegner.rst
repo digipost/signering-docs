@@ -276,13 +276,13 @@ Hvis avsender *kansellerer* et signeringsoppdrag, blir det sendt ut et varsel ti
       
     ..  tab:: E-post
        
-        **Emne**: Kansellert: Dokument til signering fra [*Avsender*]
+        **Emne**: Kansellert: Forespørsel om digital signering fra [*Avsender*]
         
         Hei!
-        [*Avsender*] har trukket tilbake forespørselen om signering av [*Dokumenttittel*].
-        Kontakt [*Avsender*] om du lurer på hvorfor de kansellerte, eller om du ønsker dokumentet tilsendt på nytt.
+        [*Avsender*] har trukket tilbake forespørselen om å signere [*Dokumenttittel*].
+        Kontakt [*Avsender*] om du lurer på hvorfor de kansellerte, eller om du ønsker å få tilsendt en ny forespørsel.
         
-        Hilsen Posten
+        Hilsen oss i Posten signering
 
 
 .. _varseltekster-for-avsendere:
