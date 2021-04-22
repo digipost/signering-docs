@@ -33,16 +33,13 @@ Beskrivelse av dokumentet som vises i e-postvarselet
 Beskrivelsen bør ikke inneholde noe sensitivt, da den vises i e-posten som sendes ut. Det er likevel bra å få med detaljer rundt hva som signeres, slik at det blir enklere for undertegner å kjenne igjen i e-posten. 
 
 **Tittel på forsiden av det signerte dokumentet**:
-Tittelen du skriver inn her vises blir med på forsiden til det signerte dokumentet. :ref:`Les mer om innhold i det signerte dokumentet her <signerte-dokumenter>`.
+Tittelen vises på forsiden til det signerte dokumentet. :ref:`Les mer om innhold i det signerte dokumentet her <signerte-dokumenter>`.
 
 **Beskjed som mottaker ser i signeringsportalen**:
 Skriv en personlig beskjed til undertegner. Beskjeden vises før dokumentet signeres (sendes ikke i e-post eller SMS).
-
-**Forhåndsvisning i signeringssportalen**:
-Du kan se en forhåndsvisning av hvordan beskjeden, som du skrev inn over, vil se ut når undertegner logger seg inn i signeringsportalen. 
 
 **Internt saksnummer/referanse-ID**:
 Har du et saksnummer eller en referanse-ID knyttet til dokumentet eller undertegner, kan du skrive det her. Det kan brukes for enklere å finne igjen dokumentet. 
 
 **Avanserte innstillinger**:
-Under avanserte innstillinger kan du velge om du vil sende dokumentet med en gang eller senere. Ved å velge senere oppgir du dato og klokkeslett for ønsket utsendelse. 
+Under avanserte innstillinger kan du velge om du vil sende dokumentet med en gang eller senere. Hvis du velger å sende senere oppgir du dato og klokkeslett for ønsket utsendelse.
