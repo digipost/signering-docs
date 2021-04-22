@@ -47,7 +47,7 @@ Signeringsfrist 1. varsel: e-post/SMS 2. varsel: e-post/SMS
 Varseltekster for undertegnere
 ===============================
 
-Oppsettet på varslene som blir sendt ut er predefinert og ikke mulig å endre på for deg som avsender, men du kan legge til en tittel/beskrivelse av dokumentet som skal signeres. 
+Oppsettet på varslene som blir sendt ut er predefinert og ikke mulig å endre på for deg som avsender, men du kan legge til en tittel/beskrivelse av dokumentene som skal signeres. 
 
 Innholdet i varselet vil variere ut fra om
 

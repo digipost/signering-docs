@@ -16,11 +16,11 @@ Undertegnere som skal signere i :ref:`portalflyt <signering-i-portalflyt>` kan a
 .. NOTE::
    Dette alternativet er kun tilgjengelig for private virksomheter
 
-Ved adressering på e-post / SMS knyttes ikke signeringsforespørselen til et fødselsnummer. Vi har derfor ikke noen måte å verifisere at det er riktig person som leser og signerer dokumentet. Det kreves derfor ikke innlogging for å lese og signere dokumentet. Mottaker får e-post og/eller SMS med en unik kode og lenke som gir tilgang til dokumentet. Se :ref:`varsler <varslerUtenFødselsnummer>` for å se hvordan varselet ser ut.
+Ved adressering på e-post / SMS knyttes ikke signeringsforespørselen til et fødselsnummer. Vi har derfor ikke noen måte å verifisere at det er riktig person som leser og signerer. Det kreves derfor ikke innlogging for å lese og signere. Mottaker får e-post og/eller SMS med en unik kode og lenke som gir tilgang til forespørselen. Se :ref:`varsler <varslerUtenFødselsnummer>` for å se hvordan varselet ser ut.
 
 
 ..  IMPORTANT::
-    Selve signaturen er like sikker og gyldig som når du adresserer med fødselsnummer, men du som avsender er ansvarlig for at riktig person leser og signerer dokumentet.
+    Selve signaturen er like sikker og gyldig som når du adresserer med fødselsnummer, men du som avsender er ansvarlig for at riktig person leser og signerer.
 
 Ved adressering på e-post / SMS blir ikke fødselsnummeret bli inkludert i det signerte dokumentet, av personvernmessige hensyn. Du vil fortsatt få med navn og eventuelt fødselsdato i det signerte dokumentet.
 
@@ -28,7 +28,7 @@ Se :ref:`Signering i portalflyt med adressering på e-post / SMS <signering-i-po
 
 2. Adressering med fødselsnummer
 ================================
-For å adressere med fødselsnummer må du vite undertegners fødselsnummer. Adressering med fødselsnummer er den sikreste måten å nå mottaker på siden det krever innlogging med elektronisk ID for å lese og signere dokumentet.
+For å adressere med fødselsnummer må du vite undertegners fødselsnummer. Adressering med fødselsnummer er den sikreste måten å nå mottaker på siden det krever innlogging med elektronisk ID for å lese og signere.
 
 Selvom undertegner adresseres med fødselsnummer varsles hun og får lenke til innlogging på e-post eller SMS – se :ref:`varsler og kontaktinformasjon <varsler>` for mer informasjon.
 

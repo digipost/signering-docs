@@ -3,7 +3,7 @@
 Sikkerhetsnivå
 ***************
 
-Som avsender har man mulighet til å angi hvilket sikkerhetsnivå signeringsoppdraget skal ha. Dette kan være 3 eller 4, og begrenser hvilke elektroniske ID-er undertegner kan bruke for å signere dokumentet.
+Som avsender har man mulighet til å angi hvilket sikkerhetsnivå signeringsoppdraget skal ha. Dette kan være 3 eller 4, og begrenser hvilke elektroniske ID-er undertegner kan bruke for å signere.
 
 Sikkerhetsnivået begrenser også hvilke innloggingsmetoder undertegner kan bruke for å se signeringsoppdraget og dets detaljer, samt begynne selve signeringen.
 

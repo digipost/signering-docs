@@ -1,7 +1,7 @@
 Sikkerhet
 **********
 
-Signeringstjenesten benytter to-veis TLS for å sikre konfidensialitet og meldingsintegritet på transportlaget. Dokumentpakken med dokumentet som skal signeres er integritetssikret med ASiC‑E.
+Signeringstjenesten benytter to-veis TLS for å sikre konfidensialitet og meldingsintegritet på transportlaget. Dokumentpakken med dokumentene som skal signeres er integritetssikret med ASiC‑E.
 
 To-veis TLS
 =============
@@ -30,8 +30,8 @@ Personopplysninger
 Personopplysninger og sensitive personopplysninger skal kun legges i følgende felter i XML-en i requestene mot API-et:
 
 -  ``personal-identification-number`` – undertegners fødselsnummer eller d-nummer
--  ``title`` – tittelen/emnet til dokumentet, som oppsummerer hva signaturoppdraget handler om
--  ``description`` – kan inneholde en personlig melding, tilleggsinformasjon til dokumentet eller beskrivelse av dokumentet
+-  ``title`` – tittelen/emnet til oppdraget, som oppsummerer hva signaturoppdraget handler om
+-  ``description`` – kan inneholde en personlig melding, tilleggsinformasjon eller beskrivelse av dokumentene
 
 Øvrige felter skal ikke inneholde sensitive personopplysninger eller personopplysninger. Eksempelvis vil referansen (``reference``) brukes utenfor en sikker kontekst (f.eks i epost-varslinger), og kan derfor ikke inneholde personopplysninger. Se for øvrig beskrivelse av API-et lenger nede.
 
