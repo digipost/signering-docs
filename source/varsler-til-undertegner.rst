@@ -103,11 +103,11 @@ ____________________________________________________________________
 
     ..  tab:: SMS 1. varsel
 
-        Du har et dokument til signering fra [*Avsender*]. Logg inn og signer på [*signering.posten.no/logginn*] innen [*signeringsfrist*].
+        Du har en signeringsforespørsel fra [*Avsender*]. Logg inn og signer på [*signering.posten.no/logginn*] innen [*signeringsfrist*]. Hilsen Posten
          
     ..  tab:: SMS 2./3. varsel
 
-        Du har et usignert dokument fra [*Avsender*]. Logg inn og signer på [*signering.posten.no/logginn*] innen [*signeringsfrist*].
+        Husk signering for [*Avsender*]. Logg inn og signer på [*signering.posten.no/logginn*] innen [*signeringsfrist*]. Hilsen Posten
          
 .. _varslerUtenFødselsnummer:
 
@@ -134,7 +134,7 @@ ____________________________________________________________________
         
         [*https://signering.posten.no/uniklenke*]
         
-        Hilsen Posten
+        Hilsen oss i Posten signering
          
     ..  tab:: E-post 2. varsel
 
@@ -157,13 +157,13 @@ ____________________________________________________________________
         Rekker du ikke å signere innen fristen?
         Usignerte dokumenter slettes når fristen går ut. Kontakt [*Avsender*] for å få tilsendt en ny forespørsel.
                
-        Hilsen Posten
+        Hilsen oss i Posten signering
 
 .. tabs::
          
     ..  tab:: SMS 1. varsel
 
-        Hei! [*Avsender*] ber deg signere et dokument. Bruk kode [*XXXX*] på [*https://signering.posten.no/uniklenke*] før [*signeringsfrist*].
+        Hei! [*Avsender*] ber deg om en signatur. Bruk kode [*XXXX*] på [*https://signering.posten.no/uniklenke*] før [*signeringsfrist*].
          
     ..  tab:: SMS 2./3. varsel
 
@@ -195,7 +195,7 @@ Private avsendere
          
         Registrer deg i Digipost: https://www.digipost.no/app/registrering ,
 
-        Hilsen Posten
+        Hilsen oss i Posten signering
     
     ..  tab:: E-post, flere undertegnere
 
@@ -209,7 +209,7 @@ Private avsendere
 
         Registrer deg i Digipost: https://www.digipost.no/app/registrering ,
          
-        Hilsen Posten
+        Hilsen oss i Posten signering
         
         
 ..  tabs::
@@ -243,6 +243,8 @@ Offentlige avsendere
 
         Opprett digital postkasse:
         https://www.norge.no/velg-digital-postkasse
+
+        Hilsen oss i Posten signering
  
     ..  tab:: E-post, flere undertegnere
        
@@ -254,6 +256,8 @@ Offentlige avsendere
          
         Opprett digital postkasse:
         https://www.norge.no/velg-digital-postkasse
+
+        Hilsen oss i Posten signering
         
 ..  tabs::
       
