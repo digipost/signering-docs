@@ -63,7 +63,7 @@ Dokumentformat
 ^^^^^^^^^^^^^^^^^
 
 Tjenesten støtter dokumenter av typen PDF (:code:`.pdf`). Både PDF og PDF/A aksepteres av tjenesten. Det signerte dokumentet vil være av samme type som originaldokumentene.
-Et eller flere originaldokumenter som er PDF/A gir et signert PAdES-dokument som er PDF/A, og et eller flere originaldokumenter som er PDF versjon 1.1 – 1.7 gir et signert PAdES-dokument som er PDF versjon 1.7.
+Et eller flere originaldokumenter som er PDF/A gir et signert PAdES-dokument som er PDF/A, og et eller flere originaldokumenter som er PDF versjon 1.1 – 1.7 gir et signert PAdES-dokument som er PDF versjon 1.7. Dersom originaldokumentene inneholder både PDF og PDF/A vil det signerte dokumentet bli av typen PDF versjon 1.7.
 For PDF/A vil tjenesten alltid produsere signerte PAdES-dokumenter av typen PDF/A-3b, uavhengig av PDF/A-versjon og -konformitetsnivå på originaldokumentene.
 
 For arkivering av signerte dokumenter anbefaler vi å bruke originaldokumenter av typen PDF/A. Dette er et krav hvis det signerte dokumentet skal avleveres til Riksarkivet.
