@@ -66,7 +66,7 @@ ____________________________________________________________________
 
     ..  tab:: E-post 1. varsel
 
-        **Emne**: Forespørsel om digital signering fra [*Avsender*] via Posten signering
+        **Emne**: Forespørsel om digital signering fra [*Avsender*]
 
         Hei!
 
