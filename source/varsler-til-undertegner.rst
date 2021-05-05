@@ -123,7 +123,7 @@ ____________________________________________________________________
         Hei!
         Du har fått en forespørsel om å signere [*Dokumenttittel*] fra [*Avsender*].
         
-        Dokument(ene) er nå signert av [*antall*] og må signeres innen [*signeringsfrist*] / Dokument(ene) må signeres innen [*signeringsfrist*].
+        Les og signer innen: [*signeringsfrist*].
         
         Du signerer enkelt og trygt med [*disse elektroniske ID-ene*].
         
@@ -143,7 +143,7 @@ ____________________________________________________________________
         Hei!
         Vi vil minne om at du fortsatt kan signere [*Dokumenttittel*] fra [*Avsender*].
         
-        Dokument(ene) er nå signert av [*antall*] og må signeres innen [*signeringsfrist*] / Dokument(ene) må signeres innen [*signeringsfrist*].
+        Les og signer innen: [*signeringsfrist*].
                
         Du signerer enkelt og trygt med [*disse elektroniske ID-ene*].
         
