@@ -4,7 +4,7 @@ Adressering av undertegner
 ***************************
 Undertegnere som skal signere i :ref:`portalflyt <signering-i-portalflyt>` kan adresseres på to forskjellige måter;
 
-1. På e-post og/eller SMS (Kun tilgjengelig for privat virksomheter)
+1. På e-post og/eller SMS (Kun tilgjengelig for private virksomheter)
 2. Med fødselsnummer
 
 ..  CAUTION::
