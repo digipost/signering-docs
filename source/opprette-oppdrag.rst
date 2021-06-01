@@ -6,7 +6,7 @@ Ved opprettelse av signeringsoppdrag kan følgende felter angis:
 +---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
 | Felt                      | Direkteflyt             | Portalflyt        | Ekstra informasjon                                            |
 +===========================+=========================+===================+===============================================================+
-| Dokumenter                | **Obligatorisk**        | **Obligatorisk**  | 1-20 dokumenter [#f4]_                                       |
+| Dokumenter                | **Obligatorisk**        | **Obligatorisk**  | 1-20 dokumenter                                      |
 +---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
 | Undertegner(e)            | **Obligatorisk**        | **Obligatorisk**  | se :ref:`adressering-av-undertegner`                          |
 +---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
@@ -39,7 +39,6 @@ Ved opprettelse av signeringsoppdrag kan følgende felter angis:
 .. [#f1] Maks antall tillate tegn gjelder i både `direkte- <https://github.com/digipost/signature-api-specification/blob/2.7/schema/xsd/direct.xsd#L68-L75>`_ og `portalflyt <https://github.com/digipost/signature-api-specification/blob/2.7/schema/xsd/portal.xsd#L98-L105>`_.
 .. [#f2] Signeringsoppdrag i direkteflyt blir alltid aktivert øyeblikkelig etter opprettelse. *Standardverdi* er *øyeblikkelig etter opprettelse*.
 .. [#f3] Signeringsoppdrag i direkteflyt har alltid 30 dagers levetid for å unngå at et dokument blir signert uhensiktsmessig lenge etter opprettelsen av oppdraget. Eventuell frist fra avsenders perspektiv må kommuniseres og håndteres i avsenders tjenester.
-.. [#f4] Flere dokumenter støttes kun for oppdrag hvor signaturtypen er "autentisert", se :ref:`autentisert-signatur`
 
 For implementasjon for signeringsoppdrag i portalflyt, se  :ref:`portal-flow`, og for signeringsoppdrag i direkteflyt, se :ref:`direct-flow`.
 
