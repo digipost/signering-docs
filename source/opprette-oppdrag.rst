@@ -39,7 +39,7 @@ Ved opprettelse av signeringsoppdrag kan følgende felter angis:
 .. [#f1] Maks antall tillate tegn gjelder i både `direkte- <https://github.com/digipost/signature-api-specification/blob/2.7/schema/xsd/direct.xsd#L68-L75>`_ og `portalflyt <https://github.com/digipost/signature-api-specification/blob/2.7/schema/xsd/portal.xsd#L98-L105>`_.
 .. [#f2] Signeringsoppdrag i direkteflyt blir alltid aktivert øyeblikkelig etter opprettelse. *Standardverdi* er *øyeblikkelig etter opprettelse*.
 .. [#f3] Signeringsoppdrag i direkteflyt har alltid 30 dagers levetid for å unngå at et dokument blir signert uhensiktsmessig lenge etter opprettelsen av oppdraget. Eventuell frist fra avsenders perspektiv må kommuniseres og håndteres i avsenders tjenester.
-.. [#f4] Flere dokumenter støttes kun for private virksomheter
+.. [#f4] Flere dokumenter støttes ikke for avansert signatur fra offentlige virksomheter
 
 For implementasjon for signeringsoppdrag i portalflyt, se  :ref:`portal-flow`, og for signeringsoppdrag i direkteflyt, se :ref:`direct-flow`.
 
