@@ -45,17 +45,19 @@ Step 1: Create signature job
             ClientConfiguration clientConfiguration = null; //As initialized earlier
             var directClient = new DirectClient(clientConfiguration);
 
-            var documentToSign = new Document(
-                "Subject of Message",
-                "This is the content",
-                FileType.Pdf,
-                @"C:\Path\ToDocument\File.pdf");
+            var documentsToSign = new List<Document>
+            {
+                new Document(
+                    "Document title",
+                    FileType.Pdf,
+                    @"C:\Path\ToDocument\File.pdf")
+            };
 
             var exitUrls = new ExitUrls(
                 new Uri("http://redirectUrl.no/onCompletion"),
                 new Uri("http://redirectUrl.no/onCancellation"),
                 new Uri("http://redirectUrl.no/onError")
-                );
+            );
 
             var signers = new List<Signer>
             {
@@ -63,7 +65,7 @@ Step 1: Create signature job
                 new Signer(new PersonalIdentificationNumber("10987654321"))
             };
 
-            var job = new Job(documentToSign, signers, "SendersReferenceToSignatureJob", exitUrls);
+            var job = new Job("Job title", documentsToSign, signers, "SendersReferenceToSignatureJob", exitUrls);
 
             var directJobResponse = await directClient.Create(job);
 
@@ -75,7 +77,9 @@ Step 1: Create signature job
             DirectClient client = new DirectClient(clientConfiguration);
 
             byte[] documentBytes = null; // Loaded document bytes
-            DirectDocument document = DirectDocument.builder("Subject", "document.pdf", documentBytes).build();
+            List<DirectDocument> documents =  Collections.singletonList(
+                    DirectDocument.builder("Document title", "document.pdf", documentBytes).build()
+            );
 
             ExitUrls exitUrls = ExitUrls.of(
                     URI.create("http://sender.org/onCompletion"),
@@ -84,7 +88,7 @@ Step 1: Create signature job
             );
 
             DirectSigner signer = DirectSigner.withPersonalIdentificationNumber("12345678910").build();
-            DirectJob directJob = DirectJob.builder(document, exitUrls, signer).build();
+            DirectJob directJob = DirectJob.builder("Job title", documents, exitUrls, signer).build();
 
             DirectJobResponse directJobResponse = client.create(directJob);
 
@@ -123,24 +127,27 @@ Step 1: Create signature job
 
             <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
             <direct-signature-job-manifest xmlns="http://signering.posten.no/schema/v1">
-               <signer>
+                <signer>
                    <personal-identification-number>12345678910</personal-identification-number>
                    <signature-type>ADVANCED_ELECTRONIC_SIGNATURE</signature-type>
                    <on-behalf-of>SELF</on-behalf-of>
-               </signer>
-               <sender>
+                </signer>
+                <sender>
                    <organization-number>123456789</organization-number>
-               </sender>
-               <document href="document.pdf" mime="application/pdf">
-                   <title>Tittel</title>
-                   <description>Melding til undertegner</description>
-               </document>
-               <required-authentication>3</required-authentication>
-               <identifier-in-signed-documents>PERSONAL_IDENTIFICATION_NUMBER_AND_NAME</identifier-in-signed-documents>
+                </sender>
+                <title>Tittel på oppdrag</title>
+                <description>Informativ beskrivelse av oppdraget</description>
+                <documents>
+                    <document href="document.pdf" mime="application/pdf">
+                        <title>Tittel på dokument</title>
+                    </document>
+                </documents>
+                <required-authentication>3</required-authentication>
+                <identifier-in-signed-documents>PERSONAL_IDENTIFICATION_NUMBER_AND_NAME</identifier-in-signed-documents>
             </direct-signature-job-manifest>
 
 
-..  NOTE:: You can specify a  signature type and required authentication level. If signature type or required authentication level is omitted, default values will be set as specified by :ref:`signaturtype` and :ref:`sikkerhetsnivå`.
+..  NOTE:: You can specify a signature type and required authentication level. If signature type or required authentication level is omitted, default values will be set as specified by :ref:`signaturtype` and :ref:`sikkerhetsnivå`.
 
 ..  tabs::
 
@@ -148,7 +155,7 @@ Step 1: Create signature job
 
         ..  code-block:: c#
 
-            Document documentToSign = null; //As initialized earlier
+            List<Document> documentsToSign = null; //As initialized earlier
             ExitUrls exitUrls = null; //As initialized earlier
             var signers = new List<Signer>
             {
@@ -158,7 +165,7 @@ Step 1: Create signature job
                 }
             };
 
-            var job = new Job(documentToSign, signers, "SendersReferenceToSignatureJob", exitUrls)
+            var job = new Job(documentsToSign, signers, "SendersReferenceToSignatureJob", exitUrls)
             {
                 AuthenticationLevel = AuthenticationLevel.Four
             };
@@ -322,7 +329,7 @@ Step 2: Signing the document
 ================================
 
 
-This whole step is carried out in the signing portal. You forward the user to the portal using the URL you receive in response to the creation of the job. This URL contains a one-time token generated by the signature service, and it is this token that allows the user to read the document and complete the signing. If the user aborts the signing, a new redirect URL must be requested in order to access the signature job again. Please see :ref:`directIntegrationRequestNewRedirectUrl` to request a new redirect URL.
+This whole step is carried out in the signing portal. You forward the user to the portal using the URL you receive in response to the creation of the job. This URL contains a one-time token generated by the signature service, and it is this token that allows the user to read the documents and complete the signing. If the user aborts the signing, a new redirect URL must be requested in order to access the signature job again. Please see :ref:`directIntegrationRequestNewRedirectUrl` to request a new redirect URL.
 
 ..  IMPORTANT::
     **Security in connection with the one-time token:** To handle the security of this request, the token will only work once. The user will receive a cookie from the signature service when accessing the URL, so that any refresh does not stop the flow. This URL cannot be reused at a later time. The reason we only allow it to be used only once is that URLs can appear in logs, and it will therefore not be safe to reuse.
@@ -385,7 +392,6 @@ The signing process is a synchrounous operation in the direct use case. There is
                <signature-job-status>COMPLETED_SUCCESSFULLY</signature-job-status>
                <status since="2017-01-23T12:51:43+01:00">SIGNED</status>
                <confirmation-url>https://api.signering.posten.no/api/{sender-identifier}/direct/signature-jobs/1/complete</confirmation-url>
-               <xades-url>https://api.signering.posten.no/api/{sender-identifier}/direct/signature-jobs/1/xades/1</xades-url>
                <pades-url>https://api.signering.posten.no/api/{sender-identifier}/direct/signature-jobs/1/pades</pades-url>
             </direct-signature-job-status-response>
 
@@ -419,7 +425,6 @@ If you, for any reason, are unable to retrieve status by using the status query 
                     break;
                 case JobStatus.CompletedSuccessfully:
                     // Get PAdES
-                    // Get XAdES
                     break;
                 case JobStatus.Failed:
                     break;
@@ -480,7 +485,6 @@ If you, for any reason, are unable to retrieve status by using the status query 
                <signature-job-status>COMPLETED_SUCCESSFULLY</signature-job-status>
                <status since="2017-01-23T12:51:43+01:00">SIGNED</status>
                <confirmation-url>https://api.signering.posten.no/api/{sender-identifier}/direct/signature-jobs/1/complete</confirmation-url>
-               <xades-url>https://api.signering.posten.no/api/{sender-identifier}/direct/signature-jobs/1/xades/1</xades-url>
                <pades-url>https://api.signering.posten.no/api/{sender-identifier}/direct/signature-jobs/1/pades</pades-url>
             </direct-signature-job-status-response>
 
@@ -505,13 +509,6 @@ Step 4: Get signed documents
                 var padesByteStream = await directClient.GetPades(jobStatusResponse.References.Pades);
             }
 
-            var signature = jobStatusResponse.GetSignatureFor(new PersonalIdentificationNumber("00000000000"));
-
-            if (signature.Equals(SignatureStatus.Signed))
-            {
-                var xadesByteStream = await directClient.GetXades(signature.XadesReference);
-            }
-
     ..  group-tab:: Java
 
         ..  code-block:: java
@@ -523,15 +520,9 @@ Step 4: Get signed documents
                 InputStream pAdESStream = client.getPAdES(directJobStatusResponse.getpAdESUrl());
             }
 
-            for (Signature signature : directJobStatusResponse.getSignatures()) {
-                if (signature.is(SignerStatus.SIGNED)) {
-                    InputStream xAdESStream = client.getXAdES(signature.getxAdESUrl());
-                }
-            }
-
     ..  group-tab:: HTTP
 
-        In the previous step you got two links: ``xades-url`` and ``pades-url``. Do a ``HTTP GET`` on these to download the signed document in the two formats. For more information on the format of the signed document, see :ref:`signerte-dokumenter`.
+        In the previous step you got a link to the signed document: ``pades-url``. Do a ``HTTP GET`` on this to download the signed document. For more information on the format of the signed document, see :ref:`signerte-dokumenter`.
 
 Step 5: Confirm finished processing
 =======================================
@@ -576,13 +567,13 @@ To specify a queue, set :code:`pollingQueue` through when constructing a :code:`
             String organizationNumber = "123456789";
             var sender = new Sender(organizationNumber, new PollingQueue("CustomPollingQueue"));
 
-            Document documentToSign = null; // As initialized earlier
+            List<Document> documentsToSign = null; // As initialized earlier
             ExitUrls exitUrls = null; // As initialized earlier
 
             var signer = new PersonalIdentificationNumber("00000000000");
 
             var job = new Job(
-                documentToSign,
+                documentsToSign,
                 new List<Signer> { new Signer(signer) },
                 "SendersReferenceToSignatureJob",
                 exitUrls,
@@ -601,7 +592,7 @@ To specify a queue, set :code:`pollingQueue` through when constructing a :code:`
             DirectClient client = null; // As initialized earlier
             Sender sender = new Sender("000000000", PollingQueue.of("CustomPollingQueue"));
 
-            DirectJob directJob = DirectJob.builder(document, exitUrls, signer)
+            DirectJob directJob = DirectJob.builder(documents, exitUrls, signer)
                   .retrieveStatusBy(StatusRetrievalMethod.POLLING).withSender(sender)
                   .build();
 
@@ -794,6 +785,5 @@ For security reasons, the redirect URL for a signer can only be used once. If th
                     https://signering.posten.no#/redirect/cwYjoZOX5jOc1BACfTdhuIPj
                 </redirect-url>
             </direct-signer-response>
-
 
 

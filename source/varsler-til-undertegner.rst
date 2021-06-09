@@ -47,7 +47,7 @@ Signeringsfrist 1. varsel: e-post/SMS 2. varsel: e-post/SMS
 Varseltekster for undertegnere
 ===============================
 
-Oppsettet på varslene som blir sendt ut er predefinert og ikke mulig å endre på for deg som avsender, men du kan legge til en tittel/beskrivelse av dokumentet som skal signeres. 
+Oppsettet på varslene som blir sendt ut er predefinert og ikke mulig å endre på for deg som avsender, men du kan legge til en tittel/beskrivelse av dokumentene som skal signeres. 
 
 Innholdet i varselet vil variere ut fra om
 
@@ -66,49 +66,48 @@ ____________________________________________________________________
 
     ..  tab:: E-post 1. varsel
 
-        **Emne**: Dokument til signering fra [*Avsender*]
+        **Emne**: Forespørsel om digital signering fra [*Avsender*]
 
         Hei!
 
-        Du har fått en forespørsel om å signere et dokument fra [*Avsender*]: [*Tittel på dokumentet*].
+        Du har fått en forespørsel om å signere [*Tittel på dokumentet*] fra [*Avsender*].
         
-        Dokumentet er nå signert av [*antall*] og må signeres innen [*signeringsfrist*] / Dokumentet må signeres innen [*signeringsfrist*].
+        Les og signer innen: [*signeringsfrist*]
         
-        Du kan signere med [*disse elektroniske e-IDene*].
+        Du signerer enkelt og trygt med [*disse elektroniske e-IDene*].
 
-        Logg deg inn på [*signering.posten.no/logginn*] for å signere dokumentet.
+        Logg deg inn på [*signering.posten.no/logginn*] for å lese og signere.
 
-        Hilsen Posten
-    
+        Hilsen oss i Posten signering
+
       
     ..  tab:: E-post 2. varsel
 
-        **Emne**: Påminnelse: Dokument til signering fra [*Avsender*]
+        **Emne**: Påminnelse: Forespørsel om digital signering fra [*Avsender*]
 
         Hei!
 
-        Vi vil minne om at du fortsatt har et dokument til signering fra [*Avsender*]: [*Tittel på dokumentet*].
+        Vi vil minne om at du fortsatt kan signere [*Tittel på dokumentet*] fra [*Avsender*].
         
-        Dokumentet er nå signert av [*antall*] og må signeres innen [*signeringsfrist*] / Dokumentet må signeres innen [*signeringsfrist*].
+        Dokumentet(ene) er nå signert av [*antall*] og må signeres innen [*signeringsfrist*].
         
-        Du kan signere med [*disse elektroniske e-IDene*].
+        Du signerer enkelt og trygt med [*disse elektroniske e-IDene*].
 
-        Logg deg inn på [*signering.posten.no/logginn*] for å signere dokumentet.
+        Logg deg inn på [*signering.posten.no/logginn*] for å lese og signere.
 
-        Rekker du ikke å signere innen fristen? Usignerte dokumenter slettes når fristen går ut. Kontakt [*Avsender*] for å få dokumentet tilsendt på nytt.
+        Rekker du ikke å signere innen fristen? Usignerte dokumenter slettes når fristen går ut. Kontakt [*Avsender*] for å få tilsendt en ny forespørsel.
 
-        Hilsen Posten
-
+        Hilsen oss i Posten signering
 
 ..  tabs::
 
     ..  tab:: SMS 1. varsel
 
-        Du har et dokument til signering fra [*Avsender*]. Logg inn og signer på [*signering.posten.no/logginn*] innen [*signeringsfrist*].
+        Du har en signeringsforespørsel fra [*Avsender*]. Logg inn og signer på [*signering.posten.no/logginn*] innen [*signeringsfrist*]. Hilsen Posten
          
     ..  tab:: SMS 2./3. varsel
 
-        Du har et usignert dokument fra [*Avsender*]. Logg inn og signer på [*signering.posten.no/logginn*] innen [*signeringsfrist*].
+        Husk signering for [*Avsender*]. Logg inn og signer på [*signering.posten.no/logginn*] innen [*signeringsfrist*]. Hilsen Posten
          
 .. _varslerUtenFødselsnummer:
 
@@ -119,52 +118,52 @@ ____________________________________________________________________
          
     ..  tab:: E-post 1. varsel
 
-        **Emne**: Dokument til signering fra [*Avsender*]
+        **Emne**: Forespørsel om digital signering fra [*Avsender*]
 
         Hei!
-        Du har fått en forespørsel om å signere et dokument fra [*Avsender*]: [*Dokumenttittel*].
+        Du har fått en forespørsel om å signere [*Dokumenttittel*] fra [*Avsender*].
         
-        Dokumentet er nå signert av [*antall*] og må signeres innen [*signeringsfrist*] / Dokumentet må signeres innen [*signeringsfrist*].
+        Les og signer innen: [*signeringsfrist*].
         
-        Du kan signere med *disse elektroniske ID-ene*.
+        Du signerer enkelt og trygt med [*disse elektroniske ID-ene*].
         
         Slik signerer du:
         1) Klikk på lenken under
         2) Skriv inn sikkerhetskode XXXX
-        3) Les og signer dokumentet
+        3) Les forespørsel og signer
         
         [*https://signering.posten.no/uniklenke*]
         
-        Hilsen Posten
+        Hilsen oss i Posten signering
          
     ..  tab:: E-post 2. varsel
 
-        **Emne**: Dokument til signering fra [*Avsender*]
+        **Emne**: Forespørsel om digital signering fra [*Avsender*]
         
         Hei!
-        Vi vil minne om at du fortsatt har et dokument til signering fra [*Avsender*]: [*Dokumenttittel*].
+        Vi vil minne om at du fortsatt kan signere [*Dokumenttittel*] fra [*Avsender*].
         
-        [*Dokumentet er nå signert av [*antall*] og må signeres innen [*signeringsfrist*] / Dokumentet må signeres innen [*signeringsfrist*].
+        Les og signer innen: [*signeringsfrist*].
                
-        Du kan signere med [*disse elektroniske ID-ene*].
+        Du signerer enkelt og trygt med [*disse elektroniske ID-ene*].
         
         Slik signerer du:
         1) Klikk på lenken under
         2) Skriv inn sikkerhetskode [*XXX*]
-        3) Les og signer dokumentet
+        3) Les forespørsel og signer
         
         [*https://signering.posten.no/uniklenke*]
         
         Rekker du ikke å signere innen fristen?
-        Usignerte dokumenter slettes når fristen går ut. Kontakt [*Avsender*] for å få dokumentet tilsendt på nytt.
+        Usignerte dokumenter slettes når fristen går ut. Kontakt [*Avsender*] for å få tilsendt en ny forespørsel.
                
-        Hilsen Posten
+        Hilsen oss i Posten signering
 
 .. tabs::
          
     ..  tab:: SMS 1. varsel
 
-        Hei! [*Avsender*] ber deg signere et dokument. Bruk kode [*XXXX*] på [*https://signering.posten.no/uniklenke*] før [*signeringsfrist*].
+        Hei! [*Avsender*] ber deg om en signatur. Bruk kode [*XXXX*] på [*https://signering.posten.no/uniklenke*] før [*signeringsfrist*].
          
     ..  tab:: SMS 2./3. varsel
 
@@ -196,7 +195,7 @@ Private avsendere
          
         Registrer deg i Digipost: https://www.digipost.no/app/registrering ,
 
-        Hilsen Posten
+        Hilsen oss i Posten signering
     
     ..  tab:: E-post, flere undertegnere
 
@@ -210,7 +209,7 @@ Private avsendere
 
         Registrer deg i Digipost: https://www.digipost.no/app/registrering ,
          
-        Hilsen Posten
+        Hilsen oss i Posten signering
         
         
 ..  tabs::
@@ -244,6 +243,8 @@ Offentlige avsendere
 
         Opprett digital postkasse:
         https://www.norge.no/velg-digital-postkasse
+
+        Hilsen oss i Posten signering
  
     ..  tab:: E-post, flere undertegnere
        
@@ -255,6 +256,8 @@ Offentlige avsendere
          
         Opprett digital postkasse:
         https://www.norge.no/velg-digital-postkasse
+
+        Hilsen oss i Posten signering
         
 ..  tabs::
       
@@ -277,13 +280,13 @@ Hvis avsender *kansellerer* et signeringsoppdrag, blir det sendt ut et varsel ti
       
     ..  tab:: E-post
        
-        **Emne**: Kansellert: Dokument til signering fra [*Avsender*]
+        **Emne**: Kansellert: Forespørsel om digital signering fra [*Avsender*]
         
         Hei!
-        [*Avsender*] har trukket tilbake forespørselen om signering av [*Dokumenttittel*].
-        Kontakt [*Avsender*] om du lurer på hvorfor de kansellerte, eller om du ønsker dokumentet tilsendt på nytt.
+        [*Avsender*] har trukket tilbake forespørselen om å signere [*Dokumenttittel*].
+        Kontakt [*Avsender*] om du lurer på hvorfor de kansellerte, eller om du ønsker å få tilsendt en ny forespørsel.
         
-        Hilsen Posten
+        Hilsen oss i Posten signering
 
 
 .. _varseltekster-for-avsendere:

@@ -12,7 +12,7 @@ Det sendes ut varsler til avsender i tre tilfeller:
 
 2. **24 timer før signeringsfristen for ett oppdrag går ut**: Varselet sendes ut som en påminnelse til avsender om at noen fortsatt ikke har signert. Avsender kan da velge å utsette signeringsfristen, eller purre på undertegnerne ved å sende ekstra varsel. **N.B:** Varselet sendes kun hvis oppdragets opprinnelige signeringsfrist var mer enn 48 timer.
 
-3. **4 dager før arkivering av ferdigsignert dokument utløper**: Varselet sendes ut som en påminnelse til avsender dersom dokumentet er signert av alle mottakere, og *kun* dersom avsender ikke har lastet ned det ferdigsignerte dokumentet. Posten signering tilbyr :ref:`langtidsvalidering-og-lagring` for avsendere som ikke ønsker å måtte laste ned og ta vare på ferdigsignerte dokumenter.
+3. **4 dager før arkivering av ferdigsignert dokument utløper**: Varselet sendes ut som en påminnelse til avsender dersom dokumentene er signert av alle mottakere, og *kun* dersom avsender ikke har lastet ned det ferdigsignerte dokumentet. Posten signering tilbyr :ref:`langtidsvalidering-og-lagring` for avsendere som ikke ønsker å måtte laste ned og ta vare på ferdigsignerte dokumenter.
 
 
 Varsel når signeringsoppdrag endrer status
@@ -22,27 +22,33 @@ __________________________________________
 
     ..  tab:: Statusendring
 
-        **Emne**: Oppdatert signeringsstatus: Dokumentet er [*delvis signert*]/[*ferdig signert*]/[*ferdig, men ufullstendig*]
+        **Emne**: Oppdatert signeringsstatus: [*senders-reference*] er [*delvis signert*]/[*ferdig signert*]/[*ferdig, men ufullstendig*]
 
         Hei!
-        Vi vil informere deg om at dokumentet med referanse [*XXXX*] har endret status til [*delvis signert*]/[*ferdig signert*]/[*ferdig, men ufullstendig*].
+        Vi vil informere deg om at signeringsforespørselen med referanse [*senders-reference*] har endret status til [*delvis signert*]/[*ferdig signert*]/[*ferdig, men ufullstendig*].
 
         Undertegner ********: [*Venter*]/[*Avvist*]/[*Signert*]/[*Sperret*]
 
-        Logg deg inn på [*https://signering.posten.no/virksomhet/#/*] for å (utsette fristen eller for å) se detaljer om dokumentet.
+        Logg deg inn på [*https://signering.posten.no/virksomhet/#/*] for å se detaljer om dokumentet.
 
-        Hilsen Posten
+        Hilsen oss i Posten signering
+
 
     ..  tab:: Fristen går snart ut
 
         **Emne**: Signeringsfristen går ut om 24 timer
 
         Hei!
-        Dkoumentet med referanse [*XXXX*] er fortsatt ikke signert av [*undertegnere*]. Det er nå kun 24 timer til signeringsfristen utløper. Du kan utsette fristen for signeringen ved å logge inn og klikke på "Utsett signeringsfrist". Om dokumentet ikek signeres innen fristen, stoppes prosessen, og du må eventuelt sende dokumentet på nytt for å hente inn signaturer.
 
-        Logg deg inn på [*https://signering.posten.no/virksomhet/#/*] for å utsette fristen eller for å se detaljer om dokumentet.
+        Forespørselen med referanse [*XXXX*] er fortsatt ikke signert av [*undertegnere*].
 
-        Hilsen Posten
+        Det er nå kun 24 timer til signeringsfristen utløper. Du kan utsette fristen ved å logge inn og klikke på "Utsett signeringsfrist".
+
+        Om dokument(ene) ikke signeres innen fristen, stoppes prosessen, og du må eventuelt opprette en ny forespørsel for å innhente signaturer.
+
+        Logg deg inn på [*https://signering.posten.no/virksomhet/#/*] for å utsette fristen eller for å se detaljer om forespørselen.
+
+        Hilsen oss i Posten signering
 
 
 Varsel før arkivering av ferdigsignert dokument utløper
@@ -58,8 +64,8 @@ _______________________________________________________
 
         Husk å ta godt vare på signerte dokumenter.
 
-        Dokumentet **[ikke-sensitiv dokumenttittel]** (referanse: [refereanse]) er ikke lastet ned og vil slettes den **[arkivering utløper dato *minus* 1 dag]**. `Logg inn <https://test.signering.posten.no/virksomhet/#/logginn/privat>`_ for å laste ned dokumentet. Dette er siste påminnelse.
+        **[ikke-sensitiv dokumenttittel]** (referanse: [refereanse]) er ikke lastet ned og vil slettes den **[arkivering utløper dato *minus* 1 dag]**. `Logg inn <https://test.signering.posten.no/virksomhet/#/logginn/privat>`_ for å laste ned dokumentet. Dette er siste påminnelse.
 
-        Trenger du et sikkert lagringsalternativ? Vi tilbyr `sikker og permanent lagring av dine signerte dokumenter <https://signering.posten.no/virksomhet/#/hjelp/lagring-og-validering/how-long>`_.
+        Trenger du et sikkert lagringsalternativ? Les mer om dette på `<https://signering.posten.no/virksomhet/#/hjelp/lagring/langtidsvalidering>`_.
 
-        Hilsen Posten
+        Hilsen oss i Posten signering

@@ -1,9 +1,9 @@
 Send oppdrag til signering
 ***************************
 
-Steg 1: Dokument til signering
+Steg 1: Dokumenter til signering
 ================================
-Her laster du opp dokumentet som skal signeres. Filen må være en PDF-fil og ikke større enn 3MB. 
+Her laster du opp dokumentene som skal signeres. Filene må være PDF-filer og den samlede størrelsen kan ikke overskride 3MB. Sending av flere dokumenter støttes foreløpig kun for private virksomheter.
 
 Sett en signeringfrist for oppdraget
 -------------------------------------
@@ -29,22 +29,17 @@ Du som avsender kan være undertegner på ditt eget signeringsoppdrag. Huker du 
 Steg 3: Informasjon til mottakere
 ===================================
 
-Beskrivelse av dokumentet som vises i e-postvarselet
+**Beskrivelse av dokumentet som vises i e-postvarselet**:
 Beskrivelsen bør ikke inneholde noe sensitivt, da den vises i e-posten som sendes ut. Det er likevel bra å få med detaljer rundt hva som signeres, slik at det blir enklere for undertegner å kjenne igjen i e-posten. 
 
-**Forhåndsvisning av e-postvarselet**: Du kan se en forhåndsvisning av e-postvarselet som blir sendt ut til undertegner.  Beskrivelse av dokumentet, som du la inn over, vil synes her.
-
 **Tittel på forsiden av det signerte dokumentet**:
-Tittelen du skriver inn her vises blir med på forsiden til det signerte dokumentet. :ref:`Les mer om innhold i det signerte dokumentet her <signerte-dokumenter>`.
+Tittelen vises på forsiden til det signerte dokumentet. :ref:`Les mer om innhold i det signerte dokumentet her <signerte-dokumenter>`.
 
 **Beskjed som mottaker ser i signeringsportalen**:
-Skriv en personlig beskjed til undertegner. Beskjeden vises før dokumentet signeres (sendes ikke i e-post eller SMS).
-
-**Forhåndsvisning i signeringssportalen**:
-Du kan se en forhåndsvisning av hvordan beskjeden, som du skrev inn over, vil se ut når undertegner logger seg inn i signeringsportalen. 
+Skriv en personlig beskjed til undertegner. Beskjeden vises før dokumentene signeres (sendes ikke i e-post eller SMS).
 
 **Internt saksnummer/referanse-ID**:
-Har du et saksnummer eller en referanse-ID knyttet til dokumentet eller undertegner, kan du skrive det her. Det kan brukes for enklere å finne igjen dokumentet. 
+Har du et saksnummer eller en referanse-ID knyttet til dokumentene eller undertegner, kan du skrive det her. Det kan brukes for enklere å finne igjen dokumentene. 
 
 **Avanserte innstillinger**:
-Under avanserte innstillinger kan du velge om du vil sende dokumentet med en gang eller senere. Ved å velge senere oppgir du dato og klokkeslett for ønsket utsendelse. 
+Under avanserte innstillinger kan du velge om du vil sende dokumentene med en gang eller senere. Hvis du velger å sende senere oppgir du dato og klokkeslett for ønsket utsendelse.

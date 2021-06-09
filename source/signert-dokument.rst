@@ -2,9 +2,9 @@
 
 Signerte dokumenter
 ====================
-Med en digital signatur kan man signere dokumenter papirløst ved å bruke autentisering av en person og koble det sammen med et dokument. For signerte PDF-dokumenter ligger signaturdata i selve filen, og mange PDF-lesere har mulighet til å vise den digitale signaturen.
+Med en digital signatur kan man signere dokumenter papirløst ved å bruke autentisering av en person og koble det sammen med et eller flere dokument. For signerte PDF-dokumenter ligger signaturdata i selve filen, og mange PDF-lesere har mulighet til å vise den digitale signaturen.
 
-Etter at signering av et dokument er fullført får vi en *teknisk signatur* og en *signert PDF*.
+Når signeringen er fullført får vi en *teknisk signatur* og en *signert PDF*.
 
 En teknisk signatur er en XML-fil som kalles *XML Advanced Electronic Signature (XAdES)*, og er beviset på at du har signert digitalt. XAdES inneholder data som kan verifisere hvem som signerte, tidspunktet for signeringen, hvilken signeringsmetode som ble brukt, hvilken IP-adresse undertegner hadde, og om dokumentet er blitt endret etter signeringstidspunktet.
 

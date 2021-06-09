@@ -44,12 +44,14 @@ Step 1: Create signature job
             ClientConfiguration clientConfiguration = null; //As initialized earlier
             var portalClient = new PortalClient(clientConfiguration);
 
-            var documentToSign = new Document(
-                "Subject of Message",
-                "This is the content",
-                FileType.Pdf,
-                @"C:\Path\ToDocument\File.pdf"
-            );
+            var documentsToSign = new List<Document>
+            {
+                new Document(
+                    "Document title",
+                    FileType.Pdf,
+                    @"C:\Path\ToDocument\File.pdf"
+                )
+            };
 
             var signers = new List<Signer>
             {
@@ -66,7 +68,7 @@ Step 1: Create signature job
                 })
             };
 
-            var portalJob = new Job(documentToSign, signers, "myReferenceToJob");
+            var portalJob = new Job("Job title", documentsToSign, signers, "myReferenceToJob");
 
             var portalJobResponse = await portalClient.Create(portalJob);
 
@@ -78,15 +80,22 @@ Step 1: Create signature job
             PortalClient client = new PortalClient(clientConfiguration);
 
             byte[] documentBytes = null; // Loaded document bytes
-            PortalDocument document = PortalDocument.builder("Subject", "document.pdf", documentBytes).build();
-
-            PortalJob portalJob = PortalJob.builder(
-                    document,
+            List<PortalDocument> documents =  Collections.singletonList(
+                    PortalDocument.builder("Document title", "document.pdf", documentBytes).build()
+            );
+            List<PortalSigner> signers = new ArrayList<>();
+            Collections.addAll(signers,
                     PortalSigner.identifiedByPersonalIdentificationNumber("12345678910",
                             NotificationsUsingLookup.EMAIL_ONLY).build(),
                     PortalSigner.identifiedByPersonalIdentificationNumber("12345678911",
                             Notifications.builder().withEmailTo("email@example.com").build()).build(),
                     PortalSigner.identifiedByEmail("email@example.com").build()
+            );
+
+            PortalJob portalJob = PortalJob.builder(
+                    "Job title",
+                    documents,
+                    signers
             ).build();
 
             PortalJobResponse portalJobResponse = client.create(portalJob);
@@ -113,55 +122,58 @@ Step 1: Create signature job
 
         ..  code-block:: xml
 
+            <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
             <portal-signature-job-manifest xmlns="http://signering.posten.no/schema/v1">
-               <signers>
-                   <signer order="1">
-                       <personal-identification-number>12345678910</personal-identification-number>
-                       <signature-type>ADVANCED_ELECTRONIC_SIGNATURE</signature-type>
-                       <notifications>
-                           <!-- Override contact information to be used for notifications -->
-                           <email address="signer1@example.com" />
-                           <sms number="00000000" />
-                       </notifications>
-                   </signer>
-                   <signer order="2">
-                       <personal-identification-number>10987654321</personal-identification-number>
-                       <signature-type>AUTHENTICATED_ELECTRONIC_SIGNATURE</signature-type>
-                       <notifications>
-                           <email address="signer2@example.com" />
-                       </notifications>
-                   </signer>
-                   <signer order="2">
-                       <personal-identification-number>01013300001</personal-identification-number>
-                       <signature-type>AUTHENTICATED_ELECTRONIC_SIGNATURE</signature-type>
-                       <notifications-using-lookup>
-                           <!-- Try to send notifications in both e-mail and SMS using lookup -->
-                           <email/>
-                           <sms/>
-                       </notifications-using-lookup>
-                   </signer>
-                   <signer order="3">
-                       <personal-identification-number>02038412546</personal-identification-number>
-                       <signature-type>AUTHENTICATED_ELECTRONIC_SIGNATURE</signature-type>
-                       <notifications-using-lookup>
-                           <email/>
-                       </notifications-using-lookup>
-                   </signer>
-               </signers>
-               <sender>
-                   <organization-number>123456789</organization-number>
-               </sender>
-               <document href="document.pdf" mime="application/pdf">
-                   <title>Tittel</title>
-                   <nonsensitive-title>Sensitiv tittel</nonsensitive-title>
-                   <description>Melding til undertegner</description>
-               </document>
-               <required-authentication>4</required-authentication>
-               <availability>
-                   <activation-time>2016-02-10T12:00:00+01:00</activation-time>
-                   <available-seconds>864000</available-seconds>
-               </availability>
-               <identifier-in-signed-documents>PERSONAL_IDENTIFICATION_NUMBER_AND_NAME</identifier-in-signed-documents>
+                <signers>
+                    <signer order="1">
+                        <personal-identification-number>12345678910</personal-identification-number>
+                        <notifications>
+                            <email address="signer1@example.com" />
+                            <sms number="00000000" />
+                        </notifications>
+                    </signer>
+                    <signer order="2">
+                        <personal-identification-number>10987654321</personal-identification-number>
+                        <notifications>
+                            <email address="signer2@example.com" />
+                        </notifications>
+                    </signer>
+                    <signer order="2">
+                        <personal-identification-number>01013300001</personal-identification-number>
+                        <notifications-using-lookup>
+                            <email/>
+                            <sms/>
+                        </notifications-using-lookup>
+                    </signer>
+                    <signer order="3">
+                        <personal-identification-number>02038412546</personal-identification-number>
+                        <notifications-using-lookup>
+                            <email/>
+                        </notifications-using-lookup>
+                    </signer>
+                </signers>
+                <sender>
+                    <organization-number>123456789</organization-number>
+                </sender>
+                <title>Required job title</title>
+                <nonsensitive-title>Optional non-sensitive job title</nonsensitive-title>
+                <description>
+                    Optional description of the job. May be a summary of the document to be signed,
+                    or any message one wish to communicate when the signer is going to sign the document.
+                </description>
+                <documents>
+                    <document href="document.pdf" mime="application/pdf">
+                        <title>First document</title>
+                    </document>
+                    <document href="document2.pdf" mime="application/pdf">
+                        <title>Second document</title>
+                    </document>
+                </documents>
+                <availability>
+                    <activation-time>2016-02-10T12:00:00+01:00</activation-time>
+                    <available-seconds>864000</available-seconds>
+                </availability>
+                <identifier-in-signed-documents>PERSONAL_IDENTIFICATION_NUMBER_AND_NAME</identifier-in-signed-documents>
             </portal-signature-job-manifest>
 
         In response to this call, you will get the element ``portal-signature-job-response``. This response contains an ID generated by the signing service. You must store this ID in your systems so that you can later link the results you get from the polling mechanism to the correct signature job.
@@ -344,7 +356,7 @@ The element ``identifier-in-signed-documents`` is used to specify how signers ar
 
     ..  code-tab:: c#
 
-        Document documentToSign = null; //As initialized earlier
+        List<Document> documentsToSign = null; //As initialized earlier
         var signers = new List<Signer>
         {
             new Signer(new PersonalIdentificationNumber("00000000000"), new NotificationsUsingLookup())
@@ -353,7 +365,7 @@ The element ``identifier-in-signed-documents`` is used to specify how signers ar
             }
         };
 
-        var job = new Job(documentToSign, signers, "myReferenceToJob")
+        var job = new Job(documentsToSign, signers, "myReferenceToJob")
         {
             AuthenticationLevel = AuthenticationLevel.Four
         };
@@ -460,7 +472,6 @@ Responses will always include the next permitted poll time, which tells you when
                    <signature>
                        <status since="2017-01-23T12:51:43+01:00">SIGNED</status>
                        <personal-identification-number>12345678910</personal-identification-number>
-                       <xades-url>https://api.signering.posten.no/api/{sender-identifier}/portal/signature-jobs/1/xades/1</xades-url>
                    </signature>
                    <signature>
                        <status since="2017-01-23T12:00:00+01:00">WAITING</status>
@@ -478,8 +489,6 @@ Responses will always include the next permitted poll time, which tells you when
 Step 3: Get signed documents
 ==============================
 
-When getting XAdES and PAdES for a PortalJob, remember that the XAdES is per signer, while there is only one PAdES.
-
 ..  tabs::
 
     .. group-tab:: C#
@@ -488,9 +497,6 @@ When getting XAdES and PAdES for a PortalJob, remember that the XAdES is per sig
 
             PortalClient portalClient = null; //As initialized earlier
             var jobStatusChanged = await portalClient.GetStatusChange();
-
-            //Get XAdES:
-            var xades = await portalClient.GetXades(jobStatusChanged.Signatures.ElementAt(0).XadesReference);
 
             //Get PAdES:
             var pades = await portalClient.GetPades(jobStatusChanged.PadesReference);
@@ -507,25 +513,11 @@ When getting XAdES and PAdES for a PortalJob, remember that the XAdES is per sig
                 InputStream pAdESStream = client.getPAdES(statusChange.getpAdESUrl());
             }
 
-            // Retrieve XAdES for all signers:
-            for (Signature signature : statusChange.getSignatures()) {
-                if (signature.is(SignatureStatus.SIGNED)) {
-                    InputStream xAdESStream = client.getXAdES(signature.getxAdESUrl());
-                }
-            }
-
-            // … or for one specific signer:
-            Signature signature = statusChange.getSignatureFrom(
-                    SignerIdentifier.identifiedByPersonalIdentificationNumber("12345678910"));
-            if (signature.is(SignatureStatus.SIGNED)) {
-                InputStream xAdESStream = client.getXAdES(signature.getxAdESUrl());
-            }
-
     ..  group-tab:: HTTP
 
-        The response in the previous step contains the links ``xades-url`` and ``pades-url``. These you can do a ``HTTP GET`` on to download the signed document in the two formats. For more information on the format of the signed document, see :ref:`signerte-dokumenter`.
+        The response in the previous step contains the link ``pades-url``. You can do a ``HTTP GET`` on it to download the signed document. For more information on the format of the signed document, see :ref:`signerte-dokumenter`.
 
-        You download the XAdES file per signer, while the PAdES file is downloaded across all signers. This will include signing information for all signers who have so far signed the job. In most cases, it is not necessary to download the PAdES until all signers have the status ``SIGNED``.
+        This will include signing information for all signers who have so far signed the job. In most cases, it is not necessary to download the PAdES until all signers have the status ``SIGNED``.
 
 Specifying queues
 ===================
@@ -547,19 +539,21 @@ To specify a queue, set :code:`pollingQueue` through when constructing a :code:`
             var organizationNumber = "123456789";
             var sender = new Sender(organizationNumber, new PollingQueue("CustomPollingQueue"));
 
-            var documentToSign = new Document(
-                "Subject of Message",
-                "This is the content",
-                FileType.Pdf,
-                @"C:\Path\ToDocument\File.pdf"
-            );
+            var documentsToSign = new List<Document>
+            {
+                new Document(
+                    "Document title",
+                    FileType.Pdf,
+                    @"C:\Path\ToDocument\File.pdf"
+                )
+            };
 
             var signers = new List<Signer>
             {
                 new Signer(new PersonalIdentificationNumber("00000000000"), new NotificationsUsingLookup())
             };
 
-            var portalJob = new Job(documentToSign, signers, "myReferenceToJob", sender);
+            var portalJob = new Job("Job title", documentsToSign, signers, "myReferenceToJob", sender);
 
             var portalJobResponse = await portalClient.Create(portalJob);
 
@@ -575,15 +569,22 @@ To specify a queue, set :code:`pollingQueue` through when constructing a :code:`
             Sender sender = new Sender("000000000", PollingQueue.of("CustomPollingQueue"));
 
             byte[] documentBytes = null; // Loaded document bytes
-            PortalDocument document = PortalDocument.builder("Subject", "document.pdf", documentBytes).build();
+            List<PortalDocument> documents =  Collections.singletonList(
+                    PortalDocument.builder("Document title", "document.pdf", documentBytes).build()
+            );
+            List<PortalSigner> signers = new ArrayList<>();
+            Collections.addAll(signers,
+                    PortalSigner.identifiedByPersonalIdentificationNumber("12345678910",
+                        NotificationsUsingLookup.EMAIL_ONLY).build(),
+                    PortalSigner.identifiedByPersonalIdentificationNumber("12345678911",
+                        Notifications.builder().withEmailTo("email@example.com").build()).build(),
+                    PortalSigner.identifiedByEmail("email@example.com").build()
+            );
 
             PortalJob portalJob = PortalJob.builder(
-                    document,
-                    PortalSigner.identifiedByPersonalIdentificationNumber("12345678910",
-                            NotificationsUsingLookup.EMAIL_ONLY).build(),
-                    PortalSigner.identifiedByPersonalIdentificationNumber("12345678911",
-                            Notifications.builder().withEmailTo("email@example.com").build()).build(),
-                    PortalSigner.identifiedByEmail("email@example.com").build()
+                    "Job title",
+                    documents,
+                    signers
             ).withSender(sender).build();
 
             PortalJobResponse portalJobResponse = client.create(portalJob);
@@ -611,10 +612,10 @@ After receiving a status change, the documents can be deleted as follows:
 
         ..  code-block:: java
 
-        PortalClient client = null; // As initialized earlier
-        PortalJobStatusChanged statusChange = null; // As returned when polling for status changes
+            PortalClient client = null; // As initialized earlier
+            PortalJobStatusChanged statusChange = null; // As returned when polling for status changes
 
-        client.deleteDocuments(statusChange.getDeleteDocumentsUrl());
+            client.deleteDocuments(statusChange.getDeleteDocumentsUrl());
 
     ..  group-tab:: HTTP
 

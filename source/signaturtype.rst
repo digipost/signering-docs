@@ -12,9 +12,9 @@ Vi tilbyr autentisert og avansert signatur, som er rettskraftige signaturer på 
 Avansert signatur
 ==================
 
-Ved bruk av avansert signatur så skjer signering med BankID. Det er her en sterk knytning mellom identifiseringshandling og dokument som skal signeres.
+Ved bruk av avansert signatur skjer signering med BankID. Det gir en sterk knytning mellom identifiseringshandling og dokumentene som skal signeres.
 
-En avansert signatur har en sterkere knytning mellom signaturen og dokumentet enn en :ref:`autentisert-signatur` fordi det er kun BankID som er involvert i den prosessen.
+En avansert signatur har en sterkere knytning mellom signaturen og dokumentene enn en :ref:`autentisert-signatur` fordi det kun er BankID som er involvert i prosessen.
 
 ..  TIP::
     Signering kan gjøres med BankId, Buypass eller BankID på mobil. [#footnoteSigneringsmetoderOffentlig]_
@@ -24,11 +24,9 @@ En avansert signatur har en sterkere knytning mellom signaturen og dokumentet en
 Autentisert signatur
 =====================
 
-Ved bruk av autentisert signatur så autentiseres brukeren i ID-porten. IDporten vet ikke noe om at innloggingen er tilknyttet en signeringsseremoni og det er Signicats jobb å  knytte autentiserinen sammen med dokumentet til en signatur.
+Ved bruk av autentisert signatur autentiseres brukeren i ID-porten. IDporten vet ikke at innloggingen er tilknyttet en signeringsseremoni og det er Signicats jobb å knytte autentiseringen og dokumentene til en signatur.
 
-En autentisert signatur er derfor litt svakere enn en avansert signatur fordi det er flere parter involvert og at det skjer i to steg.
-
-Offentlige virksomheter bruker ofte autentisert signatur, da den er rimeligere enn avansert signatur.
+En autentisert signatur er litt svakere enn en avansert signatur fordi det er flere parter involvert og fordi det skjer i to steg.
 
 Avsender kan velge :ref:`sikkerhetsnivå` på signeringen.
 
@@ -39,11 +37,11 @@ Valg av signaturtype
 
     ..  tab:: Bedrift
 
-        Som bedrift har du kun mulighet til å velge avansert signatur og derfor er det ikke nødvendig å sette denne eksplisitt.
+        Som bedrift kan du kun velge avansert signatur og trenger derfor ikke sette denne eksplisitt.
 
     ..  tab:: Offentlig virksomhet
 
-        Som offentlig virksomhet har du mulighet til å velge mellom :ref:`avansert-signatur` eller :ref:`autentisert-signatur`, men Digitaliseringsdirektoratet anbefaler offentlige virksomheter å bruke autentisert signatur ettersom det er billigere og oppfyller de kravene som blir stilt i offentlig sektor.
+        Som offentlig virksomhet kan du velge mellom :ref:`avansert-signatur` og :ref:`autentisert-signatur`. Digitaliseringsdirektoratet anbefaler offentlige virksomheter å bruke autentisert signatur fordi det er billigere, samtidig som det oppfyller de kravene som stilles i offentlig sektor.
 
         ..  NOTE::
             Standardverdi for signaturtype er autentisert.
