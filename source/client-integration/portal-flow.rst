@@ -79,26 +79,26 @@ Step 1: Create signature job
             ClientConfiguration clientConfiguration = null; // As initialized earlier
             PortalClient client = new PortalClient(clientConfiguration);
 
-            byte[] documentBytes = null; // Loaded document bytes
-            List<PortalDocument> documents =  Collections.singletonList(
-                    PortalDocument.builder("Document title", "document.pdf", documentBytes).build()
-            );
-            List<PortalSigner> signers = new ArrayList<>();
-            Collections.addAll(signers,
+            byte[] document1Bytes = null; // Load document bytes
+            byte[] document2Bytes = null; // Load document bytes
+            List<PortalDocument> documents =  Arrays.asList(
+                    PortalDocument.builder("Document 1 title", document1Bytes).build(),
+                    PortalDocument.builder("Document 2 title", document2Bytes).build());
+
+            List<PortalSigner> signers = Arrays.asList(
                     PortalSigner.identifiedByPersonalIdentificationNumber("12345678910",
-                            NotificationsUsingLookup.EMAIL_ONLY).build(),
+                            NotificationsUsingLookup.EMAIL_ONLY)
+                            .build(),
                     PortalSigner.identifiedByPersonalIdentificationNumber("12345678911",
-                            Notifications.builder().withEmailTo("email@example.com").build()).build(),
-                    PortalSigner.identifiedByEmail("email@example.com").build()
-            );
+                            Notifications.builder().withEmailTo("email@example.com").build())
+                            .build(),
+                    PortalSigner.identifiedByEmail("email@example.com")
+                            .build());
 
-            PortalJob portalJob = PortalJob.builder(
-                    "Job title",
-                    documents,
-                    signers
-            ).build();
+            PortalJob job = PortalJob
+                    .builder("Job title", documents, signers).build();
 
-            PortalJobResponse portalJobResponse = client.create(portalJob);
+            PortalJobResponse jobResponse = client.create(job);
 
     ..  group-tab:: HTTP
 

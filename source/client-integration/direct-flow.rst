@@ -76,21 +76,26 @@ Step 1: Create signature job
             ClientConfiguration clientConfiguration = null; // As initialized earlier
             DirectClient client = new DirectClient(clientConfiguration);
 
-            byte[] documentBytes = null; // Loaded document bytes
-            List<DirectDocument> documents =  Collections.singletonList(
-                    DirectDocument.builder("Document title", "document.pdf", documentBytes).build()
-            );
+            byte[] document1Bytes = null; // Load document bytes
+            byte[] document2Bytes = null; // Load document bytes
+            List<DirectDocument> documents = Arrays.asList(
+                    DirectDocument.builder("Document 1 title", document1Bytes).build(),
+                    DirectDocument.builder("Document 2 title", document2Bytes).build());
+
+            List<DirectSigner> signers = Collections.singletonList(DirectSigner
+                    .withPersonalIdentificationNumber("12345678910")
+                    .build());
 
             ExitUrls exitUrls = ExitUrls.of(
                     URI.create("http://sender.org/onCompletion"),
                     URI.create("http://sender.org/onRejection"),
-                    URI.create("http://sender.org/onError")
-            );
+                    URI.create("http://sender.org/onError"));
 
-            DirectSigner signer = DirectSigner.withPersonalIdentificationNumber("12345678910").build();
-            DirectJob directJob = DirectJob.builder("Job title", documents, exitUrls, signer).build();
+            DirectJob job = DirectJob
+                    .builder("Job title", documents, signers, exitUrls)
+                    .build();
 
-            DirectJobResponse directJobResponse = client.create(directJob);
+            DirectJobResponse jobResponse = client.create(job);
 
     ..  group-tab:: HTTP
 
