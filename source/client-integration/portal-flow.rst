@@ -79,26 +79,26 @@ Step 1: Create signature job
             ClientConfiguration clientConfiguration = null; // As initialized earlier
             PortalClient client = new PortalClient(clientConfiguration);
 
-            byte[] documentBytes = null; // Loaded document bytes
-            List<PortalDocument> documents =  Collections.singletonList(
-                    PortalDocument.builder("Document title", "document.pdf", documentBytes).build()
-            );
-            List<PortalSigner> signers = new ArrayList<>();
-            Collections.addAll(signers,
+            byte[] document1Bytes = null; // Load document bytes
+            byte[] document2Bytes = null; // Load document bytes
+            List<PortalDocument> documents =  Arrays.asList(
+                    PortalDocument.builder("Document 1 title", document1Bytes).build(),
+                    PortalDocument.builder("Document 2 title", document2Bytes).build());
+
+            List<PortalSigner> signers = Arrays.asList(
                     PortalSigner.identifiedByPersonalIdentificationNumber("12345678910",
-                            NotificationsUsingLookup.EMAIL_ONLY).build(),
+                            NotificationsUsingLookup.EMAIL_ONLY)
+                            .build(),
                     PortalSigner.identifiedByPersonalIdentificationNumber("12345678911",
-                            Notifications.builder().withEmailTo("email@example.com").build()).build(),
-                    PortalSigner.identifiedByEmail("email@example.com").build()
-            );
+                            Notifications.builder().withEmailTo("email@example.com").build())
+                            .build(),
+                    PortalSigner.identifiedByEmail("email@example.com")
+                            .build());
 
-            PortalJob portalJob = PortalJob.builder(
-                    "Job title",
-                    documents,
-                    signers
-            ).build();
+            PortalJob job = PortalJob
+                    .builder("Job title", documents, signers).build();
 
-            PortalJobResponse portalJobResponse = client.create(portalJob);
+            PortalJobResponse jobResponse = client.create(job);
 
     ..  group-tab:: HTTP
 
@@ -524,9 +524,9 @@ Specifying queues
 
 An important and necessary feature for organizations using more than one application to create signature jobs through the API. It enables an application to retrieve status changes independent of other applications.
 
-The feature specifies the queue that jobs and status changes for a signature job will occur in. It is used for signature jobs where ``StatusRetrievalMethod == POLLING``. If your organization is using more than one application/integration to access our API, we strongly recommend using a separate queue for each one. This is to ensure that one does not retrieve the others' receipts. This may result in missing status changes for jobs in one of the applications, which in turn will result in a poor user experience. Only use the default queue, eg. not specifying a queue, when only one of your applications access our API.
+The ``pollingQueue`` property is applicable for jobs where ``StatusRetrievalMethod == POLLING``, and is used to assign jobs to a specified queue which is then used to retrieve status changes. If your organization is using more than one application/integration to access our API, we strongly recommend using a separate queue for each one. This is to ensure that one does not retrieve the others' status updates. This may result in missing status updates for jobs in one of the applications, which in turn will result in a poor user experience. Only use the default queue, eg. not specifying a queue, when only one of your applications access our API.
 
-To specify a queue, set :code:`pollingQueue` through when constructing a :code:`Sender`. Please note that the same sender must be specified when polling to retrieve status changes. The :code:`Sender` can be set globally in :code:`ClientConfiguration` or on every job.
+To specify a queue, set ``pollingQueue`` through when constructing a ``Sender``. Please note that the same sender must be specified when polling to retrieve status changes. The ``Sender`` can be set globally in ``ClientConfiguration`` or on every job.
 
 ..  tabs::
 
@@ -568,26 +568,15 @@ To specify a queue, set :code:`pollingQueue` through when constructing a :code:`
 
             Sender sender = new Sender("000000000", PollingQueue.of("CustomPollingQueue"));
 
-            byte[] documentBytes = null; // Loaded document bytes
-            List<PortalDocument> documents =  Collections.singletonList(
-                    PortalDocument.builder("Document title", "document.pdf", documentBytes).build()
-            );
-            List<PortalSigner> signers = new ArrayList<>();
-            Collections.addAll(signers,
-                    PortalSigner.identifiedByPersonalIdentificationNumber("12345678910",
-                        NotificationsUsingLookup.EMAIL_ONLY).build(),
-                    PortalSigner.identifiedByPersonalIdentificationNumber("12345678911",
-                        Notifications.builder().withEmailTo("email@example.com").build()).build(),
-                    PortalSigner.identifiedByEmail("email@example.com").build()
-            );
+            List<PortalDocument> documents = null; // create documents
+            List<PortalSigner> signers = null; // create signers
 
-            PortalJob portalJob = PortalJob.builder(
-                    "Job title",
-                    documents,
-                    signers
-            ).withSender(sender).build();
+            PortalJob job = PortalJob
+                    .builder("Job title", documents, signers)
+                    .withSender(sender)
+                    .build();
 
-            PortalJobResponse portalJobResponse = client.create(portalJob);
+            PortalJobResponse jobResponse = client.create(job);
 
             PortalJobStatusChanged statusChange = client.getStatusChange(sender);
 
