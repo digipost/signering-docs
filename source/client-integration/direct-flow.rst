@@ -179,7 +179,18 @@ Step 1: Create signature job
 
         ..  code-block:: java
 
-            //This functionality exists in Java, but the example has not been generated yet.
+            // documents and exitUrls as previous example
+
+            List<DirectSigner> signers = Collections.singletonList(DirectSigner
+                    .withPersonalIdentificationNumber("12345678910")
+                    .withSignatureType(SignatureType.ADVANCED_SIGNATURE)
+                    .build());
+
+            DirectJob job = DirectJob
+                    .builder("Job title", documents, signers, exitUrls)
+                    .requireAuthentication(AuthenticationLevel.FOUR)
+                    .build();
+
 
     ..  group-tab:: HTTP
 
@@ -189,9 +200,9 @@ Step 1: Create signature job
 Identifying the signer
 ----------------------
 
-When using direct flow you can identify the signer in two different ways: 
+When using direct flow you can identify the signer in two different ways:
 
-- with social security number 
+- with social security number
 - chosen identifier (e.g. customer number)
 
 ..  tabs::
@@ -790,5 +801,3 @@ For security reasons, the redirect URL for a signer can only be used once. If th
                     https://signering.posten.no#/redirect/cwYjoZOX5jOc1BACfTdhuIPj
                 </redirect-url>
             </direct-signer-response>
-
-
