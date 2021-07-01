@@ -36,3 +36,6 @@ Mange kunder benytter et fagsystem som sak- og arkivsystemer, eller andre progra
 
 3. Egenutviklet integrasjon
 API-et er dokumentert, slik at kunder som ønsker det kan gjøre en egen integrasjon.
+
+..  NOTE::
+    Private virksomheter må ta kontakt via salg@digipost.no for å få tilgang til å koble på API-et, etter opprettelse av virksomhetskonto i webportalen.
