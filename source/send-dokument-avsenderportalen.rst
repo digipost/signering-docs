@@ -3,7 +3,7 @@ Send oppdrag til signering
 
 Steg 1: Dokumenter til signering
 ================================
-Her laster du opp dokumentene som skal signeres. Filene må være PDF-filer og den samlede størrelsen kan ikke overskride 3MB. Sending av flere dokumenter støttes foreløpig kun for private virksomheter.
+Her laster du opp dokumentene som skal signeres. Filene må være PDF-filer og den samlede størrelsen kan ikke overskride 3MB.
 
 Sett en signeringfrist for oppdraget
 -------------------------------------
