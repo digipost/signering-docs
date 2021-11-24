@@ -1,4 +1,4 @@
-.. _addressing-of-signer:
+.. _addressing-signers:
 
 Addressing signers
 ***************************
@@ -7,7 +7,8 @@ You may address signers for :ref:`portal flow <signing-in-portal-flow>` in two d
 1. By email and/or SMS (only available for private organizations)
 2. By national identity number
 
-..  WARNING::
+<<<<<<< Updated upstream
+..  CAUTION::
     How you choose to address the signer(s) affects the :ref:`content and appearance of the signature(s) in the resulting signed document <identify-signers>`.
 
 1. Addressing signers by e-mail / SMS
@@ -57,7 +58,7 @@ For public organizations
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 For **public organizations**, we obtain the signer's email address and mobile phone number from the `Contact and Reservation Register (KRR) <http://eid.difi.no/nb/kontakt-og-reservasjonsregisteret>`_. Public organizations can only define their own contact details for a signer if the signer is to sign on behalf of an organization.
 
-..  WARNING::
+..  CAUTION::
     If signers have opted out of digital communication, the task will be rejected and subsequent retrieval of the status of the task will report an error with details of which signers have opted out. Signers with overridden contact details will not be checked for opt-out.
 
 
