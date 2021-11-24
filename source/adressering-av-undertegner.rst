@@ -29,7 +29,7 @@ See :ref:`Signing in portal flow with addressing by e-mail / SMS <signing-in-por
 
 2. Addressing signers by their national identity number
 ================================
-To address using a national identity number, you must know the signer's national identity number. Addressing using a national identity number is the safest way to reach the recipient, since it requires logging in with an electronic ID in order to read and sign.
+If you know the national identity numbers of the signers, you can address them using their identity numbers. This is the most secure way to reach the expected recipients, since it requires them to log in with an electronic ID in order to read and sign.
 
 Even if the signer is addressed using a national identity number, the signer will be notified and will receive a link to log in by email or SMS – see :ref:`notification and contact details <notifications>` for more information..
 
