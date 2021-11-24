@@ -27,7 +27,7 @@ In the case of e-mail/SMS addressing, the national identity number will not be i
 
 See :ref:`Signing in portal flow with addressing by e-mail / SMS <signing-in-portal-flow-without-national-identity>` for more information and visual examples.
 
-2. Address using national identity number
+2. Addressing signers by their national identity number
 ================================
 To address using a national identity number, you must know the signer's national identity number. Addressing using a national identity number is the safest way to reach the recipient, since it requires logging in with an electronic ID in order to read and sign.
 
