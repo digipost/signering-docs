@@ -1,28 +1,28 @@
-.. _sikkerhetsnivå:
+.. _security-level:
 
-Sikkerhetsnivå
+Security level
 ***************
 
-Som avsender har man mulighet til å angi hvilket sikkerhetsnivå signeringsoppdraget skal ha. Dette kan være 3 eller 4, og begrenser hvilke elektroniske ID-er undertegner kan bruke for å signere.
+As a sender, it is possible to specify which security level the signature request should have. This can be 3 or 4, and limits which electronic IDs the signer can use to sign.
 
-Sikkerhetsnivået begrenser også hvilke innloggingsmetoder undertegner kan bruke for å se signeringsoppdraget og dets detaljer, samt begynne selve signeringen.
-
-..  TIP::
-    Om ingen signaturtype angis ved opprettelse av oppdraget, vil nivå 4 settes som standard.
-
-Bedrift
-========
-
-Som en bedrift har du kun mulighet til å bruke det høyeste sikkerhetsnivået, nivå 4, og du trenger derfor ikke ta stilling til dette.
+The security level also restricts which login methods the signer can use to view the signature request and its details, and begin signing.
 
 ..  TIP::
-    Tilgjengelige metoder for innlogging og signering er *BankID*, *BankID på mobil* og *Buypass*.
+    If no signature type is specified on creating the request, level 4 will be set as default.
 
-Offentlig virksomhet
+Private organizations
 =====================
-Som offentlig virksomhet kan du velge sikkerhetsnivå 3 eller 4. Et signeringsoppdrag som er på nivå 4 vil kun kunne vises og signeres i sin helhet med alle e-IDer unntatt MinID, som er sikkerhetsnivå 3.
 
-Er bruker innlogget på nivå 3 vil hen få en begrenset visning av signeringsoppdraget, der kun *ikke-sensitiv* tittel er synlig. For å se alle detaljer om oppdraget vil brukeren bli bedt om å logge inn på nytt til sikkerhetsnivå 4. Brukeren vil alltid bli veiledet til den innloggingsmetoden som kreves for oppdraget som skal signeres, slik at brukeropplevelsen blir så god som mulig.
+As a private organization, you can only use the highest security level, level 4, and therefore you do not need to consider this.
 
 ..  TIP::
-    Tilgjenglige metoder for innlogging og signering er *BankID*, *BankID på mobil*, *Buypass id på smartkort*, *Buypass id i mobil* og *Commfides*.
+    Available methods for logging in and signing are *BankID, BankID mobile phone* and *Buypass*.
+
+Public organizations
+=====================
+As a public organization, you can choose security level 3 or 4. A signature request at level 4 can only be shown and signed in its entirety with all e-IDs, except MinID, which is security level 3.
+
+If the user is logged in at level 3, they will get a limited view of the signature request, where only *non-sensitive* titles are visible. To view all details of the request, the user will be prompted to log in again, at security level 4. The user will always be guided to the login method required for the request to be signed, to ensure the best possible user experience.
+
+..  TIP::
+    The available methods for logging in and signing are *BankID, BankID mobile phone, Buypass id on smart card, Buypass id in mobile* and *Commfides*.

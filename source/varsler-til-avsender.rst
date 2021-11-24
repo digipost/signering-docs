@@ -1,21 +1,21 @@
-Varseltekster for avsendere
+Notification texts for senders
 ============================
 
-Alle avsendere er registrert i tjenesten med e-postadresse, og varsler sendes derfor på e-post. En avsenders e-postadresse er knyttet til brukeren i tjenesten, og sendes aldri inn ifm. opprettelse av oppdrag.
+All senders are registered in the service with an email address, and notifications are therefore sent by email. A sender’s email address is linked to the user in the service and is never sent in when a request is created.
 
 ..  NOTE::
-    Det er kun brukeren som har opprettet signeringsoppdraget som vil få e-poster knyttet til et oppdrag.
+    Only the user who created the signature request will receive emails linked to a request.
 
-Det sendes ut varsler til avsender i tre tilfeller:
+Notifications are sent to the sender in three cases:
 
-1. **Når signeringsoppdrag endrer status**: Varselet inneholder en oversikt over samtlige undertegneres signeringsstatus. Det blir sendt én e-post for hver undertegner som "gjør noe", dvs. signerer eller avviser, eller når signeringsfristen er gått ut.
+1. **When a signature request changes status**: The notification includes an overview of all signers' signing status. One email is sent for each signer as "do something", i.e. sign or reject, or when the signing deadline has passed.
 
-2. **24 timer før signeringsfristen for ett oppdrag går ut**: Varselet sendes ut som en påminnelse til avsender om at noen fortsatt ikke har signert. Avsender kan da velge å utsette signeringsfristen, eller purre på undertegnerne ved å sende ekstra varsel. **N.B:** Varselet sendes kun hvis oppdragets opprinnelige signeringsfrist var mer enn 48 timer.
+2. **24 hours before the signing deadline for a request expires**: The notification is sent out as a reminder to the sender that someone still has not signed. The sender can then choose to defer the signing deadline, or remind the signers by sending an extra notification. **NB:** The notification is only sent if the request's original signing deadline was more than 48 hours.
 
-3. **4 dager før arkivering av ferdigsignert dokument utløper**: Varselet sendes ut som en påminnelse til avsender dersom dokumentene er signert av alle mottakere, og *kun* dersom avsender ikke har lastet ned det ferdigsignerte dokumentet. Posten signering tilbyr :ref:`langtidsvalidering-og-lagring` for avsendere som ikke ønsker å måtte laste ned og ta vare på ferdigsignerte dokumenter.
+3. **Four days before archiving of the signed document expires**: The notification is sent out as a reminder to the sender if the documents have been signed by all recipients, and *only* if the sender has not downloaded the signed document. Posten signering offers :ref:`long-term-validation-and-storage` for senders who do not want to have to download and retain signed documents.
 
 
-Varsel når signeringsoppdrag endrer status
+Notification when signature request changes status (in Norwegian)
 __________________________________________
 
 ..  tabs::
@@ -51,7 +51,7 @@ __________________________________________
         Hilsen oss i Posten signering
 
 
-Varsel før arkivering av ferdigsignert dokument utløper
+Notification before archiving of signed document expires (in Norwegian)
 _______________________________________________________
 
 ..  tabs::

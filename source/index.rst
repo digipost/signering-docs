@@ -8,7 +8,7 @@ Welcome to the Posten signering documentation!
 
 .. toctree::
    :maxdepth: 1
-   :caption: Introduksjon
+   :caption: Introduction
 
    introduksjon
    signeringsflyt
@@ -17,14 +17,14 @@ Welcome to the Posten signering documentation!
 
 .. toctree::
    :maxdepth: 1
-   :caption: Avsenderportalen
+   :caption: Sender portal
 
    avsenderportalen
    send-dokument-avsenderportalen
 
 .. toctree::
    :maxdepth: 1
-   :caption: Signeringsoppdrag
+   :caption: Signature requests
 
    opprette-oppdrag
    adressering-av-undertegner
@@ -37,7 +37,7 @@ Welcome to the Posten signering documentation!
 
 .. toctree::
    :maxdepth: 1
-   :caption: Avanserte innstillinger
+   :caption: Advanced settings
 
    sikkerhetsnivå
    kjedet-signatur
@@ -58,19 +58,19 @@ Welcome to the Posten signering documentation!
 
 .. toctree::
    :maxdepth: 1
-   :caption: Egen integrasjon
+   :caption: Self-developed integration
 
    egen-integrasjon/dokumentpakke
    egen-integrasjon/sikkerhet
 
 .. toctree::
    :maxdepth: 1
-   :caption: Ordbok
+   :caption: Dictionary
 
 
 .. toctree::
    :maxdepth: 1
-   :caption: For intern bruk
+   :caption: For internal use
 
    syntax-help
    ordbok

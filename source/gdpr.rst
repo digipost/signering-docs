@@ -1,40 +1,40 @@
 GDPR
 *******
 
-Vi sletter på generell basis data som vi ikke lenger har bruk for etter 3 år. Sletting blir gjort på ulik måte avhengig av hvilken type data det er snakk om. Under følger en oppsummering av når vi sletter hvilken type data, og hvilke krav som gjelder for sletting:
+On a general basis, data that we no longer need is erased after 3 years. Erasure takes place in different ways, depending on the type of data concerned. A summary of when we erase different types of data and which requirements apply to erasure is given below:
 
 
-Varsler
+Notifications
 #######
 
-Vi sletter epost- og SMS-varsler 3 år etter siste gang de ble forsøkt sendt.
+We erase email and SMS notifications 3 years after the last time sending them was attempted.
 
 
-Signeringsoppdrag
-#################
+Signature requests
+##################
 
-Vi sletter signeringsoppdrag 3 år etter at arkivbehov opphører. Det betyr at hvis en avsender oppretter et oppdrag i dag, så vil det ta 40 dager (eller 50 år hvis avsender bruker langtidsarkiv) før selve dokumentet blir slettet. 3 år etter dette sletter vi oppdraget med tilhørende data. Tilhørende data er jobb-events, kø for jobbendringer, informasjon om videresending til postkassen, varsler, undertegnere og selve oppdraget.
+We erase the signature request 3 years after the archiving requirement lapses. This means that if a sender creates a request today, it will take 40 days (or 50 years if the sender uses a long-term archive) before the actual document is deleted. Three years after this, we erase the request and associated data. The associated data is job events, queue for job changes, information about forwarding to the mailbox, notifications, signers and the actual request.
 
 
-Tilgjengelighet for undertegner
+Availability to the signer
 -------------------------------
 
-Oppdraget er tilgjengelig for undertegner i 24 timer etter signering. Grunnen til at det ikke er 40 dager eller 50 år er fordi vi ikke skal måtte innhente godkjente villkår fra undertegner - dette vil komplisere signeringsflyten. Ved å ha mulighet til å hente det inn i noe tid etter signering så gir vi de som ikke skjønte at de måtte laste det ned en sjanse til å prøve igjen.
+The request is available to the signer for 24 hours after signing. The reason this is not 40 days or 50 years is that we must not need to obtain approved terms from the signer, since this would complicate the signature flow. By making it possible to retrieve the request for some time after signing, we give those who did not realise they had to download it a chance to try again.
 
 
-Brukere
+Users
 #######
 
-Brukere kan deaktiveres fra web i avsenderportalen, av kontoforvaltere i den aktuelle virksomheten, eller av Posten og Digitaliseringsdirektoratet gjennom administrasjonsportalen. En deaktivert bruker vil anonymiseres og slettes etter følgende regler:
+Users can be deactivated online in the sender portal, by account managers in the relevant company, or by Norway Post and the Norwegian Digitalisation Agency via the administration portal. A deactivated user will be anonymized and erased according to the following rules:
 
-* **Anonymisering**: En bruker anonymiseres 3 år etter at hun ble deaktivert.
-* **Sletting**: En bruker slettes 3 år etter at hun ble deaktivert hvis hun ikke har noe tilknytning til noe signeringsoppdrag. En slik tilknytning vil være at hun f.eks. har endret signeringsfristen på et oppdrag eller at hun selv har opprettet oppdraget.
+* **Anonymization**: A user is anonymized 3 years after deactivation.
+* **Erasure**: A user is erased 3 years after deactivation if the user is not connected to any signature request. Any such connection might be that the user has, for example, changed the signing deadline for a request, or that the user created the request.
 
-Merk at disse hendelsene skjer på samme tidspunkt, men at de har forskjellige krav som må oppfylles. Dette betyr at oppgavene kan kjøre uavhengig av hverandre dersom behovene skulle endre seg på sikt.
+Note that these events occur at the same time, but have different requirements that must be fulfilled. This means that the requests can run independently of each other, if the needs should change in the longer term.
 
 
-Virksomheter
+Organizations
 ############
 
-* **Deaktivering**: En virksomhet kan deaktiveres med umiddelbar virkning. Etter deaktivering, beholder vi dataene i 3 måneder.
-* **Sletting**: Sletting av virksomheten skjer etter at en virksomhet har vært deaktivert i 3 måneder. Da slettes alle data som er knyttet til virksomheten.
+* **Deactivation**: An organization can be deactivated with immediate effect. After deactivation, we retain the data for 3 months.
+* **Erasure**: The organization is erased after the organization has been deactivated for 3 months. This will delete all data associated with the organization.

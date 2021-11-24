@@ -1,65 +1,65 @@
-.. _varsler-regler-for-utsending:
+.. _notifications-rules-for-issue:
 
-Varsler: Regler for utsending
+Notifications: Rules for issue of notifications
 =============================
 
-For å sørge for at undertegner mottar varsler og påminnelser i passende tidsrom, er tidspunktene for når varsler blir sendt ut avhengig av signeringsfristen for et oppdrag.
+To ensure that the signer receives notifications and reminders at appropriate intervals, the times when notifications are sent out will depend on the signing deadline for a request.
 
-Hvis avsender har lagt til både e-postadressen og mobilnummeret til undertegner, sendes det ut inntil 3 varsler om signeringen: Et førstegangsvarsel umiddelbart etter aktivering, påminnelse på e-post, og til slutt en siste påminnelse på SMS. Bakgrunnen for dette oppsettet, er at e-post da benyttes som primær varslingskanal og at SMSen skal fungere som et siste, eskalerende varsel.
+If the sender has added both the email address and the mobile number of the signer, up to 3 notifications are sent about the signing: An initial notification immediately after activation, an email reminder and, finally, a last SMS reminder. The background to this set-up is that email is used as the primary notification channel and that the SMS must function as a final, escalating notification.
 
-=============== ================= ================= =================
-Signeringsfrist 1. varsel: e-post 2. varsel: e-post 3. varsel: SMS
-=============== ================= ================= =================
-0-24 timer      Ved aktivering                      Ved aktivering
-2-3 dager       Ved aktivering    1 dag før frist   1 dag før frist
-4-5 dager       Ved aktivering    2 dager før frist 1 dag før frist
-6-9 dager       Ved aktivering    3 dager før frist 2 dager før frist
-10+ dager       Ved aktivering    5 dager før frist 2 dager før frist
-=============== ================= ================= =================
-
-.. raw:: html
-
-   <!-- Tabellen er generert vha. http://www.tablesgenerator.com/markdown_tables -->
-
-Hvis avsender har lagt til kun e-postadressen eller kun mobilnummeret til undertegner, sendes det ut inntil 2 varsler om signeringen: Et førstegangsvarsel umiddelbart etter aktivering, og én påminnelse på henholdsvis e-post eller SMS. 
-
-=============== ===================== =====================
-Signeringsfrist 1. varsel: e-post/SMS 2. varsel: e-post/SMS
-=============== ===================== =====================
-0-24 timer      Ved aktivering
-2-3 dager       Ved aktivering        1 dag før frist
-4-5 dager       Ved aktivering        2 dager før frist
-6-9 dager       Ved aktivering        3 dager før frist
-10+ dager       Ved aktivering        5 dager før frist
-=============== ===================== =====================
+================ ======================= ======================= ====================
+Signing deadline 1. notification: e-mail 2. notification: e-mail 3. notification: SMS
+================ ======================= ======================= ====================
+0-24 hours       On activation                                   On activation
+2-3 days         On activation           1 day before deadline   1 day before deadline
+4-5 days         On activation           2 days before deadline  1 days before deadline
+6-9 days         On activation           3 days before deadline  2 days before deadline
+10+ days         On activation           5 days before deadline  2 days before deadline
+================ ======================= ======================= ====================
 
 .. raw:: html
 
    <!-- Tabellen er generert vha. http://www.tablesgenerator.com/markdown_tables -->
 
-.. NOTE:: SMS sendes ikke ut mellom klokken 22:00 og 08:00, med mindre oppdraget opprettes på natten og fristen er så kort at det er nødvendig med umiddelbar utsending.
+If the sender has only added the email address or mobile number of the signer, up to 2 notifications are sent about the signing: An initial notification immediately after activation and one reminder by e-mail or SMS, respectively.
 
-.. NOTE:: Hvis avsender *utvider signeringsfristen* slettes alle planlagte varsler for oppdraget. Det blir da generert nye varsler som sendes ut på relative tidspunkt knyttet til den nye fristen.
+================ =========================== ===========================
+Signing deadline 1. notification: e-mail/SMS 2. notification: e-mail/SMS
+================ =========================== ===========================
+0-24 hours       On activation
+2-3 days         On activation               1 day before deadline
+4-5 days         On activation               2 days before deadline
+6-9 days         On activation               3 days before deadline
+10+ days         On activation               5 days before deadline
+================ =========================== ===========================
 
-.. CAUTION:: Får å unngå at vi kommer i skade for å sende varsler til reelle mottakere i testmiljøer, er det lagt inn noen sikkerhetsmekanisme i difitest og difiqa: e-postvarsler inkluderer en setning som indikerer at varselet kommer fra et testmiljø: "Dette er en test-e-post sendt for Difi fra Postens signeringstjeneste" og SMS-varslene erstattes i sin helhet med setningen: "Dette er en test-SMS sendt for Difi fra Postens signeringstjeneste".
+.. raw:: html
+
+   <!-- Tabellen er generert vha. http://www.tablesgenerator.com/markdown_tables -->
+
+.. NOTE:: No SMS is sent between 22:00 and 8:00, unless the request is created at night and the deadline is so short that it has to be sent immediately.
+
+.. NOTE:: If the sender *extends the signing deadline*, all scheduled notifications for the request will be deleted. New notifications will then be generated and sent out at an appropriate time in relation to the new deadline.
+
+.. WARNING:: To avoid accidentally sending notifications to actual recipients in test environments, a security mechanism has been included in difitest and difiqa: email notifications include a sentence to indicate that the notification comes from a test environment: ''This is a test email sent for Difi from Posten signering" and the SMS notifications are replaced in their entirety with the sentence: "This is a test SMS sent for Difi from Posten signering".
 
 
-Varseltekster for undertegnere
+Signer notification texts
 ===============================
 
-Oppsettet på varslene som blir sendt ut er predefinert og ikke mulig å endre på for deg som avsender, men du kan legge til en tittel/beskrivelse av dokumentene som skal signeres. 
+The set-up of the notifications that are sent out is predefined and may not be changed for you as the sender, but you can add a title/description of the documents to be signed.
 
-Innholdet i varselet vil variere ut fra om
+The content of the notification will vary according to
 
-- adresseringen til undertegner er med eller uten fødselsnummer
-- hvilken kanal de sendes i (e-post/SMS)
-- sektor som avsender sender fra (privat eller offentlig)
-- antall undertegnere på oppdraget
+- whether the addressing of the signer is with or without national identity number
+- which channel the notifications are sent in (e-mail/SMS)
+- the sector from which the sender sends (private or public)
+- the number of signers for the request
 
-Nedenfor vises de ulike variantene av varslene som sendes på e-post og SMS.
+The different notification versions sent by email and SMS are shown below (in Norwegian).
 
 
-Varsel om dokument til signering, ved adressering med fødselsnummer
+Notification of document for signing, on addressing with national identity number
 ____________________________________________________________________
 
 ..  tabs::
@@ -111,7 +111,7 @@ ____________________________________________________________________
          
 .. _varslerUtenFødselsnummer:
 
-Varsel om dokument til signering, ved adressering på e-post / SMS
+Notification of document for signing, on addressing by email / SMS
 ____________________________________________________________________
 
 ..  tabs::
@@ -171,14 +171,14 @@ ____________________________________________________________________
 
 
 
-Etter signering: Varsel om oppsalg til digital postkasse
+After signing: Notification of lookup in digital mailbox
 ________________________________________________________
 
-Etter at en undertegner har signert et dokument, vil hun i *disse tilfeller* få mulighet til å opprette en digital postkasse. Hvis avsender er privat, vil undertegner få mulighet til å opprette konto hos Digipost, og hvis avsender er offentlig vil undertegner kunne velge digital postkasse på Norge.no.
+After a signer has signed a document, in *these cases* the signer will be able create a digital mailbox. If the sender is a private organization, the signer will be able to create an account at Digipost, and if the sender is a public organization, the signer will be able to select a digital mailbox at Norge.no.
 
-Innholdet i dette varselet er ulikt avhengig av hvor mange undertegnere som skal signere dokumentet, og om avsender er privat eller offentlig.
+The content of this notification will vary according to how many signers are to sign the document, and whether the sender is private or public.
 
-Private avsendere
+Private senders
 ^^^^^^^^^^^^^^^^^^^
 
 ..  tabs::
@@ -226,7 +226,7 @@ Private avsendere
         Nå har alle undertegnerne signert. Hvis du også ønsker å motta dokumentet med alle signaturer, må du opprette en konto i Digipost innen 7 dager. Da sendes dokumentet automatisk dit, så har du det lett tilgjengelig når du trenger            det: https://www.digipost.no/app/registrering
 
 
-Offentlige avsendere
+Public senders
 ^^^^^^^^^^^^^^^^^^^^^
       
 ..  tabs::
@@ -271,10 +271,10 @@ Offentlige avsendere
         Hei, du har tidligere signert et dokument fra [*Avsender*] gjennom den nasjonale fellesløsningen e-Signering. Nå har alle undertegnerne signert. Hvis du også ønsker å motta dokumentet med alle signaturer, må du opprette en digital postkasse innen 7 dager. Da sendes dokumentet automatisk dit, så har du det lett tilgjengelig når du trenger det: https://www.norge.no/velg-digital-postkasse
 
 
-Varsel om kansellert oppdrag
+Notification of cancelled request
 _______________________________
 
-Hvis avsender *kansellerer* et signeringsoppdrag, blir det sendt ut et varsel til undertegner om dette:
+If the sender cancels a signature request, a notification is sent to the signer about this:
 
 ..  tabs::
       

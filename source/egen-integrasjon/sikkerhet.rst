@@ -1,38 +1,38 @@
-Sikkerhet
+Security
 **********
 
-Signeringstjenesten benytter to-veis TLS for å sikre konfidensialitet og meldingsintegritet på transportlaget. Dokumentpakken med dokumentene som skal signeres er integritetssikret med ASiC‑E.
+The digital signature service uses two-way TLS to ensure the confidentiality and message integrity of the transport layer. The document package containing the documents to be signed is integrity-assured with ASiC-E.
 
-To-veis TLS
+Two-way TLS
 =============
 
-For å benytte APIene trenger du et virksomhetssertifikat. For innkjøp og mer informasjon om virksomhetssertifikat, se :ref:`innkjøp av virksomhetssertifikat <buyEnterpriseCertificate>`. Her vil du også finne informasjon om hvilke av sertifikatene du har som skal brukes mot vår tjeneste.
+To use the APIs, you need an organization certificate. Concerning purchase of and more information about the organization certificate, see :ref:`purchase of an organization certificate <buyEnterpriseCertificate>`. Here, you will also find information about which of the certificates you have that must be used for our service.
 
-Se også  `godkjent virksomhetssertifikat i offentlig sektor <https://www.regjeringen.no/no/dokumenter/kravspesifikasjon-for-pki-i-offentlig-se/id611085/>`__ og `sertifikathåndtering i offentlig sektor <http://begrep.difi.no/SikkerDigitalPost/1.2.0/sikkerhet/sertifikathandtering>`__ for mer informasjon om rot- og mellomliggende sertifikater.
+See also `approved organization certificate in the public sector <https://www.regjeringen.no/no/dokumenter/kravspesifikasjon-for-pki-i-offentlig-se/id611085/>`__ and `certificate management in the public sector <http://begrep.difi.no/SikkerDigitalPost/1.2.0/sikkerhet/sertifikathandtering>`__ for more information about root and intermediate certificates.
 
-De fleste HTTP-klienter har innebygget støtte for toveis TLS. Du kan se eksempler på implementasjonen i `klientbibloteket skrevet i C# <https://github.com/digipost/signature-api-client-dotnet/>`_ eller `klientbibloteket skrevet i Java <https://github.com/digipost/signature-api-client-java/>`_ . Signeringstjenesten støtter kun TLS 1.2 for to-veis TLS.
+Most HTTP clients have built-in support for two-way TLS. You can see examples of the implementation in `the client library written in C# <https://github.com/digipost/signature-api-client-dotnet/>`_ or `the client library written in Java <https://github.com/digipost/signature-api-client-java/>`_. The digital signature service only supports TLS 1.2 for two-way TLS.
 
-Du benytter ditt eget sertifikat i ``keystore`` (det du skal identifisere deg med), og legger til `tillitsankrene (CA-sertifikater) <http://begrep.difi.no/SikkerDigitalPost/1.2.0/sikkerhet/sertifikathandtering>`__ i ``truststore`` (det serveren skal identifisere seg med). Sertifikatet ditt vil bli brukt for å verifisere deg mot serveren, og serveren vil bruke sertifikatet til Posten Norge AS for å identifisere seg. Ved å ha tillitsankrene i ``truststore`` får du mesteparten av valideringen derfra (gitt at ditt språk/rammeverk håndterer dette). Det du manuelt må gjøre er å validere at sertifikatet tilhører Posten Norge AS, ved å sjekke organisasjonsnummeret som står i ``Common Name``.
+You use your own certificate in ``keystore`` (for verification of your identity), og legger til `the trust anchors (CA certificates) <http://begrep.difi.no/SikkerDigitalPost/1.2.0/sikkerhet/sertifikathandtering>`__ to the ``truststore`` (with which the server will verify its identity). Your certificate will be used for verification of your identity towards the server and the server will use Posten Norge AS' certificate to verify its identity. Since the trust anchors are in the ``truststore`` you will obtain most of the validation from there (provided that your language/framework handles this). What you have to do manually is to validate that the certificate belongs to Posten Norge AS by checking the organization number stated in the ``Common Name``.
 
-Et godt tips er å benytte eller hente inspirasjon fra `Difis sertifikatvalidator <https://github.com/difi/certvalidator>`_.
+A good tip is to use or take inspiration from  `Difi's certificate validator <https://github.com/difi/certvalidator>`_.
 
-Vanlige problemer med oppsett av to-veis TLS
+Common problems when setting up two-way TLS
 ----------------------------------------------
 
--  Det benyttes feil ``truststore`` for klienten. I testmiljøet må ``truststore`` inneholde testsertifikatene, i produksjon må det være produksjonssertifikater.
--  Sertifikatet som benyttes er ikke et virksomhetssertifikat. Virksomhetssertifikater utstedes typisk av Buypass eller Commfides.
--  Klienten støtter ikke TLS v1.2. Java 6 støtter ikke TLS v1.2, i Java 7 må dette skrus på eksplisitt.
--  Sertifikatet er utstedt av Commfides SHA-1 rotsertifikat. Kun sertifikater med SHA-256 fra Commfides er støttet. Dette gjelder primært eldre sertifikater.
+-  The wrong ``truststore`` is used for the client. In the test environment, the ``truststore`` must contain the test certificates, and in production there must be production certificates.
+-  The certificate used is not an organization certificate. Organization certificates are typically issued by Buypass or Commfides.
+-  The client does not support TLS v1.2. Java 6 does not support TLS v1.2; in Java 7 this must be added explicitly.
+-  The certificate is issued by Commfide’s SHA-1 root certificate. Only certificates with SHA-256 from Commfides are supported. This primarily applies to older certificates.
 
-Personopplysninger
+Personal data
 ------------------
 
-Personopplysninger og sensitive personopplysninger skal kun legges i følgende felter i XML-en i requestene mot API-et:
+Personal data and sensitive personal data are only to be entered in the following fields in the XML in the requests towards the API:
 
--  ``personal-identification-number`` – undertegners fødselsnummer eller d-nummer
--  ``title`` – tittelen/emnet til oppdraget, som oppsummerer hva signaturoppdraget handler om
--  ``description`` – kan inneholde en personlig melding, tilleggsinformasjon eller beskrivelse av dokumentene
+-  ``personal-identification-number`` – signer’s national identity number or D number
+-  ``title`` – the title/topic of the request, which summarizes what the signature request concerns
+-  ``description`` – may contain a personal message, additional information or a description of the documents
 
-Øvrige felter skal ikke inneholde sensitive personopplysninger eller personopplysninger. Eksempelvis vil referansen (``reference``) brukes utenfor en sikker kontekst (f.eks i epost-varslinger), og kan derfor ikke inneholde personopplysninger. Se for øvrig beskrivelse av API-et lenger nede.
+Other fields may not contain sensitive personal data or personal data. For example, the reference (``reference``) will be used outside a secure context (e.g. in email notifications) and therefore may not contain personal data. See also the description of the API below.
 
-Se nærmere beskrivelse av begrepene personopplysninger og sensitive personopplysninger på `Datatilsynet sine nettsider <https://www.datatilsynet.no/personvern/personopplysninger/>`_.
+For further details of the terms personal data and sensitive personal data see the website of the `Norwegian Data Protection Authority <https://www.datatilsynet.no/personvern/personopplysninger/>`_.
