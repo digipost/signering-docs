@@ -10,7 +10,7 @@ You may address signers for :ref:`portal flow <signing-in-portal-flow>` in two d
 ..  WARNING::
     How you address a signer affects the :ref:`content and appearance of the signer's signature <identify-signers>`.
 
-1. Address using e-mail / SMS
+1. Addressing signers by e-mail / SMS
 ===============================
 
 .. NOTE::
