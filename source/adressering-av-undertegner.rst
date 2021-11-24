@@ -2,7 +2,7 @@
 
 Addressing of signer
 ***************************
-Signers that are to sign in :ref:`portal flow <signing-in-portal-flow>` may be addressed in two different ways:
+You may address signers for :ref:`portal flow <signing-in-portal-flow>` in two different ways:
 
 1. By email and/or SMS (only available for private organizations)
 2. By national identity number
