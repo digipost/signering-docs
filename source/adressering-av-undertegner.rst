@@ -1,6 +1,6 @@
 .. _addressing-of-signer:
 
-Addressing of signer
+Addressing signers
 ***************************
 You may address signers for :ref:`portal flow <signing-in-portal-flow>` in two different ways:
 
