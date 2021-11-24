@@ -48,7 +48,6 @@ When you select signing in portal flow, emails and/or SMS notifications are sent
  - All signers must have at least one email address and mobile number.
  - Sending an SMS is voluntary and can be ordered by the service owner, at a cost of NOK 40 cents per SMS.
  - If a signer has a mobile number and not an email address, an SMS will always be sent.
- - The service only supports Norwegian mobile numbers.
 
 For private organizations
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -74,5 +73,3 @@ If the Lookup Service for the Contact and Reservation Register is unavailable wh
 Opt-out concerning deferred initial notifications: In the scenario where the service owner has set a chained sequence for the signers, and the initial notification is to be sent to a signer who, in the period between creation of the request and sending the initial notification, has opted out of electronic communication, the entire request will fail.
 
 Opt-out concerning reminders: If the end user has opted out after the request was created, but the request has already been activated, no reminders (email/text message) will be sent, but the request will not fail either until any expiry of the signing deadline.
-
-Requests with overridden contact details with foreign mobile numbers will be rejected, while foreign mobile numbers from the Contact and Reservation Register will be ignored.
