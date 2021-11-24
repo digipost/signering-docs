@@ -17,7 +17,7 @@ You may address signers for :ref:`portal flow <signing-in-portal-flow>` in two d
 .. NOTE::
    This option is only available for private organizations
 
-On addressing by email/SMS, the signature request is not linked to a national identity number. We therefore do not have any way of verifying that the correct person is reading and signing. It is therefore not necessary to log in so as to read and sign. The recipient receives an email and/or SMS with a unique code and link to access the request. View :ref:`notifications <notifications-without-national-identity>` to see what the notification looks like.
+When addressing signers by email/SMS, we will not be able to link signers to their national identity number. Therefore, we do not have any way to verify that the correct person is reading and signing. The recipients receive an email and/or SMS with a unique code and link to access the document(s) to sign, instead of being required to log in. See :ref:`notifications <notifications-without-national-identity>` to review what the notifications look like.
 
 
 ..  IMPORTANT::
