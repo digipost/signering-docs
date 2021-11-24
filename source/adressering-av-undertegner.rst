@@ -8,7 +8,7 @@ You may address signers for :ref:`portal flow <signing-in-portal-flow>` in two d
 2. By national identity number
 
 ..  WARNING::
-    How you address a signer affects the :ref:`content and appearance of the signer's signature <identify-signers>`.
+    How you choose to address the signer(s) affects the :ref:`content and appearance of the signature(s) in the resulting signed document <identify-signers>`.
 
 1. Addressing signers by e-mail / SMS
 ===============================
