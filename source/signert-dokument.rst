@@ -1,110 +1,110 @@
-..  _signerte-dokumenter:
+..  _signed-documents:
 
-Signerte dokumenter
+Signed documents
 ====================
-Med en digital signatur kan man signere dokumenter papirløst ved å bruke autentisering av en person og koble det sammen med et eller flere dokument. For signerte PDF-dokumenter ligger signaturdata i selve filen, og mange PDF-lesere har mulighet til å vise den digitale signaturen.
+With a digital signature, documents can be signed electronically by using verification of a person's identity and linking this with one or more documents. For signed PDF documents, the signature data is contained in the file itself, and many PDF readers have the option of displaying the digital signature.
 
-Når signeringen er fullført får vi en *teknisk signatur* og en *signert PDF*.
+When signing has been completed, we receive a *technical signature* and a *signed PDF*.
 
-En teknisk signatur er en XML-fil som kalles *XML Advanced Electronic Signature (XAdES)*, og er beviset på at du har signert digitalt. XAdES inneholder data som kan verifisere hvem som signerte, tidspunktet for signeringen, hvilken signeringsmetode som ble brukt, hvilken IP-adresse undertegner hadde, og om dokumentet er blitt endret etter signeringstidspunktet.
+A technical signature is an XML file called *XML Advanced Electronic Signature (XAdES)* and is the proof that you have signed digitally. XAdES contains data to verify who signed, the time of signing, which signing method was used, the IP address used by the signer, and whether the document has been changed since the time of signing.
 
-En signert PDF kalles *PDF Advanced Electronic Signature (PAdES)*. Denne består av originaldokumentet, en forside med informasjon om signeringen, **og** de tekniske signaturene (XAdESene) for alle undertegnerne. XAdESene er digitalt integrerte i PAdES-en og ikke synlige, men man kan åpne filene i signaturpanelet i PDF-leseren. En signert PDF med tre undertegnere, vil altså inneholde originaldokumentet, en forside med informasjon om signeringene, og tre XAdESer som er digitalt integrert i dokumentet.
+A signed PDF is called *PDF Advanced Electronic Signature (PAdES)*. This consists of the original document, a front page with information about the signing, **and** the technical signatures (the XAdES) for all of the signers. The XAdESes are digitally integrated into the PAdES and are not visible, but the files can be opened in the PDF reader's signature panel. So a signed PDF with three signers will contain the original document, a front page with information about the signing, and three XAdESes digitally integrated into the document.
 
-Alle dokumenter kan lastes ned i en periode etter at signeringsoppdraget er fullført. Levetiden er avhengig av om :ref:`langtidsvalidering-og-lagring` er aktivert for avsenderen.
+All documents can be downloaded during a period after the signature task is completed. The lifetime depends on whether :ref:`long-term-validation-and-storage` have been activated for the sender.
 
 ..  _identifisereUndertegnere:
 
-Hvordan identifiseres undertegnere i et ferdig signert dokument?
+How are signers identified in a signed document?
 ------------------------------------------------------------------
 
-Under opprettelse av signeringsoppdrag kan avsender velge hvordan undertegnerne skal identifiseres i de signerte dokumentene.
-Avsender velger å inkludere én av følgende identifikatorer i signerte dokumenter:
+When the signature request is created, the sender can choose how the signers are to be identified in the signed documents.
+The sender chooses to include one of the following identifiers in signed documents:
 
-Når avsender er en privat virksomhet:
+When the sender is a private organization:
 
-- Navn + fødselsnummer
-- Navn + fødselsdato
+- Name + national identity number
+- Name + date of birth
 
-Når avsender er en offentlig virksomhet:
+When the sender is a public organization:
 
-- Navn + fødselsnummer
-- Navn
+- Name + national identity number
+- Name
 
 ..  CAUTION::
-    Dersom du vil at undertegners fødselsnummer skal fremkomme på det signerte dokumentet er du av personvernmessige hensyn nødt til å adressere undertegner på fødselsnummer i signeringsoppdraget.
+If you want the signer’s national identity number to be shown on the signed document, for privacy reasons you must address the signer by national identity number in the signature request.
 
-Hvis du utelater fødselsnummer i de signerte dokumentene kan vi ikke påvise identiteten med 100% sikkerhet [#fotnotePåviseIdentitet]_. Vi kan likevel i de aller fleste tilfeller oppnå tilstrekkelig beviskraft, på bakgrunn av konteksten signeringen skjer i.
+If you omit the national identity number from the signed documents, we will not be able to verify the signer's identity with 100% certainty [#fotnotePåviseIdentitet]_. In the majority of cases, however, we can obtain sufficient verification based on the context in which the signing takes place.
 
-Sannsynligheten er for eksempel svært liten for at 2 personer med navn Kari Olsen signerer en lærekontrakt med Lærlingebedrift AS på eksakt samme tidspunkt. I tillegg vil tekniske spor, og andre eksterne forhold som kunderelasjon eller opplysninger i dokumentet også støtte opp under identiteten til den som har signert.
+For example, there is very little probability that two people named Kari Olsen sign an apprenticeship contract with Lærlingebedrift AS at precisely the same time. In addition, technical evidence and other external circumstances such as customer relations or information in the document will also support verification of the signer's identity.
 
 
-Det signerte dokumentet
+The signed document
 ========================
 
-Som vist under vil dokumentet få en forside som viser hvem som har signert og hva dokumentet inneholder. Hver side inneholder også en bunntekst som viser hvem som har signert.
+As shown below, the document will have a front page showing who has signed it and what the document contains. Each page also contains a footer that shows who has signed.
 
 |pades-visning-adobe-innhold|
 
-I produksjonsmiljø
+In a production environment
 -------------------
-Hvis dokumentet er signert i et produksjonsmiljø så kan man verifisere signaturen i f.eks. Adobe Acrobat Reader ved å klikke på *Signaturpanel* i den blå infoboksen.
+If the document is signed in a production environment, the signature can be verified in e.g. Adobe Acrobat Reader by clicking on *Signature panel* in the blue info box.
 
 |pades-visning-adobe-prod|
 
-I et testmiljø
+In a test environment
 ---------------
-Hvis dokumentet er signert i et testmiljø så er det teknisk sett ikke en gyldig signatur siden det er sertifikater fra en test-utsteder som brukes. Dette ser du i den blå infoboksen. Det er likevel mulig å se på signaturene slik som i produksjonsmiljøet.
+If the document is signed in a test environment, it is technically not a valid signature since certificates from a test issuer are used. This can be seen in the blue info box. It is nonetheless still possible to view the signatures as in the production environment.
 
 |pades-visning-adobe-test|
 
 
-Format på signaturen
+Signature format
 =====================
 
-Med signaturformat mener vi formatet på objektet som skapes gjennom signeringsprosessen. Det elektronisk signerte dokumentet lagres normalt på et annet dokumentformat enn originaldokumentet som ble signert. Signeringstjenesten støtter følgende signaturformater som er i utbredt bruk i Norge i dag. Dette inkluderer både formatene som støttes direkte av e-ID-leverandørene, i tillegg til formater som tilbys av signeringstjenesten gjennom pakketering.
+By signature format we mean the format of the object created through the signing process. The electronically signed document is normally stored in a different document format than the original document that was signed. Posten signering supports the following signature formats that are widely used in Norway today. This includes the formats supported directly by the e-ID providers, as well as formats provided by Posten signering via packaging.
 
-**SEID-SDO**: SEID-SDO er et påbygg av ETSI (the European Telecommunications Standards Institute) CAdES/XAdES
+**SEID-SDO**: SEID-SDO is an extension of ETSI (the European Telecommunications Standards Institute) CAdES/XAdES
 
-**LTV-SDO**: Betegnelse for en SDO (Signed Data Object) som er utvidet med data for langtidsvalidering (LTV-data). LTV-SDO er en XAdES.
+**LTV-SDO**: Designation of an SDO (Signed Data Object) that has been expanded with long-term validation (LTV) data. LTV-SDO is an XAdES
 
-**PAdES**: PAdES er et signaturformat som inneholder originaldokumentet, alle signaturer og all informasjon som er nødvendig for å validere signaturen. Formatet er spesifisert av ETSI, og bygger på PDF. En PAdES kan åpnes i en vilkårlig PDF-leser. Adobe Reader (og eventuelle andre avanserte PDF lesere) vil også kunne vise frem deler av valideringsinformasjonen slik at sluttbrukeren selv kan se at dokumentet er gyldig signert.
+**PAdES**: PAdES is a signature format containing the original document, all signatures and all information necessary to validate the signature. The format is specified by ETSI and is based on PDF. A PAdES can be opened in any PDF reader. Adobe Reader (and any other advanced PDF readers) will also be able to display parts of the validation information, so that the end user can see that the document has a valid signature.
 
-Pakketering av signaturer
+Packaging of signatures
 ===========================
 
-Signeringstjenesten gjør pakketering av signaturer gjennom et format for langtidsvalidering kalt LTV-SDO. LTV-SDO er en XAdES som brukes til å styrke og standardisere signaturene som kommer fra e-ID-leverandørene. Selv om LTV-SDO er et format som er utviklet primært for langtidsvalidering, har det andre egenskaper som gjør at det er ønskelig å bruke det ved ordinær prosessering og oppbevaring av signerte dokumenter. Det gjør at signeringstjenesten og tjenesteyterne har ett format å forholde seg til, uavhengig av hvilken e-ID-leverandør som er brukt til signering og om dokumentet skal langtidsvalideres eller ikke.
+Posten signering packages signatures via a long-term validation format called LTV-SDO. LTV-SDO is an XAdES used to strengthen and standardize the signatures that come from e-ID providers. Even though LTV-SDO is a format developed primarily for long-term validation, it also has other features that make it appropriate to use for ordinary processing and storage of signed documents. This means that Posten signering and service providers only have one format to deal with, regardless of which e-ID provider is used for signing and whether the document is to be long-term validated or not.
 
-Pakketering gjøres i to steg:
+Packaging takes place in two steps:
 
-#. Pakketering av SDO til LTV-SDO. Her utvides og styrkes signaturen for å legge til rette for langtidsvalidering og å styrke bevisverdien.
-#. Pakketering av LTV-SDO til PDF/PAdES. Her legges det til støtte for multisignatur, brukervennlighet og lettere manuell og maskinell prosessering hos mottaker.
+#. Packaging of SDO for LTV-SDO. Here, the signature is expanded and strengthened to facilitate long-term validation and to strengthen its value as evidence.
+#. Packaging of LTV-SDO for PDF/PAdES. Here, support for multi-signature, user-friendliness and easier manual and mechanical processing by the recipient is added.
 
-Denne pakketeringen gir en rekke fordeler:
+This packaging offers a number of advantages:
 
-1. **Brukervennlighet**: Pakketering til PDF/PAdES lar brukeren se det signerte dokumentet med påført signatur. Det er en viktig del av signaturseremonien at menneskelige brukere får en slik gjenpart.
-2. **Multisignatur - flere signatarer**: Pakketering til PDF/PAdES gir mulighet for et samlet dataobjekt for flere signaturer på samme dokument. Den vil også vise frem signaturene på en brukervennlig måte, slik at man kan se flere signaturer på samme dokument.
-3. **Multisignatur - flere signerte dokumenter**: Pakketering til PDF/PAdES gjør det mulig å samle flere signerte dokumenter som hører sammen i ett felles dataobjekt.
-4. **Felles format for alle e-ID-leverandører**: Pakketering til LTV-SDO eller til PAdES gir et konsistent signaturformat uavhengig av e-ID- leverandørens format.
-5. **Dokumentbehandling i saks- og arkivsystemer**: Pakketering til PDF/PAdES tillater viderebehandling i standard dokumentsystemer, fordi en PAdES også er en PDF.
-6. **Validering av signatur for sluttbruker**: Pakketering til PAdES vil tillate validering av dokumentet med standard hyllevare (f.eks. Adobe Reader) dersom den signeres (forsegles) med et sertifikat som gjenkjennes av leseren.
-7. **Langtidslagring (LTV)**: Pakketering til LTV-SDO eller PAdES gir den beste støtten for langtidsvalidering. :ref:`langtidsvalidering-og-lagring`, uavhengig av om det er i sentral arkivtjeneste eller hos kunde, krever et format som tillater preservering og oppbevaring av valideringsdata. Den underliggende SDO-en fra e-ID-leverandøren ligger tilgjengelig i LTV-SDO-formatet, og kan enkelt hentes ut av ved behov. Tjenesten kan derfor både tilby kunder den berikede LTV-SDO-en og tilgang til den underliggende SDO-en fra e-ID-leverandøren. Det er derfor ikke en forutsetning at kunden kan forholde seg til LTV-SDO, men snarere en anbefaling som vil gi standardisert tilgang til beriket og integritetsbeskyttet informasjon om signeringsoppdraget.
+1. **User-friendliness**: Packaging for PDF/PAdES enables the user to view the signed document with signature attached. An important part of the signature ceremony is that human users receive this copy.
+2. **Multi-signature – multiple signers**: Packaging for PDF/PAdES provides for a single data object for multiple signers on the same document. It will also display the signatures in a user-friendly way, so that you can see more signatures on the same document.
+3. **Multi-signature - several signed documents**: Packaging for PDF/PAdES makes it possible to combine several signed documents that belong together in one common data object.
+4. **Common format for all e-ID providers **: Packaging for LTV-SDO or for PAdES provides a consistent signature format regardless of the e-ID provider's format.
+5. **Document processing in case and archive systems**: Packaging for PDF/PAdES allows for further processing in standard document systems, because a PAdES is also a PDF.
+6. **End user signature validation**: Packaging for PAdES will allow validation of the document with a standard off-the-shelf product (e.g. Adobe Reader), if it is signed (sealed) with a certificate recognized by the reader.
+7. **Long term storage (LTV)**: Packaging for LTV-SDO or PAdES provides the best long-term validation support. :ref:`long-term-validation-and-storage`, regardless of whether this is in the central archiving service or at the customer, requires a format that supports preservation and storage of validation data. The underlying SDO from the e-ID provider is available in the LTV-SDO format and can be easily retrieved as required. The service can therefore offer customers the enriched LTV-SDO, as well as access to the underlying SDO from the e-ID provider. It is not a prerequisite that the customer can handle LTV-SDO, but rather a recommendation that will ensure standardized access to enriched and integrity-protected information about the signature request.
 
-Pakketering med XAdES og/eller PAdES gir full nytte av standardiseringsarbeidet for preservering som gjøres i regi av EU (XAdES Baseline som er utviklet av EU-initiativet DSS, og som vil bli de foretrukne standardene i XAdES).
+Packaging with XAdES and/or PAdES will take full advantage of the standardization work concerning preservation conducted under the auspices of the EU (XAdES Baseline developed by the EU's DSS initiative, which will be the preferred standards in XAdES).
 
 ..  |pades-visning-adobe-prod| image:: images/pades-visning-adobe-prod.png
-    :alt: Visning av Pades i Adobe med dokument i produksjonsmiljø
+    :alt: Display of Pades in Adobe with document in production environment
     :scale: 20%
 
 ..  |pades-visning-adobe-test| image:: images/pades-visning-adobe-test.png
-    :alt: Visning av Pades i Adobe med dokument i testmiljø
+    :alt: Display of Pades in Adobe with document in test environment
     :scale: 20%
 
 ..  |pades-visning-adobe-innhold| image:: images/pades-visning-innhold.png
-    :alt: Visning av Pades i Adobe med dokument i testmiljø
+    :alt: Display of Pades in Adobe with document in test environment
     :scale: 20%
 
 ..  rubric:: Footnotes
 
-..  [#fotnotePåviseIdentitet] Det signerte dokumentet inneholder en anonymisert identifikator som identifiserer undertegneren med 100% sikkerhet hos leverandøren av e-ID, for eksempel hos BankID. Dette krever oppslag hos leverandøren av e-ID og støttes kun ved avansert signatur
+..  [#fotnotePåviseIdentitet] The signed document contains an anonymized identifier that identifies the signer with 100% accuracy at the e-ID provider, for example at BankID. This requires e-ID look-up by the provider and is only supported for advanced signatures.
 
 

@@ -1,51 +1,51 @@
-.. _signaturtype:
+.. _signature-type:
 
-Signaturtype
+Signature type
 *************
 
-I Norge har vi tre forskjellige måter å signere digitalt på, som beskrevet i E-signaturloven: autentisert, avansert og kvalifisert. Autentisert signatur er en sterk signatur, avansert signatur er enda sterkere, og kvalifisert signatur er den sterkeste signaturen.
+In Norway, we have three different types of digital signature, as described in the Norwegian Electronic Signature Act: authenticated, advanced and qualified. Standard signature is a strong signature, advanced signature is even stronger and qualified signature is the strongest signature.
 
-Vi tilbyr autentisert og avansert signatur, som er rettskraftige signaturer på lik linje med håndskrift på papir. Kvalifisert signatur eksisterer ikke per i dag, men er tenkt oppfylt på lang sikt gjennom Nasjonalt ID-kort.
+We offer standard and advanced signature, which are legally valid signatures on a par with a handwritten signature. Qualified signature does not currently exist, but is intended to be achieved in the longer term via the National ID card.
 
-..  _avansert-signatur:
+..  _advanced-signature:
 
-Avansert signatur
+Advanced signature
 ==================
 
-Ved bruk av avansert signatur skjer signering med BankID. Det gir en sterk knytning mellom identifiseringshandling og dokumentene som skal signeres.
+On using advanced signature, signing takes place using BankID. This provides a strong link between the verification of identity action and the documents to be signed.
 
-En avansert signatur har en sterkere knytning mellom signaturen og dokumentene enn en :ref:`autentisert-signatur` fordi det kun er BankID som er involvert i prosessen.
+An advanced signature has a stronger connection between the signature and the documents than an :ref:`authenticated-signature`, because only BankID is involved in the process.
 
 ..  TIP::
-    Signering kan gjøres med BankId, Buypass eller BankID på mobil. [#footnoteSigneringsmetoderOffentlig]_
+    Signing can take place using BankID, Buypass or BankID mobile phone. [#footnoteSigneringsmetoderOffentlig]_
 
-..  _autentisert-signatur:
+..  _authenticated-signature:
 
-Autentisert signatur
+Authenticated signature
 =====================
 
-Ved bruk av autentisert signatur autentiseres brukeren i ID-porten. IDporten vet ikke at innloggingen er tilknyttet en signeringsseremoni og det er Signicats jobb å knytte autentiseringen og dokumentene til en signatur.
+On using authenticated signature, the user's identity is verified in the ID portal. The ID portal does not know that the login is connected to a signing ceremony and it is Signicat's job to link the verification of identity and the documents to a signature.
 
-En autentisert signatur er litt svakere enn en avansert signatur fordi det er flere parter involvert og fordi det skjer i to steg.
+An authenticated signature is a little weaker than an advanced signature because several parties are involved and it takes place in two stages.
 
-Avsender kan velge :ref:`sikkerhetsnivå` på signeringen.
+The sender can select :ref:`security-level` on the signing.
 
-Valg av signaturtype
+Signature type selection
 =====================
 
 ..  tabs::
 
-    ..  tab:: Bedrift
+    ..  tab:: Private organization
 
-        Som bedrift kan du kun velge avansert signatur og trenger derfor ikke sette denne eksplisitt.
+        As a private organization, you can only select advanced signature and therefore do not need to set this explicitly.
 
-    ..  tab:: Offentlig virksomhet
+    ..  tab:: Public organization
 
-        Som offentlig virksomhet kan du velge mellom :ref:`avansert-signatur` og :ref:`autentisert-signatur`. Digitaliseringsdirektoratet anbefaler offentlige virksomheter å bruke autentisert signatur fordi det er billigere, samtidig som det oppfyller de kravene som stilles i offentlig sektor.
+        As a public organization, you can choose between :ref:`advanced-signature` and :ref:`authenticated-signature`. The Norwegian Digitalisation Agency recommends public organizations to use authenticated signature because it is less expensive, but still fulfils the requirements made in the public sector.
 
         ..  NOTE::
-            Standardverdi for signaturtype er autentisert.
+            The default value for signature type is authenticated.
 
-.. rubric:: Fotnoter
+.. rubric:: Footnotes
 
-.. [#footnoteSigneringsmetoderOffentlig] BankID på mobil er ikke tilgjengelig for avanserte oppdrag fra offentlig virksomhet.
+.. [#footnoteSigneringsmetoderOffentlig] BankID mobile phone is not available for advanced signing tasks from public organizations.
