@@ -44,7 +44,7 @@ Production environment
 
     A production certificate can be bought from Buypass, on either their `Norwegian <https://www.buypass.no/ec-order/?productId=430221&language=no>`__ or `English <https://www.buypass.no/ec-order/?productId=430221&language=en>`__ site. Please select *Standard sertifikat/Standard Certificate*.
 
-    When buying an enterprise certificate from Buypass, you will receive two emails. You should only use the certificate from the email that has the private key including. This is the email that contains two *.p12* files. The two files have different serial numbers, and these refer to certificates used for authentication and encryption (*autentisering og kryptering*) and signature (*signering*). You shall only use the one marked for authentication and encryption.
+    When buying an enterprise certificate from Buypass, you will receive two emails. You should only use the certificate from the email that includes the *private key*. This is the email that contains two *.p12* files. The two files have different serial numbers, and these refer to certificates used for authentication and encryption (*autentisering og kryptering*) and signature (*signering*). Only the certificate marked for authentication and encryption is applicable to use for integrating with the Posten signering API.
 
    .. group-tab:: Commfides
 
