@@ -48,23 +48,30 @@ A client configuration includes all organization specific configuration and all 
 
     ..  group-tab:: C#
 
+
+        .. NOTE::
+           SEID 2.0 enterprise certificates
+
+            If you have a SEID 2.0 enterprise certificate, you need to use at least version `8.1.0 <https://github.com/digipost/signature-api-client-dotnet/releases/tag/8.1.0>`_ of the dotnet client library.
+            If this is not possible, you need to disable validation of the enterprise certificate when configuring your client. The certificate will always be validated on our server, so it will not impact
+            the security of the request. The client side validation is only there to help identify errors early on.
+
+
         ..  code-block:: c#
 
             const string organizationNumber = "123456789";
 
-            const string proxyAddress = "http://proxyserver:80/";
-            const string proxyUserName = "username";
-            const string proxyPassword = "password";
-
             var clientConfiguration = new ClientConfiguration(
                 Environment.DifiTest,
-                CertificateReader.ReadCertificate(),
-                new Sender(organizationNumber),
-                new WebProxy(proxyAddress),
-                new NetworkCredential(proxyUserName, proxyPassword)
-            );
+                return new X509Certificate2(certificatePath, certificatePassword),
+                new Sender(organizationNumber)
+            )
+            {
+                // This is only need it you have a SEID 2 certificate, but for some reason cannot use the latest version of the library.
+                CertificateValidationPreferences = { ValidateSenderCertificate = false }
+            };
 
-        Where :code:`ReadCertificate` is:
+        If you stored the `certificatePath` and `certificatePassword` in the Secret Manager, you can read it like this:
 
         ..  code-block:: none
 

@@ -11,31 +11,7 @@ support .NET Core, .NET Framework and Java.
 Install the certificate
 ________________________
 
-The path and password to the certificate must be put somewhere safe. The path is:
-
-..  tabs::
-
-   ..   group-tab:: Windows
-
-        ..   code-block:: bash
-
-            %APPDATA%\Microsoft\UserSecrets\<user_secrets_id>\secrets.json
-
-   ..   group-tab:: macOS
-
-        ..  code-block:: bash
-
-            ~/.microsoft/usersecrets/<user_secrets_id>/secrets.json
-
-   ..   group-tab:: Linux
-
-        ..  code-block:: bash
-
-            ~/.microsoft/usersecrets/<user_secrets_id>/secrets.json
-
-.. TIP::
-   For more information, please see the `Microsoft documentation <https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-2.2&tabs=linux#how-the-secret-manager-tool-works>`_.
-
+The path and password to the certificate must be put somewhere safe. For local development with .NET Core we recommend using the `Secret Manager <https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-2.2&tabs=linux#how-the-secret-manager-tool-works>`_.
 
 Add the following :code:`UserSecretsId` element to your :code:`.csproj` file:
 
@@ -43,10 +19,10 @@ Add the following :code:`UserSecretsId` element to your :code:`.csproj` file:
 
    <PropertyGroup>
         <TargetFramework>netcoreapp2.1</TargetFramework>
-        <UserSecretsId>enterprise-certificate</UserSecretsId>
+        <UserSecretsId>organization-certificate</UserSecretsId>
    </PropertyGroup>
 
-This means that the element :code:`<user_secrets_id>` in the path will be :code:`enterprise-certificate`.
+This means that the element :code:`<user_secrets_id>` in the path will be :code:`organization-certificate`.
 
 From the command line, navigate to the directory where the current .csproj file is located and run the following commands with your own certificate values.
 
@@ -70,8 +46,7 @@ In addition to installing the certificate, you must add the certificate to the t
 
      #. Open :code:`Keychain Access`
      #. Choose :code:`login` keychain
-     #. Press the plus-symbol in bottom corner - *Create a new Keychain item*.
-     #. Choose the business certificate and add.
+     #. Use navigation: File - Import items
 
    .. group-tab:: Linux
 
