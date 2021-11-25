@@ -1,35 +1,35 @@
-Avsenderportalen
+The sender portal
 =================
 
-Avsenderportalen er et web-grensesnitt for avsendere hvor man kan sende ut signeringsoppdrag som skal signeres, samt administrere oppdrag og virksomhetskonto. Som avsender kan du ha tilgang til flere virksomhetskontoer. Etter innlogging velger du den virksomheten du ønsker å sende ut oppdrag fra eller administrere. `Se gjerne hjelpeguiden med skjermbilder <https://docs.google.com/presentation/d/1VQks9CUNEv3ssuJd_z7ZA0ngEwWwJ_fY22IhvBOQbfs/edit?usp=sharing>`_.
+The sender portal is a web interface for senders where you can send out signature requests for signing, and manage requests and organization account. As a sender, you may have access to multiple organization accounts. After logging in, select the business you want to send out requests from or administrate. `Please refer to the help guide with screenshots <https://docs.google.com/presentation/d/1VQks9CUNEv3ssuJd_z7ZA0ngEwWwJ_fY22IhvBOQbfs/edit?usp=sharing>`_.
 
-Din konto
+Your account
 ______________
 
-Kontoinformasjon
-^^^^^^^^^^^^^^^^^
-Her kan du laste opp logo for virksomheten din, og aktivere langtidslagring om du ønsker å bruke dette. Det er også herfra du styrer hvem som har tilgang til virksomhetskontoen.
+Account information
+^^^^^^^^^^^^^^^^^^^
+Here, you can upload your organization logo and activate long-term storage if you wish to use this. This is also where you control who has access to the organization account.
 
-Brukere
-^^^^^^^
-Du kan legge til så mange brukere du ønsker, og velge hvilken rolle brukeren skal ha:
+Users
+^^^^^
+You can add as many users as you want and choose which role the user is to have:
 
-- Kontoforvalter: Som kontoforvalter har du full tilgang. Du kan du opprette og redigere brukere, laste opp virksomhetslogo, se alle signeringsoppdrag som er sendt ut fra virksomheten og opprette nye signeringsoppdrag.
+- Account manager: As an account manager, you have full access. You can create and edit users, upload an organization logo, view all signature requests sent out from the organization, and also create new signature requests.
 
-- Dokumentbehandler: Som dokumentbehandler har du begrenset tilgang. Du kan kun opprette og se dine egne signeringsoppdrag.
+- Document processor: As a document processor, you have limited access. You can only create and view your own signature requests.
 
-Du kan også velge om brukeren skal ha tilgang i ubegrenset tid, eller sette en tidsbegrensning for når brukeren ikke lenger skal ha tilgang til kontoen.
+You can also choose whether the user is to have access for an unlimited time, or set a time limit for when the user is to no longer have access to the account.
 
 
-Oversikt i avsenderportalen
+Overview in sender portal
 ____________________________
 
-I Dokumenter-fanen har du fire faner: *Venter*, *Stoppet*, *Signert* og *Søk*. Venter, stoppet og signert er knyttet til signeringsflyten på oppdrag, mens søk kan brukes for å finne tilbake til et signeringsoppdrag.
+In the Documents tab, there are four tabs: *Waiting*, *Stopped*, *Signed* and *Search*. Waiting, Stopped and Signed are associated with the signature flow for requests, while Search can be used to get back to a signature request.
 
-- **Venter**: Her kan du se signeringsoppdrag som du har opprettet, som venter på signering. Oppdragene blir liggende under denne fanen inntil de blir signert, eller stoppet. Merk, at hvis oppdraget har flere undertegnere, vil oppdraget ligge i Venter helt til alle har signert.
+- **Waiting**: Here, you can view the signature requests you have created, which are awaiting signature. The requests will remain under this tab until they are signed or stopped. Note that if the request has several signers, the request will remain in Waiting until everyone has signed.
 
-- **Stoppet**: Her finner du alle oppdrag som er stoppet. Et oppdrag kan bli stoppet av avsender og/eller av undertegner; undertegner kan avvise oppdraget, eller ikke signere innen fristen. Avsender kan kansellere oppdraget. I begge tilfeller havner oppdraget under Stoppet.
+- **Stopped**: Here, you will find all requests that have been stopped. A request may be stopped by the sender and/or by the signer; the signer may reject the request or fail to sign within the deadline. The sender can cancel the request. In both cases, the request ends up under Stopped.
 
-- **Signert**: Her kan du se alle signerte oppdrag. Hvis virksomheten din har aktivert *langtidslagring*, vil dokumentet alltid være tilgjengelig for nedlasting. Hvis ikke langtidslagring er aktivert, kan du laste ned dokumentet i 40 dager.
+- **Signed**: Here, you can see all signed request. If your organization has activated *long-term storage*, the document will always be available for download. If long-term storage has not been activated, you can download the document for 40 days.
 
-- **Søk**: Her kan du søke for å finne tilbake til et signeringsoppdrag. Du kan søke på fødselsnummer, e-post, mobilnummer eller referansenummer, og søke i et ønsket tidsintervall.
+- **Search**: Here, you can search to get back to a signature request. You can search by national identity number, email, mobile number or reference number, and search within a required time range.

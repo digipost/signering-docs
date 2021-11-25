@@ -1,72 +1,72 @@
 
-.. _signeringsflyt:
+.. _signature-flow:
 
-Signeringsflyt
+Signature flow
 *******************
 
-Et signeringsoppdrag inneholder dokumentene som skal signeres, og kan adresseres til en eller flere undertegnere som skal signere. Tjenesten tilbyr i hovedsak to ulike typer signeringsflyter.
+A signature request contains the documents to be signed and can be addressed to one or more signers for signing. The service mainly offers two different types of signature flow.
 
-.. _signering-i-direkteflyt:
+.. _signing-in-direct-flow:
 
-Signering i direkteflyt
+Signing in direct flow
 ========================
 
-Signering i direkteflyt skjer når undertegner allerede er pålogget i avsenders system. En slik flyt er ideell hvis avsender ønsker at sluttbrukerne skal oppleve signeringsprosessen som en integrert del av deres nettsted.
+Signing in direct flow takes place when the signer is already logged into the sender's system. This flow is ideal if the sender wants the end-user to experience the signing process as an integral part of their website.
 
-Flyten ser typisk slik ut:
+The flow typically looks like this:
 
-#. Undertegner er innlogget i avsenders tjeneste, og utfører en prosess der, f.eks. utfylling av et skjema er sluttresultatet
-#. Avsender oppretter et signeringsoppdrag i signeringstjenesten gjennom API
-#. Undertegner blir sendt til signeringstjenesten og gjennomfører signeringen
-#. Undertegner blir sendt tilbake til avsenders tjeneste
-#. Avsender laster ned signatur og tilbyr en kopi av det signerte dokumentet til undertegner
+#. The signer is logged into the sender's service and performs a process for which e.g. filling in a form is the end result
+#. The sender creates a signature request in the digital signature service via the API
+#. The signer is sent to the digital signature service and completes the signing
+#. The signer is sent back to the sender's service
+#. The sender downloads the signature and offers a copy of the signed document to the signer
 
 ..  TIP::
-    Se gjerne `denne bildeguiden i Google Presentation for signering i direkteflyt <https://docs.google.com/presentation/d/14Q_-YzaxcGsZOgUR6rJl7rWSwLZwujnuqgkKCrxksoA/edit#slide=id.g3922592cb8_0_0>`_.
+    Please refer to `this graphic guide in Google Presentation for signing in direct flow <https://docs.google.com/presentation/d/14Q_-YzaxcGsZOgUR6rJl7rWSwLZwujnuqgkKCrxksoA/edit#slide=id.g3922592cb8_0_0>`_.
 
-.. _signering-i-portalflyt:
+.. _signing-in-portal-flow:
 
 Signering i portalflyt
 ========================
 
-.. _signering-i-portalflyt-med-fødselsnummer:
+.. _signing-in-portal-flow-with-national-identity:
 
-Adressering med fødselsnummer
+Address using national identity number
 ______________________________
 
-Hvis man adresserer med fødselsnummer så vil undertegner måtte logge inn i signeringsportalen for å kunne se signeringsoppdraget.
+If you use a national identity number as the address, the signer will have to log into the signature portal in order to view the signing task.
 
-Flyten ser typisk slik ut:
+The flow typically looks like this:
 
-#. Avsender oppretter et oppdrag gjennom API eller fra web i avsenderportalen
-#. Posten signering varsler undertegner på e-post (og ev. SMS om spesifiert ved opprettelse)
-#. Undertegner logger inn på signeringsportalen og gjennomfører signeringssermonien
-#. Undertegner laster ned signert dokument
-#. Undertegner logger ut av signeringsportalen
-#. Avsender laster ned det signerte dokumentet
+#. The sender creates a signature request via API or online in the sender portal
+#. Posten signering notifies the signer by email (and, if applicable, SMS if specificed upon registration)
+#. The signer logs into the signature portal and holds the signing ceremony
+#. The signer downloads a signed document
+#. The signer logs out of the signature portal
+#. The sender downloads the signed document
 
 ..  TIP::
-    Se gjerne `denne bildeguiden i Google Presentation for signering i portalflyt, adressering med fødselsnummer <https://docs.google.com/presentation/d/14Q_-YzaxcGsZOgUR6rJl7rWSwLZwujnuqgkKCrxksoA/edit#slide=id.g36b93b9965_0_57>`_.
+    Please see `this graphic guide in Google Presentation for signing in portal flow, addressing with national identity number <https://docs.google.com/presentation/d/14Q_-YzaxcGsZOgUR6rJl7rWSwLZwujnuqgkKCrxksoA/edit#slide=id.g36b93b9965_0_57>`_.
 
-.. _signering-i-portalflyt-uten-fødselsnummer:
+.. _signing-in-portal-flow-without-national-identity:
 
 
-Adressering på e-post / SMS
+Address using e-mail / SMS
 _______________________________
 
 .. NOTE::
-   Dette alternativet er kun tilgjengelig for private virksomheter
+   This option is only available for private organizations
 
-En signeringsflyt hvor undertegnere får tilgang til signeringsportalen via en lenke og et engangspassord som sendes på e-post og/eller SMS.
+A signature flow whereby signers can access the signature portal via a link and a one-time code that is sent by email and/or SMS.
 
-#. Avsender oppretter et oppdrag gjennom API eller fra web i avsenderportalen
-#. Undertegner mottar en unik lenke og engangskode til oppdrag på e-post eller SMS
-#. Undertegner trykker på lenken, og fyller inn engangskode til oppdrag
-#. Undertegner gjennomfører signeringsseremonien
-#. Sluttside som gir mulighet til å laste ned signert dokument
+#. The sender creates a signature request via API or online in the sender portal
+#. The signer receives a unique link and one-time code for the task by email or SMS
+#. The signer clicks on the link and enters the one-time code for the request
+#. The signer conducts the signing ceremony
+#. End page from which the signed document can be downloaded
 
-Når man adresserer undertegner uten fødselsnummer, er det avsenders ansvar å sjekke at det er rett eller ønsket person som har signert.
+On addressing a signer without a national identity number, it is the sender’s responsibility to check that the right or desired person signs the document.
 
 ..  TIP::
-    Se gjerne `denne bildeguiden i Google Presentation for signering i portalflyt, adressering på e-post / SMS <https://docs.google.com/presentation/d/14Q_-YzaxcGsZOgUR6rJl7rWSwLZwujnuqgkKCrxksoA/edit#slide=id.g2e3b4edaeb_0_1>`_.
+    Please see `this graphic guide in Google Presentation for signing in portal flow, addressing with e-mail / SMS <https://docs.google.com/presentation/d/14Q_-YzaxcGsZOgUR6rJl7rWSwLZwujnuqgkKCrxksoA/edit#slide=id.g2e3b4edaeb_0_1>`_.
 

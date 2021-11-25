@@ -1,41 +1,40 @@
-Hvorfor bruke Posten signering
+Why use Posten signering (Norway Post's digital signature service)
 ******************************
 
-Vi tror på det å gjøre livet til folk enklere. Ved å ta i bruk digital signering fra Posten, slipper du den tidkrevende og manuelle håndteringen av dokumenter som skal signeres.
+We believe in making people’s lives easier. By using Posten signering, you will avoid the time-consuming manual handling of documents to be signed.
 
 
 
-Hva er Posten signering
-#######################
+What is Posten signering
+########################
 
-Posten signering er en tjeneste som tilbyr digital signering til offentlige og private virksomheter. Med digital signering gjennomføres selve signeringen med en elektronisk ID. Det signerte dokumentet kan ikke endres i etterkant uten at signaturen brytes, og dokumentet kan lagres i et arkiv eller lastes ned til virksomhetens arkiv. Tjenesten støtter både at enkeltpersoner og flere personer kan signere samme dokument. Vi utvikler stadig ny funksjonalitet i tjenesten, og tar gjerne imot innspill fra både virksomheter og privatpersoner.
-
-
-Hvordan bruke Posten signering
-##############################
-
-Som en virksomhet kan du ta i bruk Posten signering på 2 måter, avhengig av behov og ønsket signeringsflyt:
+Posten signering is a digital signature service for public and private organizations. When documents are signed digitally, the actual signing takes place using an electronic ID. The signed document cannot subsequently be changed without the signature being broken, and the document can be saved in an archive or downloaded to the organization's archive. The service supports both individuals and several persons signing the same documents. We are constantly developing new functionality for the service, and are happy to receive input from both companies and private individuals.
 
 
-Avsenderportal
---------------
-Avsenderportalen gjør det mulig for en virksomhet å ta i bruk signeringstjenesten uten å gjøre noen tekniske integrasjoner. Dokumentene som skal signeres lastes manuelt opp i portalen. Undertegnere logger inn i portalen for å få tilgang til å lese og signere dokumentene via *portalflyt*. Dette er en enkel og effektiv måte å komme i gang med signeringstjenesten på, og passer bra for mindre volumer. Hvis du er en privat virksomhet, kan du *registrere virksomheten direkte*. Hvis du er en offentlig virksomhet, får du registrert konto i signering via `Digitaliseringsdirektoratet og samarbeidsportalen <https://samarbeid.difi.no/felleslosninger/esignering/ta-i-bruk-esignering>`_.
+How to use Posten signering
+###########################
 
-API-integrasjon
+As an organization, you can use Posten signering in two ways, depending on your needs and the desired signature flow:
+
+Sender portal
+-------------
+The sender portal enables an organization to use the digital signature service without making any technical integrations. The documents to be signed are uploaded manually to the portal. Signers log into the portal to read and sign the documents via *portal flow*. This is a simple and effective way of getting started with the digital signature service and is suitable for smaller volumes. If you are a private organization, you *can register the business directly*. If you are a public organization, you will be able to register your account for signing via `Digitaliseringsdirektoratet og samarbeidsportalen <https://samarbeid.difi.no/felleslosninger/esignering/ta-i-bruk-esignering>`_.
+
+API integration
 ---------------
-API-grensesnittet krever en teknisk integrasjon mellom virksomheten og Posten signering. Ved å lage en integrasjon mot tjenesten vil undertegner forholde seg til virksomhetens nettside, og signeringstjenesten vil oppleves som en integrert del av tjenesten. Man kan velge om undertegner skal signere i virksomhetens system eller nettside (*direkteflyt*), eller å la undertegneren logge inn og signere i Postens signeringsportal (*portalflyt*).
+The API interface requires technical integration between the organization and Posten signering. By creating an integration with the service, the signer will access the organization's website, and the digital signature service will be experienced as an integral part of the service. You can choose whether the signer is to sign in the organization's system or on the website (*direct flow*), or whether to allow the signer to log in and sign in the Posten signature portal (*portal flow*).
 
-Integrasjon mot signeringstjenestens API kan gjøres på 3 måter
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Integration with the digital signature service’s API can be done in three ways
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. Bruk av klientbiblioteker:
-Vi leverer klientbiblioteker som forenkler integrasjonsprosessen for kunder som ønsker å integrere signeringstjenesten inn i sine egne systemer. Klientbibliotekene støtter programmeringsspråkene Java og .NET.
+1. Use of client libraries:
+We provide client libraries that simplify the integration process for customers wishing to integrate the signature service into their own systems. The client libraries support the Java and .NET programming languages.
 
-2. Integrasjon via programvareprodukt eller partner:
-Mange kunder benytter et fagsystem som sak- og arkivsystemer, eller andre programvareprodukter som kilde for dokumenter som skal signeres.
+2. Integration via software product or partner:
+Many customers use a professional system as their case and archive systems, or other software products as the source of documents to be signed.
 
-3. Egenutviklet integrasjon
-API-et er dokumentert, slik at kunder som ønsker det kan gjøre en egen integrasjon.
+3. Self-developed integration:
+The API is documented so that customers can make their own integration if they want to.
 
 ..  NOTE::
-    Private virksomheter må ta kontakt via salg@digipost.no for å få tilgang til å koble på API-et, etter opprettelse av virksomhetskonto i webportalen.
+    Private organizations must contact us at salg@digipost.no to gain access to the API, after creating an account in the web portal.

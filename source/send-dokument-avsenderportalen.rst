@@ -1,45 +1,45 @@
-Send oppdrag til signering
+Send requests for signing
 ***************************
 
-Steg 1: Dokumenter til signering
+Step 1: Documents for signing
 ================================
-Her laster du opp dokumentene som skal signeres. Filene må være PDF-filer og den samlede størrelsen kan ikke overskride 3MB.
+Here, you can upload the documents to be signed. The files must be PDF files and the total size may not exceed 3MB.
 
-Sett en signeringfrist for oppdraget
+Set a signing deadline for the task
 -------------------------------------
-Undertegner vil motta et varsel der det opplyses om signeringsfristen.
-:ref:`Les mer om regler for utsending av varsler her <varsler-regler-for-utsending>`.
+The signer will receive a notification stating the signing deadline.
+:ref:`Read more about the rules for sending out notifications here <notification-rules-for-sending>`.
 
-Adressering av undertegner
+Addressing of signers
 ----------------------------
-Undertegner kan adresseres på to ulike måter, med eller uten fødselsnummer. :ref:`Les om adresseringen her <adressering-av-undertegner>`.
+A signer can be addressed in two different ways, with or without a national identity number. :ref:`Read about addressing here <addressing-of-signer>`.
 
-- **Med fødselsnummer**: Dette gir en sikker identifisering, og undertegner må logge inn med BankID, BankID på mobil eller Buypass for å kunne signere. Med adressering på fødselsnummer må du også ta et valg på om du ønsker at hele fødselsnummeret eller bare fødselsdato skal vises i det signerte dokumentet. :ref:`Les mer om innhold i det signerte dokumentet her <signerte-dokumenter>`.
+- **With national identity number**: This provides secure verification of identity and the signer must log in with BankID, BankID mobile phone or Buypass, in order to sign. In the case of addressing by national identity number, you must also choose whether you want the entire national identity number, or only the date of birth, to be displayed in the signed document. :ref:`Read more about the content of the signed document here <signerte-dokumenter>`.
 
-- **Uten fødselsnummer**: Denne signeringsmetoden krever ingen innlogging, og du som avsender trenger ikke vite undertegners fødselsnummer. I stedet oppgir du kun e-postadressen og/eller mobilnummeret, og undertegner mottar en lenke til dokumentet og fyller inn sikkerhetskoden som er oppgitt i varselet. Undertegner kan deretter åpne og signere dokumentet med BankID, BankID på mobil eller Buypass.
+- **Without national identity number**: This signing method does not require any login, and as the sender you do not need to know the signer's national identity number. Instead, you just need to enter email address and/or mobile phone number and the signer will receive a link to the document and fill in the security code provided in the notification. The signer can then open and sign the document using BankID, BankID mobile phone, or Buypass.
 
 
-Steg 2: Mottakere
+Step 2: Recipients
 ===================
 
-For at undertegnere skal få varsler om signeringsoppdrag må du her legge inn kontaktinformasjon. Et signeringsoppdrag kan ha maksimalt 10 undertegnere.
+For signers to receive notifications of signature requests, you must enter their contact details here. A signature request can have a maximum of 10 signers.
 
-Du som avsender kan være undertegner på ditt eget signeringsoppdrag. Huker du av for **Jeg skal signere selv**, blir e-postadressen du har registrert på din bruker automatisk fylt inn.
+As the sender, you may be the signer for your own signature request. If you tick **I will sign myself**, the email address you have registered for your user will be filled in automatically.
 
-Steg 3: Informasjon til mottakere
+Step 3: Information for recipients
 ===================================
 
-**Beskrivelse av dokumentet som vises i e-postvarselet**:
-Beskrivelsen bør ikke inneholde noe sensitivt, da den vises i e-posten som sendes ut. Det er likevel bra å få med detaljer rundt hva som signeres, slik at det blir enklere for undertegner å kjenne igjen i e-posten. 
+**Description of the document that is displayed in the notification email**:
+As the description will appear in the email that is sent out, it should not include any sensitive information. It is nonetheless a good idea to include details of what is to be signed, to make it easier for the signer to identify in the email.
 
-**Tittel på forsiden av det signerte dokumentet**:
-Tittelen vises på forsiden til det signerte dokumentet. :ref:`Les mer om innhold i det signerte dokumentet her <signerte-dokumenter>`.
+**Title of the front page of the signed document**:
+The title appears on the front page of the signed document. :ref:`Read more about the content of the signed document here <signed-documents>`.
 
-**Beskjed som mottaker ser i signeringsportalen**:
-Skriv en personlig beskjed til undertegner. Beskjeden vises før dokumentene signeres (sendes ikke i e-post eller SMS).
+**Message that the recipient sees in the signature portal**:
+Write a personal message to the signer. The message is displayed before the documents are signed (not sent by email or SMS).
 
-**Internt saksnummer/referanse-ID**:
-Har du et saksnummer eller en referanse-ID knyttet til dokumentene eller undertegner, kan du skrive det her. Det kan brukes for enklere å finne igjen dokumentene. 
+**Internal case number/reference ID**:
+If you have a case number or reference ID linked to the documents or signer, you can write it here. It can be used for easier retrieval of the documents.
 
-**Avanserte innstillinger**:
-Under avanserte innstillinger kan du velge om du vil sende dokumentene med en gang eller senere. Hvis du velger å sende senere oppgir du dato og klokkeslett for ønsket utsendelse.
+**Advanced settings**:
+Under advanced settings, you can choose whether you want to send your documents immediately or later. If you choose to send them later, enter the date and time of the required mailing.

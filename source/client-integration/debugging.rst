@@ -93,7 +93,7 @@ For initial integration and debugging purposes, it can be useful to log the actu
 
 Set the property :code:`ClientConfiguration.LogRequestAndResponse = true`.
 
-..  WARNING::
+..  CAUTION::
     Enabling request logging should never be used in a production system. It will severely impact the performance of the client.
 
 Logging of document bundle
@@ -119,7 +119,7 @@ Request and response logging
 _____________________________
 
 
-..  WARNING::
+..  CAUTION::
     Enabling request logging should never be used in a production system. It will impact the performance of the client.
 
 You may configure the client library to log HTTP requests and responses by calling :code:`.enableRequestAndResponseLogging()` when creating the client's configuration. You may configure the logger :code:`no.digipost.signature.client.http.requestresponse` in order to customize logging. It must be set to at least :code:`INFO` to write anything to the log.

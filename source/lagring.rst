@@ -1,45 +1,44 @@
-Lagring
+Storage
 *********
 
-.. _web-grensesnittet: https://signering.posten.no/virksomhet/#/logginn
+.. _web-interface: https://signering.posten.no/virksomhet/#/logginn
 
-Signerte dokumenter er i utgangspunktet tilgjengelig for nedlastning/henting i 40 dager etter signering. Etter dette blir de **slettet og utilgjengelige fra signeringstjenesten**.
+As a general rule, signed documents are available for download/retrieval for 40 days after signing. After this, they are **deleted and are no longer available from the digital signature service**.
 
-Det er viktig å merke seg at beviskraften til digitale signaturer blir svakere over tid. Dette er fordi teknologien som forsegler signerte dokumenter blir utdatert i tråd med teknologisk utvikling. Vi anbefaler at dokumenter som krever beviskraft utover 3 år gjennomgår teknisk vedlikehold for å forsikre langvarig beviskraft.
+It is important to note that the value of digital signatures as evidence becomes weaker over time. This is because the technology that seals signed documents becomes obsolete as new technology is developed. We recommend that documents required to be used as evidence beyond 3 years undergo technical maintenance to protect their long-term value as evidence.
 
-For å sikre langvarig beviskraft og trygg lagring av signerte dokumenter tilbyr vi tilleggstjenesten *Langtidsvalidering og lagring*
+To ensure long-term value as evidence and safe storage of signed documents, we offer the optional *Long-term validation and storage service*.
 
-.. _langtidsvalidering-og-lagring:
+.. _long-term-validation-and-storage:
 
-Langtidsvalidering og lagring
+Long-term validation and storage
 ===============================
 
-Ved å aktivere *Langtidsvalidering og lagring* tar Posten ansvar for at dine signerte dokumenter har beviskraft og gyldig validering i lang tid fremover (minst 50 år eller så lenge tjenesten finnes). Denne tilleggstjenesten aktiveres i virksomhetsinnstillingene i web-grensesnittet_ og koster 4 kroner per dokument.
+By activating *Long-term validation and storage*, Posten (Norway Post) takes responsibility for ensuring that your signed documents have value as evidence and validity far into the future (at least 50 years or as for long as the service exists). This value-added service is activated in the business settings in the web-interface_ and costs NOK 4 per document.
 
-Hvordan sikrer vi langtidsvalidering?
+How do we ensure long-term validation?
 _____________________________________
-Langtidsvalidering (LTV) dokumenterer tilstanden til det signerte dokumentet på signeringstidspunktet. Det signerte PDF-dokumentet (PAdES) for alle oppdrag som signeres i perioden *Langtidsvalidering og lagring* er aktivert blir umiddelbart flagget for teknisk preservering.
+Long-term validation (LTV) documents the status of the signed document at the time of signing. The signed PDF document (PAdES) for all requests signed during the period in which *Long-term validation and storage* is activated is immediately flagged for technical preservation.
 
-Dokumenter som er flagget for langtidsvalidering gjennomgår teknisk preservering hvert 3. år (tid løper fra signeringstidspunkt) som oppdaterer kryptografien og forsterker forseglingen forsikrer at det signerte dokumentet ikke er endret etter signaturtidspunktet.
+Documents that are flagged for long-term validation undergo technical preservation every 3 years (the time runs from the date of signing), which updates the cryptography and reinforces the sealing, to ensure that the signed document has not changed after the signature date.
 
-Hva skjer med dokumentene hvis jeg deaktiverer tjenesten?
+What happens to the documents if I deactivate the service?
 _________________________________________________________
-Alle dokumenter som ble signert i perioden *Langtidsvalidering og lagring* var aktivert vil forsatt være lagret, ha langvarig beviskraft og validering så lenge tjenesten finnes.
+All documents that were signed during the period in which *Long-term validation and storage* was activated will remain stored, have long-term value as evidence and be validated for as long as the service exists.
 
-Hvordan får jeg tak i preserverte dokumenter?
+How do I get hold of preserved documents?
 _____________________________________________
-Langtidslagrede dokumenter kan lastes ned i webgrensesnittet, eller hentes via REST-grensesnittet for API-integratører på samme måte som alle andre signerte dokumenter. Se kodeeksempler for henting av signerte dokumenter i :ref:`signering-i-portalflyt` og :ref:`signering-i-direkteflyt`.
+Long-term stored documents can be downloaded in the web interface or retrieved via the REST interface for API integrators in the same way as all other signed documents. See code examples for retrieval of signed documents in :ref:`signing-in-portal-flow` and :ref:`signing-in-direct-flow`.
 
-Sletting av dokumenter
+Erasure of documents
 =======================
+Senders can erase archived documents if they want to remove them from the archive. 
+Senders using the sender portal can erase documents from there. 
+For senders that integrate via API, documents can be erased via the REST interface.
 
-Avsendere kan slette arkiverte dokumenter hvis de ønsker å fjerne dem fra arkivet.
-Avsendere som bruker avsenderportalen kan slette dokumenter derfra.
-For avsendere som integrerer via API, kan dokumentene slettes via REST-grensesnittet.
-
-Begrensninger
+Limitations
 _____________
 
-- Alle undertegnere må ha signert før dokumentene kan slettes. Dokumenter som ikke blir signert av samtlige undertegnere vil slettes automatisk etter 40 dager, og kan ikke slettes manuelt av avsender.
-- Dokumenter kan tidligst slettes 24 timer etter signeringtidspunkt, da undertegnerne skal ha mulighet til å laste ned dokumentet i et døgn.
-- Dokumenter som skal sendes til undertegners digitale postkasse kan ikke slettes før de har blitt sendt dit. Dersom undertegner ikke har digital postkasse ventes det inntil 7 dager før dokumentene kan slettes.
+- All signers must have signed before the documents can be erased. Documents that have not been signed by all signers will be erased automatically after 40 days and cannot be erased manually by the sender.
+- Documents may be erased at the earliest 24 hours after the signing date, as the signers must be able to download the document for a 24-hour period.
+- Documents that are to be sent to the signer’s digital mailbox cannot be erased until they have been sent there. If the signer does not have a digital mailbox, it is necessary to wait for up to 7 days until the documents can be erased.

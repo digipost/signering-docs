@@ -1,78 +1,76 @@
-.. _adressering-av-undertegner:
+.. _addressing-signers:
 
-Adressering av undertegner
+Addressing signers
 ***************************
-Undertegnere som skal signere i :ref:`portalflyt <signering-i-portalflyt>` kan adresseres på to forskjellige måter;
+You may address signers for :ref:`portal flow <signing-in-portal-flow>` in two different ways:
 
-1. På e-post og/eller SMS (Kun tilgjengelig for private virksomheter)
-2. Med fødselsnummer
+1. By email and/or SMS (only available for private organizations)
+2. By national identity number
 
+<<<<<<< Updated upstream
 ..  CAUTION::
-    Måten du adresserer undertegner på, påvirker :ref:`innhold og utseendet på undertegners signatur <identifisereUndertegnere>`.
+    How you choose to address the signer(s) affects the :ref:`content and appearance of the signature(s) in the resulting signed document <identify-signers>`.
 
-1. Adressering på e-post / SMS
+1. Addressing signers by e-mail / SMS
 ===============================
 
 .. NOTE::
-   Dette alternativet er kun tilgjengelig for private virksomheter
+   This option is only available for private organizations
 
-Ved adressering på e-post / SMS knyttes ikke signeringsforespørselen til et fødselsnummer. Vi har derfor ikke noen måte å verifisere at det er riktig person som leser og signerer. Det kreves derfor ikke innlogging for å lese og signere. Mottaker får e-post og/eller SMS med en unik kode og lenke som gir tilgang til forespørselen. Se :ref:`varsler <varslerUtenFødselsnummer>` for å se hvordan varselet ser ut.
+When addressing signers by email/SMS, we will not be able to link signers to their national identity number. Therefore, we do not have any way to verify that the correct person is reading and signing. The recipients receive an email and/or SMS with a unique code and link to access the document(s) to sign, instead of being required to log in. See :ref:`notifications <notifications-without-national-identity>` to review what the notifications look like.
 
 
 ..  IMPORTANT::
-    Selve signaturen er like sikker og gyldig som når du adresserer med fødselsnummer, men du som avsender er ansvarlig for at riktig person leser og signerer.
+    The signature itself is just as secure and valid as when you address using national identity number, but you as the sender are responsible for ensuring that the correct person reads and signs.
 
-Ved adressering på e-post / SMS blir ikke fødselsnummeret bli inkludert i det signerte dokumentet, av personvernmessige hensyn. Du vil fortsatt få med navn og eventuelt fødselsdato i det signerte dokumentet.
+In the case of e-mail/SMS addressing, the national identity number will not be included in the signed document for privacy reasons. Name and any date of birth will continue to be included in the signed document.
 
-Se :ref:`Signering i portalflyt med adressering på e-post / SMS <signering-i-portalflyt-uten-fødselsnummer>` for mer informasjon og visuelle eksempler.
+See :ref:`Signing in portal flow with addressing by e-mail / SMS <signing-in-portal-flow-without-national-identity>` for more information and visual examples.
 
-2. Adressering med fødselsnummer
+2. Addressing signers by their national identity number
 ================================
-For å adressere med fødselsnummer må du vite undertegners fødselsnummer. Adressering med fødselsnummer er den sikreste måten å nå mottaker på siden det krever innlogging med elektronisk ID for å lese og signere.
+If you know the national identity numbers of the signers, you can address them using their identity numbers. This is the most secure way to reach the expected recipients, since it requires them to log in with an electronic ID in order to read and sign.
 
-Selvom undertegner adresseres med fødselsnummer varsles hun og får lenke til innlogging på e-post eller SMS – se :ref:`varsler og kontaktinformasjon <varsler>` for mer informasjon.
+Even if the signer is addressed using a national identity number, the signer will be notified and will receive a link to log in by email or SMS – see :ref:`notification and contact details <notifications>` for more information..
 
 
 ..  TIP::
-    Se :ref:`signering i portalflyt med fødselsnummer <signering-i-portalflyt-med-fødselsnummer>` for mer informasjon og visuelle eksempler.
+    See :ref:`signing in portal flow with national identity number <signing-in-portal-flow-with-national-identity>` for more information and visual examples.
 
 
-.. _varsler:
+.. _notifications:
 
 
-Varsler og kontaktinformasjon
------------------------------
+Notifications and contact details
+---------------------------------
 
-Når du velger signering i portalflyt sendes ut e-post og/eller SMS-varsler til undertegnerne.
+When you select signing in portal flow, emails and/or SMS notifications are sent to the signers.
 
- - Alle undertegnere må ha minst én av e-postadresse og mobilnummer.
- - Sending av SMS er frivillig og kan bestilles av tjenesteeieren, dette koster 40 øre per SMS.
- - Dersom en undertegner har mobilnummer og ikke e-postadresse vil det alltid bli sendt SMS.
- - Tjenesten støtter kun norske mobilnumre.
+ - All signers must have at least one email address and mobile number.
+ - Sending an SMS is voluntary and can be ordered by the service owner, at a cost of NOK 40 cents per SMS.
+ - If a signer has a mobile number and not an email address, an SMS will always be sent.
 
-For private bedrifter
-^^^^^^^^^^^^^^^^^^^^^
-Dersom avsender er en **privat bedrift** må du selv oppgi e-postadressen og/eller mobilnummeret til mottaker. Dette gjelder også hvis du adresserer undertegner med fødselsnummer. Private virksomheter kan ikke bruke KRR. 
+For private organizations
+^^^^^^^^^^^^^^^^^^^^^^^^^
+If the sender is a **private organization**, you must yourself enter the email address and/or mobile number of the recipient. This also applies if you address the signer using national identity number. Private organizations cannot use KRR.
 
-For offentlige virksomheter
+For public organizations
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-For **offentlige virksomheter** henter vi e-post og mobilnummer til undertegner fra `Kontakt- og reservasjonsregisteret (KRR) <http://eid.difi.no/nb/kontakt-og-reservasjonsregisteret>`_. Det er kun dersom undertegner skal signere på vegne av en virksomhet at offentlige virksomheter kan definere egen kontaktinformasjon til undertegner.
+For **public organizations**, we obtain the signer's email address and mobile phone number from the `Contact and Reservation Register (KRR) <http://eid.difi.no/nb/kontakt-og-reservasjonsregisteret>`_. Public organizations can only define their own contact details for a signer if the signer is to sign on behalf of an organization.
 
 ..  CAUTION::
-    Hvis undertegnere er reservert mot digital kommunikasjon vil oppdraget bli avvist og påfølgende uthenting av status for oppdraget vil gi en feil med informasjon om hvilke undertegnere som er reservert. Undertegnere med overstyrt kontaktinformasjon blir ikke sjekket for reservasjon.
+    If signers have opted out of digital communication, the task will be rejected and subsequent retrieval of the status of the task will report an error with details of which signers have opted out. Signers with overridden contact details will not be checked for opt-out.
 
 
-Bruk av Kontakt- og reservasjonsregisteret
+Using the Contact and Reservation Register
 ============================================
 
-Ytterligere informasjon rundt bruk av Kontakt- og reservarsjonregisteret
+Further details concerning the use of the Contact and Reservation Register
 
-Ved utsending av senere varsler (enten utsatt aktivering på grunn av kjedet signatur eller påminnelser) blir det gjort et nytt oppslag mot registeret for å hente ut den sist oppdaterte kontaktinformasjonen.
+On sending out subsequent notifications (either deferred activation due to chained signature, or reminders) a new lookup is made in the register to retrieve the latest updated contact details.
 
-Dersom Oppslagstjenesten for Kontakt- og reservasjonsregisteret er utilgjengelig ved utsending av påminnelser vil resultatet fra oppslaget ved opprettelse av oppdraget bli brukt.
+If the Lookup Service for the Contact and Reservation Register is unavailable when reminders are sent, the result of the lookup on creating the request will be used.
 
-Reservasjon ved utsatte førstegangsvarsler: I scenariet der tjenesteeier har satt en kjedet rekkefølge på undertegnerne, og førstegangsvarsel skal sendes til en undertegner som i perioden mellom oppdraget ble opprettet og førstegangsvarsel skal sendes har reservert seg mot elektronisk kommunikasjon, så vil hele oppdraget feile.
+Opt-out concerning deferred initial notifications: In the scenario where the service owner has set a chained sequence for the signers, and the initial notification is to be sent to a signer who, in the period between creation of the request and sending the initial notification, has opted out of electronic communication, the entire request will fail.
 
-Reservasjon ved påminnelser: Hvis sluttbrukeren har reservert seg etter at oppdraget ble opprettet, men oppdraget allerede er aktivert, vil det ikke bli sendt påminnelser (e-post/SMS), men oppdraget vil heller ikke feile før signeringsfristen eventuelt løper ut.
-
-Oppdrag med overstyrt kontaktinformasjon med utenlandsk mobilnummer vil bli avvist, mens utenlandske mobilnumre fra Kontakt- og reservasjonsregisteret vil bli ignorert.
+Opt-out concerning reminders: If the end user has opted out after the request was created, but the request has already been activated, no reminders (email/text message) will be sent, but the request will not fail either until any expiry of the signing deadline.

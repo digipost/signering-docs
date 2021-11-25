@@ -1,93 +1,91 @@
-Opprette signeringsoppdrag
+Create signature request
 ===========================
 
-Ved opprettelse av signeringsoppdrag kan følgende felter angis:
+On creating signature requests, the following fields can be specified:
 
-+---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
-| Felt                      | Direkteflyt             | Portalflyt        | Ekstra informasjon                                            |
-+===========================+=========================+===================+===============================================================+
-| Dokumenter                | **Obligatorisk**        | **Obligatorisk**  | 1-20 dokumenter [#f4]_                                        |
-+---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
-| Undertegner(e)            | **Obligatorisk**        | **Obligatorisk**  | se :ref:`adressering-av-undertegner`                          |
-+---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
-| Tittel                    | **Obligatorisk**        | **Obligatorisk**  | Maks 80 tegn [#f1]_                                           |
-+---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
-| Ikke-sensitiv tittel      | Ikke relevant           | Valgfritt         | Maks 80 tegn [#f1]_                                           |
-| / Beskrivelse             |                         |                   |                                                               |
-+---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
-| Signaturtype              | Valgfritt               | Valgfritt         | se :ref:`signaturtype`                                        |
-+---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
-| Sikkerhetsnivå            | Valgfritt               | Valgfritt         | se :ref:`sikkerhetsnivå`                                      |
-+---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
-| Melding til mottaker(e)   | Valgfritt               | Valgfritt         | Maks 220 tegn [#f1]_                                          |
-+---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
-| Undertegners identifikator| Valgfritt               | Valgfritt         | se :ref:`adressering-av-undertegner`                          |
-+---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
-| Aktiveringstidspunkt      | Ikke overstyrbar [#f2]_ | Valgfritt         |                                                               |
-+---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
-| Levetid                   | Ikke overstyrbar [#f3]_ | Valgfritt         |                                                               |
-+---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
-| E-postadresse             | Ikke relevant           | **Obligatorisk**  | se :ref:`varsler`                                             |
-+---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
-| Mobilnummer               | Ikke relevant           | Valgfritt         | se :ref:`varsler`                                             |
-+---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
-| Rekkefølge                | Ikke relevant           | Valgfritt         | se :ref:`kjedet-signering`                                    |
-+---------------------------+-------------------------+-------------------+---------------------------------------------------------------+
++---------------------------+----------------------------+-------------------+---------------------------------------------------------------+
+| Field                     | Direct flow                | Portal flow       | Extra information                                             |
++===========================+============================+===================+===============================================================+
+| Documents                 | **Mandatory**              | **Mandatory**     | 1-20 documents [#f4]_                                         |
++---------------------------+----------------------------+-------------------+---------------------------------------------------------------+
+| Signer(s)                 | **Mandatory**              | **Mandatory**     | see :ref:`addressing-of-signer`                               |
++---------------------------+----------------------------+-------------------+---------------------------------------------------------------+
+| Title                     | **Mandatory**              | **Mandatory**     | Maximum 80 characters [#f1]_                                  |
++---------------------------+----------------------------+-------------------+---------------------------------------------------------------+
+| Non-sensitive title       | Not applicable             | Optional          | Maximum 80 characters [#f1]_                                  |
+| / Description             |                            |                   |                                                               |
++---------------------------+----------------------------+-------------------+---------------------------------------------------------------+
+| Signature type            | Optional                   | Optional          | see :ref:`signature-type`                                     |
++---------------------------+----------------------------+-------------------+---------------------------------------------------------------+
+| Security level            | Optional                   | Optional          | see :ref:`security-level`                                     |
++---------------------------+----------------------------+-------------------+---------------------------------------------------------------+
+| Message to receiver(s)    | Optional                   | Optional          | Maximum 220 characters [#f1]_                                 |
++---------------------------+----------------------------+-------------------+---------------------------------------------------------------+
+| Signer identifier         | Optional                   | Optional          | see :ref:`addressing-of-signer`                               |
++---------------------------+----------------------------+-------------------+---------------------------------------------------------------+
+| Activation time           | Cannot be overrided [#f2]_ | Optional          |                                                               |
++---------------------------+-------------------------+----------------------+---------------------------------------------------------------+
+| Lifetime                  | Cannot be overrided [#f3]_ | Optional          |                                                               |
++---------------------------+----------------------------+-------------------+---------------------------------------------------------------+
+| E-mail address            | Not applicable             | **Mandatory**     | see :ref:`notifications`                                      |
++---------------------------+----------------------------+-------------------+---------------------------------------------------------------+
+| Mobile number             | Not applicable             | Optional          | see :ref:`notifications`                                      |
++---------------------------+----------------------------+-------------------+---------------------------------------------------------------+
+| Sequence                  | Not applicable             | Optional          | see :ref:`chained-signing`                                    |
++---------------------------+----------------------------+-------------------+---------------------------------------------------------------+
 
 .. rubric:: Footnotes
 
-.. [#f1] Maks antall tillate tegn gjelder i både `direkte- <https://github.com/digipost/signature-api-specification/blob/2.7/schema/xsd/direct.xsd#L68-L75>`_ og `portalflyt <https://github.com/digipost/signature-api-specification/blob/2.7/schema/xsd/portal.xsd#L98-L105>`_.
-.. [#f2] Signeringsoppdrag i direkteflyt blir alltid aktivert øyeblikkelig etter opprettelse. *Standardverdi* er *øyeblikkelig etter opprettelse*.
-.. [#f3] Signeringsoppdrag i direkteflyt har alltid 30 dagers levetid for å unngå at et dokument blir signert uhensiktsmessig lenge etter opprettelsen av oppdraget. Eventuell frist fra avsenders perspektiv må kommuniseres og håndteres i avsenders tjenester.
-.. [#f4] Flere dokumenter støttes ikke for avansert signatur fra offentlige virksomheter
+.. [#f1] The maximum number of characters permitted is valid in both `direct <https://github.com/digipost/signature-api-specification/blob/2.7/schema/xsd/direct.xsd#L68-L75>`_ and `portal flow <https://github.com/digipost/signature-api-specification/blob/2.7/schema/xsd/portal.xsd#L98-L105>`_.
+.. [#f2] Signature requests in direct flow are always activated immediately after creation. *The default value* is *immediately after creation*.
+.. [#f3] Signature requests in direct flow always have a 30-day lifespan, to avoid a document being signed far too long after the creation of the task. Any deadline from the sender’s perspective must be communicated and handled in the sender’s services.
+.. [#f4] Multiple documents are not supported for advanced signature from public organizations
 
-For implementasjon for signeringsoppdrag i portalflyt, se  :ref:`portal-flow`, og for signeringsoppdrag i direkteflyt, se :ref:`direct-flow`.
+For implementation of signature requests in portal flow, see  :ref:`portal-flow`, and for signature requests in direct flow, see :ref:`direct-flow`.
 
-Begrensninger
+Limitations
 ______________
 
-Antall undertegnere
-^^^^^^^^^^^^^^^^^^^^^
-
-Et signeringsoppdrag kan ha flere undertegnere. Tjenesten tillater maksimalt 10 undertegnere pr. oppdrag.
-
-Hastighet
-^^^^^^^^^^^
-
-Tjenesten tillater maksimalt 10 API-kall i sekundet per organisasjonsnummer. Hvis en avsender overskrider denne grensen vil API-et returnere :code:`HTTP 429 Too Many Requests`, og avsenderen vil bli blokkert i 30 sekunder.
-
-
-..  _dokumentformat:
-
-Dokumentformat
+Number of signers
 ^^^^^^^^^^^^^^^^^
 
-Tjenesten støtter dokumenter av typen PDF (:code:`.pdf`). Både PDF og PDF/A aksepteres av tjenesten. Det signerte dokumentet vil være av samme type som originaldokumentene.
-Et eller flere originaldokumenter som er PDF/A gir et signert PAdES-dokument som er PDF/A, og et eller flere originaldokumenter som er PDF versjon 1.1 – 1.7 gir et signert PAdES-dokument som er PDF versjon 1.7. Dersom originaldokumentene inneholder både PDF og PDF/A vil det signerte dokumentet bli av typen PDF versjon 1.7.
-For PDF/A vil tjenesten alltid produsere signerte PAdES-dokumenter av typen PDF/A-3b, uavhengig av PDF/A-versjon og -konformitetsnivå på originaldokumentene.
+A signature request may have several signers. The service allows a maximum of ten signers per request.
 
-For arkivering av signerte dokumenter anbefaler vi å bruke originaldokumenter av typen PDF/A. Dette er et krav hvis det signerte dokumentet skal avleveres til Riksarkivet.
+Speed
+^^^^^
 
-For testing kan du bruke eksempeldokumentene :download:`PDF-1.2 <files/PDF-1-2-testdokument.pdf>`, :download:`PDF-1.3 <files/PDF-1-3-testdokument.pdf>`, :download:`PDF-1.4 <files/PDF-1-4-testdokument.pdf>`, :download:`PDF-1.5 <files/PDF-1-5-testdokument.pdf>`, :download:`PDF-1.6 <files/PDF-1-6-testdokument.pdf>` og :download:`PDF-A <files/PDF-A-testdokument.pdf>`.
+The service permits a maximum of 10 API calls per second per organization number. If a sender exceeds this limit, the API will return :code:`HTTP 429 Too Many Requests`, and the sender will be blocked for 30 seconds.
+
+
+..  _document-format:
+
+Document format
+^^^^^^^^^^^^^^^^^
+
+The service supports PDF (:code:`.pdf`). documents. Both PDF and PDF/A are by the service. The signed document will be of the same type as the original documents. One or more original documents that are PDF/A give a signed PAdES document that is PDF/A, and one or more original documents that are PDF version 1.1-1.7 give a signed PAdES document that is PDF version 1.7. If the original documents contain both PDF and PDF/A, the signed document will be of the PDF version 1.7 type. For PDF/A, the service will always produce signed PAdES documents of the PDF/A-3b type, irrespective of the PDF/A version and conformity level of the original documents.
+
+For archiving of signed documents, we recommend using original PDF/A documents. This is a requirement if the signed document is to be submitted to the National Archives of Norway.
+
+For testing, use the example documents :download:`PDF-1.2 <files/PDF-1-2-testdokument.pdf>`, :download:`PDF-1.3 <files/PDF-1-3-testdokument.pdf>`, :download:`PDF-1.4 <files/PDF-1-4-testdokument.pdf>`, :download:`PDF-1.5 <files/PDF-1-5-testdokument.pdf>`, :download:`PDF-1.6 <files/PDF-1-6-testdokument.pdf>` og :download:`PDF-A <files/PDF-A-testdokument.pdf>`.
 
 ..  NOTE::
-    Dokumentene kan til sammen være maksimalt 3 MB (:code:`3 145 728 bytes`) store. PDF-versjoner som støttes er PDF 1.1-1.7.
+    The documents can amount to maximum 3 MB (:code:`3 145 728 bytes`) in size. PDF versions supported are PDF 1.1-1.7.
 
-I PAdES vil dokumentene alltid presenteres i A4- og portrett-format. For best resultat anbefales det at de innsendte dokumentene også har dette formatet.
+In PAdES, the documents will always be presented in A4 and portrait format. For best results, it is recommended that the submitted documents are also in this format.
 
-..  DANGER::
-    Passordbeskyttede dokumenter (begrenset lese- og/eller skrive-tilgang) er ikke støttet av tjenesten og vil gi feilmelding først ved nedlasting av dokumentet.
+..  CAUTION::
+    Password-protected documents (restricted reading and/or writing access) are not supported by the service and will not show an error message until the document is downloaded.
 
-Aktiveringstidspunkt
+Activation time
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Angir tidspunkt for når signeringsoppdraget skal tilgjengeliggjøres for undertegner(e). Dersom aktiveringstidspunktet er i fortiden, blir oppdraget tilgjengelig øyeblikkelig etter opprettelse.
+Indicates the time when the signature request is to be made available to the signer(s). If the activation time is in the past, the reuqest will be available immediately after creation.
 
-Signeringsoppdrag i direkteflyt blir alltid aktivert øyeblikkelig etter opprettelse.
+Signature requests in direct flow are always activated immediately after creation.
 
-Oppdragets levetid
-^^^^^^^^^^^^^^^^^^^^
+Lifetime of the request
+^^^^^^^^^^^^^^^^^^^^^^^
 
-Angir hvor lenge *etter aktivering* et signeringsoppdrag er tilgjengelig for undertegner før det utløper. Kan maksimalt være 90 dager etter aktivering.
+Indicates for how long *after activation* a signature request is available to the signer before it expires. Can be maximum 90 days after activation.
 
-Signeringsoppdrag i direkteflyt har alltid 30 dagers levetid for å unngå at dokumenter blir signert uhensiktsmessig lenge etter opprettelsen av oppdraget. Eventuell frist fra avsenders perspektiv må kommuniseres og håndteres i avsenders tjenester.
+Signature requests in direct flow always have a 30-day lifespan, to avoid documents being signed far too long time after the creation of the request. Any deadline from the sender’s perspective must be communicated and handled in the sender’s services.
