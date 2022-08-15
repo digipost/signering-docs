@@ -67,7 +67,7 @@ A client configuration includes all organization specific configuration and all 
                 new Sender(organizationNumber)
             )
             {
-                // This is only need it you have a SEID 2.0 certificate, but for some reason cannot use the latest version of the library,
+                // This is only needed if you have a SEID 2.0 certificate, but for some reason cannot use the latest version of the library,
                 // or if you have a SEID 2.0 certificate from Commfides
                 CertificateValidationPreferences = { ValidateSenderCertificate = false }
             };
