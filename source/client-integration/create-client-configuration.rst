@@ -52,8 +52,8 @@ A client configuration includes all organization specific configuration and all 
         .. NOTE::
            SEID 2.0 enterprise certificates
 
-            If you have a SEID 2.0 enterprise certificate, you need to use at least version `8.1.0 <https://github.com/digipost/signature-api-client-dotnet/releases/tag/8.1.0>`_ of the dotnet client library.
-            If this is not possible, you need to disable validation of the enterprise certificate when configuring your client. The certificate will always be validated on our server, so it will not impact
+            If you have a SEID 2.0 enterprise certificate from Buypass, you need to use at least version `8.1.0 <https://github.com/digipost/signature-api-client-dotnet/releases/tag/8.1.0>`_ of the dotnet client library.
+            If this is not possible, or you have a SEID 2.0 enterprise certificate from Commfies, you need to disable validation of the enterprise certificate when configuring your client. The certificate will always be validated on our server, so it will not impact
             the security of the request. The client side validation is only there to help identify errors early on.
 
 
@@ -67,7 +67,8 @@ A client configuration includes all organization specific configuration and all 
                 new Sender(organizationNumber)
             )
             {
-                // This is only need it you have a SEID 2 certificate, but for some reason cannot use the latest version of the library.
+                // This is only need it you have a SEID 2.0 certificate, but for some reason cannot use the latest version of the library,
+                // or if you have a SEID 2.0 certificate from Commfides
                 CertificateValidationPreferences = { ValidateSenderCertificate = false }
             };
 
