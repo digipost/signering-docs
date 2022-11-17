@@ -3,7 +3,7 @@ Send requests for signing
 
 Step 1: Documents for signing
 ================================
-Here, you can upload the documents to be signed. The files must be PDF files and the total size may not exceed 3MB.
+Here, you can upload the documents to be signed. The files must be PDF files and the total size may not exceed 10 MB.
 
 Set a signing deadline for the task
 -------------------------------------
