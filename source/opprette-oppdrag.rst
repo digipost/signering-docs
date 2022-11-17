@@ -69,7 +69,7 @@ For archiving of signed documents, we recommend using original PDF/A documents. 
 For testing, use the example documents :download:`PDF-1.2 <files/PDF-1-2-testdokument.pdf>`, :download:`PDF-1.3 <files/PDF-1-3-testdokument.pdf>`, :download:`PDF-1.4 <files/PDF-1-4-testdokument.pdf>`, :download:`PDF-1.5 <files/PDF-1-5-testdokument.pdf>`, :download:`PDF-1.6 <files/PDF-1-6-testdokument.pdf>` og :download:`PDF-A <files/PDF-A-testdokument.pdf>`.
 
 ..  NOTE::
-    The documents can amount to maximum 3 MB (:code:`3 145 728 bytes`) in size. PDF versions supported are PDF 1.1-1.7.
+    The documents can amount to maximum 10 MB (:code:`10 485 760 bytes`) in size. PDF versions supported are PDF 1.1-1.7.
 
 In PAdES, the documents will always be presented in A4 and portrait format. For best results, it is recommended that the submitted documents are also in this format.
 
