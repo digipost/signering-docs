@@ -1,7 +1,7 @@
 .. _notifications-rules-for-issue:
 
 Notifications: Rules for issue of notifications
-=============================
+===============================================
 
 To ensure that the signer receives notifications and reminders at appropriate intervals, the times when notifications are sent out will depend on the signing deadline for a request.
 
@@ -60,7 +60,7 @@ The different notification versions sent by email and SMS are shown below (in No
 
 
 Notification of document for signing, on addressing with national identity number
-____________________________________________________________________
+_________________________________________________________________________________
 
 ..  tabs::
 
@@ -71,16 +71,16 @@ ____________________________________________________________________
         Hei!
 
         Du har fått en forespørsel om å signere [*Tittel på dokumentet*] fra [*Avsender*].
-        
+
         Les og signer innen: [*signeringsfrist*]
-        
+
         Du signerer enkelt og trygt med [*disse elektroniske e-IDene*].
 
         Logg deg inn på [*signering.posten.no/logginn*] for å lese og signere.
 
         Hilsen oss i Posten signering
 
-      
+
     ..  tab:: E-post 2. varsel
 
         **Emne**: Påminnelse: Forespørsel om digital signering fra [*Avsender*]
@@ -88,9 +88,9 @@ ____________________________________________________________________
         Hei!
 
         Vi vil minne om at du fortsatt kan signere [*Tittel på dokumentet*] fra [*Avsender*].
-        
+
         Dokumentet(ene) er nå signert av [*antall*] og må signeres innen [*signeringsfrist*].
-        
+
         Du signerer enkelt og trygt med [*disse elektroniske e-IDene*].
 
         Logg deg inn på [*signering.posten.no/logginn*] for å lese og signere.
@@ -104,67 +104,67 @@ ____________________________________________________________________
     ..  tab:: SMS 1. varsel
 
         Du har en signeringsforespørsel fra [*Avsender*]. Logg inn og signer på [*signering.posten.no/logginn*] innen [*signeringsfrist*]. Hilsen Posten
-         
+
     ..  tab:: SMS 2./3. varsel
 
         Husk signering for [*Avsender*]. Logg inn og signer på [*signering.posten.no/logginn*] innen [*signeringsfrist*]. Hilsen Posten
-         
-.. _varslerUtenFødselsnummer:
+
+.. _notifications-without-national-identity:
 
 Notification of document for signing, on addressing by email / SMS
 ____________________________________________________________________
 
 ..  tabs::
-         
+
     ..  tab:: E-post 1. varsel
 
         **Emne**: Forespørsel om digital signering fra [*Avsender*]
 
         Hei!
         Du har fått en forespørsel om å signere [*Dokumenttittel*] fra [*Avsender*].
-        
+
         Les og signer innen: [*signeringsfrist*].
-        
+
         Du signerer enkelt og trygt med [*disse elektroniske ID-ene*].
-        
+
         Slik signerer du:
         1) Klikk på lenken under
         2) Skriv inn sikkerhetskode XXXX
         3) Les forespørsel og signer
-        
+
         [*https://signering.posten.no/uniklenke*]
-        
+
         Hilsen oss i Posten signering
-         
+
     ..  tab:: E-post 2. varsel
 
         **Emne**: Forespørsel om digital signering fra [*Avsender*]
-        
+
         Hei!
         Vi vil minne om at du fortsatt kan signere [*Dokumenttittel*] fra [*Avsender*].
-        
+
         Les og signer innen: [*signeringsfrist*].
-               
+
         Du signerer enkelt og trygt med [*disse elektroniske ID-ene*].
-        
+
         Slik signerer du:
         1) Klikk på lenken under
         2) Skriv inn sikkerhetskode [*XXX*]
         3) Les forespørsel og signer
-        
+
         [*https://signering.posten.no/uniklenke*]
-        
+
         Rekker du ikke å signere innen fristen?
         Usignerte dokumenter slettes når fristen går ut. Kontakt [*Avsender*] for å få tilsendt en ny forespørsel.
-               
+
         Hilsen oss i Posten signering
 
 .. tabs::
-         
+
     ..  tab:: SMS 1. varsel
 
         Hei! [*Avsender*] ber deg om en signatur. Bruk kode [*XXXX*] på [*https://signering.posten.no/uniklenke*] før [*signeringsfrist*].
-         
+
     ..  tab:: SMS 2./3. varsel
 
         Hei! Husk signering for [*Avsender*]. Bruk kode [*XXXX*] på [*https://signering.posten.no/uniklenke*] før [*signeringsfrist*].
@@ -192,11 +192,11 @@ Private senders
         Du har nettopp signert et dokument fra [*Avsender*] gjennom Posten signering.
 
         Hvis du oppretter en konto i Digipost innen 7 dager, sendes dokumentet du signerte automatisk dit. Da har du det              lett tilgjengelig når du trenger det!
-         
+
         Registrer deg i Digipost: https://www.digipost.no/app/registrering ,
 
         Hilsen oss i Posten signering
-    
+
     ..  tab:: E-post, flere undertegnere
 
         **Emne**: Motta det signerte dokumentet i Digipost
@@ -208,19 +208,19 @@ Private senders
         Hvis du også ønsker å motta dokumentet med alle signaturer, må du opprette en konto i Digipost innen 7 dager. Da sendes dokumentet automatisk dit, så har du det lett tilgjengelig når du trenger det.
 
         Registrer deg i Digipost: https://www.digipost.no/app/registrering ,
-         
+
         Hilsen oss i Posten signering
-        
-        
+
+
 ..  tabs::
 
     ..  tab:: SMS, én undertegner
-       
+
         Hei, du har nettopp signert et dokument fra [*Avsender*] gjennom Posten signering.
         Hvis du oppretter en konto i Digipost innen 7 dager, sendes dokumentet du signerte automatisk dit: https://www.digipost.no/app/registrering
 
     ..  tab:: SMS, flere undertegnere
-       
+
         Hei! Du har tidligere signert et dokument fra [*Avsender*] gjennom Posten signering.
 
         Nå har alle undertegnerne signert. Hvis du også ønsker å motta dokumentet med alle signaturer, må du opprette en konto i Digipost innen 7 dager. Da sendes dokumentet automatisk dit, så har du det lett tilgjengelig når du trenger            det: https://www.digipost.no/app/registrering
@@ -228,11 +228,11 @@ Private senders
 
 Public senders
 ^^^^^^^^^^^^^^^^^^^^^
-      
+
 ..  tabs::
-      
+
     ..  tab:: E-post, én undertegner
-       
+
         **Emne**: Motta det signerte dokumentet i din digitale postkasse
 
         Hei!
@@ -245,49 +245,48 @@ Public senders
         https://www.norge.no/velg-digital-postkasse
 
         Hilsen oss i Posten signering
- 
+
     ..  tab:: E-post, flere undertegnere
-       
+
         **Emne**: Motta det signerte dokumentet i din digitale postkasse
 
         Hei!
 
         Du har tidligere signert et dokument fra [*Avsender*] gjennom den nasjonale fellesløsningen e-Signering. Nå har alle undertegnerne signert, og avsender har mottatt det ferdigsignerte dokumentet. Hvis du også ønsker å motta dokumentet          med alle signaturer, må du opprette en digital postkasse innen 7 dager. Da sendes dokumentet automatisk dit, så har du det tilgjengelig når du trenger det!
-         
+
         Opprett digital postkasse:
         https://www.norge.no/velg-digital-postkasse
 
         Hilsen oss i Posten signering
-        
+
 ..  tabs::
-      
+
     ..  tab:: SMS, én undertegner
-       
+
         Hei, du har nettopp signert et dokument fra [*Avsender*] gjennom den nasjonale fellesløsningen e-Signering.
         Hvis du oppretter en digital postkasse innen 7 dager, sendes dokumentet du signerte automatisk dit:                            https://www.norge.no/velg-digital-postkasse
 
     ..  tab:: SMS, flere undertegnere
-       
+
         Hei, du har tidligere signert et dokument fra [*Avsender*] gjennom den nasjonale fellesløsningen e-Signering. Nå har alle undertegnerne signert. Hvis du også ønsker å motta dokumentet med alle signaturer, må du opprette en digital postkasse innen 7 dager. Da sendes dokumentet automatisk dit, så har du det lett tilgjengelig når du trenger det: https://www.norge.no/velg-digital-postkasse
 
 
 Notification of cancelled request
-_______________________________
+_________________________________
 
 If the sender cancels a signature request, a notification is sent to the signer about this:
 
 ..  tabs::
-      
+
     ..  tab:: E-post
-       
+
         **Emne**: Kansellert: Forespørsel om digital signering fra [*Avsender*]
-        
+
         Hei!
         [*Avsender*] har trukket tilbake forespørselen om å signere [*Dokumenttittel*].
         Kontakt [*Avsender*] om du lurer på hvorfor de kansellerte, eller om du ønsker å få tilsendt en ny forespørsel.
-        
+
         Hilsen oss i Posten signering
 
 
 .. _varseltekster-for-avsendere:
-
