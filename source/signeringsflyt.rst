@@ -8,7 +8,7 @@ A signature request contains the documents to be signed and can be addressed to 
 
 .. _signing-in-direct-flow:
 
-Signing in direct flow
+Signing with direct flow
 ========================
 
 Signing in direct flow takes place when the signer is already logged into the sender's system. This flow is ideal if the sender wants the end-user to experience the signing process as an integral part of their website.
@@ -26,13 +26,13 @@ The flow typically looks like this:
 
 .. _signing-in-portal-flow:
 
-Signering i portalflyt
+Signing with portal flow
 ========================
 
 .. _signing-in-portal-flow-with-national-identity:
 
 Address using national identity number
-______________________________
+________________________________________
 
 If you use a national identity number as the address, the signer will have to log into the signature portal in order to view the signing task.
 
@@ -69,4 +69,3 @@ On addressing a signer without a national identity number, it is the sender’s 
 
 ..  TIP::
     Please see `this graphic guide in Google Presentation for signing in portal flow, addressing with e-mail / SMS <https://docs.google.com/presentation/d/14Q_-YzaxcGsZOgUR6rJl7rWSwLZwujnuqgkKCrxksoA/edit#slide=id.g2e3b4edaeb_0_1>`_.
-

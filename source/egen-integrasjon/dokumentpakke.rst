@@ -1,7 +1,7 @@
 .. _information-about-document-package:
 
 Document package
-***************
+****************
 
 The document package in Posten signering is based on the ASiC-E standard (`Associated Signature Containers, Extended form <http://www.etsi.org/deliver/etsi_ts/102900_102999/102918/01.03.01_60/ts_102918v010301p.pdf>`_). The profile is designed to be similar to that used for `Digital mailbox to residents <http://begrep.difi.no/SikkerDigitalPost>`_. Read more about the :ref:`profile used for ASiC <asicEStandards>` at the end of this document.
 
@@ -127,7 +127,7 @@ Examples of complete ``signatures.xml``
 .. _asicEStandards:
 
 Standards used in the document package
-===================================
+======================================
 
 It must be possible to validate the integrity of documents and metadata in the digital signature service many years after receipt. This is ensured by packing the information in a document package protected with digital signatures, as described below. In practice, this is a zip file with a given structure that contains a digital signature of the contents.
 
@@ -148,26 +148,26 @@ ASiC profile for the document package
 
 The document is packaged in a document package together with metadata in accordance with ASiC (ETSI TS 102 918) [#etsi1]_, and further limited according to the profile defined in Baseline Profile (ETSI TS 103 174) [#etsi2]_. Additional restrictions are as follows:
 
-============================= =================================================================================================================================== =============================================================================================================================================================================================================================
-Requirements              Fields                                                                                                                                  Comments
-============================= =================================================================================================================================== =============================================================================================================================================================================================================================
-requirement 6.1  [#etsi29]_       ASiC conformance                                                                                                                Should be “ASiC‑E XAdES”
-requirement 8.1 [#etsi211]_       ASiC‑E Media type identification                                                                                                Should be “ASiC file extension is”.asice
-requirement 8.2 [#etsi211]_       ASiC‑E Signed data object                                                                                                       All files outside of the META-INF catalogue shall be signed
-requirement 8.3.1 [#etsi212]_     ASiC‑E XAdES signature                                                                                                          There should only be one signature in the META-INF catalogue, with the name signatures.xml. This signature shall cover all other files in the container, and the sender's organization certificate shall be used for signing.
-requirement 8.3.2 [#etsi212]_     Requirements for the contents of Container” refererer til “6.2.2 punkt 4b) "META-INF/manifest.xml" if present […] i”ASiC":etsi1 This file should not be present
-============================= =================================================================================================================================== =============================================================================================================================================================================================================================
+============================== ============================================================================================================================== =============================================================================================================================================================================================================================
+Requirements                   Fields                                                                                                                         Comments
+============================== ============================================================================================================================== =============================================================================================================================================================================================================================
+requirement 6.1  [#etsi29]_    ASiC conformance                                                                                                               Should be “ASiC‑E XAdES”
+requirement 8.1 [#etsi211]_    SiC‑E Media type identification                                                                                                Should be “ASiC file extension is”.asice
+requirement 8.2 [#etsi211]_    SiC‑E Signed data object                                                                                                       All files outside of the META-INF catalogue shall be signed
+requirement 8.3.1 [#etsi212]_  SiC‑E XAdES signature                                                                                                          There should only be one signature in the META-INF catalogue, with the name signatures.xml. This signature shall cover all other files in the container, and the sender's organization certificate shall be used for signing.
+requirement 8.3.2 [#etsi212]_  equirements for the contents of Container” refererer til “6.2.2 punkt 4b) "META-INF/manifest.xml" if present […] i”ASiC":etsi1 This file should not be present
+============================== ============================================================================================================================== =============================================================================================================================================================================================================================
 
 Signature in the document package
---------------------------
+---------------------------------
 
 The document package should be signed by the “Data Controller”, but may be signed by the “Data Processor”.
 
 The signature must be in accordance with XAdES (ETSI TS 101 903) [#etsi3]_ with the baseline profile defined in XAdES Baseline Profile (ETSI TS 103 171) [#etsi4]_ (B-Level Conformance). Additional restrictions are as follows:
 
-============================= ============================================= ===================================================================================================================================================================================================================================================================
+============================= ============================================= ===================================================================================================================================================================================================================================================================================================================
 Requirements                  Fields                                        Comments
-============================= ============================================= ===================================================================================================================================================================================================================================================================
+============================= ============================================= ===================================================================================================================================================================================================================================================================================================================
 requirement 5.1 [#etsi48]_    Algorithm requirements                        The signing algorithm should be `rsa-sha256 <http://www.w3.org/2001/04/xmldsig-more#rsa-sha256>`_. The finger print algorithm in the references should be `sha256 <http://www.w3.org/2001/04/xmlenc#sha256>`_. The finger print algorithm in CertDigest should be `sha1 <http://www.w3.org/2000/09/xmldsig#sha1>`_
 requirement 6.2.1 [#etsi410]_ Placement of the signing certificate          All certificates from the organization certificate and up to and included a trusted root should be included
 requirement 6.2.2 [#etsi411]_ Canonicalization of ds:SignedInfo element     Should be `xml-c14n11 <http://www.w3.org/2006/12/xml-c14n11>`_. Can be `REC-xml-c14n-20010315 <http://www.w3.org/TR/2001/REC-xml-c14n-20010315>`_
@@ -176,7 +176,7 @@ requirement 6.2.4 [#etsi412]_ Transforms within ds:Reference element        All 
 requirement 6.3.1 [#etsi412]_ Profile of xades:SigningCertificate element   No further limitations
 requirement 6.3.2 [#etsi413]_ Profile of xades:SigningTime element          The time indication should be correct within the interval of +/- 5 seconds
 requirement 6.3.3 [#etsi413]_ Profile of xades:DataObjectFormat element     Only MimeType and ObjectReference should be present
-============================= ============================================= ===================================================================================================================================================================================================================================================================
+============================= ============================================= ===================================================================================================================================================================================================================================================================================================================
 
 ..  rubric:: Footnotes
 

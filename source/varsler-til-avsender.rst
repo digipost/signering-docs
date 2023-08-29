@@ -1,5 +1,7 @@
+.. _notifications-for-senders:
+
 Notification texts for senders
-============================
+===============================
 
 All senders are registered in the service with an email address, and notifications are therefore sent by email. A sender’s email address is linked to the user in the service and is never sent in when a request is created.
 
@@ -16,7 +18,7 @@ Notifications are sent to the sender in three cases:
 
 
 Notification when signature request changes status (in Norwegian)
-__________________________________________
+__________________________________________________________________
 
 ..  tabs::
 
@@ -52,7 +54,7 @@ __________________________________________
 
 
 Notification before archiving of signed document expires (in Norwegian)
-_______________________________________________________
+__________________________________________________________________________
 
 ..  tabs::
 
