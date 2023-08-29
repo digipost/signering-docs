@@ -11,7 +11,7 @@ You may address signers for :ref:`portal flow <signing-in-portal-flow>` in two d
     How you choose to address the signer(s) affects the :ref:`content and appearance of the signature(s) in the resulting signed document <identify-signers>`.
 
 1. Addressing signers by e-mail / SMS
-===============================
+=====================================
 
 .. NOTE::
    This option is only available for private organizations
@@ -27,7 +27,7 @@ In the case of e-mail/SMS addressing, the national identity number will not be i
 See :ref:`Signing in portal flow with addressing by e-mail / SMS <signing-in-portal-flow-without-national-identity>` for more information and visual examples.
 
 2. Addressing signers by their national identity number
-================================
+=======================================================
 If you know the national identity numbers of the signers, you can address them using their identity numbers. This is the most secure way to reach the expected recipients, since it requires them to log in with an electronic ID in order to read and sign.
 
 Even if the signer is addressed using a national identity number, the signer will be notified and will receive a link to log in by email or SMS – see :ref:`notification and contact details <notifications>` for more information..

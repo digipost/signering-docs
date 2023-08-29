@@ -12,7 +12,7 @@ A signed PDF is called *PDF Advanced Electronic Signature (PAdES)*. This consist
 
 All documents can be downloaded during a period after the signature task is completed. The lifetime depends on whether :ref:`long-term-validation-and-storage` have been activated for the sender.
 
-..  _identifisereUndertegnere:
+..  _identify-signers:
 
 How are signers identified in a signed document?
 ------------------------------------------------------------------
@@ -106,5 +106,3 @@ Packaging with XAdES and/or PAdES will take full advantage of the standardizatio
 ..  rubric:: Footnotes
 
 ..  [#fotnotePåviseIdentitet] The signed document contains an anonymized identifier that identifies the signer with 100% accuracy at the e-ID provider, for example at BankID. This requires e-ID look-up by the provider and is only supported for advanced signatures.
-
-

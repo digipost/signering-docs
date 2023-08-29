@@ -347,7 +347,7 @@ The time specified in ``activation-time`` indicates when the job is activated, a
 Identifier in the signed document
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The element ``identifier-in-signed-documents`` is used to specify how signers are to be identified in the signed documents. Allowed values are ``PERSONAL_IDENTIFICATION_NUMBER_AND_NAME``, ``DATE_OF_BIRTH_AND_NAME`` and ``NAME``, but not all are valid for all types of signature jobs and senders. For more information, see :ref:`identifisereUndertegnere`.
+The element ``identifier-in-signed-documents`` is used to specify how signers are to be identified in the signed documents. Allowed values are ``PERSONAL_IDENTIFICATION_NUMBER_AND_NAME``, ``DATE_OF_BIRTH_AND_NAME`` and ``NAME``, but not all are valid for all types of signature jobs and senders. For more information, see :ref:`identify-signers`.
 
 
 ..  NOTE:: You can specify a  signature type and required authentication level. If signature type or required authentication level is omitted, default values will be set as specified by :ref:`signaturtype` and :ref:`sikkerhetsnivå`.
