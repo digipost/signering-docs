@@ -1,5 +1,5 @@
 Why use Posten signering (Norway Post's digital signature service)
-******************************
+********************************************************************
 
 We believe in making people’s lives easier. By using Posten signering, you will avoid the time-consuming manual handling of documents to be signed.
 

@@ -5,7 +5,7 @@ On a general basis, data that we no longer need is erased after 3 years. Erasure
 
 
 Notifications
-#######
+#############
 
 We erase email and SMS notifications 3 years after the last time sending them was attempted.
 
@@ -34,7 +34,7 @@ Note that these events occur at the same time, but have different requirements t
 
 
 Organizations
-############
+#############
 
 * **Deactivation**: An organization can be deactivated with immediate effect. After deactivation, we retain the data for 3 months.
 * **Erasure**: The organization is erased after the organization has been deactivated for 3 months. This will delete all data associated with the organization.

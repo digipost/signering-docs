@@ -17,7 +17,7 @@ The different actions that terminate a signature request are:
 The sender creates a request with three signers. *Signer 1* signs, *signer 2* rejects. If *signer 3* logs into the signature portal after *signer 2*  has rejected, they will *not* see the signature request and will not be able to sign.
 
 Cancellation of a signature request
-==============================
+====================================
 
 Cancellation of a signature request is only relevant for signature requests in portal flow.
 

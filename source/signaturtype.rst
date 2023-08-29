@@ -1,7 +1,7 @@
 .. _signature-type:
 
 Signature type
-*************
+**************
 
 In Norway, we have three different types of digital signature, as described in the Norwegian Electronic Signature Act: authenticated, advanced and qualified. Standard signature is a strong signature, advanced signature is even stronger and qualified signature is the strongest signature.
 
@@ -22,7 +22,7 @@ An advanced signature has a stronger connection between the signature and the do
 ..  _authenticated-signature:
 
 Authenticated signature
-=====================
+========================
 
 On using authenticated signature, the user's identity is verified in the ID portal. The ID portal does not know that the login is connected to a signing ceremony and it is Signicat's job to link the verification of identity and the documents to a signature.
 
@@ -31,7 +31,7 @@ An authenticated signature is a little weaker than an advanced signature because
 The sender can select :ref:`security-level` on the signing.
 
 Signature type selection
-=====================
+========================
 
 ..  tabs::
 

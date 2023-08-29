@@ -46,13 +46,13 @@ As shown below, the document will have a front page showing who has signed it an
 |pades-visning-adobe-innhold|
 
 In a production environment
--------------------
+---------------------------
 If the document is signed in a production environment, the signature can be verified in e.g. Adobe Acrobat Reader by clicking on *Signature panel* in the blue info box.
 
 |pades-visning-adobe-prod|
 
 In a test environment
----------------
+---------------------
 If the document is signed in a test environment, it is technically not a valid signature since certificates from a test issuer are used. This can be seen in the blue info box. It is nonetheless still possible to view the signatures as in the production environment.
 
 |pades-visning-adobe-test|

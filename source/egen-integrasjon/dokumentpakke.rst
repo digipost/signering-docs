@@ -1,7 +1,7 @@
 .. _information-about-document-package:
 
 Document package
-***************
+****************
 
 The document package in Posten signering is based on the ASiC-E standard (`Associated Signature Containers, Extended form <http://www.etsi.org/deliver/etsi_ts/102900_102999/102918/01.03.01_60/ts_102918v010301p.pdf>`_). The profile is designed to be similar to that used for `Digital mailbox to residents <http://begrep.difi.no/SikkerDigitalPost>`_. Read more about the :ref:`profile used for ASiC <asicEStandards>` at the end of this document.
 
@@ -127,7 +127,7 @@ Examples of complete ``signatures.xml``
 .. _asicEStandards:
 
 Standards used in the document package
-===================================
+======================================
 
 It must be possible to validate the integrity of documents and metadata in the digital signature service many years after receipt. This is ensured by packing the information in a document package protected with digital signatures, as described below. In practice, this is a zip file with a given structure that contains a digital signature of the contents.
 
@@ -159,7 +159,7 @@ requirement 8.3.2 [#etsi212]_     Requirements for the contents of Container” 
 ============================= =================================================================================================================================== =============================================================================================================================================================================================================================
 
 Signature in the document package
---------------------------
+---------------------------------
 
 The document package should be signed by the “Data Controller”, but may be signed by the “Data Processor”.
 
