@@ -51,4 +51,4 @@ See :ref:`client-configuration` for instructions on how to set up the configurat
             - ``<env>`` is difiqa, difitest, or just remove the environment part for the production environment.
             - ``<organization-num>`` is the organization number whose archive you want to access
             - ``<id>`` is the ID of the document you want to download.
-            - The ending ``/pades`` indicates the variant of the document you want to download, and at this point only signed documents (PAdES) is supported. For more information on the format of the signed document, see :ref:`signerte-dokumenter`.
+            - The ending ``/pades`` indicates the variant of the document you want to download, and at this point only signed documents (PAdES) is supported. For more information on the format of the signed document, see :ref:`signed-documents`.

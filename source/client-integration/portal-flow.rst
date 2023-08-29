@@ -3,7 +3,7 @@
 Portal flow
 ****************************
 
-This integration pattern is suitable for senders who want to create :ref:`a signature job in portal flow <signering-i-portalflyt>`. The signer logs in to the signing portal, signs the document, and the sender will then be able to poll for a status and retrieve the signed document. This scenario is designed to support a flow where it is necessary to obtain signatures from more than one signer.
+This integration pattern is suitable for senders who want to create :ref:`a signature job in portal flow <signing-in-portal-flow>`. The signer logs in to the signing portal, signs the document, and the sender will then be able to poll for a status and retrieve the signed document. This scenario is designed to support a flow where it is necessary to obtain signatures from more than one signer.
 
 To ease the integration, we provide C# and Java libraries. If you are creating your own client, you will have to interact directly with the API. The message format of the API is XML, and relevant types can be found in `portal.xsd <https://github.com/digipost/signature-api-specification/blob/master/schema/xsd/portal.xsd>`_.
 
@@ -106,7 +106,7 @@ Step 1: Create signature job
 
 
         - The request is a ``HTTP POST`` to the resource ``api.<environment>.signering.posten.no/api/<organization-number>/portal/signature-jobs``, where ``<environment>`` is ``difiqa``, ``difitest`` or just remove the environment part for the production environment.
-        - The document bundle is added to the multipart message with ``application/octet-stream`` as media type. See :ref:`informasjonOmDokumentpakken` for more information on the document bundle.
+        - The document bundle is added to the multipart message with ``application/octet-stream`` as media type. See :ref:`information-about-document-package` for more information on the document bundle.
         - The metadata in the multipart request is defined by the ``portal-signature-job-request`` element. These are added with media type ``application/xml``.
 
         The following example shows metadata for a signature job in a portal flow:
@@ -192,7 +192,7 @@ Step 1: Create signature job
 The signer
 -----------------
 
-Before starting this chapter, please read up on :ref:`adressering-av-undertegner` and :ref:`varsler`. Signers can be adressed and notified in different ways.
+Before starting this chapter, please read up on :ref:`addressing-signers` and :ref:`notifications`. Signers can be addressed and notified in different ways.
 
 Adressing the signer
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -350,7 +350,7 @@ Identifier in the signed document
 The element ``identifier-in-signed-documents`` is used to specify how signers are to be identified in the signed documents. Allowed values are ``PERSONAL_IDENTIFICATION_NUMBER_AND_NAME``, ``DATE_OF_BIRTH_AND_NAME`` and ``NAME``, but not all are valid for all types of signature jobs and senders. For more information, see :ref:`identify-signers`.
 
 
-..  NOTE:: You can specify a  signature type and required authentication level. If signature type or required authentication level is omitted, default values will be set as specified by :ref:`signaturtype` and :ref:`sikkerhetsnivå`.
+..  NOTE:: You can specify a  signature type and required authentication level. If signature type or required authentication level is omitted, default values will be set as specified by :ref:`signature-type` and :ref:`security-level`.
 
 ..  tabs::
 
@@ -483,7 +483,7 @@ Responses will always include the next permitted poll time, which tells you when
 
         The ``X-Next-permitted-poll-time`` header will give the next permitted poll time in each response.
 
-        Finally, make a ``HTTP POST`` request to the ``confirmation-url`` to confirm that you have successfully retrieved the status change. If it is the last update and the job is completed successfully and :ref:`langtidsvalidering-og-lagring` is used, this will mark the assignment as completed and stored. Otherwise, the assignment will be deleted from the signing portal.
+        Finally, make a ``HTTP POST`` request to the ``confirmation-url`` to confirm that you have successfully retrieved the status change. If it is the last update and the job is completed successfully and :ref:`long-term-validation-and-storage` is used, this will mark the assignment as completed and stored. Otherwise, the assignment will be deleted from the signing portal.
 
 
 Step 3: Get signed documents
@@ -515,7 +515,7 @@ Step 3: Get signed documents
 
     ..  group-tab:: HTTP
 
-        The response in the previous step contains the link ``pades-url``. You can do a ``HTTP GET`` on it to download the signed document. For more information on the format of the signed document, see :ref:`signerte-dokumenter`.
+        The response in the previous step contains the link ``pades-url``. You can do a ``HTTP GET`` on it to download the signed document. For more information on the format of the signed document, see :ref:`signed-documents`.
 
         This will include signing information for all signers who have so far signed the job. In most cases, it is not necessary to download the PAdES until all signers have the status ``SIGNED``.
 

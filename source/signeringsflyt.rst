@@ -8,7 +8,7 @@ A signature request contains the documents to be signed and can be addressed to 
 
 .. _signing-in-direct-flow:
 
-Signing in direct flow
+Signing with direct flow
 ========================
 
 Signing in direct flow takes place when the signer is already logged into the sender's system. This flow is ideal if the sender wants the end-user to experience the signing process as an integral part of their website.
@@ -26,7 +26,7 @@ The flow typically looks like this:
 
 .. _signing-in-portal-flow:
 
-Signering i portalflyt
+Signing with portal flow
 ========================
 
 .. _signing-in-portal-flow-with-national-identity:

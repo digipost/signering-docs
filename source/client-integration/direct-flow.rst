@@ -3,7 +3,7 @@
 Direct flow
 ****************************
 
-This is an integration pattern suited for senders with their own portals and web solutions, wishing to offer a seamless signing experience as a part of a process where the user is logged in through a senders web portal. The signature prosess will be perceived as an integrated part of the user flow. The user will be redirected to the senders website after the signing is completed. For more information of the flow, please see :ref:`signering-i-direkteflyt`.
+This is an integration pattern suited for senders with their own portals and web solutions, wishing to offer a seamless signing experience as a part of a process where the user is logged in through a senders web portal. The signature prosess will be perceived as an integrated part of the user flow. The user will be redirected to the senders website after the signing is completed. For more information of the flow, please see :ref:`signing-in-direct-flow`.
 
 To ease the integration, we provide C# and Java libraries. If you are creating your own client, you will have to interact directly with the API. The message format of the API is XML, and relevant types can be found in `direct.xsd <https://github.com/digipost/signature-api-specification/blob/master/schema/xsd/direct.xsd>`_.
 
@@ -102,7 +102,7 @@ Step 1: Create signature job
         The flow starts when the sender sends a request to create the signature job to the API. This request is a `multipart message <https://en.wikipedia.org/wiki/MIME#Multipart_messages>`_ comprised of a document bundle part and a metadata part.
 
         - The request is a ``HTTP POST`` to the resource ``api.<environment>.signering.posten.no/api/<organization-number>/direct/signature-jobs``, where ``<environment>`` is ``difiqa``, ``difitest`` or just remove the environment part for the production environment.
-        - The document bundle is added to the multipart message with ``application/octet-stream`` as media type. See :ref:`informasjonOmDokumentpakken` for more information on the document bundle.
+        - The document bundle is added to the multipart message with ``application/octet-stream`` as media type. See :ref:`information-about-document-package` for more information on the document bundle.
         - The metadata in the multipart request is defined by the ``direct-signature-job-request`` element. These are added with media type ``application/xml``.
 
         The following example shows the metadata for a signature job:
@@ -152,7 +152,7 @@ Step 1: Create signature job
             </direct-signature-job-manifest>
 
 
-..  NOTE:: You can specify a signature type and required authentication level. If signature type or required authentication level is omitted, default values will be set as specified by :ref:`signaturtype` and :ref:`sikkerhetsnivå`.
+..  NOTE:: You can specify a signature type and required authentication level. If signature type or required authentication level is omitted, default values will be set as specified by :ref:`signature-type` and :ref:`security-level`.
 
 ..  tabs::
 
@@ -538,7 +538,7 @@ Step 4: Get signed documents
 
     ..  group-tab:: HTTP
 
-        In the previous step you got a link to the signed document: ``pades-url``. Do a ``HTTP GET`` on this to download the signed document. For more information on the format of the signed document, see :ref:`signerte-dokumenter`.
+        In the previous step you got a link to the signed document: ``pades-url``. Do a ``HTTP GET`` on this to download the signed document. For more information on the format of the signed document, see :ref:`signed-documents`.
 
 Step 5: Confirm finished processing
 =======================================
@@ -559,7 +559,7 @@ Step 5: Confirm finished processing
 
     ..  group-tab:: HTTP
 
-        Finally, make a ``HTTP POST`` request to the ``confirmation-url`` to confirm that you have completed the job. If :ref:`langtidsvalidering-og-lagring` is used, this will mark the assignment as completed and stored. Otherwise, the assignment will be deleted from the signing portal.
+        Finally, make a ``HTTP POST`` request to the ``confirmation-url`` to confirm that you have completed the job. If :ref:`long-term-validation-and-storage` is used, this will mark the assignment as completed and stored. Otherwise, the assignment will be deleted from the signing portal.
 
 
 Specifying queues

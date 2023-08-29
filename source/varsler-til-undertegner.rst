@@ -1,4 +1,4 @@
-.. _notifications-rules-for-issue:
+.. _notification-rules-for-sending:
 
 Notifications: Rules for issue of notifications
 ===============================================
