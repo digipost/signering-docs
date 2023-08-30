@@ -36,6 +36,8 @@ Senders can erase archived documents if they want to remove them from the archiv
 Senders using the sender portal can erase documents from there.
 For senders that integrate via API, documents can be erased via the REST interface.
 
+.. _storage-delete-limitations:
+
 Limitations
 _____________
 
