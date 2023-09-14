@@ -20,8 +20,8 @@
 # -- Project information -----------------------------------------------------
 
 project = u'Posten signering documentation'
-copyright = u'2019, Posten Norge AS'
-author = u'Posten Norge AS'
+copyright = u'2019, Posten Bring AS'
+author = u'Posten Bring AS'
 
 # The short X.Y version
 version = u''
@@ -154,7 +154,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'Postensigneringdocumentation.tex', u'Posten signering documentation Documentation',
-     u'Posten Norge AS', 'manual'),
+     u'Posten Bring AS', 'manual'),
 ]
 
 
