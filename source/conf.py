@@ -20,7 +20,7 @@
 # -- Project information -----------------------------------------------------
 
 project = u'Posten signering documentation'
-copyright = u'2019, Posten Bring AS'
+copyright = u'2023, Posten Bring AS'
 author = u'Posten Bring AS'
 
 # The short X.Y version
