@@ -20,7 +20,7 @@
 # -- Project information -----------------------------------------------------
 
 project = u'Posten signering documentation'
-copyright = u'2019, Posten Bring AS'
+copyright = u'2023, Posten Bring AS'
 author = u'Posten Bring AS'
 
 # The short X.Y version
@@ -31,8 +31,8 @@ release = u'1'
 html_context = {
     "display_github": True, # Integrate GitHub
     "github_user": "digipost", # Username
-    "github_repo": "signering-doc", # Repo name
-    "github_version": "master", # Version
+    "github_repo": "signering-docs", # Repo name
+    "github_version": "main", # Version
     "conf_py_path": "/source/", # Path in the checkout to the docs root
 }
 
