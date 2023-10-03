@@ -63,7 +63,7 @@ A client configuration includes all organization specific configuration and all 
           ``ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;``. If the protocol is not enabled, please refer to the following `Microsoft Documentation for enabling TLS 1.2 <https://docs.microsoft.com/en-us/sccm/core/plan-design/security/enable-tls-1-2>`_.
 
 
-    ..  group-tab:: Java
+  ..  group-tab:: Java
 
         The first step is to load the enterprise certificate (virksomhetssertifikat) through the :code:`KeyStoreConfig`. It can be created from a Java Key Store (JKS) or directly from a PKCS12-container, which is the usual format of an enterprise certificate. The latter is the recommended way of loading it if you have the certificate stored as a simple file:
 
