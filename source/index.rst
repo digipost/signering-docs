@@ -84,8 +84,9 @@ Indices and tables
    ----
 
    .. _authoring:
+
    Authoring
-   ==============
+   =========
 
    * :ref:`syntax-help`
 
