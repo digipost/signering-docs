@@ -22,7 +22,6 @@ Sources for building the documentation site at [signering-docs.readthedocs.io](h
 
    ```shell
    pip install sphinx_rtd_theme
-   pip install recommonmark
    pip install sphinx-tabs
    pip install sphinx-autobuild
    ```
