@@ -1,0 +1,38 @@
+.wy-side-nav-search, .wy-nav-content {
+  background-color: #ffffff;
+}
+
+.wy-nav-side {
+  background-color: #4a1011;
+}
+
+.wy-menu-vertical p.caption {
+  color: #ffffff;
+}
+
+.wy-menu-vertical a:hover {
+  background-color: #ffffff;
+}
+
+.rst-content .toctree-wrapper>p.caption, h1, h2, h3, h4, h5, h6, legend {
+  color: #4a1011;
+  font-family: sans-serif;
+}
+
+section a, section a:visited {
+  color: #4a1011;
+  border-bottom: 1px #e32d22 solid;
+}
+
+a:hover {
+  color: #e32d22;
+}
+
+section a:hover {
+  color: #e32d22;
+  border-bottom: 1px #e32d22 solid;
+}
+
+.wy-breadcrumbs a, .toctree-wrapper a {
+  border-bottom-width: 0px;
+}
