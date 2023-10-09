@@ -21,9 +21,7 @@ Sources for building the documentation site at [signering-docs.readthedocs.io](h
 3. **Install dependencies for building the documentation**
 
    ```shell
-   pip install sphinx_rtd_theme
-   pip install recommonmark
-   pip install sphinx-tabs
+   pip install -r requirements.txt
    pip install sphinx-autobuild
    ```
 
