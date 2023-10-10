@@ -73,7 +73,6 @@ Welcome to the Posten signering documentation!
    :caption: For internal use
 
    syntax-help
-   ordbok
 
 
 
