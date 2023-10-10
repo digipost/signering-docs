@@ -68,18 +68,19 @@ Welcome to the Posten signering documentation!
    :caption: Dictionary
 
 
-.. toctree::
-   :maxdepth: 1
-   :caption: For internal use
 
-   syntax-help
-   ordbok
+.. only:: authoring
 
+   |
 
+   ----
 
-Indices and tables
-==================
+   .. _authoring:
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+   Authoring
+   =========
+
+   * :ref:`syntax-help`
+
+   ..  NOTE::
+       The :ref:`authoring` section (and this note) is only visible when building with the "authoring" tag (``-t authoring``), e.g. when using ``make autobuild``.

@@ -40,7 +40,15 @@ To run a self-updating webserver using `sphinx-autobuild`:
 make autobuild
 ```
 
-The site is continuously built when changes are made to the sources.
+The site is continuously and incrementally built when changes are made to the sources.
+
+For editing the documentation content (*.rst files), the default behavior of `autobuild` should be sufficient. However, sometimes the incremental build fails to include some updates. This is the case e.g. when editing static assets as custom CSS. To activate _full_ automatic build with `autobuild`, you can supply command options for [sphinx-autobuild](https://github.com/executablebooks/sphinx-autobuild) by setting `SPHINXOPTS="-a"` in order to [disable the incremental build feature](https://github.com/executablebooks/sphinx-autobuild#working-on-a-sphinx-html-theme)
+```shell
+make autobuild SPHINXOPTS="-a"
+```
+
+
+
 
 
 ### Building the site
