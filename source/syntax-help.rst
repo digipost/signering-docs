@@ -1,9 +1,11 @@
+:orphan:
+
+.. _syntax-help:
+
 Syntax help
 ************
 
-This is a cheat-sheet for writing the documentation. It is only for internal use, but feel free to browse if you are curious about how we write our documentation.
-
-All the following examples are for using *reStructuredText* instead of *Markdown*.
+This is a cheat-sheet for writing the documentation. It is only for internal use. All the following examples are for using `reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/>`_ instead of *Markdown*.
 
 Links
 ======
