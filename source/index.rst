@@ -69,13 +69,6 @@ Welcome to the Posten signering documentation!
 
 
 
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-
-
 .. only:: authoring
 
    |
