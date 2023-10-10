@@ -57,6 +57,8 @@ A client configuration includes all organization specific configuration and all 
           return new X509Certificate2(certificatePath, certificatePassword, X509KeyStorageFlags.Exportable);
 
 
+      For integrations acting as brokers on behalf of multiple senders, you may specify the sender’s organization number on each signature job. The sender specified for a job will always take precedence over the ``globalSender`` in ``ClientConfiguration``.
+
       ..  NOTE::
 
           TLS 1.2 must be enabled to connect to Posten signering. If this is not the case, please set security protocol using the following statement:
@@ -65,43 +67,46 @@ A client configuration includes all organization specific configuration and all 
 
   ..  group-tab:: Java
 
-        The first step is to load the enterprise certificate (virksomhetssertifikat) through the :code:`KeyStoreConfig`. It can be created from a Java Key Store (JKS) or directly from a PKCS12-container, which is the usual format of an enterprise certificate. The latter is the recommended way of loading it if you have the certificate stored as a simple file:
+        The first step is to create a ``KeyStoreConfig`` which loads the enterprise certificate that identifies you as a client. The recommended way is to initialize it from a PKCS12-container file, which is the usual format of an enterprise certificate:
 
         ..  code-block:: java
 
             KeyStoreConfig keyStoreConfig;
-            try (InputStream certificateStream = Files.newInputStream(Paths.get("/path/to/certificate.p12"))) {
+            try (InputStream p12Stream = Files.newInputStream(Paths.get("/path/to/certificate.p12"))) {
                 keyStoreConfig = KeyStoreConfig.fromOrganizationCertificate(
-                    certificateStream, "CertificatePassword"
+                        p12Stream, "CertificatePassword"
                 );
             }
 
-        If you have a Java Key Store file containing the organization certificate, it can be loaded in the following way:
+
+        Alternatively, if you use Java Key Store files for your certificates, it can be loaded in the following way:
 
         ..  code-block:: java
 
             KeyStoreConfig keyStoreConfig;
-            try (InputStream certificateStream = Files.newInputStream(Paths.get("/path/to/javakeystore.jks"))) {
+            try (InputStream jksStream = Files.newInputStream(Paths.get("/path/to/keystore.jks"))) {
                 keyStoreConfig = KeyStoreConfig.fromJavaKeyStore(
-                        certificateStream,
+                        jksStream,
                         "OrganizationCertificateAlias",
                         "KeyStorePassword",
                         "CertificatePassword"
                 );
             }
 
-        When the certificate has been loaded correctly, a :code:`ClientConfiguration` can be initialized. A trust store and service Uri needs to be set to properly connect. Please change the trust store and service Uri in the following example when connecting to our production environment.
+        When the certificate has been loaded correctly, the resulting ``KeyStoreConfig`` is used to create a ``ClientConfiguration``.
+
+        If not explicitly configured, a ``ClientConfiguration`` is specified to use the production API, so you likely want to specify which service environment you want to integrate with, to make sure you connect to ``ServiceEnvironment.STAGING`` when your application runs in any test environment, and ``ServiceEnvironment.PRODUCTION`` for your production environment.
 
         ..  code-block:: java
 
-            KeyStoreConfig keyStoreConfig = null; //As initialized earlier
+            // KeyStoreConfig keyStoreConfig as initialized earlier
 
             ClientConfiguration clientConfiguration = ClientConfiguration.builder(keyStoreConfig)
-                    .trustStore(Certificates.TEST)
-                    .serviceUri(ServiceUri.DIFI_TEST)
-                    .globalSender(new Sender("123456789"))
+                    .serviceEnvironment(ServiceEnvironment.STAGING) // or ServiceEnvironment.PRODUCTION
+                    .defaultSender(new Sender("123456789")) // optional, can be set per signature job
+                    .httpProxyHost("proxy.host", 3128)      // if connecting through a proxy host
                     .build();
 
+        For integrations acting as brokers on behalf of multiple senders, you may specify the sender’s organization number on each signature job. The sender specified for a job will always take precedence over any ``defaultSender`` specified in ``ClientConfiguration``.
 
-..  NOTE::
-    For organizations acting as brokers on behalf of multiple senders, you may specify the sender’s organization number on each signature job. The sender specified for a job will always take precedence over the :code:`globalSender` in :code:`ClientConfiguration`.
+        This should be sufficient configuration for most API integration cases, but feel free to explore the other options available in `ClientConfiguration.Builder <https://javadoc.io/doc/no.digipost.signature/signature-api-client-java/7.0.1/no/digipost/signature/client/ClientConfiguration.Builder.html>`_.
