@@ -19,14 +19,14 @@ A signer can be addressed in two different ways, with or without a national iden
 - **Without national identity number**: This signing method does not require any login, and as the sender you do not need to know the signer's national identity number. Instead, you just need to enter email address and/or mobile phone number and the signer will receive a link to the document and fill in the security code provided in the notification. The signer can then open and sign the document using BankID, BankID mobile phone, or Buypass.
 
 
-Step 2: Recipients
+Step 2: Signers
 ===================
 
 For signers to receive notifications of signature requests, you must enter their contact details here. A signature request can have a maximum of 10 signers.
 
 As the sender, you may be the signer for your own signature request. If you tick **I will sign myself**, the email address you have registered for your user will be filled in automatically.
 
-Step 3: Information for recipients
+Step 3: Information for signers
 ===================================
 
 **Description of the document that is displayed in the notification email**:

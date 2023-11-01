@@ -7,6 +7,8 @@ You may address signers for :ref:`portal flow <signing-in-portal-flow>` in two d
 1. By email and/or SMS (only available for private organizations)
 2. By national identity number
 
+The signed document will only include signatures from the *addressed* signers, so remember to include signers from the sender side as well, if applicable.
+
 ..  CAUTION::
     How you choose to address the signer(s) affects the :ref:`content and appearance of the signature(s) in the resulting signed document <identify-signers>`.
 
@@ -16,7 +18,7 @@ You may address signers for :ref:`portal flow <signing-in-portal-flow>` in two d
 .. NOTE::
    This option is only available for private organizations
 
-When addressing signers by email/SMS, we will not be able to link signers to their national identity number. Therefore, we do not have any way to verify that the correct person is reading and signing. The recipients receive an email and/or SMS with a unique code and link to access the document(s) to sign, instead of being required to log in. See :ref:`notifications <notifications-without-national-identity>` to review what the notifications look like.
+When addressing signers by email/SMS, we will not be able to link signers to their national identity number. Therefore, we do not have any way to verify that the correct person is reading and signing. The signers receive an email and/or SMS with a unique code and link to access the document(s) to sign, instead of being required to log in. See :ref:`notifications <notifications-without-national-identity>` to review what the notifications look like.
 
 
 ..  IMPORTANT::
@@ -28,7 +30,7 @@ See :ref:`Signing in portal flow with addressing by e-mail / SMS <signing-in-por
 
 2. Addressing signers by their national identity number
 =======================================================
-If you know the national identity numbers of the signers, you can address them using their identity numbers. This is the most secure way to reach the expected recipients, since it requires them to log in with an electronic ID in order to read and sign.
+If you know the national identity numbers of the signers, you can address them using their identity numbers. This is the most secure way to reach the expected signers, since it requires them to log in with an electronic ID in order to read and sign.
 
 Even if the signer is addressed using a national identity number, the signer will be notified and will receive a link to log in by email or SMS – see :ref:`notification and contact details <notifications>` for more information..
 

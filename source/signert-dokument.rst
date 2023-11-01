@@ -4,6 +4,9 @@ Signed documents
 ====================
 With a digital signature, documents can be signed electronically by using verification of a person's identity and linking this with one or more documents. For signed PDF documents, the signature data is contained in the file itself, and many PDF readers have the option of displaying the digital signature.
 
+..  NOTE::
+  The signed document will only include information about the signers and the content of the document. It will not include any information about the sending organization. If the document needs to be signed by the organization as well, a signer from the organization must be addressed as well. 
+
 When signing has been completed, we receive a *technical signature* and a *signed PDF*.
 
 A technical signature is an XML file called *XML Advanced Electronic Signature (XAdES)* and is the proof that you have signed digitally. XAdES contains data to verify who signed, the time of signing, which signing method was used, the IP address used by the signer, and whether the document has been changed since the time of signing.
