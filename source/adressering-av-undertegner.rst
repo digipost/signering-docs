@@ -7,7 +7,7 @@ You may address signers for :ref:`portal flow <signing-in-portal-flow>` in two d
 1. By email and/or SMS (only available for private organizations)
 2. By national identity number
 
-The signed document will only include signatures from these signers, so remember to include signers from the sender side as well, if necessary.
+The signed document will only include signatures from the *addressed* signers, so remember to include signers from the sender side as well, if applicable.
 
 ..  CAUTION::
     How you choose to address the signer(s) affects the :ref:`content and appearance of the signature(s) in the resulting signed document <identify-signers>`.
