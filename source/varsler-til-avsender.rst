@@ -14,7 +14,7 @@ Notifications are sent to the sender in three cases:
 
 2. **24 hours before the signing deadline for a request expires**: The notification is sent out as a reminder to the sender that someone still has not signed. The sender can then choose to defer the signing deadline, or remind the signers by sending an extra notification. **NB:** The notification is only sent if the request's original signing deadline was more than 48 hours.
 
-3. **Four days before archiving of the signed document expires**: The notification is sent out as a reminder to the sender if the documents have been signed by all recipients, and *only* if the sender has not downloaded the signed document. Posten signering offers :ref:`long-term-validation-and-storage` for senders who do not want to have to download and retain signed documents.
+3. **Four days before archiving of the signed document expires**: The notification is sent out as a reminder to the sender if the documents have been signed by everyone, and *only* if the sender has not downloaded the signed document. Posten signering offers :ref:`long-term-validation-and-storage` for senders who do not want to have to download and retain signed documents.
 
 
 Notification when signature request changes status (in Norwegian)
