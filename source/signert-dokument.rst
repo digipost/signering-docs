@@ -31,7 +31,8 @@ When the sender is a private organization:
 When the sender is a public organization:
 
 - Name + national identity number
-- Name
+- Name + date of birth (only available for :ref:`_advanced-signature`)
+- Name (only available for :ref:`_authenticated-signature`)
 
 ..  CAUTION::
   If you want the signer’s national identity number to be shown on the signed document, for privacy reasons you must address the signer by national identity number in the signature request.
