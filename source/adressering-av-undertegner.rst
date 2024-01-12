@@ -63,14 +63,14 @@ For **public organizations**, we obtain the signer's email address and mobile ph
     If signers have opted out of digital communication, the task will be rejected and subsequent retrieval of the status of the task will report an error with details of which signers have opted out. Signers with overridden contact details will not be checked for opt-out.
 
 
-Using the Contact and Reservation Register
+Using The common contact register
 ============================================
 
-Further details concerning the use of the Contact and Reservation Register
+Further details concerning the use of `The common contact register <https://eid.difi.no/en/common-contact-register>`. This is only applicable for public sector organizations.
 
 On sending out subsequent notifications (either deferred activation due to chained signature, or reminders) a new lookup is made in the register to retrieve the latest updated contact details.
 
-If the Lookup Service for the Contact and Reservation Register is unavailable when reminders are sent, the result of the lookup on creating the request will be used.
+If the Lookup Service for The common contact register is unavailable when reminders are sent, the result of the lookup on creating the request will be used.
 
 Opt-out concerning deferred initial notifications: In the scenario where the service owner has set a chained sequence for the signers, and the initial notification is to be sent to a signer who, in the period between creation of the request and sending the initial notification, has opted out of electronic communication, the entire request will fail.
 
