@@ -6,23 +6,43 @@ Sources for building the documentation site at [signering-docs.readthedocs.io](h
 
 ## ✅ Prerequisites
 
-1. **Install Python 3**
+1. **Install pyenv for managing Python versions**
+
+   ```shell
+   brew install pyenv pyenv-virtualenv
+   ```
+
+   And add the following snippet to your `.zshrc` or any other startup script for your shell:
+
+   ```shell
+   "$(pyenv init -)"
+   if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+   ```
+
+   Open a new shell (terminal window) to ensure pyenv is initialized. Check available versions of Python with this command: (long list)
+
+   ```shell
+   pyenv install -l
+   ```
+
+
+2. **Install Python 3.11**
 
    Building the documentation site with [Sphinx](http://www.sphinx-doc.org) requires Python v3:
 
    ```shell
-   brew install python
+   pyenv install 3.11.7
    ```
+   Feel free to substitute the version with any later available 3.11.x version.
 
-2. **Link Python 3**
 
-   Link ``python3`` as described in [Stackoverflow](https://stackoverflow.com/a/49711594/1765749). By adding it first in `PATH` environment variable, it will be chosen before the really old one installed by default on macOS.
+3. **Set up virtualenv and dependencies**
 
-3. **Install dependencies for building the documentation**
+   Change to folder of your cloned working copy of this repository.
 
    ```shell
+   pyenv virtualenv 3.11.7 signering-docs
    pip install -r requirements.txt
-   pip install sphinx-autobuild
    ```
 
 4. **Do a build to verify everything works**

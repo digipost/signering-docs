@@ -7,7 +7,7 @@ In Norway, we have three different types of digital signature, as described in t
 
 We offer standard and advanced signature, which are legally valid signatures on a par with a handwritten signature. Qualified signature does not currently exist, but is intended to be achieved in the longer term via the National ID card.
 
-..  _advanced-signature:
+.. _advanced-signature:
 
 Advanced signature
 ==================
@@ -19,7 +19,7 @@ An advanced signature has a stronger connection between the signature and the do
 ..  TIP::
     Signing can take place using BankID, Buypass or BankID mobile phone. [#footnoteSigneringsmetoderOffentlig]_
 
-..  _authenticated-signature:
+.. _authenticated-signature:
 
 Authenticated signature
 ========================

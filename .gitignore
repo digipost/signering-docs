@@ -20,3 +20,4 @@ packages
 .idea/
 .vs
 /build
+.python-version
