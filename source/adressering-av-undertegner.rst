@@ -66,7 +66,7 @@ For **public organizations**, we obtain the signer's email address and mobile ph
 Using The common contact register
 ============================================
 
-Further details concerning the use of `The common contact register <https://eid.difi.no/en/common-contact-register>`. This is only applicable for public sector organizations.
+Further details concerning the use of `The common contact register <https://eid.difi.no/en/common-contact-register>`_. This is only applicable for public sector organizations.
 
 On sending out subsequent notifications (either deferred activation due to chained signature, or reminders) a new lookup is made in the register to retrieve the latest updated contact details.
 
@@ -75,3 +75,14 @@ If the Lookup Service for The common contact register is unavailable when remind
 Opt-out concerning deferred initial notifications: In the scenario where the service owner has set a chained sequence for the signers, and the initial notification is to be sent to a signer who, in the period between creation of the request and sending the initial notification, has opted out of electronic communication, the entire request will fail.
 
 Opt-out concerning reminders: If the end user has opted out after the request was created, but the request has already been activated, no reminders (email/text message) will be sent, but the request will not fail either until any expiry of the signing deadline.
+
+
+How to use the register in test environments
+--------------------------------------------
+
+In test/staging environments it is not possible to use real national identities to sign documents. In order to test signature flows including looking up contact information in The common contact register and performing document signing, artificial test users must be used.
+
+Information on obtaining artificial test users is described here, as well as a set of available "preset" users:
+`docs.digdir.no/docs/Kontaktregisteret/krr_testbrukere <https://docs.digdir.no/docs/Kontaktregisteret/krr_testbrukere>`_.
+
+For a lookup in the The common contact register to succeed, and enabling the signature job to proceed, the artificial test user must have either or both an email address and mobile number. It is also possible to test failing cases where the addressed signer does not meet the necessary requirements in order to participate in a signature job, be it missing contact information and/or have opted out from electronic communication from the public sector.
