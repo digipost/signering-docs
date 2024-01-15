@@ -15,7 +15,7 @@ Sources for building the documentation site at [signering-docs.readthedocs.io](h
    And add the following snippet to your `.zshrc` or any other startup script for your shell:
 
    ```shell
-   "$(pyenv init -)"
+   eval "$(pyenv init -)"
    if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
    ```
 
