@@ -41,9 +41,11 @@ Sources for building the documentation site at [signering-docs.readthedocs.io](h
    Change to folder of your cloned working copy of this repository.
 
    ```shell
-   pyenv virtualenv 3.11.7 signering-docs
+   pyenv virtualenv 3.11.7 signering-docs  #create a new virtualenv 'signering-docs'
+   pyenv local signering-docs  #this sets up 'signering-docs' as the virtualenv to use here
    pip install -r requirements.txt
    ```
+   Your prompt should now include `(signering-docs)`, which signifies an "active" virtualenv being used. It disappears when exiting the directory. Feel free to use another name than signering-docs should you wish, but it is considered good practice to generally not reuse virtualenvs cross projects.
 
 4. **Do a build to verify everything works**
    ```shell
