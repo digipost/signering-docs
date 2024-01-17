@@ -57,7 +57,7 @@ If the sender is a **private organization**, you must yourself enter the email a
 
 For public organizations
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-For **public organizations**, we obtain the signer's email address and mobile phone number from the `Contact and Reservation Register (KRR) <http://eid.difi.no/nb/kontakt-og-reservasjonsregisteret>`_. Public organizations can only define their own contact details for a signer if the signer is to sign on behalf of an organization.
+For **public organizations**, we obtain the signer's email address and mobile phone number from `The common contact register (KRR) <http://eid.difi.no/nb/kontakt-og-reservasjonsregisteret>`_. Public organizations can only define their own contact details for a signer if the signer is to sign on behalf of an organization.
 
 ..  CAUTION::
     If signers have opted out of digital communication, the task will be rejected and subsequent retrieval of the status of the task will report an error with details of which signers have opted out. Signers with overridden contact details will not be checked for opt-out.
