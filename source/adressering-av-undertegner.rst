@@ -32,7 +32,7 @@ See :ref:`Signing in portal flow with addressing by e-mail / SMS <signing-in-por
 =======================================================
 If you know the national identity numbers of the signers, you can address them using their identity numbers. This is the most secure way to reach the expected signers, since it requires them to log in with an electronic ID in order to read and sign.
 
-Even if the signer is addressed using a national identity number, the signer will be notified and will receive a link to log in by email or SMS – see :ref:`notification and contact details <notifications>` for more information..
+Even if the signer is addressed using a national identity number, the signer will be notified and will receive a link to log in by email or SMS – see :ref:`notification and contact details <notifications>` for more information.
 
 
 ..  TIP::
@@ -57,10 +57,13 @@ If the sender is a **private organization**, you must yourself enter the email a
 
 For public organizations
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-For **public organizations**, we obtain the signer's email address and mobile phone number from the `Contact and Reservation Register (KRR) <http://eid.difi.no/nb/kontakt-og-reservasjonsregisteret>`_. Public organizations can only define their own contact details for a signer if the signer is to sign on behalf of an organization.
+For **public organizations**, we obtain the signer's email address and mobile phone number from `The common contact register (KRR) <http://eid.difi.no/nb/kontakt-og-reservasjonsregisteret>`_ for all signers addressed using national identity numbers. Public organizations may optionally provide custom contact details for a signer instead of the signer's national identity number.
+
+If signers have opted out of digital communication, the task will be rejected and subsequent retrieval of the status of the task will report an error with details of which signers have opted out. As looking up a person in KRR requires the person's national ID, Posten signering can not check for opt-out for signers only addressed with custom contact information. Also, signers defined to not be signing on behalf of themselves will not be checked for opt-out.
 
 ..  CAUTION::
-    If signers have opted out of digital communication, the task will be rejected and subsequent retrieval of the status of the task will report an error with details of which signers have opted out. Signers with overridden contact details will not be checked for opt-out.
+    Should a public organization wish to address a signer using custom contact details, Posten signering will not be able to verify whether the signer has opted out of digital communication or not. It is thus the public organization's responsibility to ensure that they do not address any signer who has opted out of digital communication.
+
 
 
 Using The common contact register
