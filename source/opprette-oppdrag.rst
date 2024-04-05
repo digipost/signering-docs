@@ -74,7 +74,7 @@ For testing, use the example documents :download:`PDF-1.2 <files/PDF-1-2-testdok
 In PAdES, the documents will always be presented in A4 and portrait format. For best results, it is recommended that the submitted documents are also in this format.
 
 ..  CAUTION::
-    Password-protected documents (restricted reading and/or writing access) are not supported by the service and will not show an error message until the document is downloaded.
+    Password-protected documents (restricted reading and/or writing access) are not supported by the service. When using the API, an error message will not be shown until the signed document is downloaded.
 
 Activation time
 ^^^^^^^^^^^^^^^^^^^^^^

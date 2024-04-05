@@ -40,7 +40,7 @@ The flow typically looks like this:
 
 #. The sender creates a signature request via API or online in the sender portal
 #. Posten signering notifies the signer by email (and, if applicable, SMS if specificed upon registration)
-#. The signer logs into the signature portal and holds the signing ceremony
+#. The signer logs into the signature portal and signs the document
 #. The signer downloads a signed document
 #. The signer logs out of the signature portal
 #. The sender downloads the signed document
@@ -62,7 +62,7 @@ A signature flow whereby signers can access the signature portal via a link and 
 #. The signer conducts the signing ceremony
 #. End page from which the signed document can be downloaded
 
-On addressing a signer without a national identity number, it is the sender’s responsibility to check that the right or desired person signs the document.
+When addressing a signer without a national identity number, it is the sender’s responsibility to check that the right or desired person signs the document.
 
 ..  TIP::
     Please see `this graphic guide in Google Presentation for signing in portal flow, addressing with e-mail / SMS <https://docs.google.com/presentation/d/14Q_-YzaxcGsZOgUR6rJl7rWSwLZwujnuqgkKCrxksoA/edit#slide=id.g2e3b4edaeb_0_1>`_.

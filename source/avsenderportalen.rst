@@ -18,7 +18,7 @@ You can add as many users as you want and choose which role the user is to have:
 
 - Document processor: As a document processor, you have limited access. You can only create and view your own signature requests.
 
-You can also choose whether the user is to have access for an unlimited time, or set a time limit for when the user is to no longer have access to the account.
+You can also choose whether the user is to have access for an unlimited time, or set a time limit for when the user is to no longer have access to the account. We recommend setting a time limit for security reasons.
 
 
 Overview in sender portal
