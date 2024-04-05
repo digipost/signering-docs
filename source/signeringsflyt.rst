@@ -54,9 +54,6 @@ The flow typically looks like this:
 Address using e-mail / SMS
 _______________________________
 
-.. NOTE::
-   This option is only available for private organizations
-
 A signature flow whereby signers can access the signature portal via a link and a one-time code that is sent by email and/or SMS.
 
 #. The sender creates a signature request via API or online in the sender portal

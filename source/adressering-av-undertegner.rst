@@ -4,7 +4,7 @@ Addressing signers
 ***************************
 You may address signers for :ref:`portal flow <signing-in-portal-flow>` in two different ways:
 
-1. By email and/or SMS (only available for private organizations)
+1. By email and/or SMS
 2. By national identity number
 
 The signed document will only include signatures from the *addressed* signers, so remember to include signers from the sender side as well, if applicable.
@@ -14,9 +14,6 @@ The signed document will only include signatures from the *addressed* signers, s
 
 1. Addressing signers by e-mail / SMS
 =====================================
-
-.. NOTE::
-   This option is only available for private organizations
 
 When addressing signers by email/SMS, we will not be able to link signers to their national identity number. Therefore, we do not have any way to verify that the correct person is reading and signing. The signers receive an email and/or SMS with a unique code and link to access the document(s) to sign, instead of being required to log in. See :ref:`notifications <notifications-without-national-identity>` to review what the notifications look like.
 
