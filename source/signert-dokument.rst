@@ -31,7 +31,7 @@ When the sender is a private organization:
 When the sender is a public organization:
 
 - Name + national identity number
-- Name + date of birth (only available for :ref:`advanced-signature`)
+- Name + date of birth (only available for :ref:`authenticated-signature`)
 - Name (only available for :ref:`authenticated-signature`)
 
 ..  CAUTION::
