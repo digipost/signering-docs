@@ -13,7 +13,7 @@ We erase email and SMS notifications 3 years after the last time sending them wa
 Signature requests
 ##################
 
-We erase the signature request 3 years after the archiving requirement lapses. This means that if a sender creates a request today, it will take 40 days (or 20 years if the sender uses a long-term archive) before the actual document is deleted. Three years after this, we erase the request and associated data. The associated data is job events, queue for job changes, information about forwarding to the mailbox, notifications, signers and the actual request.
+We erase the signature request 3 years after the archiving requirement lapses. This means that if a sender creates a request today, it will take 40 days (see :ref:`long-term-validation-and-storage` if long-term archive is activated) before the actual document is deleted. Three years after this, we erase the request and associated data. The associated data is job events, queue for job changes, information about forwarding to the mailbox, notifications, signers and the actual request.
 
 
 Availability to the signer
