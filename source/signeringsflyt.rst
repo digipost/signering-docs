@@ -59,7 +59,7 @@ A signature flow whereby signers can access the signature portal via a link and 
 #. The sender creates a signature request via API or online in the sender portal
 #. The signer receives a unique link and one-time code for the task by email or SMS
 #. The signer clicks on the link and enters the one-time code for the request
-#. The signer conducts the signing ceremony
+#. The signer signs the document
 #. End page from which the signed document can be downloaded
 
 When signers are addressed without using their national identity numbers, it is the sender’s responsibility when a signature job is completed to verify that the intended persons have signed the document(s).
