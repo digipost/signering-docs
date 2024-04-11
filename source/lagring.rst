@@ -14,7 +14,7 @@ To ensure long-term value as evidence and safe storage of signed documents, we o
 Long-term validation and storage
 ================================
 
-By activating *Long-term validation and storage*, Posten (Norway Post) takes responsibility for ensuring that your signed documents have value as evidence and validity far into the future (at least 50 years or as for long as the service exists). This value-added service is activated in the business settings in the web-interface_ and costs NOK 4 per document.
+By activating *Long-term validation and storage*, Posten takes responsibility for ensuring that your signed documents have value as evidence and validity in the future. The documents will be stored for 20 years (50 years for documents signed before 12.04.2024) or for as long as the service exists. This value-added service is activated in the organization settings in the web-interface_ and costs NOK 4 per document.
 
 How do we ensure long-term validation?
 ______________________________________

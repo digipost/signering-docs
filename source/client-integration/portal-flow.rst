@@ -14,7 +14,7 @@ Having problems integrating?
 ===============================
 
 ..  TIP::
-    Remember that if you are having problems creating a job in a portal signature flow, you can always get in touch with a human on Github:
+    Remember that if you are having problems creating a job in a portal signature flow, you can always get in touch with a developer on Github:
 
     ..  tabs::
 

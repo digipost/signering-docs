@@ -31,7 +31,7 @@ When the sender is a private organization:
 When the sender is a public organization:
 
 - Name + national identity number
-- Name + date of birth (only available for :ref:`advanced-signature`)
+- Name + date of birth (only available for :ref:`authenticated-signature`)
 - Name (only available for :ref:`authenticated-signature`)
 
 ..  CAUTION::
@@ -85,7 +85,7 @@ Packaging takes place in two steps:
 
 This packaging offers a number of advantages:
 
-1. **User-friendliness**: Packaging for PDF/PAdES enables the user to view the signed document with signature attached. An important part of the signature ceremony is that human users receive this copy.
+1. **User-friendliness**: Packaging for PDF/PAdES enables the user to view the signed document with the signature attached.
 2. **Multi-signature – multiple signers**: Packaging for PDF/PAdES provides for a single data object for multiple signers on the same document. It will also display the signatures in a user-friendly way, so that you can see more signatures on the same document.
 3. **Multi-signature - several signed documents**: Packaging for PDF/PAdES makes it possible to combine several signed documents that belong together in one common data object.
 4. **Common format for all e-ID providers**: Packaging for LTV-SDO or for PAdES provides a consistent signature format regardless of the e-ID provider's format.

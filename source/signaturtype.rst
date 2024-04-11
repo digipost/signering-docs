@@ -24,7 +24,7 @@ An advanced signature has a stronger connection between the signature and the do
 Authenticated signature
 ========================
 
-On using authenticated signature, the user's identity is verified in the ID portal. The ID portal does not know that the login is connected to a signing ceremony and it is Signicat's job to link the verification of identity and the documents to a signature.
+On using authenticated signature, the user's identity is verified by ID-porten. ID-porten does not know that the login is connected to a signing and it is Signicat's job to link the verification of identity and the documents to a signature.
 
 An authenticated signature is a little weaker than an advanced signature because several parties are involved and it takes place in two stages.
 
