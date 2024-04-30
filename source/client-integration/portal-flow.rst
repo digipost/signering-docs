@@ -205,12 +205,16 @@ Adressing the signer
         ..  code-block:: c#
 
             //This functionality exists in C#, but the example has not been generated yet.
+            //For now, please refer to the HTTP tab, as the concepts described there have
+            //equivalent representations in the .NET client library.
 
     ..  group-tab:: Java
 
         ..  code-block:: java
 
             //This functionality exists in Java, but the example has not been generated yet.
+            //For now, please refer to the HTTP tab, as the concepts described there have
+            //equivalent representations in the Java client library.
 
     ..  group-tab:: HTTP
 
@@ -593,6 +597,8 @@ After receiving a status change, the documents can be deleted as follows:
         ..  code-block:: c#
 
             //This functionality exists in C#, but the example has not been generated yet.
+            //For now, please refer to the Java tab, as the API and concepts described there have
+            //equivalent representations in the .NET client library.
 
     ..  group-tab:: Java
 
