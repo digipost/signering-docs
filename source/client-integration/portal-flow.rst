@@ -205,20 +205,22 @@ Adressing the signer
         ..  code-block:: c#
 
             //This functionality exists in C#, but the example has not been generated yet.
+            //For now, please refer to the HTTP tab, as the concepts described there have
+            //equivalent representations in the .NET client library.
 
     ..  group-tab:: Java
 
         ..  code-block:: java
 
             //This functionality exists in Java, but the example has not been generated yet.
+            //For now, please refer to the HTTP tab, as the concepts described there have
+            //equivalent representations in the Java client library.
 
     ..  group-tab:: HTTP
 
         ..  tabs::
 
             ..  tab:: E-mail
-
-                ..  NOTE:: This option is only available for organisations in private sector
 
                 ..  code-block:: xml
 
@@ -232,8 +234,6 @@ Adressing the signer
 
             ..  tab:: Mobile
 
-                ..  NOTE:: This option is only available for organisations in private sector
-
                 ..  code-block:: xml
 
                     <signer>
@@ -245,8 +245,6 @@ Adressing the signer
                     </signer>
 
             ..  tab:: E-mail and mobile
-
-                ..  NOTE:: This option is only available for organisations in private sector
 
                 ..  code-block:: xml
 
@@ -277,7 +275,10 @@ Adressing the signer
                 With notification as public organization:
 
                 ..  NOTE::
-                    Public organizations must use Kontakt- og Reservasjonsregisteret as lookup method.
+                    Public organizations collecting personal signatures should mainly address signers by their
+                    national ID, which mandates the use of Kontakt- og Reservasjonsregisteret for resolving their
+                    preferred contact information used for notifications of the signature job, and also to enforce
+                    their preference in case they opt-out from digital communication from the public sector.
 
                 ..  code-block:: xml
 
@@ -596,6 +597,8 @@ After receiving a status change, the documents can be deleted as follows:
         ..  code-block:: c#
 
             //This functionality exists in C#, but the example has not been generated yet.
+            //For now, please refer to the Java tab, as the API and concepts described there have
+            //equivalent representations in the .NET client library.
 
     ..  group-tab:: Java
 
