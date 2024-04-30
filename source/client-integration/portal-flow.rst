@@ -271,7 +271,10 @@ Adressing the signer
                 With notification as public organization:
 
                 ..  NOTE::
-                    Public organizations must use Kontakt- og Reservasjonsregisteret as lookup method.
+                    Public organizations collecting personal signatures should mainly address signers by their
+                    national ID, which mandates the use of Kontakt- og Reservasjonsregisteret for resolving their
+                    preferred contact information used for notifications of the signature job, and also to enforce
+                    their preference in case they opt-out from digital communication from the public sector.
 
                 ..  code-block:: xml
 
