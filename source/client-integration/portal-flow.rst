@@ -218,8 +218,6 @@ Adressing the signer
 
             ..  tab:: E-mail
 
-                ..  NOTE:: This option is only available for organisations in private sector
-
                 ..  code-block:: xml
 
                     <signer>
@@ -232,8 +230,6 @@ Adressing the signer
 
             ..  tab:: Mobile
 
-                ..  NOTE:: This option is only available for organisations in private sector
-
                 ..  code-block:: xml
 
                     <signer>
@@ -245,8 +241,6 @@ Adressing the signer
                     </signer>
 
             ..  tab:: E-mail and mobile
-
-                ..  NOTE:: This option is only available for organisations in private sector
 
                 ..  code-block:: xml
 
