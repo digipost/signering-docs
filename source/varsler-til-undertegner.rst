@@ -41,7 +41,7 @@ Signing deadline 1. notification: e-mail/SMS 2. notification: e-mail/SMS
 
 .. NOTE:: If the sender *extends the signing deadline*, all scheduled notifications for the request will be deleted. New notifications will then be generated and sent out at an appropriate time in relation to the new deadline.
 
-.. CAUTION:: To avoid accidentally sending notifications to actual persons in test environments, a security mechanism has been included in difitest and difiqa: email notifications include a sentence to indicate that the notification comes from a test environment: ''This is a test email sent for Digdir from Posten signering" and the SMS notifications are replaced in their entirety with the sentence: "This is a test SMS sent for Digdir from Posten signering".
+.. CAUTION:: To avoid accidentally sending notifications to actual persons in test environments, a security mechanism has been included in difitest: email notifications include a sentence to indicate that the notification comes from a test environment: ''This is a test email sent for Digdir from Posten signering" and the SMS notifications are replaced in their entirety with the sentence: "This is a test SMS sent for Digdir from Posten signering".
 
 
 Signer notification texts
