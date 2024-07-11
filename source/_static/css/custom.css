@@ -15,9 +15,17 @@
 }
 
 .rst-content .toctree-wrapper>p.caption, h1, h2, h3, h4, h5, h6, legend {
-  color: #4a1011;
   font-family: sans-serif;
 }
+
+.rst-content .toctree-wrapper>p.caption, h1, h2, h3, legend {
+  color: #4a1011;
+}
+
+.rst-content .toctree-wrapper>p.caption, h4, h5, h6 {
+  font-size: 1rem;
+}
+
 
 section a, section a:visited {
   color: #4a1011;
