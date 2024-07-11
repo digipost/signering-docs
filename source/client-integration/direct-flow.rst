@@ -202,8 +202,8 @@ Identifying the signer
 
 When using direct flow you can identify the signer in two different ways:
 
-- with social security number
-- chosen identifier (e.g. customer number)
+- using their **personal identification number** (national ID). This is required if you prefer to include signers' national ID in the signatures and visible in the resulting signed document.
+- using your own **custom identifier**, which is unique per signature job. E.g. a customer number or any string allowing your integration to distinguish each signer from one another within a signature job.
 
 ..  tabs::
 
@@ -211,58 +211,86 @@ When using direct flow you can identify the signer in two different ways:
 
         ..  code-block:: c#
 
-            //This functionality exists in C#, but the example has not been generated yet.
-            //For now, please refer to the HTTP tab, as the concepts described there have
-            //equivalent representations in the .NET client library.
+            Direct.Signer nationalIdSigner =
+                    new Direct.Signer(new PersonalIdentificationNumber("12345678910"));
+
+            Direct.Signer customIdSigner =
+                    new Direct.Signer(new CustomIdentifier("customer-1234"));
+
 
     ..  group-tab:: Java
 
         ..  code-block:: java
 
-            //This functionality exists in Java, but the example has not been generated yet.
-            //For now, please refer to the HTTP tab, as the concepts described there have
-            //equivalent representations in the Java client library.
+            DirectSigner nationalIdSigner =
+                    DirectSigner.withPersonalIdentificationNumber("12345678910").build();
+
+            DirectSigner customIdSigner =
+                    DirectSigner.withCustomIdentifier("customer-1234").build();
+
 
     ..  group-tab:: HTTP
 
-        ..  tabs::
+        ..  code-block:: xml
 
-            ..  group-tab:: Social Security Number
+            <signer>
+                <personal-identification-number>12345678910</personal-identification-number>
+            </signer>
+            <signer>
+                <signer-identifier>customer-1234</signer-identifier>
+            </signer>
 
-                ..  code-block:: xml
+        For full examples of the two methods of identifying signers, see example manifest files in the API-specification:
 
-                    <signer>
-                       <personal-identification-number>12345678910</personal-identification-number>
-                       <on-behalf-of>SELF</on-behalf-of>
-                    </signer>
+        -  `manifest setting signature type and authentication level <https://github.com/digipost/signature-api-specification/blob/master/schema/examples/direct/manifest-specify-signtype-and-auth.xml>`_
+        -  `manifest setting custom identifier <https://github.com/digipost/signature-api-specification/blob/master/schema/examples/direct/manifest-signer-without-pin.xml>`_
 
-                For a full example, please see `the example manifest for signature type and authentication in the API-specification  <https://github.com/digipost/signature-api-specification/blob/master/schema/examples/direct/manifest-specify-signtype-and-auth.xml>`_.
 
-            ..  group-tab:: Chosen identifier
 
-                It is possible to use a chosen identifier to create a connection between a person in the senders system and a signature job. A customer number or anything that makes sense the sender can be chosen.
 
-                ..  code-block:: xml
+On behalf of
+^^^^^^^^^^^^
 
-                    <signer>
-                        <signer-identifier>kundenummer-134AB47</signer-identifier>
-                        <on-behalf-of>SELF</on-behalf-of>
-                    </signer>
+A sender may specify if the signer is signing on behalf of themself or by virtue of a role.
 
-                For a full example, please see `eksempelmanifest for selvvalgt identifikator i API-spesifikasjonen <https://github.com/digipost/signature-api-specification/blob/master/schema/examples/direct/manifest-signer-without-pin.xml>`_.
+The sender should `always set this attribute according to the nature of the signature`; if the person signs for a personal matter (``SELF``, default if not specified), or signing on behalf of anything not personal (``OTHER``), e.g. a contract for an organization or any other non-personal document.
 
-            ..  group-tab:: On behalf of
+Specifying on behalf of ``OTHER`` will slightly alter the behavior of some aspects of the signing flow, including but may not be limited to:
 
-                A sender can choose if the signer is signing on behalf of himself or by virtue of a role. This is done by setting the attribute ``on-behalf-of`` to ``SELF`` or ``OTHER``.
+- It prevents automatic forwarding the document to the signer's personal digital mailbox (Digipost for private sector organizations, and the signer's chosen provider of digital mailbox for public sector).
+- The signer will be informed during signing that the signature will be on behalf of "another entity", i.e. not on behalf of themselves.
 
-                 The signed document will not be sent to the signers digital mailbox if signing on behalf of someone else.
 
-                ..  code-block:: xml
+..  tabs::
 
-                    <signer>
-                       <personal-identification-number>12345678910</personal-identification-number>
-                       <on-behalf-of>OTHER</on-behalf-of>
-                    </signer>
+    ..  group-tab:: C#
+
+        .. code-block:: c#
+
+            Direct.Signer signer =
+                    new Direct.Signer(new PersonalIdentificationNumber("12345678910"))
+                    {
+                        OnBehalfOf = OnBehalfOf.Other
+                    };
+
+    ..  group-tab:: Java
+
+        .. code-block:: Java
+
+            DirectSigner signer = DirectSigner
+                    .withPersonalIdentificationNumber("12345678910")
+                    .onBehalfOf(OnBehalfOf.OTHER)
+                    .build();
+
+    ..  group-tab:: HTTP
+
+        .. code-block:: xml
+
+            <signer>
+               <personal-identification-number>12345678910</personal-identification-number>
+               <on-behalf-of>OTHER</on-behalf-of>
+            </signer>
+
 
 
 Other settings
