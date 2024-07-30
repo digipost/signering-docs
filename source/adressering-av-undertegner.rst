@@ -44,9 +44,10 @@ Notifications and contact details
 
 When you select signing in portal flow, emails and/or SMS notifications are sent to the signers.
 
- - All signers must have at least one email address and mobile number.
+ - All signers must have at least one email address or mobile number.
  - Sending an SMS is voluntary and can be ordered by the service owner, at a cost of NOK 40 cents per SMS.
  - If a signer has a mobile number and not an email address, an SMS will always be sent.
+ - If a signer has both a mobile number and an email address, the initial notification and a reminder will be sent via email. Only the last and final reminder will be sent via SMS.
 
 For private organizations
 ^^^^^^^^^^^^^^^^^^^^^^^^^

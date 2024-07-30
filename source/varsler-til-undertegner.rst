@@ -5,7 +5,7 @@ Notifications: Rules for issue of notifications
 
 To ensure that the signer receives notifications and reminders at appropriate intervals, the times when notifications are sent out will depend on the signing deadline for a request.
 
-If the sender has added both the email address and the mobile number of the signer, up to 3 notifications are sent about the signing: An initial notification immediately after activation, an email reminder and, finally, a last SMS reminder. The background to this set-up is that email is used as the primary notification channel and that the SMS must function as a final, escalating notification.
+If the sender has added both the email address and the mobile number of the signer, up to 3 notifications are sent about the signing: An initial email notification immediately after activation, an email reminder and, finally, a last SMS reminder. The background to this set-up is that email is used as the primary notification channel and that the SMS must function as a final, escalating notification.
 
 ================ ======================= ======================= ====================
 Signing deadline 1. notification: e-mail 2. notification: e-mail 3. notification: SMS
