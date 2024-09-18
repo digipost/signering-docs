@@ -48,6 +48,6 @@ Production environment
 
    .. group-tab:: Commfides
 
-    A production can be bought from Commfides, on either their `Norwegian <https://www.commfides.com/en/commfides-virksomhetssertifikat/>`__ or `English <https://www.commfides.com/en/commfides-virksomhetssertifikat/>`__ site. Please see *Bestill Virksomhetssertifikat/Order Enterprise Certificate* for use in a production environment.
+    A production certificate can be bought from Commfides, on either their `Norwegian <https://www.commfides.com/en/commfides-virksomhetssertifikat/>`__ or `English <https://www.commfides.com/en/commfides-virksomhetssertifikat/>`__ site. Please see *Bestill Virksomhetssertifikat/Order Enterprise Certificate* for use in a production environment.
 
     When buying an enterprise certificate from Commfides, you will receive an email containing three *.p12* files: *auth*, *enc* and *sign*. You shall use the one named *auth* with :code:`Key Usage = Digital Signature`.
