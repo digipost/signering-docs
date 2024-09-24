@@ -65,6 +65,12 @@ Welcome to the Posten signering documentation!
 
 .. toctree::
    :maxdepth: 1
+   :caption: IP addresses
+
+   ip-adresser
+
+.. toctree::
+   :maxdepth: 1
    :caption: Dictionary
 
 
