@@ -194,7 +194,7 @@ Step 1: Create signature job
 
     ..  group-tab:: HTTP
 
-        This functionality exists with integration via HTTP, but the example has not been generated yet.
+        Signature type and required authentication level can be specified in the ``manifest.xml`` file in the document bundle, and an example is available at `digipost/signature-api-specification on GitHub <https://github.com/digipost/signature-api-specification/blob/3.1.0/schema/examples/direct/manifest-specify-signtype-and-auth.xml>`_.
 
 
 Identifying the signer
