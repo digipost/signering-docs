@@ -298,27 +298,48 @@ Other settings
 
 Identifier in the signed document
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Currently, there are three formats available for displaying the signers in signed documents:
+
+- their `full name`
+- their `full name` and `date of birth`
+- their `full name` and `national ID` (restrictions apply)
+
+Please note that these formats only specifies how to `display` text which refers to the signers. It is purely a layout setting, and does not affect the strength of how a person's signature is attached to the signed content.
+
+For more information, see :ref:`identify-signers`.
+
+
 ..  tabs::
 
     ..  group-tab:: C#
 
         ..  code-block:: c#
 
-            //This functionality exists in C#, but the example has not been generated yet.
-            //For now, please refer to the HTTP tab, as the concepts described there have
-            //equivalent representations in the .NET client library.
+            var job = new Job(documents, signers, ...)
+            {
+                IdentifierInSignedDocuments = IdentifierInSignedDocuments.DateOfBirthAndName
+            };
 
     ..  group-tab:: Java
 
         ..  code-block:: java
 
-            //This functionality exists in Java, but the example has not been generated yet.
-            //For now, please refer to the HTTP tab, as the concepts described there have
-            //equivalent representations in the Java client library.
+            DirectJob directJob = DirectJob.builder("title", ...)
+                .withIdentifierInSignedDocuments(
+                        IdentifierInSignedDocuments.DATE_OF_BIRTH_AND_NAME)
+                .build();
 
     ..  group-tab:: HTTP
 
-        The element ``identifier-in-signed-documents`` is used to specify how the signer(s) are to be identified in the signed documents. Allowed values are ``PERSONAL_IDENTIFICATION_NUMBER_AND_NAME``, ``DATE_OF_BIRTH_AND_NAME`` and ``NAME``. Please note that applicable values may be restricted by the type of signature job and sender. For more information, see :ref:`identify-signers`.
+        The element ``identifier-in-signed-documents`` in the `manifest.xml <https://github.com/digipost/signature-api-specification/blob/3.1.0/schema/examples/direct/manifest.xml#L14>`_ file is used to specify how signers are to be identified in the signed documents for the job. Allowed values:
+
+        - ``PERSONAL_IDENTIFICATION_NUMBER_AND_NAME``
+        - ``DATE_OF_BIRTH_AND_NAME``
+        - ``NAME``
+
+
+
 
 Status retrieval method
 ^^^^^^^^^^^^^^^^^^^^^^^^^
