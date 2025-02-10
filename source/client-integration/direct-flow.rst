@@ -400,37 +400,52 @@ Note: in both cases, it is necessary to redirect the signer `somewhere`, so exit
 Response
 --------
 
+The request to create a signature job will produce a response containing an ID for the created job, and the URL to redirect each signer for signing the document(s) of the job. There is also a `status-URL` for retrieving the status when the signer is redirected back to one of the exit-URLs which was defined in the request. The sender must wait until this happens, and then send a request to retrieve the latest status update. The status retrieval requires a token that is aquired when the signer is redirected. Please see :ref:`directIntegrationStep3` for information on this procedure.
+
+..  NOTE:: Make sure to not mix up `signer-URLs` with the `redirect-URLs`. The signer-URL is for management of each signer by your integration (e.g. :ref:`directIntegrationRequestNewRedirectUrl` if necessary), and the redirect-URL is for `redirecting` the browser of each person signing the documents.
+
+..  TIP:: It is perfectly valid to ignore any redirect-URL contained in the initial response from creating the job. It is arguably less complex to instead `every time` at the moment you are going to redirect a signer to Posten signering, you first need to :ref:`directIntegrationRequestNewRedirectUrl`. This way you will avoid handling expired redirect-URLs because resolved in the past because each redirect will always target a new valid URL for the signer.
+
+
 ..  tabs::
 
     ..  group-tab:: C#
 
         ..  code-block:: c#
 
-            //This functionality exists in C#, but the example has not been generated yet.
-            //For now, please refer to the HTTP tab, as the concepts described there have
-            //equivalent representations in the .NET client library.
+            var directClient = //As created earlier
+            Job job = new Job("title", ...);
+            var directJobResponse = await directClient.Create(job);
+
+            // Data in directJobResponse (e.g. SignerUrl for each Signer)
+            // can be persisted for use later to resolve the URL to
+            // redirect each signer to the signing procedure
+            foreach (var signer in directJobResponse.Signers)
+            {
+                // persist e.g. signer.SignerUrl;
+            }
 
     ..  group-tab:: Java
 
         ..  code-block:: java
 
-            //This functionality exists in Java, but the example has not been generated yet.
-            //For now, please refer to the HTTP tab, as the concepts described there have
-            //equivalent representations in the Java client library.
+            DirectClient client = // As initialized earlier
+            DirectJob directJob = DirectJob.builder("title", ...).build()
+            DirectJobResponse directJobResponse = client.create(directJob);
+
+            // Data in directJobResponse (e.g. signerUrl for each signer)
+            // can be persisted for use later to resolve the URL to
+            // redirect each signer to the signing procedure
+            for (var signer : directJobResponse.getSigners()) {
+                //Persist e.g. signer.getSignerUrl();
+            }
+
+        See also Javadoc for `DirectJobResponse <https://javadoc.io/doc/no.digipost.signature/signature-api-client-java/latest/no/digipost/signature/client/direct/DirectJobResponse.html>`_.
 
     ..  group-tab:: HTTP
 
-        The request will result in a response defined by the element ``direct-signature-job-response``. An example of such response for one signer can be seen in the `API-specification <https://github.com/digipost/signature-api-specification/blob/master/schema/examples/direct/response.xml>`_. This response contains a URL (``redirect-url``), which redirects the signers browser to initiate the signing process. In addition, the response contains the URL used to retrieve statuses for the job. The sender must wait until the user is redirected to one of the URLs defined in the request, and then send a request to retrieve the latest status update. The status retrieval requires a token that is aquired when the signer is redirected. Please see :ref:`directIntegrationStep3` for more information.
+        The request will result in a response defined by the element ``direct-signature-job-response``. Examples for jobs with both `one signer <https://github.com/digipost/signature-api-specification/blob/3.1.0/schema/examples/direct/response.xml>`_ and `two signers <https://github.com/digipost/signature-api-specification/blob/3.1.0/schema/examples/direct/multiple_signers/response.xml>`_ can be found in the `API-specification <https://github.com/digipost/signature-api-specification>`_ repository on GitHub.
 
-        ..  code-block:: xml
-
-            <direct-signature-job-response xmlns="http://signering.posten.no/schema/v1">
-               <signature-job-id>1</signature-job-id>
-               <redirect-url>
-                   https://signering.posten.no#/redirect/421e7ac38da1f81150cfae8a053cef62f9e7433ffd9395e5805e820980653657
-               </redirect-url>
-               <status-url>https://api.signering.posten.no/api/{sender-identifier}/direct/signature-jobs/1/status</status-url>
-            </direct-signature-job-response>
 
 
 .. _directIntegrationStep2:
