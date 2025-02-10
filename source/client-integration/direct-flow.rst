@@ -732,24 +732,23 @@ After receiving a status change, the documents can be deleted as follows:
 
     ..  group-tab:: C#
 
-        ..  code-block:: c#
-
-            //This functionality exists in C#, but the example has not been generated yet.
-            //For now, please refer to the Java tab, as the API and concepts described there have
-            //equivalent representations in the .NET client library.
+        This is currently not implemented in the C# client. However all contents of non-completed jobs, as well as completed jobs without :ref:`long-term-validation-and-storage` will be deleted automatically in 40 days.
 
     ..  group-tab:: Java
 
         ..  code-block:: java
 
-            DirectClient client = null; // As initialized earlier
-            DirectJobStatusResponse directJobStatusResponse = null; // As returned when getting job status
+            DirectClient client = // As initialized earlier
+            DirectJobStatusResponse jobStatusResponse = // As returned when getting job status
+            var deleteDocumentsUrl = jobStatusResponse.getDeleteDocumentsUrl();
+            if (deleteDocumentsUrl != null) {
+                client.deleteDocuments(jobStatusResponse.getDeleteDocumentsUrl());
+            }
 
-            client.deleteDocuments(directJobStatusResponse.getDeleteDocumentsUrl());
 
     ..  group-tab:: HTTP
 
-        This functionality exists with integration via HTTP, but the example has not been generated yet.
+        Whenever a job is deletable, the status responses will contain a `delete-documents-url <https://github.com/digipost/signature-api-specification/blob/3.1.0/schema/xsd/direct.xsd#L289>`_ element. Issuing a ``DELETE`` to this URL will delete all document contents from this job.
 
 
 ..  |direkteflytskjema| image:: https://raw.githubusercontent.com/digipost/signature-api-specification/main/integrasjon/flytskjemaer/synkron-maskin-til-maskin.png
