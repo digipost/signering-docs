@@ -709,26 +709,6 @@ Step 4: Get signed documents
 
         In the previous step you got a link to the signed document: ``pades-url``. Do a ``HTTP GET`` on this to download the signed document. For more information on the format of the signed document, see :ref:`signed-documents`.
 
-Step 5: Confirm finished processing
-=======================================
-
-..  tabs::
-
-    ..  group-tab:: C#
-
-        ..  code-block:: c#
-
-            //This functionality exists in C#, but the example has not been generated yet.
-
-    ..  group-tab:: Java
-
-        ..  code-block:: java
-
-            //This functionality exists in Java, but the example has not been generated yet.
-
-    ..  group-tab:: HTTP
-
-        Finally, make a ``HTTP POST`` request to the ``confirmation-url`` to confirm that you have completed the job. If :ref:`long-term-validation-and-storage` is used, this will mark the assignment as completed and stored. Otherwise, the assignment will be deleted from the signing portal.
 
 
 .. _directIntegrationQueuesMoreInformation:
