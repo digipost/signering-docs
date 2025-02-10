@@ -340,31 +340,60 @@ For more information, see :ref:`identify-signers`.
 
 
 
+.. _directIntegrationSetStatusRetrievalMethod:
 
 Status retrieval method
 ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This option enables an alternative integration pattern for handling the result of the signing process. If not specified, retriving the signed document (or handling rejections or errors) should be triggered by the signer being redirected to one of the `exit-URLs` specified in :ref:`directIntegrationStep1`. This is the recommended setting, and will usually provide the best experience for the person signing the documents.
+
+If for some reason it is not possible to have the relevant system responding to the exit-URLs, retrieving the status of the signing process, and download location for signed documents, can be done by `polling`.
+
+In addition, if using the polling facility it is highly recommended to specify a `polling queue` name (see :ref:`directIntegrationQueuesMoreInformation` for more information). The polling procedure is explained later in :ref:`directIntegrationStatusByPolling`.
+
+Note: in both cases, it is necessary to redirect the signer `somewhere`, so exit-URLs are mandatory in all cases.
 
 ..  tabs::
 
     ..  group-tab:: C#
 
+        In our libraries, a ``PollingQueue`` is specified on the ``Sender``, and the same sender must be specified when polling to retrieve status changes. The ``Sender`` can be set globally in ``ClientConfiguration`` and/or on every signature job.
+
         ..  code-block:: c#
 
-            //This functionality exists in C#, but the example has not been generated yet.
-            //For now, please refer to the HTTP tab, as the concepts described there have
-            //equivalent representations in the .NET client library.
+            var sender = new Sender("123456789",
+                    new PollingQueue("CustomPollingQueue"));
+
+            var job = new Job("title", ... ,
+                sender, StatusRetrievalMethod.Polling
+            );
 
     ..  group-tab:: Java
 
+        In our libraries, a ``PollingQueue`` is specified on the ``Sender``, and the same sender must be specified when polling to retrieve status changes. The ``Sender`` can be set globally in ``ClientConfiguration`` and/or on every signature job.
+
         ..  code-block:: java
 
-            //This functionality exists in Java, but the example has not been generated yet.
-            //For now, please refer to the HTTP tab, as the concepts described there have
-            //equivalent representations in the Java client library.
+            Sender sender = new Sender("123456789",
+                    PollingQueue.of("queue-name"));
+
+            DirectJob directJob = DirectJob.builder("title", ...)
+                    .withSender(sender)
+                    .retrieveStatusBy(StatusRetrievalMethod.POLLING)
+                    .build();
 
     ..  group-tab:: HTTP
 
-        The element ``status-retrieval-method`` is used to set how the sender wishes to get status updates for the signature job. ``WAIT_FOR_CALLBACK`` is the standard value, and means that the sender waits until a signer is sent to one of the URLs given by the element ``exit-urls`` before acting accordingly. The alternative is to use ``POLLING`` to specify regular polling to fetch status updates. We recommend using ``WAIT_FOR_CALLBACK``.
+        The element ``status-retrieval-method`` can be used to set how the sender wishes to get status updates for the signature job. ``WAIT_FOR_CALLBACK`` is the standard value, and means that the sender waits until a signer is sent to one of the URLs given by the element ``exit-urls`` before acting accordingly. The alternative is to use ``POLLING`` to specify regular polling to fetch status updates. We recommend using ``WAIT_FOR_CALLBACK``.
+
+        ..  code-block:: xml
+
+            <direct-signature-job-request xmlns="http://signering.posten.no/schema/v1">
+                <reference>123-ABC</reference>
+                <exit-urls>...</exit-urls>
+                <status-retrieval-method>POLLING</status-retrieval-method>
+                <polling-queue>queue-name-for-status-updates</polling-queue>
+            </direct-signature-job-request>
 
 
 
@@ -477,13 +506,15 @@ The signing process is a synchrounous operation in the direct use case. There is
             </direct-signature-job-status-response>
 
 
+.. _directIntegrationStatusByPolling:
+
 Status by polling
 -------------------
 
 If you, for any reason, are unable to retrieve status by using the status query token specified above, you may poll the service for any changes done to your organization’s jobs. If the queue is empty, additional polling will give an exception.
 
 ..  NOTE::
-    For the job to be available in the polling queue, make sure to specify the job's :code:`StatusRetrievalMethod` as illustrated below.
+    For the job to be available in a polling queue, make sure to specify the job's :ref:`directIntegrationSetStatusRetrievalMethod`.
 
 ..  tabs::
 
@@ -627,72 +658,16 @@ Step 5: Confirm finished processing
         Finally, make a ``HTTP POST`` request to the ``confirmation-url`` to confirm that you have completed the job. If :ref:`long-term-validation-and-storage` is used, this will mark the assignment as completed and stored. Otherwise, the assignment will be deleted from the signing portal.
 
 
+.. _directIntegrationQueuesMoreInformation:
+
 Specifying queues
 ===================
 
 An important and necessary feature for organizations using more than one application to create signature jobs through the API. It enables an application to retrieve status changes independent of other applications.
 
-The feature specifies the queue that jobs and status changes for a signature job will occur in. It is used for signature jobs where ``StatusRetrievalMethod == POLLING``. If your organization is using more than one application/integration to access our API, we strongly recommend using a separate queue for each one. This is to ensure that one does not retrieve the others' receipts. This may result in missing status changes for jobs in one of the applications, which in turn will result in a poor user experience. Only use the default queue, eg. not specifying a queue, when only one of your applications access our API.
+The feature specifies the queue that jobs and status changes for a signature job will occur in. It is used for signature jobs where ``StatusRetrievalMethod == POLLING``. If your organization is using more than one application/integration to access our API, we strongly recommend using a separate queue for each one. This is to ensure that one does not retrieve the others' receipts. This may result in missing status changes for jobs in one of the applications, which in turn will result in a poor user experience. Only use the default queue, i.e. not specifying a queue, when only one of your applications access the Posten signering API.
 
-To specify a queue, set :code:`pollingQueue` through when constructing a :code:`Sender`. Please note that the same sender must be specified when polling to retrieve status changes. The :code:`Sender` can be set globally in :code:`ClientConfiguration` or on every job.
 
-..  tabs::
-
-    ..  group-tab:: C#
-
-        ..  code-block:: c#
-
-            ClientConfiguration clientConfiguration = null; // As initialized earlier
-            var directClient = new DirectClient(clientConfiguration);
-
-            String organizationNumber = "123456789";
-            var sender = new Sender(organizationNumber, new PollingQueue("CustomPollingQueue"));
-
-            List<Document> documentsToSign = null; // As initialized earlier
-            ExitUrls exitUrls = null; // As initialized earlier
-
-            var signer = new PersonalIdentificationNumber("00000000000");
-
-            var job = new Job(
-                documentsToSign,
-                new List<Signer> { new Signer(signer) },
-                "SendersReferenceToSignatureJob",
-                exitUrls,
-                sender,
-                StatusRetrievalMethod.Polling
-            );
-
-            await directClient.Create(job);
-
-            var changedJob = await directClient.GetStatusChange(sender);
-
-    ..  group-tab:: Java
-
-        ..  code-block:: java
-
-            DirectClient client = null; // As initialized earlier
-            Sender sender = new Sender("000000000", PollingQueue.of("CustomPollingQueue"));
-
-            DirectJob directJob = DirectJob.builder(documents, exitUrls, signer)
-                  .retrieveStatusBy(StatusRetrievalMethod.POLLING).withSender(sender)
-                  .build();
-
-            client.create(directJob);
-
-            DirectJobStatusResponse statusChange = client.getStatusChange(sender);
-
-            if (statusChange.is(DirectJobStatus.NO_CHANGES)) {
-              // Queue is empty. Must wait before polling again
-            } else {
-              // Recieved status update, act according to status
-              DirectJobStatus status = statusChange.getStatus();
-            }
-
-            client.confirm(statusChange);
-
-    ..  group-tab:: HTTP
-
-        This functionality exists with integration via HTTP, but the example has not been generated yet.
 
 
 Delete documents
