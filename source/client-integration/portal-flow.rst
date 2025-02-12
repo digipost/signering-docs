@@ -731,6 +731,7 @@ To specify a queue, set ``pollingQueue`` through when constructing a ``Sender``.
 
         This functionality exists with integration via HTTP, but the example has not been generated yet.
 
+
 Delete documents
 ==================
 
@@ -740,24 +741,28 @@ After receiving a status change, the documents can be deleted as follows:
 
     ..  group-tab:: C#
 
-        ..  code-block:: c#
-
-            //This functionality exists in C#, but the example has not been generated yet.
-            //For now, please refer to the Java tab, as the API and concepts described there have
-            //equivalent representations in the .NET client library.
+        This is currently not implemented in the C# client. However all contents of non-completed jobs, as well as completed jobs without :ref:`long-term-validation-and-storage` will be deleted automatically in 40 days.
 
     ..  group-tab:: Java
 
         ..  code-block:: java
 
-            PortalClient client = null; // As initialized earlier
-            PortalJobStatusChanged statusChange = null; // As returned when polling for status changes
+            PortalClient client = // As initialized earlier
+            PortalJobStatusChanged statusChange = client.getStatusChange();
 
-            client.deleteDocuments(statusChange.getDeleteDocumentsUrl());
+            var deleteDocumentsUrl = statusChange.getDeleteDocumentsUrl();
+            if (deleteDocumentsUrl != null) {
+                client.deleteDocuments(deleteDocumentsUrl);
+                // more likely, store the URL when a statusChange indicates
+                // the job is indeed deletable, for use later if needed
+            }
 
     ..  group-tab:: HTTP
 
-        This functionality exists with integration via HTTP, but the example has not been generated yet.
+        Whenever a job is deletable, the status responses will contain a `delete-documents-url <https://github.com/digipost/signature-api-specification/blob/3.1.0/schema/xsd/portal.xsd#L263>`_ element. Issuing a ``DELETE`` to this URL will delete all document contents from this job.
+
+
+
 
 ..  |portalflytskjema| image:: https://raw.githubusercontent.com/digipost/signature-api-specification/master/integrasjon/flytskjemaer/asynkron-maskin-til-maskin.png
     :alt: Flytskjema for portalintegrasjon
