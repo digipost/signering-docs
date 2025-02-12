@@ -671,7 +671,7 @@ Specifying queues
 
 An important and necessary feature for organizations using more than one application to create signature jobs through the API. It enables an application to retrieve status changes independent of other applications.
 
-The ``pollingQueue`` property is applicable for jobs where ``StatusRetrievalMethod == POLLING``, and is used to assign jobs to a specified queue which is then used to retrieve status changes. If your organization is using more than one application/integration to access our API, we strongly recommend using a separate queue for each one. This is to ensure that one does not retrieve the others' status updates. This may result in missing status updates for jobs in one of the applications, which in turn will result in a poor user experience. Only use the default queue, eg. not specifying a queue, when only one of your applications access our API.
+The ``pollingQueue`` property is used to assign jobs to a specified queue which is then used to retrieve status changes. If your organization is using more than one application/integration to access our API, we strongly recommend using a separate queue for each one. This is to ensure that one does not retrieve the others' status updates. This may result in missing status updates for jobs in one of the applications, which in turn will result in a poor user experience. Only use the default queue, eg. not specifying a queue, when only one of your applications access our API.
 
 To specify a queue, set ``pollingQueue`` through when constructing a ``Sender``. Please note that the same sender must be specified when polling to retrieve status changes. The ``Sender`` can be set globally in ``ClientConfiguration`` or on every job.
 
@@ -729,7 +729,14 @@ To specify a queue, set ``pollingQueue`` through when constructing a ``Sender``.
 
     ..  group-tab:: HTTP
 
-        This functionality exists with integration via HTTP, but the example has not been generated yet.
+        Include the ``polling-queue`` element in the ``portal-signature-job-request``:
+
+        ..  code-block:: xml
+
+            <portal-signature-job-request xmlns="http://signering.posten.no/schema/v1">
+                <reference>123-ABC</reference>
+                <polling-queue>custom-queue</polling-queue>
+            </portal-signature-job-request>
 
 
 Delete documents
