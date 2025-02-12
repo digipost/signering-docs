@@ -189,13 +189,203 @@ Step 1: Create signature job
 ..  NOTE::
     You may identify the signature job’s signers by personal identification number :code:`IdentifiedByPersonalIdentificationNumber` or contact information. When identifying by contact information, you may choose between instantiating a :code:`PortalSigner` using :code:`IdentifiedByEmail`, :code:`IdentifiedByMobileNumber` or :code:`IdentifiedByEmailAndMobileNumber`.
 
-The signer
------------------
 
-Before starting this chapter, please read up on :ref:`addressing-signers` and :ref:`notifications`. Signers can be addressed and notified in different ways.
+Addressing signers
+------------------
 
-Adressing the signer
-^^^^^^^^^^^^^^^^^^^^^^
+It is helpful to familiarize yourself with :ref:`addressing-signers` and :ref:`notifications` to understand the different ways a signer can be addressed and notified. All examples given below are not applicable for all kinds of senders, particularily there restrictions depending on whether the sender is a public or private sector organization.
+
+
+
+Email address and/or mobile number
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+..  tabs::
+
+    ..  group-tab:: C#
+
+        ..  code-block:: c#
+
+            var signers = new List<Signer>
+            {
+                new Signer(new ContactInformation {Email = new Email("email2@example.com")}),
+                new Signer(new ContactInformation {Sms = new Sms("88888888")}),
+                new Signer(new ContactInformation
+                {
+                    Email = new Email("email3@example.com"),
+                    Sms = new Sms("77777777")
+                })
+            };
+
+    ..  group-tab:: Java
+
+        ..  code-block:: java
+
+            import static no.digipost.signature.client.portal.PortalSigner.*;
+
+            ...
+
+            List<PortalSigner> signers = List.of(
+                    identifiedByEmail("email@example.com").build(),
+                    identifiedByMobileNumber("12345678"),
+                    identifiedByEmailAndMobileNumber("person@example.com", "87654321"));
+
+    ..  group-tab:: HTTP
+
+        ..  code-block:: xml
+
+            <signer>
+                <identified-by-contact-information/>
+                <notifications>
+                    <email address="email@example.com"/>
+                </notifications>
+                <on-behalf-of>SELF</on-behalf-of>
+            </signer>
+            <signer>
+                <identified-by-contact-information/>
+                <notifications>
+                    <sms number="00000000" />
+                </notifications>
+                <on-behalf-of>SELF</on-behalf-of>
+            </signer>
+            <signer>
+                <identified-by-contact-information/>
+                <notifications>
+                    <email address="email@example.com"/>
+                    <sms number="00000000" />
+                </notifications>
+                <on-behalf-of>SELF</on-behalf-of>
+            </signer>
+
+
+National identity number
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+When identifying signers by their national identity number, you can specify which email address and/or mobile number should be used for for notifications.
+
+..  tabs::
+
+    ..  group-tab:: C#
+
+        ..  code-block:: c#
+
+            var signers = new List<Signer>
+            {
+                new Signer(
+                    new PersonalIdentificationNumber("11111111111"),
+                    new Notifications(
+                        new Email("email1@example.com"),
+                        new Sms("999999999"))),
+                new Signer(
+                    new PersonalIdentificationNumber("22222222222"),
+                    new Notifications(
+                        new Email("email2@example.com")))
+            };
+
+    ..  group-tab:: Java
+
+        ..  code-block:: java
+
+            import static no.digipost.signature.client.portal.PortalSigner.*;
+
+            ...
+
+            List<PortalSigner> signers = List.of(
+                identifiedByPersonalIdentificationNumber("11111111111",
+                        Notifications.builder()
+                            .withEmailTo("email1@example.com")
+                            .withSmsTo("999999999").build())
+                    .build(),
+                identifiedByPersonalIdentificationNumber("22222222222",
+                        Notifications.builder()
+                            .withEmailTo("email2@example.com").build())
+                    .build());
+
+    ..  group-tab:: HTTP
+
+        ..  code-block:: xml
+
+            <signer>
+                <personal-identification-number>11111111111</personal-identification-number>
+                <notifications>
+                    <email address="email1@example.com"/>
+                    <sms number="999999999" />
+                </notifications>
+            </signer>
+            <signer>
+                <personal-identification-number>22222222222</personal-identification-number>
+                <notifications>
+                    <email address="email2@example.com"/>
+                </notifications>
+            </signer>
+
+
+However, for *public sector organizations*, if the documents being signed are of a personal nature (e.g. not signed by virtue of a role in an organization) it is *strongly advisable* to have Posten signering inquiring `The common contact register <KRR_>`_ to lookup which methods the signer prefers to be notified. (This feature is not available at all for private sector organizations)
+
+See also the section :ref:`portalIntegrationOnBehalfOf` for information on signing on behalf of other entities (e.g. organizations).
+
+..  tabs::
+
+    ..  group-tab:: C#
+
+        ..  code-block:: c#
+
+            var signers = new List<Signer>
+            {
+                new Signer(
+                    new PersonalIdentificationNumber("11111111111"),
+                    new NotificationsUsingLookup { SmsIfAvailable = true }),
+                new Signer(
+                    new PersonalIdentificationNumber("22222222222"),
+                    new NotificationsUsingLookup())
+            };
+
+    ..  group-tab:: Java
+
+        ..  code-block:: java
+
+            import static no.digipost.signature.client.portal.PortalSigner.*;
+
+            ...
+
+            List<PortalSigner> signers = List.of(
+                identifiedByPersonalIdentificationNumber("11111111111",
+                        NotificationsUsingLookup.EMAIL_AND_SMS).build(),
+                identifiedByPersonalIdentificationNumber("22222222222",
+                        NotificationsUsingLookup.EMAIL_ONLY).build());
+
+    ..  group-tab:: HTTP
+
+        ..  code-block:: xml
+
+            <signer>
+                <personal-identification-number>11111111111</personal-identification-number>
+                <notifications-using-lookup>
+                    <email/>
+                    <sms/>
+                </notifications-using-lookup>
+            </signer>
+            <signer>
+                <personal-identification-number>22222222222</personal-identification-number>
+                <notifications-using-lookup>
+                    <email/>
+                </notifications-using-lookup>
+            </signer>
+
+
+.. _portalIntegrationOnBehalfOf:
+
+Signing on behalf of
+^^^^^^^^^^^^^^^^^^^^
+
+A sender can specify if signers are signing on behalf of theirself (**"self"**, the default if not specified), or *on behalf of* or by virtue of a role (**"other"**).
+
+In the case of signing on behalf of **"other"**, the features intended for private citizen services will not be available. This means:
+
+- The signed document will *not* be automatically forwarded to the signer's private digital mailbox.
+- For public organizations, `The common contact register <KRR_>`_ will not be used, and the sender must provide the email address and/or mobile number to use for notifying the signer.
+
+
 
 
 ..  tabs::
@@ -204,112 +394,68 @@ Adressing the signer
 
         ..  code-block:: c#
 
-            //This functionality exists in C#, but the example has not been generated yet.
-            //For now, please refer to the HTTP tab, as the concepts described there have
-            //equivalent representations in the .NET client library.
+            var signers = new List<Signer>
+            {
+                new Signer(
+                    new PersonalIdentificationNumber("11111111111"),
+                    new NotificationsUsingLookup()),
+                new Signer(
+                    new PersonalIdentificationNumber("22222222222"),
+                    new Notifications(new Email("email2@example.com")))
+                {
+                    OnBehalfOf = OnBehalfOf.Other
+                },
+                new Signer(
+                    new ContactInformation { Email = new Email("email3@example.com") }),
+                {
+                    OnBehalfOf = OnBehalfOf.Other
+                }
+            };
 
     ..  group-tab:: Java
 
         ..  code-block:: java
 
-            //This functionality exists in Java, but the example has not been generated yet.
-            //For now, please refer to the HTTP tab, as the concepts described there have
-            //equivalent representations in the Java client library.
+            List<PortalSigner> signers = List.of(
+                identifiedByPersonalIdentificationNumber("11111111111",
+                        NotificationsUsingLookup.EMAIL_ONLY).build(),
+                identifiedByPersonalIdentificationNumber("22222222222",
+                        Notifications.builder().withEmailTo("email2@example.com").build())
+                    .onBehalfOf(OTHER).build(),
+                identifiedByEmail("email3@example.com")
+                    .onBehalfOf(OTHER).build());
 
-    ..  group-tab:: HTTP
+    .. group-tab:: HTTP
 
-        ..  tabs::
+        .. code-block:: xml
 
-            ..  tab:: E-mail
-
-                ..  code-block:: xml
-
-                    <signer>
-                        <identified-by-contact-information/>
-                        <notifications>
-                            <email address="email@example.com"/>
-                        </notifications>
-                        <on-behalf-of>SELF</on-behalf-of>
-                    </signer>
-
-            ..  tab:: Mobile
-
-                ..  code-block:: xml
-
-                    <signer>
-                        <identified-by-contact-information/>
-                        <notifications>
-                            <sms number="00000000" />
-                        </notifications>
-                        <on-behalf-of>SELF</on-behalf-of>
-                    </signer>
-
-            ..  tab:: E-mail and mobile
-
-                ..  code-block:: xml
-
-                    <signer>
-                        <identified-by-contact-information/>
-                        <notifications>
-                            <email address="email@example.com"/>
-                            <sms number="00000000" />
-                        </notifications>
-                        <on-behalf-of>SELF</on-behalf-of>
-                    </signer>
-
-            ..  tab:: SSN
-
-                Social Security number, with notification by e-mail:
-
-                ..  code-block:: xml
-
-                    <signer>
-                        <personal-identification-number>12345678910</personal-identification-number>
-                        <notifications>
-                            <email address="email@example.com"/>
-                        </notifications>
-                        <on-behalf-of>SELF</on-behalf-of>
-                    </signer>
+            <signer>
+                <personal-identification-number>11111111111</personal-identification-number>
+                <notifications-using-lookup>
+                    <email/>
+                </notifications-using-lookup>
+                <on-behalf-of>SELF</on-behalf-of> <!-- default, optional -->
+            </signer>
+            <signer>
+                <personal-identification-number>22222222222</personal-identification-number>
+                <notifications>
+                    <email address="email2@example.com"/>
+                </notifications>
+                <on-behalf-of>OTHER</on-behalf-of>
+            </signer>
+            <signer>
+                <identified-by-contact-information/>
+                <notifications>
+                    <email address="email3@example.com"/>
+                </notifications>
+                <on-behalf-of>OTHER</on-behalf-of>
+            </signer>
 
 
-                With notification as public organization:
+..  NOTE::
+    Public organizations collecting personal signatures should mainly address signers by their national ID, which mandates the use of Kontakt- og Reservasjonsregisteret for resolving their preferred contact information used for notifications of the signature job, and also to enforce their preference in case they opt-out from digital communication from the public sector.
 
-                ..  NOTE::
-                    Public organizations collecting personal signatures should mainly address signers by their
-                    national ID, which mandates the use of Kontakt- og Reservasjonsregisteret for resolving their
-                    preferred contact information used for notifications of the signature job, and also to enforce
-                    their preference in case they opt-out from digital communication from the public sector.
 
-                ..  code-block:: xml
-
-                    <signer>
-                        <personal-identification-number>12345678910</personal-identification-number>
-                        <notifications>
-                            <notifications-using-lookup/>
-                        </notifications>
-                        <on-behalf-of>SELF</on-behalf-of>
-                    </signer>
-
-            ..  tab:: On behalf of
-
-                A sender can choose if the signer is signing on behalf of himself or by virtue of a role. This is done by setting the attribute ``on-behalf-of`` to ``SELF`` or ``OTHER``.
-
-                The signed document will not be sent to the signers digital mailbox if signing on behalf of someone else. For public organizations, you must address the signer by a chosen phone number and e-mail, as Kontakt- og Reservasjonsregisteret will not be used.
-
-                ..  code-block:: xml
-
-                    <signer>
-                        <personal-identification-number>12345678910</personal-identification-number>
-                        <notifications>
-                            <email address="email@example.com"/>
-                            <sms number="00000000" />
-                        </notifications>
-                        <on-behalf-of>OTHER</on-behalf-of>
-                    </signer>
-
-                ..  NOTE::
-
-                    The element ``notifications-using-lookup`` is only available for public organizations. As this will look up the signers *private* contact information, it is not possible at the same time to indicate that the person signing on behalf of someone else. Thus, you cannot set ``on-behalf-of`` to ``OTHER`` if you want to use the Kontakt- og Reservasjonsregisteret to address signers.
 
 Other settings
 ---------------------------
@@ -615,3 +761,9 @@ After receiving a status change, the documents can be deleted as follows:
 
 ..  |portalflytskjema| image:: https://raw.githubusercontent.com/digipost/signature-api-specification/master/integrasjon/flytskjemaer/asynkron-maskin-til-maskin.png
     :alt: Flytskjema for portalintegrasjon
+
+
+
+
+
+.. _KRR: https://eid.difi.no/en/common-contact-register
