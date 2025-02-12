@@ -22,7 +22,11 @@
   color: #4a1011;
 }
 
-.rst-content .toctree-wrapper>p.caption, h4, h5, h6 {
+.rst-content .toctree-wrapper>p.caption, h4 {
+  font-size: 1.1rem;
+}
+
+.rst-content .toctree-wrapper>p.caption, h5, h6 {
   font-size: 1rem;
 }
 
