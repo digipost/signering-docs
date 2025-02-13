@@ -301,11 +301,11 @@ Identifier in the signed document
 
 Currently, there are three formats available for displaying the signers in signed documents:
 
-- their `full name`
-- their `full name` and `date of birth`
-- their `full name` and `national ID` (restrictions apply)
+- their *full name*
+- their *full name* and *date of birth*
+- their *full name* and *national ID* (restrictions apply)
 
-Please note that these formats only specifies how to `display` text which refers to the signers. It is purely a layout setting, and does not affect the strength of how a person's signature is attached to the signed content.
+Please note that these formats only specifies how to *display* text which refers to the signers. It is purely a layout setting, and does not affect the strength of how a person's signature is attached to the signed content.
 
 For more information, see :ref:`identify-signers`.
 
@@ -345,13 +345,13 @@ For more information, see :ref:`identify-signers`.
 Status retrieval method
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This option enables an alternative integration pattern for handling the result of the signing process. If not specified, retriving the signed document (or handling rejections or errors) should be triggered by the signer being redirected to one of the `exit-URLs` specified in :ref:`directIntegrationStep1`. This is the recommended setting, and will usually provide the best experience for the person signing the documents.
+This option enables an alternative integration pattern for handling the result of the signing process. If not specified, retriving the signed document (or handling rejections or errors) should be triggered by the signer being redirected to one of the *exit-URLs* specified in :ref:`directIntegrationStep1`. This is the recommended setting, and will usually provide the best experience for the person signing the documents.
 
-If for some reason it is not possible to have the relevant system responding to the exit-URLs, retrieving the status of the signing process, and download location for signed documents, can be done by `polling`.
+If for some reason it is not possible to have the relevant system responding to the exit-URLs, retrieving the status of the signing process, and download location for signed documents, can be done by *polling*.
 
-In addition, if using the polling facility it is highly recommended to specify a `polling queue` name (see :ref:`directIntegrationQueuesMoreInformation` for more information). The polling procedure is explained later in :ref:`directIntegrationStatusByPolling`.
+In addition, if using the polling facility it is highly recommended to specify a *polling queue* name (see :ref:`directIntegrationQueuesMoreInformation` for more information). The polling procedure is explained later in :ref:`directIntegrationStatusByPolling`.
 
-Note: in both cases, it is necessary to redirect the signer `somewhere`, so exit-URLs are mandatory in all cases.
+Note: in both cases, it is necessary to redirect the signer *somewhere*, so exit-URLs are mandatory in all cases.
 
 ..  tabs::
 
@@ -400,11 +400,11 @@ Note: in both cases, it is necessary to redirect the signer `somewhere`, so exit
 Response
 --------
 
-The request to create a signature job will produce a response containing an ID for the created job, and the URL to redirect each signer for signing the document(s) of the job. There is also a `status-URL` for retrieving the status when the signer is redirected back to one of the exit-URLs which was defined in the request. The sender must wait until this happens, and then send a request to retrieve the latest status update. The status retrieval requires a token that is aquired when the signer is redirected. Please see :ref:`directIntegrationStep3` for information on this procedure.
+The request to create a signature job will produce a response containing an ID for the created job, and the URL to redirect each signer for signing the document(s) of the job. There is also a *status-URL* for retrieving the status when the signer is redirected back to one of the exit-URLs which was defined in the request. The sender must wait until this happens, and then send a request to retrieve the latest status update. The status retrieval requires a token that is aquired when the signer is redirected. Please see :ref:`directIntegrationStep3` for information on this procedure.
 
-..  NOTE:: Make sure to not mix up `signer-URLs` with the `redirect-URLs`. The signer-URL is for management of each signer by your integration, and the redirect-URL is for `redirecting` the browser of each person signing the documents.
+..  NOTE:: Make sure to not mix up *signer-URLs* with the *redirect-URLs*. The signer-URL is for management of each signer by your integration, and the redirect-URL is for *redirecting* the browser of each person signing the documents.
 
-..  TIP:: It is perfectly valid to ignore any redirect-URL contained in the initial response from creating the job. It is arguably less complex to instead `every time` at the moment you are going to redirect a signer to Posten signering, you first need to request a redirect-URL (see :ref:`directIntegrationStep2`). This way you will avoid handling expired redirect-URLs because resolved in the past because each redirect will always target a new valid URL for the signer.
+..  TIP:: It is perfectly valid to ignore any redirect-URL contained in the initial response from creating the job. It is arguably less complex to instead *every time* at the moment you are going to redirect a signer to Posten signering, you first need to request a redirect-URL (see :ref:`directIntegrationStep2`). This way you will avoid handling expired redirect-URLs because resolved in the past because each redirect will always target a new valid URL for the signer.
 
 
 ..  tabs::
@@ -453,7 +453,7 @@ The request to create a signature job will produce a response containing an ID f
 Step 2: Signing the document
 ================================
 
-This whole step is carried out in the signing portal. For each signer of the job, you will need to redirect the person to the portal using its associated redirect-URL, typically by responding with a `302 Found` redirect to your user's browser when a request to sign is being made in your system.
+This whole step is carried out in the signing portal. For each signer of the job, you will need to redirect the person to the portal using its associated redirect-URL, typically by responding with a ``302 Found`` redirect to your user's browser when a request to sign is being made in your system.
 
 A redirect-URL contains a one-time token generated by the signature service, and it is this token that allows the user to read the documents and complete the signing.
 
