@@ -55,7 +55,7 @@ If the sender is a **private organization**, you must yourself enter the email a
 
 For public organizations
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-For **public organizations**, we obtain the signer's email address and mobile phone number from `The common contact register (KRR) <http://eid.difi.no/nb/kontakt-og-reservasjonsregisteret>`_ for all signers addressed using national identity numbers. Public organizations may optionally provide custom contact details for a signer instead of the signer's national identity number.
+For **public organizations**, we obtain the signer's email address and mobile phone number from `The common contact register <KRR_>`_ (KRR) for all signers addressed using national identity numbers. Public organizations may optionally provide custom contact details for a signer instead of the signer's national identity number.
 
 If signers have opted out of digital communication, the task will be rejected and subsequent retrieval of the status of the task will report an error with details of which signers have opted out. As looking up a person in KRR requires the person's national ID, Posten signering can not check for opt-out for signers only addressed with custom contact information. Also, signers defined to not be signing on behalf of themselves will not be checked for opt-out.
 
@@ -67,7 +67,7 @@ If signers have opted out of digital communication, the task will be rejected an
 Using The common contact register
 ============================================
 
-Further details concerning the use of `The common contact register <https://eid.difi.no/en/common-contact-register>`_. This is only applicable for public sector organizations.
+Further details concerning the use of `The common contact register <KRR_>`_. This is only applicable for public sector organizations.
 
 On sending out subsequent notifications (either deferred activation due to chained signature, or reminders) a new lookup is made in the register to retrieve the latest updated contact details.
 
@@ -87,3 +87,7 @@ Information on obtaining artificial test users is described here, as well as a s
 `docs.digdir.no/docs/Kontaktregisteret/krr_testbrukere <https://docs.digdir.no/docs/Kontaktregisteret/krr_testbrukere>`_.
 
 For a lookup in the The common contact register to succeed, and enabling the signature job to proceed, the artificial test user must have either or both an email address and mobile number. It is also possible to test failing cases where the addressed signer does not meet the necessary requirements in order to participate in a signature job, be it missing contact information and/or have opted out from electronic communication from the public sector.
+
+
+
+.. _KRR: https://samarbeid.digdir.no/kontaktregisteret/kontakt-og-reservasjonsregisteret/42

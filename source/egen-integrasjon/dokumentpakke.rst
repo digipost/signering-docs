@@ -3,7 +3,7 @@
 Document package
 ****************
 
-The document package in Posten signering is based on the ASiC-E standard (`Associated Signature Containers, Extended form <http://www.etsi.org/deliver/etsi_ts/102900_102999/102918/01.03.01_60/ts_102918v010301p.pdf>`_). The profile is designed to be similar to that used for `Digital mailbox to residents <http://begrep.difi.no/SikkerDigitalPost>`_. Read more about the :ref:`profile used for ASiC <asicEStandards>` at the end of this document.
+The document package in Posten signering is based on the ASiC-E standard (`Associated Signature Containers, Extended form <http://www.etsi.org/deliver/etsi_ts/102900_102999/102918/01.03.01_60/ts_102918v010301p.pdf>`_). The profile is designed to be similar to that used for `Digital mailbox to residents <https://docs.digdir.no/resources/begrep/sikkerDigitalPost/forretningslag/Dokumentpakke/>`_. Read more about the :ref:`profile used for ASiC <asicEStandards>` at the end of this document.
 
 
 Contents
