@@ -18,7 +18,7 @@ As an organization, you can use Posten signering in two ways, depending on your 
 
 Sender portal
 -------------
-The sender portal enables an organization to use Posten signering by sending documents directly from the browser. The documents are uploaded manually to our web portal. Signers then read and sign documents via :ref:`portal-flow <portal-flow>`. This is a simple and effective way of getting started with the service and is suitable for smaller volumes. If you work in a private organization, you can `register the business directly <https://signering.posten.no/registrering/bedrift>`_ and start sending documents right away. If you work in a public organization, you must register your account via `Digitaliseringsdirektoratet og samarbeidsportalen <https://samarbeid.difi.no/felleslosninger/esignering/ta-i-bruk-esignering>`_.
+The sender portal enables an organization to use Posten signering by sending documents directly from the browser. The documents are uploaded manually to our web portal. Signers then read and sign documents via :ref:`portal-flow <portal-flow>`. This is a simple and effective way of getting started with the service and is suitable for smaller volumes. If you work in a private organization, you can `register the business directly <https://signering.posten.no/registrering/bedrift>`_ and start sending documents right away. If you work in a public organization, you must register your account via `Digitaliseringsdirektoratet og samarbeidsportalen <https://samarbeid.digdir.no/esignering/ta-i-bruk-esignering/104>`_.
 
 API integration
 ---------------

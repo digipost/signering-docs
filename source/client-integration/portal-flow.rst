@@ -778,4 +778,4 @@ After receiving a status change, the documents can be deleted as follows:
 
 
 
-.. _KRR: https://eid.difi.no/en/common-contact-register
+.. _KRR: https://samarbeid.digdir.no/kontaktregisteret/kontakt-og-reservasjonsregisteret/42
