@@ -37,6 +37,8 @@ Signing deadline 1. notification: e-mail/SMS 2. notification: e-mail/SMS
 
    <!-- Tabellen er generert vha. http://www.tablesgenerator.com/markdown_tables -->
 
+.. NOTE:: If the sender is a private organization, the signer is adressed by personal identification number and the signer has a Digipost account, the email notifications will be replaced by messages in Digipost.
+
 .. NOTE:: No SMS is sent between 22:00 and 8:00, unless the request is created at night and the deadline is so short that it has to be sent immediately.
 
 .. NOTE:: If the sender *extends the signing deadline*, all scheduled notifications for the request will be deleted. New notifications will then be generated and sent out at an appropriate time in relation to the new deadline.
@@ -74,7 +76,7 @@ ________________________________________________________________________________
 
         Les og signer innen: [*signeringsfrist*]
 
-        Du signerer enkelt og trygt med [*disse elektroniske e-IDene*].
+        Du signerer enkelt og trygt med elektronisk ID.
 
         Logg deg inn på [*signering.posten.no/logginn*] for å lese og signere.
 
@@ -91,7 +93,7 @@ ________________________________________________________________________________
 
         Dokumentet(ene) er nå signert av [*antall*] og må signeres innen [*signeringsfrist*].
 
-        Du signerer enkelt og trygt med [*disse elektroniske e-IDene*].
+        Du signerer enkelt og trygt med elektronisk ID.
 
         Logg deg inn på [*signering.posten.no/logginn*] for å lese og signere.
 
@@ -125,7 +127,7 @@ ____________________________________________________________________
 
         Les og signer innen: [*signeringsfrist*].
 
-        Du signerer enkelt og trygt med [*disse elektroniske ID-ene*].
+        Du signerer enkelt og trygt med elektronisk ID.
 
         Slik signerer du:
         1) Klikk på lenken under
@@ -145,7 +147,7 @@ ____________________________________________________________________
 
         Les og signer innen: [*signeringsfrist*].
 
-        Du signerer enkelt og trygt med [*disse elektroniske ID-ene*].
+        Du signerer enkelt og trygt med elektronisk ID.
 
         Slik signerer du:
         1) Klikk på lenken under
@@ -191,7 +193,7 @@ Private senders
 
         Du har nettopp signert et dokument fra [*Avsender*] gjennom Posten signering.
 
-        Hvis du oppretter en konto i Digipost innen 7 dager, sendes dokumentet du signerte automatisk dit. Da har du det              lett tilgjengelig når du trenger det!
+        Hvis du oppretter en konto i Digipost innen 7 dager, sendes dokumentet du signerte automatisk dit. Da har du det lett tilgjengelig når du trenger det!
 
         Registrer deg i Digipost: https://www.digipost.no/app/registrering ,
 

@@ -7,7 +7,7 @@ On a general basis, data that we no longer need is erased after 3 years. Erasure
 Notifications
 #############
 
-We erase email and SMS notifications 3 years after the last time sending them was attempted.
+We erase email, SMS and Digipost notifications 3 years after the last time sending them was attempted.
 
 
 Signature requests

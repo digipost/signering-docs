@@ -29,7 +29,7 @@ See :ref:`Signing in portal flow with addressing by e-mail / SMS <signing-in-por
 =======================================================
 If you know the national identity numbers of the signers, you can address them using their identity numbers. This is the most secure way to reach the expected signers, since it requires them to log in with an electronic ID in order to read and sign.
 
-Even if the signer is addressed using a national identity number, the signer will be notified and will receive a link to log in by email or SMS – see :ref:`notification and contact details <notifications>` for more information.
+Even if the signer is addressed using a national identity number, the signer will be notified and will receive a link to log in by email, SMS or in Digipost – see :ref:`notification and contact details <notifications>` for more information.
 
 
 ..  TIP::
@@ -52,6 +52,8 @@ When you select signing in portal flow, emails and/or SMS notifications are sent
 For private organizations
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 If the sender is a **private organization**, you must yourself enter the email address and/or mobile number of the recipient. This also applies if you address the signer using national identity number. Private organizations cannot use KRR.
+
+If you address signers by their national identity number and they have a Digipost account, the notification will be sent to their Digipost inbox. If they do not have a Digipost account, the notification will be sent by email and/or SMS as described above.
 
 For public organizations
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
