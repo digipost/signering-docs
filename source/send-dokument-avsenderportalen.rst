@@ -29,14 +29,14 @@ As the sender, you may be the signer for your own signature request. If you tick
 Step 3: Information for signers
 ===================================
 
-**Description of the document that is displayed in the notification email**:
-As the description will appear in the email that is sent out, it should not include any sensitive information. It is nonetheless a good idea to include details of what is to be signed, to make it easier for the signer to identify in the email.
+**Description of the document that is displayed in the notifications**:
+As the description will appear in all notifications that are sent to the signers, it should not include any sensitive information. It is nonetheless a good idea to include details of what is to be signed, to make it easier for the signers to identify it.
 
 **Title of the front page of the signed document**:
 The title appears on the front page of the signed document. :ref:`Read more about the content of the signed document here <signed-documents>`.
 
 **Message that the recipient sees in the signature portal**:
-Write a personal message to the signer. The message is displayed before the documents are signed (not sent by email or SMS).
+Write a personal message to the signer. The message is displayed before the documents are signed (not included in notifications).
 
 **Internal case number/reference ID**:
 If you have a case number or reference ID linked to the documents or signer, you can write it here. It can be used for easier retrieval of the documents.

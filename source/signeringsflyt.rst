@@ -39,7 +39,7 @@ If you use a national identity number as the address, the signer will have to lo
 The flow typically looks like this:
 
 #. The sender creates a signature request via API or online in the sender portal
-#. Posten signering notifies the signer by email (and, if applicable, SMS if specificed upon registration)
+#. Posten signering notifies the signer (by email, SMS or in Digipost)
 #. The signer logs into the signature portal and signs the document
 #. The signer downloads a signed document
 #. The signer logs out of the signature portal
