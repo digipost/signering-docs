@@ -31,7 +31,7 @@ Sources for building the documentation site at [signering-docs.readthedocs.io](h
    Building the documentation site with [Sphinx](http://www.sphinx-doc.org) requires Python v3:
 
    ```shell
-   pyenv install 3.13.2
+   pyenv install 3.13.4
    ```
    Feel free to substitute the version with any later available 3.13.x version.
 
@@ -41,14 +41,14 @@ Sources for building the documentation site at [signering-docs.readthedocs.io](h
 
    Change to folder of your cloned working copy of this repository.
 
-   If you already have set up a virtualenv (your prompt includes "(signering-docs)"), and you want to upgrade its version of Python (`python --version` print a version earlier than 3.13.2), first delete the existing virtualenv:
+   If you already have set up a virtualenv (your prompt includes "(signering-docs)"), and you want to upgrade its version of Python (`python --version` print a version earlier than 3.13.4), first delete the existing virtualenv:
 
    ```shell
    pyenv virtualenv-delete signering-docs
    ```
 
    ```shell
-   pyenv virtualenv 3.13.2 signering-docs  #create a new virtualenv 'signering-docs'
+   pyenv virtualenv 3.13.4 signering-docs  #create a new virtualenv 'signering-docs'
    pyenv local signering-docs  #this sets up 'signering-docs' as the virtualenv to use here
    pip install -r requirements.txt
    ```
