@@ -460,6 +460,51 @@ In the case of signing on behalf of **"other"**, the features intended for priva
 Other settings
 ---------------------------
 
+.. _nonSensitiveTitle:
+
+Non-sensitive title
+^^^^^^^^^^^^^^^^^^^
+
+The *non-sensitive title* optional property of a signature job is used, if present, to refer to the signature job in any insecure contexts, notably in email and SMS notifications for the signers. Although optional, it is strongly recommended to specify a non-sensitive title, because this allows to display some contextual information about the document(s) when signers are invited to sign them, and this decreases the chance of the notification being dismissed as spam. If a non-sensitive title is not specified, the notifications will fall back to a generic text describing something along lines of "some documents to sign".
+
+It is perfectly fine to set both the title (mandatory) and non-sensitive title (optional) to be the *same text*, but care should be taken to not include any personal or sensitive information in the non-sensitive title which will be included in insecure communication, notably emails and SMSes.
+
+..  tabs::
+
+    ..  group-tab:: C#
+
+        ..  code-block:: c#
+
+            var portalJob = new Job("Job title", documentsToSign, signers, "myReferenceToJob")
+            {
+                NonSensitiveTitle = "Non-sensitive title, used in notifications"
+            };
+
+    .. group-tab:: Java
+
+        .. code-block:: java
+
+            PortalJob job = PortalJob
+                    .builder("Job title", documents, signers)
+                    .withNonSensitiveTitle("Non-sensitive title, used in notifications")
+                    .build();
+
+        See also the javadoc for `PortalJob.Builder <javadocPortalJobBuilder_>`_
+
+    .. group-tab:: HTTP
+
+        See the example given for :ref:`creating the job <portalIntegrationStep1>`, which includes the ``nonsensitive-title`` element in context.
+
+        .. code-block:: xml
+
+            <title>The main title, not included in notifications</title>
+            <nonsensitive-title>The non-sensitive title, used in notifications</nonsensitive-title>
+
+        See also the schema `portal.xsd, and the element named nonsensitive-title <xsdNonSensitiveTitle_>`_
+
+
+
+
 Order
 ^^^^^^^^^^^
 The ``order`` attribute on ``signer`` is used to specify the order of the signers. In the example above, the signature job will only be available to the signers with ``order = "1"``. Once signed, the job becomes available to those with ``order = "2"``, and for the signer with ``order = "3"`` when those with ``order = "2"`` have signed.
@@ -779,3 +824,5 @@ After receiving a status change, the documents can be deleted as follows:
 
 
 .. _KRR: https://samarbeid.digdir.no/kontaktregisteret/kontakt-og-reservasjonsregisteret/42
+.. _xsdNonSensitiveTitle: https://github.com/digipost/signature-api-specification/blob/3.1.0/schema/xsd/portal.xsd#L162-L177
+.. _javadocPortalJobBuilder: https://javadoc.io/doc/no.digipost.signature/signature-api-client-java/latest/no/digipost/signature/client/portal/PortalJob.Builder.html

@@ -57,6 +57,7 @@ The content of the notification will vary according to
 - which channel the notifications are sent in (e-mail/SMS)
 - the sector from which the sender sends (private or public)
 - the number of signers for the request
+- whether a *non-sensitive title* has been specified or not (see section about :ref:`non-sensitive title for portal flow <nonSensitiveTitle>`)
 
 The different notification versions sent by email and SMS are shown below (in Norwegian).
 
