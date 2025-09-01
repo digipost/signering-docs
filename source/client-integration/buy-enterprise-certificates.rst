@@ -3,12 +3,12 @@
 Buy enterprise certificates
 ***************************
 
-As a sending organization, you must authenticate with an enterprise certificate issued by Buypass or Commfides. You will need a test certificate and a production certificate. These must be in the RSA format.
+As a sending organization, you must authenticate with an enterprise certificate (virksomhetssertifikat) issued by either Buypass or Commfides. You will need a test certificate and a production certificate. These must be in the RSA format.
 
 Test environment
 ###########################
 
-A test certificate must be used against our test environment. The test certificate will be used in the testing phase, and as soon as you are ready to go into production, you will have to replace it with a production certificate.
+A test certificate must be used against our test environment. The test certificate will be used in the testing phase, and as soon as you are ready to deploy your integration to production, you will have to replace it with a production certificate.
 
 .. NOTE::
    It is not possible to use a test certificate in production or the other way around.
@@ -17,7 +17,7 @@ A test certificate must be used against our test environment. The test certifica
 
    .. group-tab:: Buypass
 
-    A test certificate can be bought from Buypass, on either their `Norwegian <https://www.buypass.no/produkter/virksomhetssertifikat-esegl/bestill-testsertifikat-vid-europa>`__ or `English <https://www.buypass.com/products/eseal--and-enterprise-certificate/Order-Test-Enterprise-Certificate-for-Europe>`__ site.
+    A test certificate can be bought from Buypass, on either their `Norwegian <https://www.buypass.no>`__ or `English <https://www.buypass.com>`__ site. Look for "Virksomhetssertifikat" (no) or "Enterprise certificate" (en), and there should be options for both ordering new ones, or renewing previously bought certificates. If given a choice, please select *Standard sertifikat/Standard Certificate*.
 
     When buying an enterprise certificate from Buypass, you will receive two emails. You should only use the certificate from the email that includes the *private key*. This is the email that contains two *.p12* files. The two files have different serial numbers, and these refer to certificates used for authentication and encryption (*autentisering og kryptering*) and signature (*signering*). Only the certificate marked for authentication and encryption is applicable to use for integrating with the Posten signering API.
 
@@ -42,7 +42,7 @@ Production environment
 
    .. group-tab:: Buypass
 
-    A production certificate can be bought from Buypass, on either their `Norwegian <https://www.buypass.no/ec-order/?productId=430221&language=no>`__ or `English <https://www.buypass.no/ec-order/?productId=430221&language=en>`__ site. Please select *Standard sertifikat/Standard Certificate*.
+    A production certificate can be bought from Buypass, on either their `Norwegian <https://www.buypass.no>`__ or `English <https://www.buypass.com>`__ site. Look for "Virksomhetssertifikat" (no) or "Enterprise certificate" (en), and there should be options for both ordering new ones, or renewing previously bought certificates. If given a choice, please select *Standard sertifikat/Standard Certificate*.
 
     When buying an enterprise certificate from Buypass, you will receive two emails. You should only use the certificate from the email that includes the *private key*. This is the email that contains two *.p12* files. The two files have different serial numbers, and these refer to certificates used for authentication and encryption (*autentisering og kryptering*) and signature (*signering*). Only the certificate marked for authentication and encryption is applicable to use for integrating with the Posten signering API.
 
