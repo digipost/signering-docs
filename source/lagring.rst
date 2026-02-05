@@ -30,17 +30,17 @@ How do I get hold of preserved documents?
 _____________________________________________
 Long-term stored documents can be downloaded in the web interface or retrieved via the REST interface for API integrators in the same way as all other signed documents. See code examples for retrieval of signed documents in :ref:`signing-in-portal-flow` and :ref:`signing-in-direct-flow`.
 
-Erasure of documents
+Deleting documents
 =======================
-Senders can erase archived documents if they want to remove them from the archive.
-Senders using the sender portal can erase documents from there.
-For senders that integrate via API, documents can be erased via the REST interface.
+Senders can delete documents of *completed* signature-job if they want to remove them before being automatically purged according to the storage plan (default short-term 40 days, or long-term storage).
+For jobs which are not completed, documents are automatically purged from storage shortly after they have been expired according to each job's specified deadline.
+
 
 .. _storage-delete-limitations:
 
 Limitations
 _____________
 
-- All signers must have signed before the documents can be erased. Documents that have not been signed by all signers will be erased automatically after 40 days and cannot be erased manually by the sender.
-- Documents may be erased at the earliest 24 hours after the signing date, as the signers must be able to download the document for a 24-hour period.
-- Documents that are to be sent to the signer’s digital mailbox cannot be erased until they have been sent there. If the signer does not have a digital mailbox, it is necessary to wait for up to 7 days until the documents can be erased.
+- All signers must have signed before the documents can be deleted. Documents that have not been signed by all signers will be deleted automatically after 40 days and cannot be deleted manually by the sender.
+- Documents may be deleted at the **earliest 24 hours after the instant the job was completed**, i.e. signed by the last signer, as signers must be able to download the document for a 24-hour period.
+- Documents that are to be sent to the signer's digital mailbox cannot be deleted until they have been sent there. If the signer does not have a digital mailbox, it is necessary to wait for up to 7 days until the documents can be deleted.
