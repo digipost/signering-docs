@@ -5,6 +5,11 @@ Buy enterprise certificates
 
 As a sending organization, you must authenticate with an enterprise certificate (virksomhetssertifikat) issued by either Buypass or Commfides. You will need a test certificate and a production certificate. These must be in the RSA format.
 
+.. IMPORTANT::
+    The same certificate is used for all aspects of the API integration, both for establishing the mTLS connection, *as well as* for creating appropriate signatures for documents contained in requests. Further details for respectively Buypass and Commfides are available below.
+
+
+
 Test environment
 ###########################
 
@@ -25,10 +30,7 @@ A test certificate must be used against our test environment. The test certifica
 
     A test certificates can be bought from Commfides, on either their `Norwegian <https://www.commfides.com/en/commfides-virksomhetssertifikat/>`__ or `English <https://www.commfides.com/en/commfides-virksomhetssertifikat/>`__ site. Please see *Bestill Testsertifikat/Order Test Certificate*.
 
-    When buying an enterprise certificate from Commfides, you will receive an email containing three *.p12* files: *auth*, *enc* and *sign*. You shall use the one named *auth* with :code:`Key Usage = Digital Signature`.
-
-    ..  CAUTION::
-        Please ask Commfides to create a certificate with ``CN=Commfides CPN Enterprise-Norwegian SHA256 CA - TEST2``. A certificate with ``CN=Commfides CPN Enterprise-Norwegian SHA256 CA - TEST`` will *not* work.
+    When buying an enterprise certificate from Commfides, you will receive an email containing three *.p12* files: *auth*, *enc* and *sign*. Only the one named *auth*, having :code:`Key Usage = Digital Signature`, is applicable for integrating with the API.
 
 
 
@@ -50,4 +52,4 @@ Production environment
 
     A production certificate can be bought from Commfides, on either their `Norwegian <https://www.commfides.com/en/commfides-virksomhetssertifikat/>`__ or `English <https://www.commfides.com/en/commfides-virksomhetssertifikat/>`__ site. Please see *Bestill Virksomhetssertifikat/Order Enterprise Certificate* for use in a production environment.
 
-    When buying an enterprise certificate from Commfides, you will receive an email containing three *.p12* files: *auth*, *enc* and *sign*. You shall use the one named *auth* with :code:`Key Usage = Digital Signature`.
+    When buying an enterprise certificate from Commfides, you will receive an email containing three *.p12* files: *auth*, *enc* and *sign*. Only the one named *auth*, having :code:`Key Usage = Digital Signature`, is applicable for integrating with the API.
