@@ -5,6 +5,11 @@ Buy enterprise certificates
 
 As a sending organization, you must authenticate with an enterprise certificate (virksomhetssertifikat) issued by either Buypass or Commfides. You will need a test certificate and a production certificate. These must be in the RSA format.
 
+.. IMPORTANT::
+    The same certificate is used for all aspects of the API integration, both for establishing the mTLS connection, *as well as* for creating appropriate signatures for documents contained in requests. Further details for respectively Buypass and Commfides are available below.
+
+
+
 Test environment
 ###########################
 
