@@ -14,6 +14,23 @@
   background-color: #ffffff;
 }
 
+h1 {
+    text-transform: uppercase;
+    font-size: 2.4rem;
+}
+
+h1::first-letter {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.2rem;
+}
+
 .rst-content .toctree-wrapper>p.caption, h1, h2, h3, h4, h5, h6, legend {
   font-family: sans-serif;
   margin-top: 50px;
