@@ -1,0 +1,8 @@
+{% extends "!footer.html" %}
+
+{% block contentinfo %}
+{{ super() }}
+<div style="margin-bottom: 12px;">
+  <a href="{{ pathto('', true) }}{{ pagename }}.rst">View raw source (.rst)</a>
+</div>
+{% endblock %}
