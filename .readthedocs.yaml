@@ -10,6 +10,11 @@ build:
   os: ubuntu-22.04
   tools:
     python: "3.13"
+  jobs:
+    # Copy raw .rst sources into output folder
+    post_build:
+      - mkdir -p $READTHEDOCS_OUTPUT/html/
+      - rsync -a --include='*/' --include='*.rst' --exclude='*' "source/" "$READTHEDOCS_OUTPUT/html/"
 
 # Build documentation in the docs/ directory with Sphinx
 sphinx:
