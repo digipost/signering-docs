@@ -11,11 +11,9 @@ build:
   tools:
     python: "3.13"
   jobs:
-    # Read the Docs runs sphinx-build directly and does not use the Makefile,
-    # so the Makefile's rst_copy step never runs on deploy. Therefore we replicate it here:
-    # copy the raw .rst sources into the HTML output so the "View raw source"
-    # footer links resolve instead of 404ing.
+    # Copy raw .rst sources into output folder
     post_build:
+      - mkdir -p $READTHEDOCS_OUTPUT/html/
       - rsync -a --include='*/' --include='*.rst' --exclude='*' "source/" "$READTHEDOCS_OUTPUT/html/"
 
 # Build documentation in the docs/ directory with Sphinx
