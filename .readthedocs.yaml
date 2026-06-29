@@ -8,6 +8,9 @@ version: 2
 # Set the version of Python and other tools you might need
 build:
   os: ubuntu-22.04
+  # Install rsync for the post_build copy step
+  apt_packages:
+    - rsync
   tools:
     python: "3.13"
   jobs:
