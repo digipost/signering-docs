@@ -1,0 +1,53 @@
+# Posten signering
+
+> REST API and client libraries for requesting legally binding electronic signatures from Norwegian citizens using BankID and other eIDs.
+
+## Concepts
+
+- [Signature flow](https://signering-docs.readthedocs.io/en/latest/signeringsflyt.rst): Overview of direct flow (embedded in sender's portal) and portal flow (Posten's signing portal).
+- [Signature type](https://signering-docs.readthedocs.io/en/latest/signaturtype.rst): Supported eID-based signature types and their legal validity.
+- [Signed documents](https://signering-docs.readthedocs.io/en/latest/signert-dokument.rst): Structure of the resulting signed document, signature formats, and ASiC-E packaging.
+
+## Sender Portal
+
+- [The sender portal](https://signering-docs.readthedocs.io/en/latest/avsenderportalen.rst): Web UI for managing signature requests without API integration.
+- [Send requests for signing](https://signering-docs.readthedocs.io/en/latest/send-dokument-avsenderportalen.rst): Step-by-step guide for sending documents through the sender portal.
+
+## Signature Requests
+
+- [Create signature request](https://signering-docs.readthedocs.io/en/latest/opprette-oppdrag.rst): Fields, requirements, and constraints for creating signature jobs via the API.
+- [Addressing signers](https://signering-docs.readthedocs.io/en/latest/adressering-av-undertegner.rst): Two methods for identifying signers: national identity number or email/SMS contact info.
+- [Signer notifications](https://signering-docs.readthedocs.io/en/latest/varsler-til-undertegner.rst): Rules for when notifications are sent to signers and how to customize notification texts.
+- [Changing a signature request](https://signering-docs.readthedocs.io/en/latest/endring-av-signeringsoppdrag.rst): How to cancel or modify an in-progress signature request.
+- [Sender notifications](https://signering-docs.readthedocs.io/en/latest/varsler-til-avsender.rst): Configuring notification emails to the sender on signing events.
+- [Storage](https://signering-docs.readthedocs.io/en/latest/lagring.rst): How signed documents are stored and retrieved after signing completes.
+- [Security level](https://signering-docs.readthedocs.io/en/latest/sikkerhetsniv%C3%A5.rst): Required eID security level (e.g. BankID) per signature request.
+- [Chained signing](https://signering-docs.readthedocs.io/en/latest/kjedet-signatur.rst): Sequential signing order where each signer is notified only after the previous one completes.
+
+## Client Integration
+
+- [Buy enterprise certificates](https://signering-docs.readthedocs.io/en/latest/client-integration/buy-enterprise-certificates.rst): How to obtain Buypass or Commfides enterprise certificates for API authentication.
+- [Install enterprise certificate](https://signering-docs.readthedocs.io/en/latest/client-integration/install-enterprise-certificate.rst): Installing certificates in Java keystores or Windows certificate stores.
+- [Get a client library](https://signering-docs.readthedocs.io/en/latest/client-integration/get-client-library.rst): Official Java and .NET client libraries via Maven/NuGet.
+- [Create client configuration](https://signering-docs.readthedocs.io/en/latest/client-integration/create-client-configuration.rst): Configuring the client with sender org number, certificate, and target environment.
+- [Direct flow](https://signering-docs.readthedocs.io/en/latest/client-integration/direct-flow.rst): Embed signing in your own portal — create job, redirect signer, poll status, download signed document.
+- [Portal flow](https://signering-docs.readthedocs.io/en/latest/client-integration/portal-flow.rst): Use Posten's signing portal — create job, signers notified by email/SMS, poll status, download.
+- [Archive client](https://signering-docs.readthedocs.io/en/latest/client-integration/archive-client.rst): Retrieve signed documents from Posten's long-term archive after the job expires.
+- [Error handling](https://signering-docs.readthedocs.io/en/latest/client-integration/error-handling.rst): Error types, HTTP status codes, and how to handle them.
+- [Debugging](https://signering-docs.readthedocs.io/en/latest/client-integration/debugging.rst): Enabling request/response logging and diagnosing integration issues.
+
+## Self-Developed Integration
+
+- [Document package](https://signering-docs.readthedocs.io/en/latest/egen-integrasjon/dokumentpakke.rst): ASiC-E container format — documents, metadata XML, and manifest structure for raw API use.
+- [Security](https://signering-docs.readthedocs.io/en/latest/egen-integrasjon/sikkerhet.rst): Signing API requests with enterprise certificates when not using an official client library.
+
+## Testing & Operations
+
+- [Test environment](https://signering-docs.readthedocs.io/en/latest/testing/introduction.rst): Public test environment with mock identities; no real eID credentials needed.
+- [BankID test users](https://signering-docs.readthedocs.io/en/latest/testing/bankid.rst): Test user credentials for simulating BankID signing in the test environment.
+
+## Optional
+
+- [Why use Posten signering](https://signering-docs.readthedocs.io/en/latest/introduksjon.rst): Business rationale and service overview.
+- [GDPR](https://signering-docs.readthedocs.io/en/latest/gdpr.rst): Data processing, retention periods, and GDPR compliance details.
+- [IP addresses](https://signering-docs.readthedocs.io/en/latest/ip-adresser.rst): Outbound IP addresses for firewall allowlisting.
