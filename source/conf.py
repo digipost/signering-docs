@@ -108,6 +108,8 @@ html_favicon = 'favicon.png'
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
+html_extra_path = ['llms.txt']
+
 html_css_files = [
     'css/custom.css',
 ]
