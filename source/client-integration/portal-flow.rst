@@ -524,7 +524,7 @@ The time specified in ``activation-time`` indicates when the job is activated, a
 
 **For example, enter 345600 seconds (4 days) for signers with an order:**
 
-#. Signers with ``order = 1`` get 4 days from `` activation-time`` to sign.
+#. Signers with ``order = 1`` get 4 days from ``activation-time`` to sign.
 #. Signers with ``order = 2`` will have the document made available *immediately* when all signers with ``order = 1`` have signed. They will then have 4 days from the time signature job is made available.
 
 ..  NOTE::
