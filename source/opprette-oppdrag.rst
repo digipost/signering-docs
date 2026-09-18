@@ -35,7 +35,7 @@ On creating signature requests, the following fields can be specified:
 
 .. rubric:: Footnotes
 
-.. [#f1] The maximum number of characters permitted is valid in both `direct <https://github.com/digipost/signature-api-specification/blob/2.7/schema/xsd/direct.xsd#L68-L75>`_ and `portal flow <https://github.com/digipost/signature-api-specification/blob/2.7/schema/xsd/portal.xsd#L98-L105>`_.
+.. [#f1] The maximum number of characters permitted is valid in both `direct <https://github.com/digipost/signature-api-specification/blob/3.1.1/schema/xsd/direct.xsd#L69-L76>`_ and `portal flow <https://github.com/digipost/signature-api-specification/blob/3.1.1/schema/xsd/portal.xsd#L99-L106>`_.
 .. [#f2] Signature requests in direct flow are always activated immediately after creation. *The default value* is *immediately after creation*.
 .. [#f3] Signature requests in direct flow always have a 30-day lifespan, to avoid a document being signed far too long after the creation of the task. Any deadline from the sender’s perspective must be communicated and handled in the sender’s services.
 .. [#f4] Multiple documents are not supported for advanced signature from public organizations
