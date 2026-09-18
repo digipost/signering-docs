@@ -7,9 +7,6 @@ As a sender, it is possible to specify which security level the signature reques
 
 The security level also restricts which login methods the signer can use to view the signature request and its details, and begin signing.
 
-..  TIP::
-    If no signature type is specified on creating the request, level 4 will be set as default.
-
 Private organizations
 =====================
 
