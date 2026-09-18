@@ -23,7 +23,7 @@ On creating signature requests, the following fields can be specified:
 | Signer identifier         | Optional                   | Optional          | see :ref:`addressing-signers`                                 |
 +---------------------------+----------------------------+-------------------+---------------------------------------------------------------+
 | Activation time           | Cannot be overrided [#f2]_ | Optional          |                                                               |
-+---------------------------+-------------------------+----------------------+---------------------------------------------------------------+
++---------------------------+----------------------------+-------------------+---------------------------------------------------------------+
 | Lifetime                  | Cannot be overrided [#f3]_ | Optional          |                                                               |
 +---------------------------+----------------------------+-------------------+---------------------------------------------------------------+
 | E-mail address            | Not applicable             | **Mandatory**     | see :ref:`notifications`                                      |
@@ -35,7 +35,7 @@ On creating signature requests, the following fields can be specified:
 
 .. rubric:: Footnotes
 
-.. [#f1] The maximum number of characters permitted is valid in both `direct <https://github.com/digipost/signature-api-specification/blob/2.7/schema/xsd/direct.xsd#L68-L75>`_ and `portal flow <https://github.com/digipost/signature-api-specification/blob/2.7/schema/xsd/portal.xsd#L98-L105>`_.
+.. [#f1] The maximum number of characters permitted is valid in both `direct <https://github.com/digipost/signature-api-specification/blob/3.1.1/schema/xsd/direct.xsd#L69-L76>`_ and `portal flow <https://github.com/digipost/signature-api-specification/blob/3.1.1/schema/xsd/portal.xsd#L99-L106>`_.
 .. [#f2] Signature requests in direct flow are always activated immediately after creation. *The default value* is *immediately after creation*.
 .. [#f3] Signature requests in direct flow always have a 30-day lifespan, to avoid a document being signed far too long after the creation of the task. Any deadline from the sender’s perspective must be communicated and handled in the sender’s services.
 .. [#f4] Multiple documents are not supported for advanced signature from public organizations
@@ -61,7 +61,7 @@ The service permits a maximum of 10 API calls per second per organization number
 Document format
 ^^^^^^^^^^^^^^^^^
 
-The service supports PDF (:code:`.pdf`). documents. Both PDF and PDF/A are by the service. The signed document will be of the same type as the original documents. One or more original documents that are PDF/A give a signed PAdES document that is PDF/A, and one or more original documents that are PDF version 1.1-1.7 give a signed PAdES document that is PDF version 1.7. If the original documents contain both PDF and PDF/A, the signed document will be of the PDF version 1.7 type. For PDF/A, the service will always produce signed PAdES documents of the PDF/A-3b type, irrespective of the PDF/A version and conformity level of the original documents.
+The service supports PDF (:code:`.pdf`). documents. Both PDF and PDF/A are supported by the service. The signed document will be of the same type as the original documents. One or more original documents that are PDF/A give a signed PAdES document that is PDF/A, and one or more original documents that are PDF version 1.1-1.7 give a signed PAdES document that is PDF version 1.7. If the original documents contain both PDF and PDF/A, the signed document will be of the PDF version 1.7 type. For PDF/A, the service will always produce signed PAdES documents of the PDF/A-3b type, irrespective of the PDF/A version and conformity level of the original documents.
 
 For archiving of signed documents, we recommend using original PDF/A documents. This is a requirement if the signed document is to be submitted to the National Archives of Norway.
 
@@ -78,7 +78,7 @@ In PAdES, the documents will always be presented in A4 and portrait format. For 
 Activation time
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Indicates the time when the signature request is to be made available to the signer(s). If the activation time is in the past, the reuqest will be available immediately after creation.
+Indicates the time when the signature request is to be made available to the signer(s). If the activation time is in the past, the request will be available immediately after creation.
 
 Signature requests in direct flow are always activated immediately after creation.
 
