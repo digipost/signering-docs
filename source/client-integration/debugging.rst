@@ -124,7 +124,7 @@ Your certificate may be accepted, and TLS connection is established, but may sti
         .. code-block:: xml
 
             <error>
-              <error-code>BROKER_NOT_AUTHORIZED<error-code>
+              <error-code>BROKER_NOT_AUTHORIZED</error-code>
               <error-message>
                 Broker «[organization number], authenticated using certificate
                   OID.2.5.4.97=NTRNO-[organization number], CN=Your Organization, (...)
