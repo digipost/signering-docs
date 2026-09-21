@@ -3,7 +3,12 @@
 Buy enterprise certificates
 ***************************
 
-As a sending organization, you must authenticate with an enterprise certificate (virksomhetssertifikat) issued by either Buypass or Commfides. You will need a test certificate and a production certificate. These must be in the RSA format.
+New integrations should create/manage certificates and clients in :ref:`Nyva <nyva-self-service>`, Digipost's self-service portal.
+Enterprise certificates are still supported, but later versions of the client library requires certificates to be managed in :ref:`Nyva <nyva-self-service>`, including any existing enterprise certificates.
+So if you're upgrading to a later version and already use an enterprise certificate, you need to configure/manage your certificate and set up a client there.
+
+The rest of this page/flow describes buying enterprise certificates and is unrelated to Digipost issued certificates and clients.
+
 
 .. IMPORTANT::
     The same certificate is used for all aspects of the API integration, both for establishing the mTLS connection, *as well as* for creating appropriate signatures for documents contained in requests. Further details for respectively Buypass and Commfides are available below.

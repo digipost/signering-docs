@@ -155,6 +155,72 @@ Your certificate may be accepted, and TLS connection is established, but may sti
 If you are missing authorization for the API, please `contact us <https://signering.posten.no/virksomhet/api>`_.
 
 
+Using a certificate issued by Digipost (JWT authentication)
+--------------------------------------------------------------
+
+If you are using a certificate issued by Digipost with :ref:`JWT authentication <jwt-authentication>` rather than an enterprise certificate, the certificate is only presented over mTLS when acquiring an access token from Digipost's identity provider (mIdP) — it is *not* presented on requests to the signing API itself. Debugging this with curl is therefore a two-step process: first acquire an access token, then use it as a bearer token against the API.
+
+Prepare your certificate the same way as described above, extracting :code:`publicCertificate.pem` and :code:`privateKey.pem`.
+
+**1. Acquire an access token from mIdP**
+
+Substitute :code:`${clientId}` and :code:`${brokerId}` with the client id and broker id from :ref:`nyva-self-service`.
+
+..  tabs::
+
+    .. group-tab:: Using a test certificate
+
+        .. code-block:: sh
+
+            curl https://midp.difitest.digipost.no/oauth2/token \
+              --cert publicCertificate.pem \
+              --key privateKey.pem \
+              -H "Accept: application/json" \
+              --data-urlencode grant_type=client_credentials \
+              --data-urlencode client_id=${clientId} \
+              --data-urlencode scope=signering:${brokerId} \
+              --data-urlencode resource=https://api.difitest.signering.posten.no
+
+    .. group-tab:: Using a production certificate
+
+        .. code-block:: sh
+
+            curl https://midp.digipost.no/oauth2/token \
+              --cert publicCertificate.pem \
+              --key privateKey.pem \
+              -H "Accept: application/json" \
+              --data-urlencode grant_type=client_credentials \
+              --data-urlencode client_id=${clientId} \
+              --data-urlencode scope=signering:${brokerId} \
+              --data-urlencode resource=https://api.signering.posten.no
+
+.. NOTE::
+
+    Unlike the signing API, mIdP's server certificate *is* an ordinary, publicly trusted certificate, so there's no need for the :code:`--insecure` flag on this request.
+
+A successful response is a JSON object containing at least an :code:`access_token` and an :code:`expires_in` (seconds until expiry):
+
+.. code-block:: json
+
+    {
+      "access_token": "...",
+      "expires_in": 3600
+    }
+
+**2. Use the access token against the signing API**
+
+Substitute :code:`${accessToken}` with the :code:`access_token` value from the previous step, and :code:`${orgNumber}` as before. Note that the certificate is *not* presented on this request — only the bearer token is used to authenticate, so the API is still validated the same way, hence :code:`--insecure` is still needed here.
+
+.. code-block:: sh
+
+    curl https://api.difitest.signering.posten.no/api/${orgNumber} \
+      -H "Authorization: Bearer ${accessToken}" \
+      --insecure
+
+If the access token is rejected, you'll get a :code:`401` response, in which case you should acquire a fresh access token by repeating step 1.
+
+If step 1 itself fails with :code:`invalid_client`, the certificate presented doesn't match the one registered for the client, or the client no longer exists — check the client and certificate status in :ref:`nyva-self-service`. If a previously working client suddenly stops getting tokens, the most common cause is that its certificate has expired, been revoked, or been unregistered there.
+
 
 
 
