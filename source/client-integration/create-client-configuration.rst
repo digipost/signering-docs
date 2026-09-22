@@ -6,7 +6,7 @@ Create client configuration
 Signering-client supports two different types of certificates: enterprise certificates issued by Commfides/Buypass and certificates issued by Digipost.
 New integrations should create/manage certificates and clients in :ref:`Nyva <nyva-self-service>`, Digipost's self-service portal. This makes it possible to authenticate with a certificate issued by Digipost itself, instead of an enterprise certificate from Buypass/Commfides. The same Digipost-issued certificate can also be reused across other Digipost services (e.g. the Digipost mailbox API).
 
-Existing flow with enterprise certificates and mTLS are fully supported today, and integrations using older client library versions are unaffected. However, to upgrade to a newer versions of the client library, you need to configure your certificate (both Enterprise- or Digipost issued) in :ref:`Nyva, Digipost's self-service portal <nyva-self-service>` to get a *client id* and a *broker id*. Using these two values, you only need to add one line (`.jwtAuthentication()`) to your ClientConfiguration implementation for the client library to work as before, now using mIdP and JWT instead.
+Existing flow with enterprise certificates and mTLS are fully supported today, and integrations using older client library versions are unaffected. However, to upgrade to a newer versions of the client library, you need to configure your certificate (both Enterprise- or Digipost issued) in :ref:`Nyva, Digipost's self-service portal <nyva-self-service>` to get a *client id* and a *broker id*. With these id's, you only need to add one line (`.jwtAuthentication()`) to your ClientConfiguration implementation for the client library to work as before, now using JWT in communication with the API instead of mTLS.
 
 A client configuration includes all organization specific configuration and all settings needed to connect to the correct environment for Posten signering.
 
@@ -131,41 +131,40 @@ Digipost issued certificates authenticate via an OAuth 2.0 *client credentials* 
 
 The new JWT flow removes the need for the certificate via mTLS when making requests to the API, but the certificate's private key is still used for signing the ASiC-E document package (an XAdES signature) regardless of which authentication method used.
 
-Configure a `JwtAuthConfig` with your client ID and the client certificate (as a `.p12` keystore) used for the mutual-TLS handshake against the token endpoint. The token endpoint defaults to the production one, so it only has to be set for other environments.
+Configure a ``JwtAuthConfig`` with your client ID and the client certificate (as a ``.p12`` keystore) used for the mutual-TLS handshake against the token endpoint. The token endpoint defaults to the production one, so it only has to be set for other environments.
 
 ..  tabs::
 
   ..  group-tab:: Java
 
+      The first step is to create a ``KeyStoreConfig`` which loads the certificate that identifies you as a client. The recommended way is to initialize it from a PKCS12-container file, which is the usual format of a certificate:
+
       ..  code-block:: java
 
-          The first step is to create a ``KeyStoreConfig`` which loads the certificate that identifies you as a client. The recommended way is to initialize it from a PKCS12-container file, which is the usual format of a certificate:
+          KeyStoreConfig keyStoreConfig;
+          try (InputStream p12Stream = Files.newInputStream(Paths.get("/path/to/certificate.p12"))) {
+              keyStoreConfig = KeyStoreConfig.fromOrganizationCertificate(
+                      p12Stream, "CertificatePassword"
+              );
+          }
 
-          ..  code-block:: java
+      Alternatively, if you use Java Key Store files for your certificates, it can be loaded in the following way:
 
-              KeyStoreConfig keyStoreConfig;
-              try (InputStream p12Stream = Files.newInputStream(Paths.get("/path/to/certificate.p12"))) {
-                  keyStoreConfig = KeyStoreConfig.fromOrganizationCertificate(
-                          p12Stream, "CertificatePassword"
-                  );
-              }
+      ..  code-block:: java
 
-          Alternatively, if you use Java Key Store files for your certificates, it can be loaded in the following way:
+          KeyStoreConfig keyStoreConfig;
+          try (InputStream jksStream = Files.newInputStream(Paths.get("/path/to/keystore.jks"))) {
+              keyStoreConfig = KeyStoreConfig.fromJavaKeyStore(
+                      jksStream,
+                      "OrganizationCertificateAlias",
+                      "KeyStorePassword",
+                      "CertificatePassword"
+              );
+          }
 
-          ..  code-block:: java
+      When the certificate has been loaded correctly, the resulting ``KeyStoreConfig`` is used to create a ``ClientConfiguration``.
 
-              KeyStoreConfig keyStoreConfig;
-              try (InputStream jksStream = Files.newInputStream(Paths.get("/path/to/keystore.jks"))) {
-                  keyStoreConfig = KeyStoreConfig.fromJavaKeyStore(
-                          jksStream,
-                          "OrganizationCertificateAlias",
-                          "KeyStorePassword",
-                          "CertificatePassword"
-                  );
-              }
-
-          When the certificate has been loaded correctly, the resulting ``KeyStoreConfig`` is used to create a ``ClientConfiguration``.
-
+      ..  code-block:: java
 
           // KeyStoreConfig keyStoreConfig loaded from your Digipost-issued certificate
 
@@ -196,8 +195,8 @@ Configure a `JwtAuthConfig` with your client ID and the client certificate (as a
               JwtAuthentication = JwtAuthConfig.ForClient("my-client-id", BrokerId.Of("my-broker-id"))
           };
 
-Access tokens are fetched lazily on first use and cached until shortly before they expire. They are requested from the mIdP at `ServiceEnvironment.tokenEndpointUrl` for the API given by `ServiceEnvironment.serviceRootUrl` which is already configured for the given environments.
+Access tokens are fetched lazily on first use and cached until shortly before they expire. They are requested from the mIdP at the token endpoint returned by ``ServiceEnvironment.tokenEndpoint()``, for the API at ``ServiceEnvironment.signatureServiceRootUrl()`` — both already configured for the predefined environments.
 
-Should the API nevertheless answer `401 Unauthorized`, the cached token is discarded and the request is sent once more with a newly fetched one. Requests are tried only more: if the new token is rejected as well, the error is passed on to you.
+Should the API nevertheless answer ``401 Unauthorized``, the cached token is discarded and the request is sent once more with a newly fetched one. This retry happens only once: if the new token is rejected as well, the error is passed on to you.
 
 The access tokens are fetched with a separate HTTP client, as it has to present the client certificate configured above in the TLS handshake against the token endpoint.
