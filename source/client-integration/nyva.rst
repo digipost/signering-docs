@@ -5,7 +5,7 @@ Get Digipost issued certificate
 
 `Nyva <https://nyva.digipost.no>`_ is Digipost's self-service portal for organizations, shared across all Digipost services, including Posten signering. It's where you obtain a Digipost issued certificate, and where you create the OAuth client that gives you the *client id* and *broker id* needed for :ref:`JWT authentication <jwt-authentication>`.
 
-Contact the sales team at Digipost to get access to the client authority and register your client. More information can be found in the [Digipost API Documentation](https://digipost.github.io/digipost-technical-docs/).
+Contact the sales team at Digipost to get access to the client authority and register your client. More information can be found in the `Digipost API Documentation <https://digipost.github.io/digipost-technical-docs>`_.
 
 * Production: `nyva.digipost.no <https://nyva.digipost.no>`_
 * Test: `nyva.test.digipost.no <https://nyva.test.digipost.no>`_
