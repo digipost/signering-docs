@@ -46,6 +46,7 @@ Welcome to the Posten signering documentation!
    :maxdepth: 1
    :caption: Client integration
 
+   client-integration/nyva
    client-integration/buy-enterprise-certificates
    client-integration/install-enterprise-certificate
    client-integration/get-client-library
