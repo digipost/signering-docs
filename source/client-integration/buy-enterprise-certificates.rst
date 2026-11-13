@@ -3,10 +3,9 @@
 Buy enterprise certificates
 ***************************
 
-New integrations should create and manage certificates in :ref:`Nyva <nyva-self-service>`, Digipost's self-service portal. Enterprise certificates are still supported, but later versions of the client library still requires certificates to be managed in :ref:`Nyva <nyva-self-service>`, including any existing enterprise certificates. So if you're upgrading from an older client library version and already use an enterprise certificate, you need to manage your certificate and set up a client there.
+If you don't already have an enterprise certificate, it is recommended to use Digipost's self-service integrations portal to create a Digipost-issued certificate for free. Either way, OAuth authentication — set up via the portal — is the recommended way to authenticate going forward, for both enterprise and Digipost issued certificates: certificate-only authentication over mutual TLS will be removed in a future version. See :ref:`the self-service portal <digipost-self-service>` for how to set this up, whether for a new Digipost-issued certificate or an existing enterprise one.
 
-The rest of this page/flow describes buying enterprise certificates and is unrelated to Digipost issued certificates and clients.
-The rest of this page/flow describes buying enterprise certificates, not Digipost issued certificates.
+The rest of this page describes purchasing an enterprise certificate for certificate-only authentication — unrelated to the new OAuth authentication.
 
 .. IMPORTANT::
     As a sending organization, you must authenticate with an enterprise certificate (virksomhetssertifikat) issued by either Buypass or Commfides. You will need a test certificate and a production certificate. These must be in the RSA format.

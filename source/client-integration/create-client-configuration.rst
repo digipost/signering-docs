@@ -3,17 +3,12 @@
 Create client configuration
 ****************************
 
-Signering-client supports two different types of certificates: enterprise certificates issued by Commfides/Buypass and certificates issued by Digipost.
-New integrations should create/manage certificates and clients in :ref:`Nyva <nyva-self-service>`, Digipost's self-service portal. This makes it possible to authenticate with a certificate issued by Digipost itself, instead of an enterprise certificate from Buypass/Commfides. The same Digipost-issued certificate can also be reused across other Digipost services (e.g. the Digipost mailbox API).
+Signering clients support two different types of certificates: enterprise certificates issued by Buypass/Commfides and certificates issued by Digipost. The client library supports both certificate-only authentication over mutual TLS using either certificate type, and OAuth authentication using either certificate type.
 
-Existing flow with enterprise certificates and mTLS are fully supported today, and integrations using older client library versions are unaffected. However, to upgrade to a newer versions of the client library, you need to configure your certificate (both Enterprise- or Digipost issued) in :ref:`Nyva, Digipost's self-service portal <nyva-self-service>` to get a *client id* and a *broker id*. With these id's, you only need to add one line (`.jwtAuthentication()`) to your ClientConfiguration implementation for the client library to work as before, now using JWT in communication with the API instead of mTLS.
+.. IMPORTANT::
+   OAuth is the recommended way to authenticate going forward, for both enterprise and Digipost issued certificates — plain certificate-only authentication over mutual TLS will be removed in a future version. New integrations should set up OAuth authentication from the start, and existing integrations should plan to migrate. The upgrade is intended to be a simple process for both new and existing certificates, and the client configuration only requires one additional line of code to use OAuth.
 
 A client configuration includes all organization specific configuration and all settings needed to connect to the correct environment for Posten signering.
-
-.. _enterprise-certificate-auth:
-
-Authenticate with a enterprise certificate (mTLS)
-====================================================================
 
 ..  tabs::
 
@@ -77,7 +72,7 @@ Authenticate with a enterprise certificate (mTLS)
 
   ..  group-tab:: Java
 
-        The first step is to create a ``KeyStoreConfig`` which loads the enterprise certificate that identifies you as a client. The recommended way is to initialize it from a PKCS12-container file, which is the usual format of an enterprise certificate:
+        The first step is to create a ``KeyStoreConfig`` which loads the certificate that identifies you as a client — either an enterprise certificate from Buypass/Commfides, or one issued by Digipost. The recommended way is to initialize it from a PKCS12-container file, which is the usual format for these certificates:
 
         ..  code-block:: java
 
@@ -103,7 +98,7 @@ Authenticate with a enterprise certificate (mTLS)
                 );
             }
 
-        When the certificate has been loaded correctly, the resulting ``KeyStoreConfig`` is used to create a ``ClientConfiguration``.
+        When the certificate has been loaded correctly, the resulting ``KeyStoreConfig`` is used to create a ``ClientConfiguration``. By default, this certificate is presented directly to the API over mutual TLS on every request — see :ref:`oauth-authentication` below for a recommended alternative.
 
         If not explicitly configured, a ``ClientConfiguration`` is specified to use the production API, so you likely want to specify which service environment you want to integrate with, to make sure you connect to ``ServiceEnvironment.STAGING`` when your application runs in any test environment, and ``ServiceEnvironment.PRODUCTION`` for your production environment.
 
@@ -122,69 +117,58 @@ Authenticate with a enterprise certificate (mTLS)
         This should be sufficient configuration for most API integration cases, but feel free to explore the other options available in `ClientConfiguration.Builder <https://javadoc.io/doc/no.digipost.signature/signature-api-client-java/7.0.1/no/digipost/signature/client/ClientConfiguration.Builder.html>`_.
 
 
-.. _jwt-authentication:
+.. _oauth-authentication:
 
-Authenticate with Digipost certificate (JWT via mIdP)
-====================================================================
+Authenticate with OAuth instead of the organization certificate (recommended)
+================================================================================
 
-Digipost issued certificates authenticate via an OAuth 2.0 *client credentials* grant against Digipost's identity provider (mIdP), rather than presenting the certificate directly to the signing API over mutual TLS. Your certificate is only presented over mTLS when acquiring an access token from mIdP; the resulting access token is then sent as a bearer token on requests to the Signing API.
+By default, the certificate configured above is presented directly to the API over mutual TLS on every request. As a recommended alternative, you can instead authenticate via an OAuth 2.0 *client credentials* grant against Digipost's identity provider (mIdP): the certificate is only presented over mTLS when acquiring an access token from mIdP, and the resulting access token is sent as a bearer token on requests to the signing API instead. The certificate's private key is still used for signing the ASiC-E document package (an XAdES signature) either way.
 
-The new JWT flow removes the need for the certificate via mTLS when making requests to the API, but the certificate's private key is still used for signing the ASiC-E document package (an XAdES signature) regardless of which authentication method used.
+This works the same for either certificate type — an enterprise certificate from Buypass/Commfides, or one issued by Digipost itself.
 
-Configure a ``JwtAuthConfig`` with your client ID and the client certificate (as a ``.p12`` keystore) used for the mutual-TLS handshake against the token endpoint. The token endpoint defaults to the production one, so it only has to be set for other environments.
+.. NOTE::
+   This is opt-in and fully backwards compatible: if you don't configure it, your existing certificate-only setup is unaffected. It's recommended for all new integrations and upgrades — both because certificate-only authentication over mutual TLS will be removed in a future version, and because it lets you use a certificate issued by Digipost itself instead of a costlier enterprise certificate, and is reusable across other Digipost services (e.g. Digipost's mailbox API).
+
+To use it, set up a certificate and an OAuth client in :ref:`Digipost's self-service integrations portal <digipost-self-service>` to get a *client id* and an *account id*. The actual code change needed is a single additional line when configuring the client:
 
 ..  tabs::
 
   ..  group-tab:: Java
 
-      The first step is to create a ``KeyStoreConfig`` which loads the certificate that identifies you as a client. The recommended way is to initialize it from a PKCS12-container file, which is the usual format of a certificate:
-
       ..  code-block:: java
 
-          KeyStoreConfig keyStoreConfig;
-          try (InputStream p12Stream = Files.newInputStream(Paths.get("/path/to/certificate.p12"))) {
-              keyStoreConfig = KeyStoreConfig.fromOrganizationCertificate(
-                      p12Stream, "CertificatePassword"
-              );
-          }
-
-      Alternatively, if you use Java Key Store files for your certificates, it can be loaded in the following way:
-
-      ..  code-block:: java
-
-          KeyStoreConfig keyStoreConfig;
-          try (InputStream jksStream = Files.newInputStream(Paths.get("/path/to/keystore.jks"))) {
-              keyStoreConfig = KeyStoreConfig.fromJavaKeyStore(
-                      jksStream,
-                      "OrganizationCertificateAlias",
-                      "KeyStorePassword",
-                      "CertificatePassword"
-              );
-          }
-
-      When the certificate has been loaded correctly, the resulting ``KeyStoreConfig`` is used to create a ``ClientConfiguration``.
-
-      ..  code-block:: java
-
-          // KeyStoreConfig keyStoreConfig loaded from your Digipost-issued certificate
+          // KeyStoreConfig keyStoreConfig as initialized earlier
 
           ClientConfiguration clientConfiguration = ClientConfiguration.builder(keyStoreConfig)
                   .serviceEnvironment(ServiceEnvironment.PRODUCTION)
                   .defaultSender(new Sender("123456789"))
-                  // the following config line is the only addition/change needed specifically for OAuth/JWT authentication
-                  .jwtAuthentication(JwtAuthConfig.forClient("736634b1-cac1-4499-bf02-a84869586b2b", BrokerId.of("123")))
+                  // the following line is the only addition needed to use OAuth authentication
+                  .useOAuth(new ClientId("my-client-id"), Scope.fromAccountId(123456789))
                   .build();
 
-      The predefined service environments already know their own mIdP token endpoint. A custom environment (e.g. for testing against a stub) can be given one explicitly with ``ServiceEnvironment.withTokenEndpoint(URI)``.
+      ``Scope.fromAccountId(..)`` builds the scope from the account id shown in the self-service portal. If you prefer to work with OAuth concepts directly, you can instead specify the scope verbatim with ``new Scope("signering:123456789")`` — both are equivalent.
+
+      The predefined service environments already know their own token endpoint and resource for OAuth, exposed via ``ServiceEnvironment.oAuth()``. A custom environment (e.g. for testing against a stub) can be given these explicitly with ``ServiceEnvironment.withOAuth(URI, URI, Resource)``, or ``withTokenEndpoint(URI)`` to only change the token endpoint.
+
+      .. NOTE::
+         For full control over the OAuth request (e.g. non-default parameters), use the ``useOAuth(Function<ServiceEnvironment, OAuthConfiguration>)`` overload instead, which lets you construct the complete ``OAuthConfiguration`` yourself:
+
+         .. code-block:: java
+
+             .useOAuth(env -> new OAuthConfiguration(
+                     env.oAuth().tokenEndpoint(),
+                     env.oAuth().resource(), // or any custom Resource
+                     new ClientId("my-client-id"),
+                     new Scope("signering:123456789")))
 
   ..  group-tab:: C#
 
       .. TODO::
-         // TODO
+         The .NET client library does not yet have a released version of this feature. The Java client's equivalent was recently renamed from a JWT-flavored API (``JwtAuthConfig``/``BrokerId``) to an OAuth-flavored one (``ClientId``/``Scope``/``useOAuth(..)``) — the example below is an **assumed** API mirroring that new shape, and must be verified and corrected once the .NET work ships.
 
       ..  code-block:: c#
 
-          // X509Certificate2 certificate loaded from your Digipost-issued certificate,
+          // X509Certificate2 certificate loaded as initialized earlier
 
           var clientConfiguration = new ClientConfiguration(
               Environment.Production,
@@ -192,11 +176,20 @@ Configure a ``JwtAuthConfig`` with your client ID and the client certificate (as
               new Sender(organizationNumber)
           )
           {
-              JwtAuthentication = JwtAuthConfig.ForClient("my-client-id", BrokerId.Of("my-broker-id"))
+              OAuth = OAuthConfiguration.UseOAuth(new ClientId("my-client-id"), Scope.FromAccountId(123456789))
           };
 
-Access tokens are fetched lazily on first use and cached until shortly before they expire. They are requested from the mIdP at the token endpoint returned by ``ServiceEnvironment.tokenEndpoint()``, for the API at ``ServiceEnvironment.signatureServiceRootUrl()`` — both already configured for the predefined environments.
+How OAuth authentication works
+================================
+
+Access tokens are fetched lazily on first use and cached until shortly before they expire. They are requested from the mIdP at the token endpoint given by ``ServiceEnvironment.oAuth().tokenEndpoint()``, for the API at ``ServiceEnvironment.oAuth().signatureServiceRootUrl()`` — both already configured for the predefined environments.
+
+.. IMPORTANT::
+   With OAuth, the API is reached on its own domain, separate from the one used for certificate-only authentication, e.g. ``api.sign.digipost.no`` rather than ``api.signering.posten.no`` for production. This domain has an ordinary, publicly trusted TLS certificate, validated against the JVM's default trust store — unlike the certificate-only domain, which uses a special validation of the server's enterprise certificate (checking the Posten Bring organization number). Any ``serverCertificateTrustStrategy(..)`` override you've configured only applies to certificate-only authentication.
 
 Should the API nevertheless answer ``401 Unauthorized``, the cached token is discarded and the request is sent once more with a newly fetched one. This retry happens only once: if the new token is rejected as well, the error is passed on to you.
 
 The access tokens are fetched with a separate HTTP client, as it has to present the client certificate configured above in the TLS handshake against the token endpoint.
+
+.. IMPORTANT::
+   Access tokens are cached per built ``ClientConfiguration``, so build it once per certificate/client id and reuse it — along with the clients created from it — rather than building a new one per request.

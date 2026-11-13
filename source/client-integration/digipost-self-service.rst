@@ -1,22 +1,20 @@
-.. _nyva-self-service:
+.. _digipost-self-service:
 
 Get Digipost issued certificate
 *************************************************************
 
-`Nyva <https://nyva.digipost.no>`_ is Digipost's self-service portal for organizations, shared across all Digipost services, including Posten signering. It's where you obtain a Digipost issued certificate, and where you create the OAuth client that gives you the *client id* and *broker id* needed for :ref:`JWT authentication <jwt-authentication>`.
-
+Digipost's self-service integrations portal is shared across all Digipost services, including Posten signering. It's where you obtain a Digipost issued certificate, and where you create the OAuth client that gives you the *client id* and *account id* needed for :ref:`OAuth authentication <oauth-authentication>`.
 Contact the sales team at Digipost to get access to the client authority and register your client. More information can be found in the `Digipost API Documentation <https://digipost.github.io/digipost-technical-docs>`_.
 
-* Production: `nyva.digipost.no <https://nyva.digipost.no>`_
-* Test: `nyva.test.digipost.no <https://nyva.test.digipost.no>`_
+More information can be found in the `Digipost API Documentation <https://digipost.github.io/digipost-technical-docs/>`_.
 
 .. IMPORTANT::
-       Enterprise certificates from Buypass/Commfides purchased as described in :ref:`buyEnterpriseCertificate` keep working as previously. But if your upgrade to a later version of the client library, you need to configure your existing enterprise certificates in Nyva and set up OAuth client(s). Follow this guide for both creating new Digipost issued certificates and using existing enterprise certificates.
+   Enterprise certificates from Buypass/Commfides purchased as described in :ref:`buyEnterpriseCertificate` keep working as previously, authenticating directly against the API — the self-service portal is not required for this. It's where you set up :ref:`OAuth authentication <oauth-authentication>` for either an existing enterprise certificate or a new Digipost-issued one, which is opt-in today but the recommended way to authenticate going forward: certificate-only authentication over mutual TLS will be removed in a future version. This guide covers both creating a new Digipost issued certificate and registering an existing enterprise certificate.
 
-Logging in to Nyva
+Logging in
 ======================
 
-Log into Nyva with BankID or Buypass. Both meet the highest security level, which is required because a logged-in user can create certificates and machine-to-machine integrations on behalf of an organization. Select which organization to manage — you'll only see organizations you're granted access to.
+Log in with BankID or Buypass. Both meet the highest security level, which is required because a logged-in user can create certificates and machine-to-machine integrations on behalf of an organization. Select which organization to manage — you'll only see organizations you're granted access to.
 
 The dashboard has two sections: **Certificates** and **Clients**.
 
@@ -61,7 +59,7 @@ Select **New client** and fill in:
    * - Select certificate
      - The certificate the client will authenticate with. Only certificates that are not revoked can be selected.
    * - Select scopes
-     - The accounts the client may act on behalf of, grouped by application. Choose the account(s) grouped under **Posten signering** — each one becomes the ``broker id`` used in :ref:`jwt-authentication`.
+     - The accounts the client may act on behalf of, grouped by application. Choose the account(s) grouped under **Posten signering** — each one becomes the **account id** passed to ``Scope.fromAccountId(..)`` when :ref:`creating the client configuration <oauth-authentication>`.
 
 After creation, the client details page shows the **client id** (with a copy button), the certificate it uses, and its selected scopes. There is no client secret: the client authenticates with the certificate you selected, so what your integration needs is the client id and the private key belonging to that certificate.
 
@@ -69,7 +67,7 @@ Renewing a certificate
 ==========================
 
 .. IMPORTANT::
-   A client registration holds a single certificate thumbprint, not a list, so a client cannot have both an old and a new certificate valid at the same time. Create the new certificate and a new client in Nyva, move your integration over to the new client id, and only then remove the old certificate. A client also stops getting tokens the day its certificate expires, so keep track of the expiry date shown on the certificate details page.
+   A client registration holds a single certificate thumbprint, not a list, so a client cannot have both an old and a new certificate valid at the same time. Create the new certificate and a new client there, move your integration over to the new client id, and only then remove the old certificate. A client also stops getting tokens the day its certificate expires, so keep track of the expiry date shown on the certificate details page.
 
 Troubleshooting
 ===================
@@ -83,4 +81,4 @@ Troubleshooting
    * - ``invalid_client``
      - The certificate presented in the TLS handshake doesn't match the thumbprint on the client registration, or the client isn't registered.
    * - Tokens stop being issued
-     - The certificate has expired, or has been revoked (Digipost-generated) or unregistered (Buypass/Commfides) in Nyva.
+     - The certificate has expired, or has been revoked (Digipost-generated) or unregistered (Buypass/Commfides) there.
