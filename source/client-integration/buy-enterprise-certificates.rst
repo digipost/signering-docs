@@ -3,11 +3,13 @@
 Buy enterprise certificates
 ***************************
 
-As a sending organization, you must authenticate with an enterprise certificate (virksomhetssertifikat) issued by either Buypass or Commfides. You will need a test certificate and a production certificate. These must be in the RSA format.
+If you don't already have an enterprise certificate, it is recommended to use Digipost's self-service integrations portal to create a Digipost-issued certificate for free. Either way, OAuth authentication — set up via the portal — is the recommended way to authenticate going forward, for both enterprise and Digipost issued certificates: certificate-only authentication over mutual TLS will be removed in a future version. See :ref:`the self-service portal <digipost-self-service>` for how to set this up, whether for a new Digipost-issued certificate or an existing enterprise one.
+
+The rest of this page describes purchasing an enterprise certificate for certificate-only authentication — unrelated to the new OAuth authentication.
 
 .. IMPORTANT::
+    As a sending organization, you must authenticate with an enterprise certificate (virksomhetssertifikat) issued by either Buypass or Commfides. You will need a test certificate and a production certificate. These must be in the RSA format.
     The same certificate is used for all aspects of the API integration, both for establishing the mTLS connection, *as well as* for creating appropriate signatures for documents contained in requests. Further details for respectively Buypass and Commfides are available below.
-
 
 
 Test environment
