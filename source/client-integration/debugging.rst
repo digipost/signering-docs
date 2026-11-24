@@ -155,6 +155,60 @@ Your certificate may be accepted, and TLS connection is established, but may sti
 If you are missing authorization for the API, please `contact us <https://signering.posten.no/virksomhet/api>`_.
 
 
+Debugging OAuth authentication
+--------------------------------
+
+If you authenticate with :ref:`OAuth <oauth-authentication>`, the certificate is only presented to the identity provider (mIdP) when requesting an access token. Debugging with curl is therefore a two-step process.
+
+First, request an access token as described in :ref:`oauth-authentication`, using :code:`publicCertificate.pem` and :code:`privateKey.pem` prepared as above:
+
+..  tabs::
+
+    .. group-tab:: Using a test certificate
+
+        .. code-block:: sh
+
+            curl -X POST https://midp.difitest.digipost.no/oauth2/token \
+              --cert publicCertificate.pem \
+              --key privateKey.pem \
+              -d grant_type=client_credentials \
+              -d client_id=${clientId} \
+              -d scope=signering:${accountId} \
+              -d resource=https://api.sign.difitest.digipost.no
+
+    .. group-tab:: Using a production certificate
+
+        .. code-block:: sh
+
+            curl -X POST https://midp.digipost.no/oauth2/token \
+              --cert publicCertificate.pem \
+              --key privateKey.pem \
+              -d grant_type=client_credentials \
+              -d client_id=${clientId} \
+              -d scope=signering:${accountId} \
+              -d resource=https://api.sign.digipost.no
+
+Then use the :code:`access_token` from the response as a bearer token. The certificate is not presented on this request, and :code:`--insecure` is not needed, as the OAuth domain has an ordinary, publicly trusted certificate:
+
+..  tabs::
+
+    .. group-tab:: Test
+
+        .. code-block:: sh
+
+            curl https://api.sign.difitest.digipost.no/api/${orgNumber} \
+              -H "Authorization: Bearer ${accessToken}"
+
+    .. group-tab:: Production
+
+        .. code-block:: sh
+
+            curl https://api.sign.digipost.no/api/${orgNumber} \
+              -H "Authorization: Bearer ${accessToken}"
+
+If the first request fails with :code:`invalid_client`, the certificate does not match the one registered for the client. See the troubleshooting table in :ref:`oauth-authentication`.
+
+
 
 
 

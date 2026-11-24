@@ -28,6 +28,7 @@
 
 - [Buy enterprise certificates](https://signering-docs.readthedocs.io/en/latest/client-integration/buy-enterprise-certificates.rst): How to obtain Buypass or Commfides enterprise certificates for API authentication.
 - [Install enterprise certificate](https://signering-docs.readthedocs.io/en/latest/client-integration/install-enterprise-certificate.rst): Installing certificates in Java keystores or Windows certificate stores.
+- [Authenticate with OAuth 2.0](https://signering-docs.readthedocs.io/en/latest/client-integration/oauth.rst): Authenticating as an OAuth client against Digipost mIdP with mTLS, and calling the API with a bearer access token.
 - [Get a client library](https://signering-docs.readthedocs.io/en/latest/client-integration/get-client-library.rst): Official Java and .NET client libraries via Maven/NuGet.
 - [Create client configuration](https://signering-docs.readthedocs.io/en/latest/client-integration/create-client-configuration.rst): Configuring the client with sender org number, certificate, and target environment.
 - [Direct flow](https://signering-docs.readthedocs.io/en/latest/client-integration/direct-flow.rst): Embed signing in your own portal — create job, redirect signer, poll status, download signed document.

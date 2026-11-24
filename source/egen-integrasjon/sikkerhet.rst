@@ -1,6 +1,8 @@
 Security
 **********
 
+The API can be accessed in two ways: with an OAuth 2.0 access token, as described in :ref:`oauth-authentication`, or with two-way TLS where the organization certificate is presented on every request, as described below.
+
 The digital signature service uses two-way TLS to ensure the confidentiality and message integrity of the transport layer. The document package containing the documents to be signed is integrity-assured with ASiC-E.
 
 Two-way TLS

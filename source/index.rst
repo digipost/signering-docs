@@ -48,6 +48,7 @@ Welcome to the Posten signering documentation!
 
    client-integration/buy-enterprise-certificates
    client-integration/install-enterprise-certificate
+   client-integration/oauth
    client-integration/get-client-library
    client-integration/create-client-configuration
    client-integration/direct-flow
